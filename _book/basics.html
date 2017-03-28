@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>BETA: An R Platform for Social Scientists</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="R book for social scientists">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="BETA: An R Platform for Social Scientists" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/coverpicture.png" />
+  <meta property="og:description" content="R book for social scientists" />
+  <meta name="github-repo" content="burakaydin/BAP2219" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="BETA: An R Platform for Social Scientists" />
+  
+  <meta name="twitter:description" content="R book for social scientists" />
+  <meta name="twitter:image" content="images/coverpicture.png" />
+
+<meta name="author" content="Burak AYDIN, James ALGINA, Walter LEITE">
+
+
+<meta name="date" content="2017-01-01">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="setting-up-r-for-windows.html">
+<link rel="next" href="data-sets.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-0.8/htmlwidgets.js"></script>
+<link href="libs/rglwidgetClass-2/rgl.css" rel="stylesheet" />
+<script src="libs/rglwidgetClass-2/rglClass.src.js"></script>
+<script src="libs/CanvasMatrix4-2016/CanvasMatrix.src.js"></script>
+<script src="libs/rglWebGL-binding-0.97.0/rglWebGL.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">SARP</a></li>
+<li><a href="https://burakaydin.github.io/SARP/_book/" target="blank">SAPR-TR</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Cover</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#why-bookdown"><i class="fa fa-check"></i><b>1.1.1</b> Why Bookdown?</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#content"><i class="fa fa-check"></i><b>1.1.2</b> Content</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i><b>2</b> Preface</a><ul>
+<li class="chapter" data-level="2.1" data-path="preface.html"><a href="preface.html#authors"><i class="fa fa-check"></i><b>2.1</b> Authors</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="preface.html"><a href="preface.html#burak-aydn-ph.d."><i class="fa fa-check"></i><b>2.1.1</b> Burak Aydın, Ph.D.</a></li>
+<li class="chapter" data-level="2.1.2" data-path="preface.html"><a href="preface.html#james-algina-ph.d."><i class="fa fa-check"></i><b>2.1.2</b> James Algina, Ph.D.</a></li>
+<li class="chapter" data-level="2.1.3" data-path="preface.html"><a href="preface.html#walter-l.-leite-ph.d."><i class="fa fa-check"></i><b>2.1.3</b> Walter L. Leite, Ph.D.</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="preface.html"><a href="preface.html#acknowledgement"><i class="fa fa-check"></i><b>2.2</b> Acknowledgement</a></li>
+<li class="chapter" data-level="2.3" data-path="preface.html"><a href="preface.html#dataWBT"><i class="fa fa-check"></i><b>2.3</b> Data</a></li>
+<li class="chapter" data-level="2.4" data-path="preface.html"><a href="preface.html#fund"><i class="fa fa-check"></i><b>2.4</b> Fund</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="rs-popularity.html"><a href="rs-popularity.html"><i class="fa fa-check"></i><b>3</b> R’s Popularity</a></li>
+<li class="chapter" data-level="4" data-path="setting-up-r-for-windows.html"><a href="setting-up-r-for-windows.html"><i class="fa fa-check"></i><b>4</b> Setting up R for Windows</a></li>
+<li class="chapter" data-level="5" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>5</b> Basics</a><ul>
+<li class="chapter" data-level="5.1" data-path="basics.html"><a href="basics.html#functions"><i class="fa fa-check"></i><b>5.1</b> Functions</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="basics.html"><a href="basics.html#r-as-a-basic-calculator."><i class="fa fa-check"></i><b>5.1.1</b> R as a Basic Calculator.</a></li>
+<li class="chapter" data-level="5.1.2" data-path="basics.html"><a href="basics.html#r-as-a-programmable-calculator"><i class="fa fa-check"></i><b>5.1.2</b> R as a Programmable Calculator</a></li>
+<li class="chapter" data-level="5.1.3" data-path="basics.html"><a href="basics.html#help"><i class="fa fa-check"></i><b>5.1.3</b> Help!</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="basics.html"><a href="basics.html#r-data-types"><i class="fa fa-check"></i><b>5.2</b> R Data Types</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="basics.html"><a href="basics.html#vectors"><i class="fa fa-check"></i><b>5.2.1</b> Vectors</a></li>
+<li class="chapter" data-level="5.2.2" data-path="basics.html"><a href="basics.html#matricies"><i class="fa fa-check"></i><b>5.2.2</b> Matricies</a></li>
+<li class="chapter" data-level="5.2.3" data-path="basics.html"><a href="basics.html#variables"><i class="fa fa-check"></i><b>5.2.3</b> Variables</a></li>
+<li class="chapter" data-level="5.2.4" data-path="basics.html"><a href="basics.html#factors"><i class="fa fa-check"></i><b>5.2.4</b> Factors</a></li>
+<li class="chapter" data-level="5.2.5" data-path="basics.html"><a href="basics.html#missing-values"><i class="fa fa-check"></i><b>5.2.5</b> Missing Values</a></li>
+<li class="chapter" data-level="5.2.6" data-path="basics.html"><a href="basics.html#dataframes"><i class="fa fa-check"></i><b>5.2.6</b> Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="basics.html"><a href="basics.html#r-packages"><i class="fa fa-check"></i><b>5.3</b> R Packages</a></li>
+<li class="chapter" data-level="5.4" data-path="basics.html"><a href="basics.html#theworkspace"><i class="fa fa-check"></i><b>5.4</b> The Workspace</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-sets.html"><a href="data-sets.html"><i class="fa fa-check"></i><b>6</b> Data Sets</a><ul>
+<li class="chapter" data-level="6.1" data-path="data-sets.html"><a href="data-sets.html#import-data"><i class="fa fa-check"></i><b>6.1</b> Import Data</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="data-sets.html"><a href="data-sets.html#csv"><i class="fa fa-check"></i><b>6.1.1</b> CSV</a></li>
+<li class="chapter" data-level="6.1.2" data-path="data-sets.html"><a href="data-sets.html#spss"><i class="fa fa-check"></i><b>6.1.2</b> SPSS</a></li>
+<li class="chapter" data-level="6.1.3" data-path="data-sets.html"><a href="data-sets.html#rdata"><i class="fa fa-check"></i><b>6.1.3</b> Rdata</a></li>
+<li class="chapter" data-level="6.1.4" data-path="data-sets.html"><a href="data-sets.html#pullonline"><i class="fa fa-check"></i><b>6.1.4</b> Pull online</a></li>
+<li class="chapter" data-level="6.1.5" data-path="data-sets.html"><a href="data-sets.html#read-data-through-r-studio"><i class="fa fa-check"></i><b>6.1.5</b> Read data through R studio</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="data-sets.html"><a href="data-sets.html#basic-data-manipulation"><i class="fa fa-check"></i><b>6.2</b> Basic Data Manipulation</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="data-sets.html"><a href="data-sets.html#replacing-values"><i class="fa fa-check"></i><b>6.2.1</b> Replacing values</a></li>
+<li class="chapter" data-level="6.2.2" data-path="data-sets.html"><a href="data-sets.html#subsetting"><i class="fa fa-check"></i><b>6.2.2</b> Subsetting</a></li>
+<li class="chapter" data-level="6.2.3" data-path="data-sets.html"><a href="data-sets.html#creating-new-variables"><i class="fa fa-check"></i><b>6.2.3</b> Creating new variables</a></li>
+<li class="chapter" data-level="6.2.4" data-path="data-sets.html"><a href="data-sets.html#reshaping-data"><i class="fa fa-check"></i><b>6.2.4</b> Reshaping data</a></li>
+<li class="chapter" data-level="6.2.5" data-path="data-sets.html"><a href="data-sets.html#converting-between-variable-types"><i class="fa fa-check"></i><b>6.2.5</b> Converting between variable types</a></li>
+<li class="chapter" data-level="6.2.6" data-path="data-sets.html"><a href="data-sets.html#delete-cases"><i class="fa fa-check"></i><b>6.2.6</b> Delete cases</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="data-sets.html"><a href="data-sets.html#export-data"><i class="fa fa-check"></i><b>6.3</b> Export Data</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html"><i class="fa fa-check"></i><b>7</b> Descriptive Statistics and Hypthoses Testing</a><ul>
+<li class="chapter" data-level="7.1" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#descstats"><i class="fa fa-check"></i><b>7.1</b> Descriptive Statistics</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#mean"><i class="fa fa-check"></i><b>7.1.1</b> Mean</a></li>
+<li class="chapter" data-level="7.1.2" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#median"><i class="fa fa-check"></i><b>7.1.2</b> Median</a></li>
+<li class="chapter" data-level="7.1.3" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#variance"><i class="fa fa-check"></i><b>7.1.3</b> Variance</a></li>
+<li class="chapter" data-level="7.1.4" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#standard-deviation"><i class="fa fa-check"></i><b>7.1.4</b> Standard deviation</a></li>
+<li class="chapter" data-level="7.1.5" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#skewness"><i class="fa fa-check"></i><b>7.1.5</b> Skewness</a></li>
+<li class="chapter" data-level="7.1.6" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#kurtosis"><i class="fa fa-check"></i><b>7.1.6</b> Kurtosis</a></li>
+<li class="chapter" data-level="7.1.7" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#reporting-descriptives"><i class="fa fa-check"></i><b>7.1.7</b> Reporting descriptives</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#basic-graphics"><i class="fa fa-check"></i><b>7.2</b> Basic graphics</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#histogram"><i class="fa fa-check"></i><b>7.2.1</b> Histogram</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#hypothesis-testing-introduction"><i class="fa fa-check"></i><b>7.3</b> Hypothesis testing introduction</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#samplingdist"><i class="fa fa-check"></i><b>7.3.1</b> The Sampling distribution</a></li>
+<li class="chapter" data-level="7.3.2" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-confidence-intervals-ci"><i class="fa fa-check"></i><b>7.3.2</b> The Confidence Intervals (CI)</a></li>
+<li class="chapter" data-level="7.3.3" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-null-hypothesis"><i class="fa fa-check"></i><b>7.3.3</b> The null hypothesis</a></li>
+<li class="chapter" data-level="7.3.4" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-z-score-and-the-z-test"><i class="fa fa-check"></i><b>7.3.4</b> The z score and the z test</a></li>
+<li class="chapter" data-level="7.3.5" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-one-sample-t-test"><i class="fa fa-check"></i><b>7.3.5</b> The one-sample t test</a></li>
+<li class="chapter" data-level="7.3.6" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-p-value"><i class="fa fa-check"></i><b>7.3.6</b> The p value</a></li>
+<li class="chapter" data-level="7.3.7" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-p-value-illustration"><i class="fa fa-check"></i><b>7.3.7</b> The p value illustration</a></li>
+<li class="chapter" data-level="7.3.8" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#statisticalpower"><i class="fa fa-check"></i><b>7.3.8</b> Statistical power</a></li>
+<li class="chapter" data-level="7.3.9" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#in-case-the-z-and-the-t-distribution-is-not-valid"><i class="fa fa-check"></i><b>7.3.9</b> In case the z and the t distribution is not valid</a></li>
+<li class="chapter" data-level="7.3.10" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#shiny-application-to-visualize-sampling-distribution"><i class="fa fa-check"></i><b>7.3.10</b> Shiny application to visualize sampling distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html"><i class="fa fa-check"></i><b>8</b> Comparing Two Means, the t-test</a><ul>
+<li class="chapter" data-level="8.1" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#between-subjects-t-test-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1</b> Between-Subjects t-test (The Independent Groups t-test)</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#r-codes-for-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1.1</b> R codes for the independent groups t-test</a></li>
+<li class="chapter" data-level="8.1.2" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#assumptions-of-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1.2</b> Assumptions of the independent groups t-test</a></li>
+<li class="chapter" data-level="8.1.3" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#using-welchs-t-test"><i class="fa fa-check"></i><b>8.1.3</b> Using Welch’s t test</a></li>
+<li class="chapter" data-level="8.1.4" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#indepteff"><i class="fa fa-check"></i><b>8.1.4</b> Effect size for the independent groups t-test</a></li>
+<li class="chapter" data-level="8.1.5" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#extra-practical-significance-vs-statistical-significance"><i class="fa fa-check"></i><b>8.1.5</b> Extra: Practical significance vs statistical significance</a></li>
+<li class="chapter" data-level="8.1.6" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#missing-data-techniques-for-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1.6</b> Missing data techniques for the independent groups t-test</a></li>
+<li class="chapter" data-level="8.1.7" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#supportive-graphs-for-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1.7</b> Supportive graphs for the independent groups t-test</a></li>
+<li class="chapter" data-level="8.1.8" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#power-calculations-for-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1.8</b> Power calculations for the independent groups t-test</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#the-dependent-groups-t-test-within-subjects-t-test"><i class="fa fa-check"></i><b>8.2</b> The dependent groups t-test (Within-subjects t-test)</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#r-codes-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.1</b> R codes for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.2" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#assumption-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.2</b> Assumption for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.3" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#robust-estimation-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.3</b> Robust estimation for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.4" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#effect-size-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.4</b> Effect size for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.5" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#missing-data-techniques-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.5</b> Missing data techniques for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.6" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#supportive-graphs-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.6</b> Supportive graphs for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.7" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#power-calculations-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.7</b> Power calculations for the dependent groups t-test</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#common-designs"><i class="fa fa-check"></i><b>8.3</b> Common Designs</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#designs-in-which-scores-in-the-two-treatments-are-correlated"><i class="fa fa-check"></i><b>8.3.1</b> Designs in which Scores in the Two Treatments are Correlated</a></li>
+<li class="chapter" data-level="8.3.2" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#designbetween"><i class="fa fa-check"></i><b>8.3.2</b> Designs in which Scores in the Two Treatments are Independent</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html"><i class="fa fa-check"></i><b>9</b> Analysis of Variance (ANOVA)</a><ul>
+<li class="chapter" data-level="9.1" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#terminology"><i class="fa fa-check"></i><b>9.1</b> Terminology</a></li>
+<li class="chapter" data-level="9.2" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#between-subjects-anova"><i class="fa fa-check"></i><b>9.2</b> Between Subjects ANOVA</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#one-way-between-subjects-anova"><i class="fa fa-check"></i><b>9.2.1</b> One-way Between Subjects ANOVA</a></li>
+<li class="chapter" data-level="9.2.2" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#two-factor-between-subjects-anova"><i class="fa fa-check"></i><b>9.2.2</b> Two-Factor Between Subjects ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#within-subjects-anova"><i class="fa fa-check"></i><b>9.3</b> Within Subjects ANOVA</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#one-way-within-subjects-anova"><i class="fa fa-check"></i><b>9.3.1</b> One-way Within-Subjects ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#mixed-design"><i class="fa fa-check"></i><b>9.4</b> Mixed Design</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="correlation.html"><a href="correlation.html"><i class="fa fa-check"></i><b>10</b> Correlation</a><ul>
+<li class="chapter" data-level="10.1" data-path="correlation.html"><a href="correlation.html#pearson-correlation-coefficient"><i class="fa fa-check"></i><b>10.1</b> Pearson correlation coefficient</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="correlation.html"><a href="correlation.html#inference-on-a-pearson-correlation-coefficient"><i class="fa fa-check"></i><b>10.1.1</b> Inference on a Pearson correlation coefficient</a></li>
+<li class="chapter" data-level="10.1.2" data-path="correlation.html"><a href="correlation.html#r-codes-for-pearson-correlation-coefficent"><i class="fa fa-check"></i><b>10.1.2</b> R codes for Pearson Correlation coefficent</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="correlation.html"><a href="correlation.html#spearmans-rho-and-kendalls-tau"><i class="fa fa-check"></i><b>10.2</b> Spearman’s rho and Kendall’s tau</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="correlation.html"><a href="correlation.html#the-r-code-for-spearmans-rho-and-kendalls-tau"><i class="fa fa-check"></i><b>10.2.1</b> The R code for Spearman’s rho and Kendall’s tau</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="correlation.html"><a href="correlation.html#biserial-and-point-biserial-correlation-coefficients-with-r"><i class="fa fa-check"></i><b>10.3</b> Biserial and Point-Biserial Correlation Coefficients with R</a></li>
+<li class="chapter" data-level="10.4" data-path="correlation.html"><a href="correlation.html#phi-correlation-coefficient-with-r"><i class="fa fa-check"></i><b>10.4</b> Phi Correlation Coefficient with R</a></li>
+<li class="chapter" data-level="10.5" data-path="correlation.html"><a href="correlation.html#issues-in-interpreting-correlation-coefficients"><i class="fa fa-check"></i><b>10.5</b> Issues in Interpreting Correlation Coefficients</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html"><i class="fa fa-check"></i><b>11</b> Multiple Linear Regression, A Short Introduction</a><ul>
+<li class="chapter" data-level="11.1" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#matricies-and-least-square-estimation"><i class="fa fa-check"></i><b>11.1</b> Matricies and Least Square Estimation</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#a-essentially-all-models-are-wrong-but-some-are-useful."><i class="fa fa-check"></i><b>11.1.1</b> a) “Essentially, all models are wrong, but some are useful.”</a></li>
+<li class="chapter" data-level="11.1.2" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#b-strength-of-relationship-between-the-dependent-and-independent-variables"><i class="fa fa-check"></i><b>11.1.2</b> b) Strength of relationship between the dependent and independent variables</a></li>
+<li class="chapter" data-level="11.1.3" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#c-residuals-and-influential-data-points"><i class="fa fa-check"></i><b>11.1.3</b> c) Residuals and influential data points</a></li>
+<li class="chapter" data-level="11.1.4" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#d-equal-variance-assumption"><i class="fa fa-check"></i><b>11.1.4</b> d) <em>Equal variance assumption</em></a></li>
+<li class="chapter" data-level="11.1.5" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#e-hypothesis-testing"><i class="fa fa-check"></i><b>11.1.5</b> e) Hypothesis testing</a></li>
+<li class="chapter" data-level="11.1.6" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#f-variable-selection"><i class="fa fa-check"></i><b>11.1.6</b> f) Variable Selection</a></li>
+<li class="chapter" data-level="11.1.7" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#g-colliniearity"><i class="fa fa-check"></i><b>11.1.7</b> g) Colliniearity</a></li>
+<li class="chapter" data-level="11.1.8" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#h-non-linearity"><i class="fa fa-check"></i><b>11.1.8</b> h) Non-linearity</a></li>
+<li class="chapter" data-level="11.1.9" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#i-correlated-errors-and-nonindependent-errors"><i class="fa fa-check"></i><b>11.1.9</b> i) Correlated errors and nonindependent errors</a></li>
+<li class="chapter" data-level="11.1.10" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#j-centering-and-scaling"><i class="fa fa-check"></i><b>11.1.10</b> j) Centering and Scaling</a></li>
+<li class="chapter" data-level="11.1.11" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#k-standardized-coefficients"><i class="fa fa-check"></i><b>11.1.11</b> k) Standardized coefficients</a></li>
+<li class="chapter" data-level="11.1.12" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#l-interactions"><i class="fa fa-check"></i><b>11.1.12</b> l) Interactions</a></li>
+<li class="chapter" data-level="11.1.13" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#m-estimators"><i class="fa fa-check"></i><b>11.1.13</b> m) Estimators</a></li>
+<li class="chapter" data-level="11.1.14" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#n-robust-regression"><i class="fa fa-check"></i><b>11.1.14</b> n) Robust Regression</a></li>
+<li class="chapter" data-level="11.1.15" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#o-sample-size-and-statistical-power"><i class="fa fa-check"></i><b>11.1.15</b> o) Sample size and statistical power</a></li>
+<li class="chapter" data-level="11.1.16" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#p-reliability-of-variables"><i class="fa fa-check"></i><b>11.1.16</b> p) Reliability of variables</a></li>
+<li class="chapter" data-level="11.1.17" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#q-the-nature-of-the-variables"><i class="fa fa-check"></i><b>11.1.17</b> q) The nature of the variables</a></li>
+<li class="chapter" data-level="11.1.18" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#r-multiple-dependent-variables"><i class="fa fa-check"></i><b>11.1.18</b> r) Multiple dependent variables</a></li>
+<li class="chapter" data-level="11.1.19" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#s-missing-variables"><i class="fa fa-check"></i><b>11.1.19</b> s) Missing variables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="useful-r-codes.html"><a href="useful-r-codes.html"><i class="fa fa-check"></i><b>12</b> Useful R codes</a><ul>
+<li class="chapter" data-level="12.1" data-path="useful-r-codes.html"><a href="useful-r-codes.html#more-on-the-apastyle-package"><i class="fa fa-check"></i><b>12.1</b> More on the apaStyle package</a></li>
+<li class="chapter" data-level="12.2" data-path="useful-r-codes.html"><a href="useful-r-codes.html#a-useful-shiny-application"><i class="fa fa-check"></i><b>12.2</b> A useful shiny application</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">BETA: An R Platform for Social Scientists</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="basics" class="section level1">
+<h1><span class="header-section-number"> 5</span> Basics</h1>
+<p>R can create advanced outputs. This section aims to familiarize readers with the basic principles of R before creating or reproducing advanced outputs.</p>
+<div id="functions" class="section level2">
+<h2><span class="header-section-number">5.1</span> Functions</h2>
+<p>A programmable calculator enables its users to write and save functions. It is useful for an R user to understand how R functions work.</p>
+<div id="r-as-a-basic-calculator." class="section level3">
+<h3><span class="header-section-number">5.1.1</span> R as a Basic Calculator.</h3>
+<p>R can calculate. See the examples below followed by R syntax.</p>
+<span class="math display" id="eq:bc1">\[\begin{equation}
+1+1=2 
+\tag{5.1}
+\end{equation}\]</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1+1</span>
+## [1] 2</code></pre></div>
+<span class="math display" id="eq:bc2">\[\begin{equation}
+1-1=0 
+\tag{5.2}
+\end{equation}\]</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1-1</span>
+## [1] 0</code></pre></div>
+<span class="math display" id="eq:bc3">\[\begin{equation}
+1 + (2 / 3) - (2 * 6.5) = -11.33 
+\tag{5.3}
+\end{equation}\]</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> +<span class="st"> </span>(<span class="dv">2</span> /<span class="st"> </span><span class="dv">3</span>) -<span class="st"> </span>(<span class="dv">2</span> *<span class="st"> </span><span class="fl">6.5</span>)
+## [1] -11.33333</code></pre></div>
+<span class="math display" id="eq:bc4">\[\begin{equation}
+sin(30) + 4^3 + log(4) + e^3 + \sqrt{7} = 87.13 
+\tag{5.4}
+\end{equation}\]</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sin</span>(<span class="dv">30</span>) +<span class="st"> </span><span class="dv">4</span>^<span class="dv">3</span> +<span class="st"> </span><span class="kw">log</span>(<span class="dv">4</span>) +<span class="st"> </span><span class="kw">exp</span>(<span class="dv">3</span>) +<span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">7</span>)
+## [1] 87.12955</code></pre></div>
+<p>When typed and run with R, Equations <a href="basics.html#eq:bc1">(5.1)</a> through <a href="basics.html#eq:bc4">(5.4)</a> are calculated but not kept. If an outcome of an R operation will be used later, it should be named. When a name is assigned, the outcome can be recalled easily. The assigned outputs are saved in the R environment throughout the session. Assignment can be done with “=”, “&lt;-” or “&lt;&lt;-”. This book uses “=”. Let’s assign a name for the Equations <a href="basics.html#eq:bc1">(5.1)</a> through <a href="basics.html#eq:bc4">(5.4)</a>’s outputs.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a=<span class="dv">1</span> -<span class="st"> </span><span class="dv">1</span>
+b=<span class="dv">1</span> +<span class="st"> </span><span class="dv">1</span>
+c=<span class="dv">1</span> +<span class="st"> </span>(<span class="dv">2</span> /<span class="st"> </span><span class="dv">3</span>) -<span class="st"> </span>(<span class="dv">2</span> *<span class="st"> </span><span class="fl">6.5</span>)
+d=<span class="kw">sin</span>(<span class="dv">30</span>) +<span class="st"> </span><span class="dv">4</span>^<span class="dv">3</span> +<span class="st"> </span><span class="kw">log</span>(<span class="dv">4</span>) +<span class="st"> </span><span class="kw">exp</span>(<span class="dv">3</span>) +<span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">7</span>)</code></pre></div>
+<p>It is possible to operate with these assigned variables.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a+b+c+d
+## [1] 77.79622</code></pre></div>
+<p>It is possible to overwrite.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">e=<span class="dv">3+2</span>
+e
+## [1] 5
+e=e<span class="dv">+10</span>
+e
+## [1] 15</code></pre></div>
+<p>It is possible to rename. (Note: R is case sensitive).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Equation1_output=a
+Equation1_output +<span class="st"> </span>b +<span class="st"> </span>c +<span class="st"> </span>d  <span class="co">#is equal to a+b+c+d</span>
+## [1] 77.79622</code></pre></div>
+</div>
+<div id="r-as-a-programmable-calculator" class="section level3">
+<h3><span class="header-section-number">5.1.2</span> R as a Programmable Calculator</h3>
+<p>A function basically has 3 parts, an input, a process and an output. Let’s use an analogy, assume that below functions are created by a teacher to examine test scores.</p>
+<div id="single-input---single-output" class="section level4">
+<h4><span class="header-section-number">5.1.2.1</span> Single input - Single output</h4>
+<p>A simple function is given below and named as <em>constant5</em>. Let’s assume it adds 5 points to each score. The <em>constant5</em> function takes a value, adds 5 and produces an output.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">constant5=function(input){
+    output=input<span class="dv">+5</span>
+    <span class="kw">return</span>(output)
+    }
+
+<span class="kw">constant5</span>(<span class="dt">input=</span><span class="dv">50</span>)
+## [1] 55
+<span class="kw">constant5</span>(<span class="dv">100</span>)
+## [1] 105
+<span class="kw">constant5</span>(<span class="dv">120</span>)
+## [1] 125</code></pre></div>
+<p>With above code, we use R as a programmable calculator. We define <em>constant5</em> as a <em>function</em> that takes an input, processes it by adding 5 <em>(input+5)</em>, creates an output <em>(output=input+5)</em> and reports it <em>(return(output))</em>. All these steps should be given in <em>{ }</em>.</p>
+<p>Another simple function will be that <em>systematic1</em>, adds 1% for each score. It will take a value, add 1% and produce an output.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">systematic1=function(input){
+    output=input+(input/<span class="dv">100</span>)
+    <span class="kw">return</span>(output)
+    }
+
+<span class="kw">systematic1</span>(<span class="dt">input=</span><span class="dv">50</span>)
+## [1] 50.5
+<span class="kw">systematic1</span>(<span class="dv">100</span>)
+## [1] 101
+<span class="kw">systematic1</span>(<span class="dv">120</span>)
+## [1] 121.2</code></pre></div>
+</div>
+<div id="multiple-input---single-output" class="section level4">
+<h4><span class="header-section-number">5.1.2.2</span> Multiple input - Single output</h4>
+<p>Above two examples use one single value as an input. Let us use two values for <em>nomistake</em> function. In this example, lets say the teacher cuts 0.2 points for each spelling mistake. For example, if a grade was 90, it will go down to 88.8 if there are 6 spelling errors. The <em>nomistake</em> asks for a grade and the number of spelling errors to calculate the reduced grade.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nomistake=function(grade, nserror){
+    output=grade -<span class="st"> </span>(<span class="fl">0.2</span> *<span class="st"> </span>nserror)
+    <span class="kw">return</span>(output)
+    }
+<span class="kw">nomistake</span>(<span class="dt">grade=</span><span class="dv">90</span>,<span class="dt">nserror=</span><span class="dv">6</span>)
+## [1] 88.8
+<span class="kw">nomistake</span>(<span class="dv">90</span>,<span class="dv">17</span>)
+## [1] 86.6</code></pre></div>
+<p>Inputs for an R function are generally called <em>arguments</em>. <em>nomistake</em> is programmed to receive 2 arguments to calculate one single output. It is possible to create functions with multiple arguments and multiple outcomes.</p>
+</div>
+<div id="multiple-input---multiple-output" class="section level4">
+<h4><span class="header-section-number">5.1.2.3</span> Multiple input - Multiple output</h4>
+<p>The <em>feedback</em> function asks for number of correct responses and points for each to calculate a total score. It also provides the number of correct responses needed for a full score of 100.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">feedback=function(correct, point){
+    total=correct*point
+    remained=(<span class="dv">100</span>-total)/point
+    output=<span class="kw">c</span>(<span class="kw">paste</span>(<span class="st">&quot;score:&quot;</span>, total,<span class="st">&quot; missed items:&quot;</span>,remained))
+    <span class="kw">return</span>(output)
+    }
+<span class="kw">feedback</span>(<span class="dt">correct=</span><span class="dv">20</span>,<span class="dt">point=</span><span class="dv">2</span>)
+## [1] &quot;score: 40  missed items: 30&quot;
+<span class="kw">feedback</span>(<span class="dv">27</span>,<span class="dv">2</span>)
+## [1] &quot;score: 54  missed items: 23&quot;</code></pre></div>
+</div>
+<div id="basic-error" class="section level4">
+<h4><span class="header-section-number">5.1.2.4</span> Basic error</h4>
+<p>R functions need arguments to work. Please see the following error if you forget to feed <em>point</em> parameter into the <em>feedback</em> function</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">feedback=function(correct, point){
+    total=correct*point
+    remained=(<span class="dv">100</span>-total)/point
+    output=<span class="kw">c</span>(<span class="kw">paste</span>(<span class="st">&quot;score:&quot;</span>, total,<span class="st">&quot; missed items:&quot;</span>,remained))
+    <span class="kw">return</span>(output)
+    }
+<span class="kw">feedback</span>(<span class="dt">correct=</span><span class="dv">20</span>)
+## Error in feedback(correct = 20): argument &quot;point&quot; is missing, with no default</code></pre></div>
+</div>
+<div id="basic-warning" class="section level4">
+<h4><span class="header-section-number">5.1.2.5</span> Basic warning</h4>
+<p>R functions can produce warnings. Let us create <em>nomistake2</em> that calculates the remaining score after cuts</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nomistake2=function(grade, nserror){
+    output=grade -<span class="st"> </span>(<span class="fl">0.2</span> *<span class="st"> </span>nserror)
+    <span class="kw">return</span>(output)
+    }
+<span class="kw">nomistake2</span>(<span class="dt">grade=</span><span class="dv">50</span>,<span class="dt">nserror=</span><span class="dv">10</span>)
+## [1] 48</code></pre></div>
+<p>We can produce a warning if the final score is lower than 0.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nomistake2=function(grade, nserror){
+      output=grade -<span class="st"> </span>(<span class="fl">0.2</span> *<span class="st"> </span>nserror)
+      if (output&lt;<span class="dv">0</span>) 
+    <span class="kw">warning</span>(<span class="st">&quot;Final score is lower than 0&quot;</span>)  
+    <span class="kw">return</span>(output)
+    }
+<span class="kw">nomistake2</span>(<span class="dt">grade=</span><span class="dv">10</span>,<span class="dt">nserror=</span><span class="dv">60</span>)
+## Warning in nomistake2(grade = 10, nserror = 60): Final score is lower than
+## 0
+## [1] -2</code></pre></div>
+</div>
+<div id="basic-failure" class="section level4">
+<h4><span class="header-section-number">5.1.2.6</span> Basic failure</h4>
+<p>A function can stop. Let us create <em>nomistake3</em> that calculates the final score. However,this time, it stops if the score is lower than 20 to avoid further cuts.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nomistake3=function(grade, nserror){
+ 
+    if ((grade)&lt;(<span class="dv">20</span>)) 
+    <span class="kw">stop</span>(<span class="st">&quot;Score is already low&quot;</span>)
+  
+     output=grade -<span class="st"> </span>(<span class="fl">0.2</span> *<span class="st"> </span>nserror)
+      <span class="kw">return</span>(output)
+    }
+<span class="kw">nomistake3</span>(<span class="dv">10</span>,<span class="dv">9</span>)
+## Error in nomistake3(10, 9): Score is already low</code></pre></div>
+</div>
+</div>
+<div id="help" class="section level3">
+<h3><span class="header-section-number">5.1.3</span> Help!</h3>
+<p>Although applied R users do not need to write new functions, they should know the principles of how R functions work. Whenever an R function throws a warning or an error, it generally is caused by the users (or their data) rather than the function itself.</p>
+<p>R basically runs on functions. Researchers write functions, place them in R packages and make them available. There are currently 10000+ R packages available via Comprehensive R Archive Network. R version 3.3.1 downloads to your computer with 30 packages that includes thousands of functions.</p>
+<p>One of the main packages that has been downloaded to you computer is called <em>base</em>, and it has 1200+ functions. For example this package has the <em>mean</em> function to calculate the arithmetic mean. Packages and functions are generally well documented. Users should be effectively using the documentations via <em>help</em> function, <em>?</em> or <em>??</em>. <em>example</em> function may also be helpful.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">help</span>(<span class="st">&quot;base&quot;</span>)  <span class="co"># see description, you can click on index at the bottom to see 1200+ functions</span>
+<span class="kw">help</span>(mean)    <span class="co"># see the mean function and its arguments</span>
+?mean         <span class="co"># see the mean function and its arguments</span>
+??mean        <span class="co"># see the mean function and its arguments</span>
+<span class="kw">example</span>(mean) <span class="co"># see an example</span></code></pre></div>
+</div>
+</div>
+<div id="r-data-types" class="section level2">
+<h2><span class="header-section-number">5.2</span> R Data Types</h2>
+<p>Vectors, matrices, variable types, factors, missing values and data frames are briefly introduced.</p>
+<div id="vectors" class="section level3">
+<h3><span class="header-section-number">5.2.1</span> Vectors</h3>
+<p>R can create vectors using <em>c()</em> function. Let’s create grades for 10 students</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">grades=<span class="kw">c</span>(<span class="dv">40</span>,<span class="dv">50</span>,<span class="dv">53</span>,<span class="dv">65</span>,<span class="dv">72</span>,<span class="dv">77</span>,<span class="dv">79</span>,<span class="dv">81</span>,<span class="dv">86</span>,<span class="dv">90</span>)
+grades
+##  [1] 40 50 53 65 72 77 79 81 86 90</code></pre></div>
+<p>R can operate with vectors.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">grades=<span class="kw">c</span>(<span class="dv">40</span>,<span class="dv">50</span>,<span class="dv">53</span>,<span class="dv">65</span>,<span class="dv">72</span>,<span class="dv">77</span>,<span class="dv">79</span>,<span class="dv">81</span>,<span class="dv">86</span>,<span class="dv">90</span>)
+grades<span class="dv">+10</span>
+##  [1]  50  60  63  75  82  87  89  91  96 100
+grades+(grades*<span class="fl">0.10</span>)
+##  [1] 44.0 55.0 58.3 71.5 79.2 84.7 86.9 89.1 94.6 99.0
+grades*grades
+##  [1] 1600 2500 2809 4225 5184 5929 6241 6561 7396 8100
+grades2=<span class="kw">c</span>(<span class="dv">30</span>,<span class="dv">40</span>,<span class="dv">46</span>,<span class="dv">58</span>,<span class="dv">64</span>,<span class="dv">66</span>,<span class="dv">69</span>,<span class="dv">72</span>,<span class="dv">74</span>,<span class="dv">81</span>)
+(grades+grades2)/<span class="dv">2</span>
+##  [1] 35.0 45.0 49.5 61.5 68.0 71.5 74.0 76.5 80.0 85.5
+grades*<span class="fl">0.4</span> +<span class="st"> </span>grades2*<span class="fl">0.6</span>
+##  [1] 34.0 44.0 48.8 60.8 67.2 70.4 73.0 75.6 78.8 84.6</code></pre></div>
+<p>There are useful functions to create vectors. For example the <em>rep</em> function (see example(rep)) is helpful to repeat values.</p>
+<p>The <em>rnorm</em> function can create random variables. If you run <em>?rnorm</em> you will see it has three arguments, <em>rnorm(n, mean = 0, sd = 1)</em> . This function requires the number of observations ( <em>n</em> ) argument to be provided. By default the mean is set to be 0 and standard deviation to be 1. However, you can change the default for example by running <em>rnorm(12,mean=10,sd=2)</em> to create 12 observations from a normal distribution with mean 10 and standard deviation 2. A similar function is <em>runif(n, min = 0, max = 1)</em> to generate <em>n</em> observations from a uniform distribution on the interval from minimum=0 to maximum=2. You can change the interval, for example by running <em>runif(12, min = 10, max = 37)</em>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a=<span class="dv">1</span>:<span class="dv">12</span>            <span class="co"># a is a regular sequence from 1 to 12 created with &#39;:&#39;</span>
+<span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">12</span>)         <span class="co"># repeat zero 12 times</span>
+##  [1] 0 0 0 0 0 0 0 0 0 0 0 0
+<span class="kw">rep</span>(<span class="dv">1</span>:<span class="dv">5</span>,<span class="dt">each=</span><span class="dv">3</span>)   <span class="co"># repeat 1 to 5 each 3 times </span>
+##  [1] 1 1 1 2 2 2 3 3 3 4 4 4 5 5 5
+<span class="kw">rep</span>(<span class="dv">1</span>:<span class="dv">5</span>,<span class="dt">times=</span><span class="dv">3</span>)  <span class="co"># repeat 1 to 5 , 3 times</span>
+##  [1] 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
+<span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">1</span>,<span class="dt">to=</span><span class="dv">12</span>) <span class="co"># create 1 to 12 sequence</span>
+##  [1]  1  2  3  4  5  6  7  8  9 10 11 12
+<span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">25</span>,<span class="dt">by=</span><span class="dv">2</span>)    <span class="co"># create 1 to 25 by 2</span>
+##  [1]  1  3  5  7  9 11 13 15 17 19 21 23 25
+<span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">6</span>,<span class="dt">by=</span><span class="fl">0.5</span>)   <span class="co"># create 1 to 6 by 0.5</span>
+##  [1] 1.0 1.5 2.0 2.5 3.0 3.5 4.0 4.5 5.0 5.5 6.0
+<span class="kw">rnorm</span>(<span class="dv">12</span>)        <span class="co"># create  12 random observations from ~N(0,1)</span>
+##  [1] -0.74591184  0.02518481  1.04051723  0.49475503 -0.42197626
+##  [6] -0.61093267  1.05899838 -0.97210516  0.65343795 -1.02404898
+## [11]  0.76987870  2.03406452
+<span class="kw">rnorm</span>(<span class="dv">12</span>,<span class="dt">mean=</span><span class="dv">10</span>,<span class="dt">sd=</span><span class="dv">2</span>) <span class="co">#create 12 random observations from ~ N(10,2)</span>
+##  [1] 10.568527  9.660158 10.114534  9.433231  6.087909 12.899853 11.501301
+##  [8]  9.136847 12.736201 11.130494  9.081729 13.348163
+<span class="kw">runif</span>(<span class="dv">12</span>, <span class="dt">min =</span> <span class="dv">10</span>, <span class="dt">max =</span> <span class="dv">37</span>) <span class="co"># create 12 random observations from a uniform distribution.</span>
+##  [1] 25.08090 12.05624 33.25992 19.98536 11.76465 19.11408 11.65674
+##  [8] 17.75899 16.75374 21.58499 21.06524 10.05344</code></pre></div>
+</div>
+<div id="matricies" class="section level3">
+<h3><span class="header-section-number">5.2.2</span> Matricies</h3>
+<p>R can create matrices and operate.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">A=<span class="kw">matrix</span>(<span class="dv">1</span>:<span class="dv">16</span>,<span class="dt">ncol=</span><span class="dv">4</span>,<span class="dt">nrow=</span><span class="dv">4</span>) <span class="co">#create a 4 x 4 matrix</span>
+A
+##      [,1] [,2] [,3] [,4]
+## [1,]    1    5    9   13
+## [2,]    2    6   10   14
+## [3,]    3    7   11   15
+## [4,]    4    8   12   16
+B=<span class="kw">matrix</span>(<span class="kw">runif</span>(<span class="dv">16</span>,<span class="dt">min=</span><span class="dv">20</span>,<span class="dt">max=</span><span class="dv">40</span>),<span class="dt">ncol=</span><span class="dv">4</span>) <span class="co">#create a 4 x 4 matrix</span>
+
+<span class="co"># example operations</span>
+A+B    <span class="co"># add</span>
+##          [,1]     [,2]     [,3]     [,4]
+## [1,] 25.88924 43.46103 37.23070 46.10840
+## [2,] 33.13344 37.08339 42.72438 52.38612
+## [3,] 36.12819 40.87273 40.28832 43.18790
+## [4,] 39.31453 39.44251 48.83801 52.46788
+A*B    <span class="co"># multiply</span>
+##           [,1]     [,2]     [,3]     [,4]
+## [1,]  24.88924 192.3052 254.0763 430.4093
+## [2,]  62.26688 186.5004 327.2438 537.4057
+## [3,]  99.38456 237.1091 322.1715 422.8185
+## [4,] 141.25813 251.5401 442.0561 583.4861
+A%*%B  <span class="co"># matrix multipication</span>
+##          [,1]      [,2]      [,3]      [,4]
+## [1,]  937.799  907.4852  934.3415  952.8126
+## [2,] 1062.264 1042.3449 1061.4229 1088.9629
+## [3,] 1186.730 1177.2045 1188.5043 1225.1132
+## [4,] 1311.195 1312.0642 1315.5857 1361.2635
+<span class="kw">t</span>(B)   <span class="co"># transpose</span>
+##          [,1]     [,2]     [,3]     [,4]
+## [1,] 24.88924 31.13344 33.12819 35.31453
+## [2,] 38.46103 31.08339 33.87273 31.44251
+## [3,] 28.23070 32.72438 29.28832 36.83801
+## [4,] 33.10840 38.38612 28.18790 36.46788</code></pre></div>
+</div>
+<div id="variables" class="section level3">
+<h3><span class="header-section-number">5.2.3</span> Variables</h3>
+<p>It is important to know the data before running basic or sophisticated analyses. In an R environment, a variable subject to an analysis is generally defined as nominal, ordered, continuous, missing or date variable.</p>
+<div id="nominal" class="section level4">
+<h4><span class="header-section-number">5.2.3.1</span> Nominal</h4>
+<p>In R, a nominal variable can be represented alphanumerically. However the interpretation of a nominal variable is not numeric. It is helpful for naming a characteristic rather than quantify it. Below commands can create nominal vectors.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">address=<span class="kw">c</span>(<span class="st">&quot;AAX&quot;</span>,<span class="st">&quot;BBZ&quot;</span>,<span class="st">&quot;CBT&quot;</span>,<span class="st">&quot;DBA&quot;</span>,<span class="st">&quot;DDC&quot;</span>,<span class="st">&quot;XZT&quot;</span>)
+gender=<span class="kw">c</span>(<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>)
+id=<span class="kw">sample</span>(letters,<span class="dv">6</span>)
+treatment=<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;cntrl&quot;</span>,<span class="st">&quot;trt&quot;</span>),<span class="dt">each=</span><span class="dv">3</span>)
+city=<span class="kw">as.character</span>(<span class="dv">1</span>:<span class="dv">6</span>)</code></pre></div>
+</div>
+<div id="ordered" class="section level4">
+<h4><span class="header-section-number">5.2.3.2</span> Ordered</h4>
+<p>An ordered variable includes more information compared to a nominal variable. It represents order but the difference between values are not informative. Below commands can create ordered variables. The <em>level</em> argument for an ordered factor provides the information of order. If the <em>level</em> argument is not provided, R , by default, sorts the unique set of given values into increasing order.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">item1=<span class="kw">ordered</span>(<span class="kw">c</span>(<span class="st">&quot;poor&quot;</span>,<span class="st">&quot;average&quot;</span>,<span class="st">&quot;good&quot;</span>,<span class="st">&quot;good&quot;</span>,<span class="st">&quot;poor&quot;</span>,<span class="st">&quot;poor&quot;</span>),
+              <span class="dt">levels=</span><span class="kw">c</span>(<span class="st">&quot;poor&quot;</span>,<span class="st">&quot;average&quot;</span>,<span class="st">&quot;good&quot;</span>))
+ses=<span class="kw">ordered</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>),<span class="dt">levels=</span><span class="kw">c</span>(<span class="st">&quot;1&quot;</span>,<span class="st">&quot;2&quot;</span>,<span class="st">&quot;3&quot;</span>))</code></pre></div>
+</div>
+<div id="continuous" class="section level4">
+<h4><span class="header-section-number">5.2.3.3</span> Continuous</h4>
+<p>An interval or ratio (true-zero variable) provides more information compared to ordinal and nominal variable. The difference between values are informative. Below commands can create continuous variables.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">grade=<span class="kw">c</span>(<span class="dv">52</span>,<span class="dv">75</span>,<span class="dv">39</span>,<span class="dv">62</span>,<span class="dv">24</span>,<span class="dv">86</span>)
+score=<span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">6</span>,<span class="dt">mean=</span><span class="dv">160</span>,<span class="dt">sd=</span><span class="dv">5</span>)</code></pre></div>
+</div>
+<div id="date-variable" class="section level4">
+<h4><span class="header-section-number">5.2.3.4</span> Date Variable</h4>
+<p>One of the several date variable creation methods is using the as.Date() function. It will try to convert what is provided into a date. This is a flexible function and you can use the <em>format</em> argument to provide the information on how you enter a date. By default it looks for a format of <em>YYYY-MM-DD</em> .Another convenient way to input a date variable might be in <em>MM/DD/YYYY</em> format. This is possible by using <em>format=“%m/%d/%y”</em> . <em>Sys.Date()</em> function will give you today’s date in a <em>YYYY-MM-DD</em> format. You can operate with dates, for example the <em>Sys.Date( )-birthday</em> command below calculates the number of days between the provided birthdays and today.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">birthday=<span class="kw">as.Date</span>(<span class="kw">c</span>(<span class="st">&quot;1984-06-01&quot;</span>,<span class="st">&quot;1988-10-20&quot;</span>,<span class="st">&quot;1990-12-01&quot;</span>,
+                   <span class="st">&quot;1978-03-23&quot;</span>,<span class="st">&quot;1974-08-22&quot;</span>,<span class="st">&quot;1994-11-04&quot;</span>))
+
+birthday
+## [1] &quot;1984-06-01&quot; &quot;1988-10-20&quot; &quot;1990-12-01&quot; &quot;1978-03-23&quot; &quot;1974-08-22&quot;
+## [6] &quot;1994-11-04&quot;
+
+holidays=<span class="kw">as.Date</span>(<span class="kw">c</span>(<span class="st">&quot;01/01/2016&quot;</span>,<span class="st">&quot;04/23/2016&quot;</span>,<span class="st">&quot;05/19/2016&quot;</span>,<span class="st">&quot;08/30/2016&quot;</span>,<span class="st">&quot;09/29/2016&quot;</span>),
+                 <span class="dt">format=</span><span class="st">&quot;%m/%d/%y&quot;</span>)
+
+holidays
+## [1] &quot;2020-01-01&quot; &quot;2020-04-23&quot; &quot;2020-05-19&quot; &quot;2020-08-30&quot; &quot;2020-09-29&quot;
+
+<span class="kw">Sys.Date</span>( )
+## [1] &quot;2017-03-28&quot;
+<span class="kw">Sys.Date</span>( )-birthday
+## Time differences in days
+## [1] 11988 10386  9614 14250 15559  8180</code></pre></div>
+</div>
+<div id="logical-variable" class="section level4">
+<h4><span class="header-section-number">5.2.3.5</span> Logical variable</h4>
+<p>A logical variable takes a value of either TRUE or FALSE. When forced to be numeric, a logical variable takes the form of 1 and 0. Below command tests the grade variable whether its elements are larger than its mean or not.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">grade=<span class="kw">c</span>(<span class="dv">52</span>,<span class="dv">75</span>,<span class="dv">39</span>,<span class="dv">62</span>,<span class="dv">24</span>,<span class="dv">86</span>)    <span class="co"># create grades</span>
+grade&gt;<span class="kw">mean</span>(grade)             <span class="co"># create TRUE-FALSE by testing if the grade is larger than the mean</span>
+## [1] FALSE  TRUE FALSE  TRUE FALSE  TRUE
+<span class="kw">as.numeric</span>(grade&gt;<span class="kw">mean</span>(grade)) <span class="co"># force the logical variable to be 1 and 0.</span>
+## [1] 0 1 0 1 0 1</code></pre></div>
+</div>
+</div>
+<div id="factors" class="section level3">
+<h3><span class="header-section-number">5.2.4</span> Factors</h3>
+<p>R has a data type of <em>factor</em>. It can be considered as a general frame for nominal and ordered variables.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">course=<span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;Cook&quot;</span>,<span class="st">&quot;Plumber&quot;</span>,<span class="st">&quot;Designer&quot;</span>,<span class="st">&quot;Plumber&quot;</span>,<span class="st">&quot;Cook&quot;</span>,<span class="st">&quot;Plumber&quot;</span>))
+ga1=<span class="kw">factor</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">3</span>),<span class="dt">levels =</span> <span class="dv">1</span>:<span class="dv">4</span>,
+           <span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;StronglyDisagree&quot;</span>,<span class="st">&quot;Disagree&quot;</span>,<span class="st">&quot;Agree&quot;</span>,<span class="st">&quot;StronglyAgree&quot;</span>))
+ga2=<span class="kw">factor</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">3</span>),<span class="dt">ordered =</span> T)
+ga3=<span class="kw">gl</span>(<span class="dt">n=</span><span class="dv">3</span>,<span class="dt">k=</span><span class="dv">2</span>,<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>),<span class="dt">ordered=</span>F)</code></pre></div>
+<p>Factors are important data types. Levels of a factor should be examined. It might be necessary to drop levels if they are not used in the variable. For example, if the main data has a factor , lets say <em>Color</em> and the levels are “blue”, “green” and “yellow”. Assume a subset is chosen from the data and it has only “blue” and “yellow”, R will still treat it as factor with 3 levels.This will cause problems.</p>
+<p>The droplevel function drops unused levels. Examine the code below;</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#the ga4 factor is defined with 4 levels A,B,C and D.</span>
+<span class="co">#BUT the data has only 1s,2s and 3s, the level D is not used.</span>
+ga4=<span class="kw">factor</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>),<span class="dt">levels =</span> <span class="dv">1</span>:<span class="dv">4</span>,<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;D&quot;</span>))
+ga4
+## [1] A A C B B C
+## Levels: A B C D
+<span class="kw">droplevels</span>(ga4)
+## [1] A A C B B C
+## Levels: A B C</code></pre></div>
+</div>
+<div id="missing-values" class="section level3">
+<h3><span class="header-section-number">5.2.5</span> Missing Values</h3>
+<p>The data might be incomplete. R uses <strong>NA</strong> (not available) to represent missing values.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">incomeSource=<span class="kw">c</span>(<span class="st">&quot;wage&quot;</span>,<span class="st">&quot;wage&quot;</span>,<span class="st">&quot;pension&quot;</span>,<span class="ot">NA</span>,<span class="ot">NA</span>,<span class="st">&quot;wage&quot;</span>)
+houseMember=<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="ot">NA</span>,<span class="ot">NA</span>,<span class="dv">4</span>)</code></pre></div>
+<p>NOTE: Missing data indicators might be confusing. Notice the difference between NA, <NA> , &quot; &quot; (empty cell) and a predefined missing indicator, such as -99.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">temp =<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&#39;wage&#39;</span>,<span class="st">&#39;pension&#39;</span>, <span class="ot">NA</span>, <span class="st">&#39;NA&#39;</span>,<span class="st">&quot; &quot;</span>,-<span class="dv">99</span>,<span class="st">&quot;-99&quot;</span>))
+
+<span class="co">#for a factor or a character variable NA is shown as &lt;NA&gt; to specify a true missing cell</span>
+<span class="co"># NA without &lt; &gt; represents a factor level</span>
+<span class="co"># &quot; &quot; also represents a factor level</span>
+<span class="co">#-99 and &quot;-99&quot; represents the same factor level</span>
+
+<span class="kw">is.na</span>(temp) <span class="co"># identifies only the third element as a missing value.</span>
+## [1] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE
+
+<span class="co">#A possible solution</span>
+temp[temp==<span class="st">&#39;NA&#39;</span> |<span class="st"> </span>temp==<span class="st">&quot; &quot;</span>|<span class="st"> </span>temp==<span class="st"> </span>-<span class="dv">99</span> |<span class="st"> </span>temp==<span class="st"> &quot;-99&quot;</span>]=<span class="ot">NA</span>
+
+<span class="co">#check</span>
+<span class="kw">is.na</span>(temp)
+## [1] FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE
+
+<span class="co">#DO NOT forget to drop levels</span>
+temp=<span class="kw">droplevels</span>(temp)</code></pre></div>
+</div>
+<div id="dataframes" class="section level3">
+<h3><span class="header-section-number">5.2.6</span> Data Frames</h3>
+<p>A data frame includes variables. Assuming a social scientist is generally interested in the relationships between the variables, a data frame is their main R structure. Below command creates a data frame using some of the earlier created variables.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># reminder</span>
+<span class="co"># id=sample(letters,6)</span>
+
+<span class="co"># treatment=rep(c(&quot;cntrl&quot;,&quot;trt&quot;),each=3)</span>
+
+<span class="co"># gender=c(&quot;M&quot;,&quot;F&quot;,&quot;F&quot;,&quot;M&quot;,&quot;F&quot;,&quot;M&quot;)</span>
+
+<span class="co"># item1=ordered(c(&quot;poor&quot;,&quot;average&quot;,&quot;good&quot;,&quot;good&quot;,&quot;poor&quot;,&quot;poor&quot;),</span>
+<span class="co">#              levels=c(&quot;poor&quot;,&quot;average&quot;,&quot;good&quot;))</span>
+
+<span class="co"># ses=ordered(c(1,3,2,2,1,3),levels=c(&quot;1&quot;,&quot;2&quot;,&quot;3&quot;))</span>
+
+<span class="co"># grade=c(52,75,39,62,24,86)</span>
+
+<span class="co"># incomeSource=c(&quot;wage&quot;,&quot;wage&quot;,&quot;pension&quot;,NA,NA,&quot;wage&quot;)</span>
+
+<span class="co"># birthday=as.Date(c(&quot;1984-06-01&quot;,&quot;1988-10-20&quot;,&quot;1990-12-01&quot;,</span>
+<span class="co">#                   &quot;1978-03-23&quot;,&quot;1974-08-22&quot;,&quot;1994-11-04&quot;))</span>
+
+<span class="co"># course=factor(c(&quot;Cook&quot;,&quot;Plumber&quot;,&quot;Designer&quot;,&quot;Plumber&quot;,&quot;Cook&quot;,&quot;Plumber&quot;))</span>
+
+basic_data=<span class="kw">data.frame</span>(id,treatment,gender,item1,ses,
+                      grade,incomeSource,birthday,course)
+basic_data
+##   id treatment gender   item1 ses grade incomeSource   birthday   course
+## 1  t     cntrl      M    poor   1    52         wage 1984-06-01     Cook
+## 2  p     cntrl      F average   3    75         wage 1988-10-20  Plumber
+## 3  u     cntrl      F    good   2    39      pension 1990-12-01 Designer
+## 4  f       trt      M    good   2    62         &lt;NA&gt; 1978-03-23  Plumber
+## 5  s       trt      F    poor   1    24         &lt;NA&gt; 1974-08-22     Cook
+## 6  d       trt      M    poor   3    86         wage 1994-11-04  Plumber</code></pre></div>
+<p>Data can be entered manually into R. However this is generally not the case. When a data transferred into the R environment, a useful function to check its internal structure is named as <em>str</em>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(basic_data)
+## &#39;data.frame&#39;:    6 obs. of  9 variables:
+##  $ id          : Factor w/ 6 levels &quot;d&quot;,&quot;f&quot;,&quot;p&quot;,&quot;s&quot;,..: 5 3 6 2 4 1
+##  $ treatment   : Factor w/ 2 levels &quot;cntrl&quot;,&quot;trt&quot;: 1 1 1 2 2 2
+##  $ gender      : Factor w/ 2 levels &quot;F&quot;,&quot;M&quot;: 2 1 1 2 1 2
+##  $ item1       : Ord.factor w/ 3 levels &quot;poor&quot;&lt;&quot;average&quot;&lt;..: 1 2 3 3 1 1
+##  $ ses         : Ord.factor w/ 3 levels &quot;1&quot;&lt;&quot;2&quot;&lt;&quot;3&quot;: 1 3 2 2 1 3
+##  $ grade       : num  52 75 39 62 24 86
+##  $ incomeSource: Factor w/ 2 levels &quot;pension&quot;,&quot;wage&quot;: 2 2 1 NA NA 2
+##  $ birthday    : Date, format: &quot;1984-06-01&quot; &quot;1988-10-20&quot; ...
+##  $ course      : Factor w/ 3 levels &quot;Cook&quot;,&quot;Designer&quot;,..: 1 3 2 3 1 3</code></pre></div>
+</div>
+</div>
+<div id="r-packages" class="section level2">
+<h2><span class="header-section-number">5.3</span> R Packages</h2>
+<p>R version 3.3.1 downloads to a computer with 30 packages that includes thousands of functions.These packages stored under <em>system library</em>. Other useful functions are created by R users and made available to R community. For example linear mixed effect models can be analyzed R using <em>lme4</em><span class="citation">(Bates et al. <a href="#ref-lme4pack">2015</a>)</span> package. This package is cited more than 1500 times and has been downloaded more than 60000 times. You can use Figure <a href="rs-popularity.html#fig:Rpackdown">3.2</a> to check its current usage. R packages are generally available via CRAN and they are generally not archived further if they are maintained properly. You can download R packages into your computer and store them locally, under <em>user library</em> . You need to load (activate) the packages in each session before you can use them.</p>
+<p>You have probably noticed that R, RStudio and R packages are interconnected. When you download Rstuido after you have downloaded R, The Rstudio scans your computer, locates R and connects to it. Both R and RStudio can locate your libraries unless you manually manipulated the file locations. If you wonder the location of your R packages you can run <em>.libPaths()</em> function.</p>
+<p>R packages located in CRAN can easily be downloaded into your machine using RStuido’s <strong>Packages</strong> tab, or you can directly type <em>install.packages(“packagename”)</em>. When you open a new session, some of the main packages are loaded automatically. When a package is loaded, you can see the tick in the <em>Packages</em> tab. If the package you plan to use in a session is not loaded, you can click the box or you can directly type <em>library(“packagename”)</em>. You can see these steps in (Video4 <a href="basics.html#fig:Video4">5.1</a>).</p>
+<div class="figure"><span id="fig:Video4"></span>
+<iframe src="https://www.youtube.com/embed/BiJhU0Rn6t4" width="768" height="400px">
+</iframe>
+<p class="caption">
+Figure 5.1: Download R Packages
+</p>
+</div>
+</div>
+<div id="theworkspace" class="section level2">
+<h2><span class="header-section-number">5.4</span> The Workspace</h2>
+<p>When a session is started by opening an R script, every operation takes place in the working space. Every step is recorded and can be seen in <em>History</em> tab of R Studio. Working space can be saved when closing the session. The objects created in a session are kept in the space. You can use <em>ls()</em> function to see your objects in the working space, you can also check <em>Environment</em> tab of R Studio.</p>
+<p>The objects in a workspace can easily be saved into the working directory as separate outputs. Also the objects in the working directory can easily be loaded into the working space. Here <em>easily</em> refers to the unnecessity of providing a path. If the path is provided, you can save or load objects from different directories.</p>
+<p>You can run <em>getwd()</em> command to see your working directory. You can change the working directory within a session using <em>setwd()</em> function. Alternatively you can change the directory using <em>Session</em> tab of R Studio. The data input and output is covered more broadly in the next chapter.</p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-lme4pack">
+<p>Bates, Douglas, Martin Mächler, Ben Bolker, and Steve Walker. 2015. “Fitting Linear Mixed-Effects Models Using lme4.” <em>Journal of Statistical Software</em> 67 (1): 1–48. doi:<a href="https://doi.org/10.18637/jss.v067.i01">10.18637/jss.v067.i01</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="setting-up-r-for-windows.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-sets.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/burakaydin/BAP2219/tree/gh-pages/04_Basic_functions.Rmd",
+"text": "Edit"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+---
+title: "BETA: An R Platform for Social Scientists"
+author: "Burak AYDIN, James ALGINA, Walter LEITE"
+date: "2017"
+output: bookdown::gitbook
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: burakaydin/BAP2219
+description: "R book for social scientists"
+cover-image: images/coverpicture.png
+always_allow_html: yes
+---
+
+
+
+# Cover
+
+```{r fig.align='center', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html'), fig.link='https://www.aydinburak.net'}
+knitr::include_graphics('images/coverpicture.png', dpi = NA)
+```
+
+![](images/cc0pic.png)  
+
+The online version of this platform is licensed under the [CC0](https://creativecommons.org/publicdomain/zero/1.0/) by [Burak AYDIN](http://aydinburak.net).
+
+
+## Introduction 
+
+We aim to create a _platform_ for the applied social scientists in which we can demonstrate basic statistical procedures using R [@R-base] and real data. We prefer to name this material as a _platform_ given that (a) it is open for contribution, (b) it will have dynamic content and (c) it can serve as a mainboard for Plug-ins and Add-ons . 
+
+This R material is created with Bookdown [@R-bookdown], an advanced system constructed on R Markdown [@R-rmarkdown] and the R language. We take advantage of these sources using R Studio [@R-studio].  
+
+### Why Bookdown?
+With bookdown, it is possible to create visually pleasant materials that can incorporate what R is capable of, for example shiny applications and advanced graphs. These materials can be crafted into different formats such as PDFs, html or word. The books created with markdown can be hosted on Git Hub; in which, users can offer their contribution. Bookdown is one of the new generation tools to craft a book.
+
+### Content
+With this beta version of the material, we cover  
+
+* Setting up R for windows
+* R Basics
+* Data sets
+* Descriptive Analysis and Hypthoses Testing
+* The t-test
+* Introduction to Analysis of Variance
+* Correlation
+* Introduction to Multiple Linear Regression
+
+These topics are not covered in a textbook fashion. At most, they can serve as a companion to textbooks or graduate level courses. 

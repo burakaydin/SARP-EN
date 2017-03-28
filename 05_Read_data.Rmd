@@ -1,0 +1,372 @@
+
+
+#  Data Sets
+
+In section \@ref(dataframes) we have illustrated how to enter data manually. However the data are generally available beforehand. This section aims to illustrate how to (a) import data into R, (b) perform basic data manipulation  and (c) export data.
+
+
+##Import Data
+A data set might be available in different formats. Some of the most commonly used formats are .csv, .sav, .Rdata, .txt. Importing data and checking their status are initial steps and should be conducted carefully. As mentioned in \@ref(theworkspace), if the data and the R script are in the same folder, a detailed path to locate the data is NOT needed. 
+
+### CSV
+CSV stands for comma separated values. Microsoft Excel is a useful tool to create this format. The csv is simpler compared to xls, xlsx, xlsb or other Excel formats. A csv file can be imported into R working space using _read.csv_ function. Following code is the simplest specification to read a csv file
+
+```{r, collapse=T, eval=F}
+data=read.csv("dataname.csv")   # works if dataname.csv is located within the working directory
+
+#In a windows machine
+data=read.csv("C:\\Users\Desktop\\folderX\\data.name.csv")  # with path
+data=read.csv("C:/Users/Desktop/folderX/data.name.csv")  # with path
+#NOTE: A backslash (\) will cause error in a windows machine 
+
+```
+
+Use _?read.csv_ to view its arguments. See following notes for relatively important arguments
+
+a) _header=FALSE_ or _header=TRUE_ indicates whether the file contains variable names.    
+b) _na.strings_ is used for declaring missing value indicators. This is generally critical. For example _na.strings = "-99"_ indicates that -99s should be interpreted as _NA_ or _na.strings = c("-99" , "-9" )_ indicates that both -99s and -9s represents missing data.
+c) _stringsAsFactors=TRUE_ or _stringsAsFactors=FALSE_ indicates whether character vectors should be converted into factors.
+d) _col.names_ allows renaming variables while reading the data. For example, when reading three variables, _col.names_ should have three elements, such as _col.names=c("A1","B2","C3")_.
+
+
+
+Use _read.csv2_ function when decimals indicated with a comma and values are separated with semicolon. Alternatively use _sep=";"_ and _dec=","_ arguments in _read.csv_ function. 
+
+A silent video is recorded (Video5 \@ref(fig:Video5)) to show these steps.
+
+```{r Video5, fig.cap='Read CSV file', fig.width=8, fig.height=6 , echo=FALSE}
+knitr::include_url("https://www.youtube.com/embed/RjiKIWxaZBk")
+```
+
+
+### SPSS
+SAV files are common data formats, at least among the social scientists. The package _foreign_ [@foreign] includes _read.spss_ function.
+```{r, collapse=T, eval=F}
+require(foreign)
+?read.spss
+data=read.spss("dataname.sav",to.data.frame=TRUE)   
+# works if dataname.sav is located within the working directory
+
+```
+
+### Rdata
+Rdata format is a memory friendly alternative. By default, it includes a name for the data set. 
+
+```{r, collapse=T, eval=F}
+load("dataname.Rdata")  # works if dataname.Rdata is located within the working directory
+```
+
+### Pull online {#pullonline}
+
+Its possible to import data from the web, but these procedures are well beyond the scope of this material. The basic approach includes mainly three steps, (a) correctly specify the location , (b) correctly specify the data format, (c) download and import or directly import into R. Following code should import the World Bank data introduced in Section \@ref(dataWBT).
+
+```{r, collapse=T, eval=F}
+#read csv from an online repository
+urlfile='https://raw.githubusercontent.com/burakaydin/materyaller/gh-pages/ARPASS/dataWBT.csv'
+dataname=read.csv(urlfile)
+str(dataname)
+
+
+# load Rdata from an online repository
+urlfile2='https://github.com/burakaydin/materyaller/blob/gh-pages/ARPASS/dataWBT.Rdata?raw=true'
+load(url(urlfile2))
+str(dataWBT)
+
+```
+
+These data sets can be downloaded as a file from the <a href="https://github.com/burakaydin/materyaller/tree/gh-pages/ARPASS" target="_blank">Github Repository</a>. Alternatively, an excel file is located <a href="https://www.aydinburak.net/sarp" target="_blank">here</a>.
+
+### Read data through R studio
+When the data are not located within the working directory or point-click approach is preferable, _Import Dataset_ gadget located in _Environment_ window might be helpful. A silent video is recorded (Video6 \@ref(fig:Video6)) to show how to read a csv file through Rstudio. It is also possible to read from Excel, SPSS, SAS and Stata.
+
+```{r Video6, fig.cap='Read CSV file through R Studio', fig.width=8, fig.height=6 , echo=FALSE}
+knitr::include_url("https://www.youtube.com/embed/D_5wJFmlmxk")
+```
+
+
+## Basic Data Manipulation
+
+Generally a data set should be processed after it is imported. This section illustrates basic manipulation procedures, (a) replace values, (b) subsetting, (c) create new variables, (d) reshape (e) convert between variable types, (f) delete cases.
+
+### Replacing values
+It is possible to replace a specific datum or a value. It is also possible to rename variables. The R package _plyr_ [@plyrpack] might be useful.
+
+```{r, collapse=T, eval=F, cache=T,message=F}
+
+# load csv from an online repository
+urlfile='https://raw.githubusercontent.com/burakaydin/materyaller/gh-pages/ARPASS/dataWBT.csv'
+tempdata=read.csv(urlfile)
+
+#remove URL 
+rm(urlfile)
+
+
+# replace a specific datum:i.e. row 151 column 16 should be 30 
+tempdata[151,16]=30
+
+# replace a specific datum using locaters
+# row 151 belongs to id 67034022 and column 16 is named "age".
+tempdata[tempdata$id==67034022,"age"]=32
+
+# Replace values
+# Replace treatment values
+# originally has 1 for treatment and 2 for control
+# Replace 1s with "trt" and 2s with "cnt" 
+tempdata[tempdata$treatment==1,"treatment"]="trt"
+tempdata[tempdata$treatment==2,"treatment"]="cnt"
+
+# Or use ifelse function
+# replace "wage01" If "wage01" equals "Yes" change to 0.5, otherwise -0.5
+tempdata$wage01=ifelse(tempdata$wage01=="Yes",0.5,-0.5)
+
+# Or use mapvalue function in the plyr package
+require(plyr)
+# create a new variable named pension01NEW, 0 if pension01 is "No", 1 if "Yes"
+tempdata$pension01NEW <- mapvalues(tempdata$pension01, 
+                                   from=c("Yes","No"),to=c("1","0"))
+
+
+#rename a variable
+#rename 4th and 5th column
+colnames(tempdata)[4]="course"
+colnames(tempdata)[5]="region"
+
+#rename at the same time
+colnames(tempdata)[c(17,21)]=c("Tinc","WAGE1")
+
+#rename using plyr package
+tempdata <- rename(tempdata,c('gen_att'='GENDERATT'))
+
+#use head(tempdata) to visually check
+#use summary(tempdata) to check
+
+#remove tempdata
+rm(tempdata)
+
+```
+
+
+
+### Subsetting
+
+It is easily possible to subset a data set.
+
+
+```{r, collapse=T, eval=F, cache=T,message=F}
+
+# load csv from an online repository
+urlfile='https://raw.githubusercontent.com/burakaydin/materyaller/gh-pages/ARPASS/dataWBT.csv'
+tempdata=read.csv(urlfile)
+
+#remove URL 
+rm(urlfile)
+
+
+# select only city=ISTANBUL
+istDAT=tempdata[tempdata$city=="ISTANBUL",]
+
+# select only city=ISTANBUL and first 8 columns
+istDAT18=tempdata[tempdata$city=="ISTANBUL",1:8]
+
+# select only city=ISTANBUL and Gender Attitude score larger than 2
+istDATGAT2=tempdata[tempdata$city=="ISTANBUL" | tempdata$gen_att >2 ,]
+
+# Alternatively use the subset function
+# use the select argument to specify the columns, otherwise all columns are selected
+istDATGAT2B=subset(tempdata, city=="ISTANBUL" | tempdata$gen_att >2, select=1:8) 
+
+#subset based on variable values
+item1_123 <- tempdata[tempdata$item1 %in% c(1,2,3), ]
+
+#remove all objects in workspace
+rm(list=ls())
+
+```
+
+
+### Creating new variables
+Procedures to create new variables are covered in Section \@ref(basics). Following computations are mainly a review. 
+
+```{r, collapse=T, eval=F, cache=T,message=F}
+# load csv from an online repository
+urlfile='https://raw.githubusercontent.com/burakaydin/materyaller/gh-pages/ARPASS/dataWBT.csv'
+tempdata=read.csv(urlfile)
+
+#remove URL 
+rm(urlfile)
+
+# create sum for item2 to item6
+tempdata$itemSUM=with(tempdata,item2+item3+item4+item5+item6)
+
+# create average of item2 to item6 (notice na.rm)
+tempdata$itemAVE=with(tempdata,
+                      rowMeans(cbind(item2,item3,item4,item5,item6),na.rm=T))
+
+#or
+tempdata$itemAVE=rowMeans(tempdata[,10:14],na.rm = T)
+
+# Create average by city
+tempdata$CityAVEscore =with(tempdata, ave(itemAVE,city,FUN=function(x) mean(x, na.rm=T)))
+
+#or
+tempdata=merge(tempdata, aggregate(itemAVE ~ city, data = tempdata, FUN=mean, na.rm=TRUE), 
+          by = "city", suffixes = c("", "citymean"),all=T)
+
+#or take each item's average by city
+tempdata=merge(tempdata, aggregate(cbind(item2,item3,item4,item5,item6) ~ city, 
+                                   data = tempdata, FUN=mean, na.rm=TRUE), 
+                                   by = "city", suffixes = c("", "Citymean"),all=T)
+
+
+# categorize variables. Create 0s if itemAVE is lower than 2 and 1 otherwise
+tempdata$itemAVE01=ifelse(tempdata$itemAVE<2,0,1)
+
+# create 1s if the average is between 0 and 1.8
+# create 2s if the average is between 1.8 and 2.5
+# create 3s if the average is between 2.5 and 5
+tempdata$itemAVE123=with(tempdata,cut(itemAVE, breaks=c(0,1.8,2.5,5), labels = FALSE))
+# check right=TRUE argument.
+# i.e if right=T  values exactly equal to 1.8 goes into category 1
+#     if right=F  values exactly equal to 1.8 goes into category 2
+     
+
+```
+
+
+
+### Reshaping data
+It might be needed to reshape the data. Mainly from a wide format to long format or vice versa. The R package _tidyr_ [@tidyrpack] might be useful.
+
+```{r, collapse=T, eval=F, cache=T,message=F}
+# load csv from an online repository
+urlfile='https://raw.githubusercontent.com/burakaydin/materyaller/gh-pages/ARPASS/dataWBT.csv'
+tempdata=read.csv(urlfile)
+
+#remove URL 
+rm(urlfile)
+
+# from wide to long. Create one single item column based on item1 to item6
+# while keeping other values in the data set 
+library(tidyr)
+data_long = gather(tempdata, item, score, item1:item6, factor_key=TRUE)
+
+#sort data by id
+data_long=data_long[order(data_long$id),] 
+
+# from long  to wide.
+data_wide = spread(data_long, item, score)
+
+## remove all objects but certain in workspace
+rm(list=setdiff(ls(),c("tempdata")))
+
+```
+
+### Converting between variable types
+Converting numeric values to factors or vice versa might be needed.
+
+
+```{r, collapse=T, eval=F, cache=T,message=F}
+# load csv from an online repository
+urlfile='https://raw.githubusercontent.com/burakaydin/materyaller/gh-pages/ARPASS/dataWBT.csv'
+tempdata=read.csv(urlfile,stringsAsFactors = F)
+
+#remove URL 
+rm(urlfile)
+
+#check treatment variable's structure 
+str(tempdata$treatment)
+
+#convert numeric to factor.
+tempdata$treatmentFactor=factor(tempdata$treatment,labels=c("treatment","control"))
+
+#convert factors to numeric (when numbers show up as a character variable)
+
+#create illustrative variable
+tempdata$iv1=factor(rep(c("1","2","3"),length=nrow(tempdata)))
+tempdata$iv1numeric=as.numeric(levels(tempdata$iv1))[tempdata$iv1]
+#or
+tempdata$iv1numeric=as.numeric(as.character(tempdata$iv1))
+
+#convert NAs to -99  
+tempdata[is.na(tempdata)]= (-99)
+
+#remove all objects in workspace
+rm(list=ls())
+```
+
+
+### Delete cases
+
+It might be needed to delete an element, an entire row or an entire column
+
+```{r, collapse=T, eval=F, cache=T,message=F}
+# load csv from an online repository
+urlfile='https://raw.githubusercontent.com/burakaydin/materyaller/gh-pages/ARPASS/dataWBT.csv'
+tempdata=read.csv(urlfile,stringsAsFactors = F)
+
+#remove URL 
+rm(urlfile)
+
+#Delete a specific element i.e row 3 column 5
+tempdata[3,5]=NA
+
+#Delete a row. i.e the 3rd 
+tempdata[3,]= NA
+
+#or
+tempdata=tempdata[-3,]
+
+#delete a column, i.e the 5th 
+tempdata$course_taken=NULL
+
+#listwise deletion, remove any row with missing data
+# subset temp for illustrative purposes
+temp=tempdata[,1:10]
+
+# listwise deletion
+temp=na.omit(temp)
+
+#remove all objects in workspace
+rm(list=ls())
+
+```
+
+
+
+## Export Data
+
+It is possible to export R objects. Unless the working directory is changed using _setwd()_ or a path is provided, all the objects are sent to your current working directory.
+
+```{r, collapse=T, eval=F, cache=T,message=F}
+# load csv from an online repository
+urlfile='https://raw.githubusercontent.com/burakaydin/materyaller/gh-pages/ARPASS/dataWBT.csv'
+tempdata=read.csv(urlfile,stringsAsFactors = F)
+
+#remove URL 
+rm(urlfile)
+
+#create objects
+# select rows 1 to 20 and columns 1 to 5
+subset1=tempdata[1:20,1:5]
+object2=mean(tempdata$item1,na.rm = T)
+
+
+#Check working directory
+getwd()
+
+# save as an R object
+save(subset1,file="subset1Rfile.Rdata")
+# provide a path if needed
+save(object2,file="C:/Users/Desktop/object2Rfile.Rdata")
+
+# Export as a csv
+write.csv(subset1,file="subset1CSVfile.csv",row.names = F)
+
+#Export to SPSS
+library(foreign)
+write.foreign(subset1, "subset1SPSfile.txt","subset1SPSfile.sps", package="SPSS")
+
+#remove all objects in workspace
+rm(list=ls())
+
+```

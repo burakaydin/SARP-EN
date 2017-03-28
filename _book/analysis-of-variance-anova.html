@@ -1,0 +1,1686 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>BETA: An R Platform for Social Scientists</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="R book for social scientists">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="BETA: An R Platform for Social Scientists" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/coverpicture.png" />
+  <meta property="og:description" content="R book for social scientists" />
+  <meta name="github-repo" content="burakaydin/BAP2219" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="BETA: An R Platform for Social Scientists" />
+  
+  <meta name="twitter:description" content="R book for social scientists" />
+  <meta name="twitter:image" content="images/coverpicture.png" />
+
+<meta name="author" content="Burak AYDIN, James ALGINA, Walter LEITE">
+
+
+<meta name="date" content="2017-01-01">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="comparing-two-means-the-t-test.html">
+<link rel="next" href="correlation.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-0.8/htmlwidgets.js"></script>
+<link href="libs/rglwidgetClass-2/rgl.css" rel="stylesheet" />
+<script src="libs/rglwidgetClass-2/rglClass.src.js"></script>
+<script src="libs/CanvasMatrix4-2016/CanvasMatrix.src.js"></script>
+<script src="libs/rglWebGL-binding-0.97.0/rglWebGL.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">SARP</a></li>
+<li><a href="https://burakaydin.github.io/SARP/_book/" target="blank">SAPR-TR</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Cover</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#why-bookdown"><i class="fa fa-check"></i><b>1.1.1</b> Why Bookdown?</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#content"><i class="fa fa-check"></i><b>1.1.2</b> Content</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i><b>2</b> Preface</a><ul>
+<li class="chapter" data-level="2.1" data-path="preface.html"><a href="preface.html#authors"><i class="fa fa-check"></i><b>2.1</b> Authors</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="preface.html"><a href="preface.html#burak-aydn-ph.d."><i class="fa fa-check"></i><b>2.1.1</b> Burak Aydın, Ph.D.</a></li>
+<li class="chapter" data-level="2.1.2" data-path="preface.html"><a href="preface.html#james-algina-ph.d."><i class="fa fa-check"></i><b>2.1.2</b> James Algina, Ph.D.</a></li>
+<li class="chapter" data-level="2.1.3" data-path="preface.html"><a href="preface.html#walter-l.-leite-ph.d."><i class="fa fa-check"></i><b>2.1.3</b> Walter L. Leite, Ph.D.</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="preface.html"><a href="preface.html#acknowledgement"><i class="fa fa-check"></i><b>2.2</b> Acknowledgement</a></li>
+<li class="chapter" data-level="2.3" data-path="preface.html"><a href="preface.html#dataWBT"><i class="fa fa-check"></i><b>2.3</b> Data</a></li>
+<li class="chapter" data-level="2.4" data-path="preface.html"><a href="preface.html#fund"><i class="fa fa-check"></i><b>2.4</b> Fund</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="rs-popularity.html"><a href="rs-popularity.html"><i class="fa fa-check"></i><b>3</b> R’s Popularity</a></li>
+<li class="chapter" data-level="4" data-path="setting-up-r-for-windows.html"><a href="setting-up-r-for-windows.html"><i class="fa fa-check"></i><b>4</b> Setting up R for Windows</a></li>
+<li class="chapter" data-level="5" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>5</b> Basics</a><ul>
+<li class="chapter" data-level="5.1" data-path="basics.html"><a href="basics.html#functions"><i class="fa fa-check"></i><b>5.1</b> Functions</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="basics.html"><a href="basics.html#r-as-a-basic-calculator."><i class="fa fa-check"></i><b>5.1.1</b> R as a Basic Calculator.</a></li>
+<li class="chapter" data-level="5.1.2" data-path="basics.html"><a href="basics.html#r-as-a-programmable-calculator"><i class="fa fa-check"></i><b>5.1.2</b> R as a Programmable Calculator</a></li>
+<li class="chapter" data-level="5.1.3" data-path="basics.html"><a href="basics.html#help"><i class="fa fa-check"></i><b>5.1.3</b> Help!</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="basics.html"><a href="basics.html#r-data-types"><i class="fa fa-check"></i><b>5.2</b> R Data Types</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="basics.html"><a href="basics.html#vectors"><i class="fa fa-check"></i><b>5.2.1</b> Vectors</a></li>
+<li class="chapter" data-level="5.2.2" data-path="basics.html"><a href="basics.html#matricies"><i class="fa fa-check"></i><b>5.2.2</b> Matricies</a></li>
+<li class="chapter" data-level="5.2.3" data-path="basics.html"><a href="basics.html#variables"><i class="fa fa-check"></i><b>5.2.3</b> Variables</a></li>
+<li class="chapter" data-level="5.2.4" data-path="basics.html"><a href="basics.html#factors"><i class="fa fa-check"></i><b>5.2.4</b> Factors</a></li>
+<li class="chapter" data-level="5.2.5" data-path="basics.html"><a href="basics.html#missing-values"><i class="fa fa-check"></i><b>5.2.5</b> Missing Values</a></li>
+<li class="chapter" data-level="5.2.6" data-path="basics.html"><a href="basics.html#dataframes"><i class="fa fa-check"></i><b>5.2.6</b> Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="basics.html"><a href="basics.html#r-packages"><i class="fa fa-check"></i><b>5.3</b> R Packages</a></li>
+<li class="chapter" data-level="5.4" data-path="basics.html"><a href="basics.html#theworkspace"><i class="fa fa-check"></i><b>5.4</b> The Workspace</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-sets.html"><a href="data-sets.html"><i class="fa fa-check"></i><b>6</b> Data Sets</a><ul>
+<li class="chapter" data-level="6.1" data-path="data-sets.html"><a href="data-sets.html#import-data"><i class="fa fa-check"></i><b>6.1</b> Import Data</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="data-sets.html"><a href="data-sets.html#csv"><i class="fa fa-check"></i><b>6.1.1</b> CSV</a></li>
+<li class="chapter" data-level="6.1.2" data-path="data-sets.html"><a href="data-sets.html#spss"><i class="fa fa-check"></i><b>6.1.2</b> SPSS</a></li>
+<li class="chapter" data-level="6.1.3" data-path="data-sets.html"><a href="data-sets.html#rdata"><i class="fa fa-check"></i><b>6.1.3</b> Rdata</a></li>
+<li class="chapter" data-level="6.1.4" data-path="data-sets.html"><a href="data-sets.html#pullonline"><i class="fa fa-check"></i><b>6.1.4</b> Pull online</a></li>
+<li class="chapter" data-level="6.1.5" data-path="data-sets.html"><a href="data-sets.html#read-data-through-r-studio"><i class="fa fa-check"></i><b>6.1.5</b> Read data through R studio</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="data-sets.html"><a href="data-sets.html#basic-data-manipulation"><i class="fa fa-check"></i><b>6.2</b> Basic Data Manipulation</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="data-sets.html"><a href="data-sets.html#replacing-values"><i class="fa fa-check"></i><b>6.2.1</b> Replacing values</a></li>
+<li class="chapter" data-level="6.2.2" data-path="data-sets.html"><a href="data-sets.html#subsetting"><i class="fa fa-check"></i><b>6.2.2</b> Subsetting</a></li>
+<li class="chapter" data-level="6.2.3" data-path="data-sets.html"><a href="data-sets.html#creating-new-variables"><i class="fa fa-check"></i><b>6.2.3</b> Creating new variables</a></li>
+<li class="chapter" data-level="6.2.4" data-path="data-sets.html"><a href="data-sets.html#reshaping-data"><i class="fa fa-check"></i><b>6.2.4</b> Reshaping data</a></li>
+<li class="chapter" data-level="6.2.5" data-path="data-sets.html"><a href="data-sets.html#converting-between-variable-types"><i class="fa fa-check"></i><b>6.2.5</b> Converting between variable types</a></li>
+<li class="chapter" data-level="6.2.6" data-path="data-sets.html"><a href="data-sets.html#delete-cases"><i class="fa fa-check"></i><b>6.2.6</b> Delete cases</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="data-sets.html"><a href="data-sets.html#export-data"><i class="fa fa-check"></i><b>6.3</b> Export Data</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html"><i class="fa fa-check"></i><b>7</b> Descriptive Statistics and Hypthoses Testing</a><ul>
+<li class="chapter" data-level="7.1" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#descstats"><i class="fa fa-check"></i><b>7.1</b> Descriptive Statistics</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#mean"><i class="fa fa-check"></i><b>7.1.1</b> Mean</a></li>
+<li class="chapter" data-level="7.1.2" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#median"><i class="fa fa-check"></i><b>7.1.2</b> Median</a></li>
+<li class="chapter" data-level="7.1.3" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#variance"><i class="fa fa-check"></i><b>7.1.3</b> Variance</a></li>
+<li class="chapter" data-level="7.1.4" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#standard-deviation"><i class="fa fa-check"></i><b>7.1.4</b> Standard deviation</a></li>
+<li class="chapter" data-level="7.1.5" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#skewness"><i class="fa fa-check"></i><b>7.1.5</b> Skewness</a></li>
+<li class="chapter" data-level="7.1.6" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#kurtosis"><i class="fa fa-check"></i><b>7.1.6</b> Kurtosis</a></li>
+<li class="chapter" data-level="7.1.7" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#reporting-descriptives"><i class="fa fa-check"></i><b>7.1.7</b> Reporting descriptives</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#basic-graphics"><i class="fa fa-check"></i><b>7.2</b> Basic graphics</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#histogram"><i class="fa fa-check"></i><b>7.2.1</b> Histogram</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#hypothesis-testing-introduction"><i class="fa fa-check"></i><b>7.3</b> Hypothesis testing introduction</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#samplingdist"><i class="fa fa-check"></i><b>7.3.1</b> The Sampling distribution</a></li>
+<li class="chapter" data-level="7.3.2" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-confidence-intervals-ci"><i class="fa fa-check"></i><b>7.3.2</b> The Confidence Intervals (CI)</a></li>
+<li class="chapter" data-level="7.3.3" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-null-hypothesis"><i class="fa fa-check"></i><b>7.3.3</b> The null hypothesis</a></li>
+<li class="chapter" data-level="7.3.4" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-z-score-and-the-z-test"><i class="fa fa-check"></i><b>7.3.4</b> The z score and the z test</a></li>
+<li class="chapter" data-level="7.3.5" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-one-sample-t-test"><i class="fa fa-check"></i><b>7.3.5</b> The one-sample t test</a></li>
+<li class="chapter" data-level="7.3.6" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-p-value"><i class="fa fa-check"></i><b>7.3.6</b> The p value</a></li>
+<li class="chapter" data-level="7.3.7" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-p-value-illustration"><i class="fa fa-check"></i><b>7.3.7</b> The p value illustration</a></li>
+<li class="chapter" data-level="7.3.8" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#statisticalpower"><i class="fa fa-check"></i><b>7.3.8</b> Statistical power</a></li>
+<li class="chapter" data-level="7.3.9" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#in-case-the-z-and-the-t-distribution-is-not-valid"><i class="fa fa-check"></i><b>7.3.9</b> In case the z and the t distribution is not valid</a></li>
+<li class="chapter" data-level="7.3.10" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#shiny-application-to-visualize-sampling-distribution"><i class="fa fa-check"></i><b>7.3.10</b> Shiny application to visualize sampling distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html"><i class="fa fa-check"></i><b>8</b> Comparing Two Means, the t-test</a><ul>
+<li class="chapter" data-level="8.1" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#between-subjects-t-test-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1</b> Between-Subjects t-test (The Independent Groups t-test)</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#r-codes-for-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1.1</b> R codes for the independent groups t-test</a></li>
+<li class="chapter" data-level="8.1.2" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#assumptions-of-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1.2</b> Assumptions of the independent groups t-test</a></li>
+<li class="chapter" data-level="8.1.3" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#using-welchs-t-test"><i class="fa fa-check"></i><b>8.1.3</b> Using Welch’s t test</a></li>
+<li class="chapter" data-level="8.1.4" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#indepteff"><i class="fa fa-check"></i><b>8.1.4</b> Effect size for the independent groups t-test</a></li>
+<li class="chapter" data-level="8.1.5" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#extra-practical-significance-vs-statistical-significance"><i class="fa fa-check"></i><b>8.1.5</b> Extra: Practical significance vs statistical significance</a></li>
+<li class="chapter" data-level="8.1.6" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#missing-data-techniques-for-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1.6</b> Missing data techniques for the independent groups t-test</a></li>
+<li class="chapter" data-level="8.1.7" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#supportive-graphs-for-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1.7</b> Supportive graphs for the independent groups t-test</a></li>
+<li class="chapter" data-level="8.1.8" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#power-calculations-for-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1.8</b> Power calculations for the independent groups t-test</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#the-dependent-groups-t-test-within-subjects-t-test"><i class="fa fa-check"></i><b>8.2</b> The dependent groups t-test (Within-subjects t-test)</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#r-codes-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.1</b> R codes for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.2" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#assumption-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.2</b> Assumption for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.3" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#robust-estimation-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.3</b> Robust estimation for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.4" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#effect-size-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.4</b> Effect size for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.5" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#missing-data-techniques-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.5</b> Missing data techniques for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.6" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#supportive-graphs-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.6</b> Supportive graphs for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.7" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#power-calculations-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.7</b> Power calculations for the dependent groups t-test</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#common-designs"><i class="fa fa-check"></i><b>8.3</b> Common Designs</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#designs-in-which-scores-in-the-two-treatments-are-correlated"><i class="fa fa-check"></i><b>8.3.1</b> Designs in which Scores in the Two Treatments are Correlated</a></li>
+<li class="chapter" data-level="8.3.2" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#designbetween"><i class="fa fa-check"></i><b>8.3.2</b> Designs in which Scores in the Two Treatments are Independent</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html"><i class="fa fa-check"></i><b>9</b> Analysis of Variance (ANOVA)</a><ul>
+<li class="chapter" data-level="9.1" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#terminology"><i class="fa fa-check"></i><b>9.1</b> Terminology</a></li>
+<li class="chapter" data-level="9.2" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#between-subjects-anova"><i class="fa fa-check"></i><b>9.2</b> Between Subjects ANOVA</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#one-way-between-subjects-anova"><i class="fa fa-check"></i><b>9.2.1</b> One-way Between Subjects ANOVA</a></li>
+<li class="chapter" data-level="9.2.2" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#two-factor-between-subjects-anova"><i class="fa fa-check"></i><b>9.2.2</b> Two-Factor Between Subjects ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#within-subjects-anova"><i class="fa fa-check"></i><b>9.3</b> Within Subjects ANOVA</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#one-way-within-subjects-anova"><i class="fa fa-check"></i><b>9.3.1</b> One-way Within-Subjects ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#mixed-design"><i class="fa fa-check"></i><b>9.4</b> Mixed Design</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="correlation.html"><a href="correlation.html"><i class="fa fa-check"></i><b>10</b> Correlation</a><ul>
+<li class="chapter" data-level="10.1" data-path="correlation.html"><a href="correlation.html#pearson-correlation-coefficient"><i class="fa fa-check"></i><b>10.1</b> Pearson correlation coefficient</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="correlation.html"><a href="correlation.html#inference-on-a-pearson-correlation-coefficient"><i class="fa fa-check"></i><b>10.1.1</b> Inference on a Pearson correlation coefficient</a></li>
+<li class="chapter" data-level="10.1.2" data-path="correlation.html"><a href="correlation.html#r-codes-for-pearson-correlation-coefficent"><i class="fa fa-check"></i><b>10.1.2</b> R codes for Pearson Correlation coefficent</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="correlation.html"><a href="correlation.html#spearmans-rho-and-kendalls-tau"><i class="fa fa-check"></i><b>10.2</b> Spearman’s rho and Kendall’s tau</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="correlation.html"><a href="correlation.html#the-r-code-for-spearmans-rho-and-kendalls-tau"><i class="fa fa-check"></i><b>10.2.1</b> The R code for Spearman’s rho and Kendall’s tau</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="correlation.html"><a href="correlation.html#biserial-and-point-biserial-correlation-coefficients-with-r"><i class="fa fa-check"></i><b>10.3</b> Biserial and Point-Biserial Correlation Coefficients with R</a></li>
+<li class="chapter" data-level="10.4" data-path="correlation.html"><a href="correlation.html#phi-correlation-coefficient-with-r"><i class="fa fa-check"></i><b>10.4</b> Phi Correlation Coefficient with R</a></li>
+<li class="chapter" data-level="10.5" data-path="correlation.html"><a href="correlation.html#issues-in-interpreting-correlation-coefficients"><i class="fa fa-check"></i><b>10.5</b> Issues in Interpreting Correlation Coefficients</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html"><i class="fa fa-check"></i><b>11</b> Multiple Linear Regression, A Short Introduction</a><ul>
+<li class="chapter" data-level="11.1" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#matricies-and-least-square-estimation"><i class="fa fa-check"></i><b>11.1</b> Matricies and Least Square Estimation</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#a-essentially-all-models-are-wrong-but-some-are-useful."><i class="fa fa-check"></i><b>11.1.1</b> a) “Essentially, all models are wrong, but some are useful.”</a></li>
+<li class="chapter" data-level="11.1.2" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#b-strength-of-relationship-between-the-dependent-and-independent-variables"><i class="fa fa-check"></i><b>11.1.2</b> b) Strength of relationship between the dependent and independent variables</a></li>
+<li class="chapter" data-level="11.1.3" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#c-residuals-and-influential-data-points"><i class="fa fa-check"></i><b>11.1.3</b> c) Residuals and influential data points</a></li>
+<li class="chapter" data-level="11.1.4" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#d-equal-variance-assumption"><i class="fa fa-check"></i><b>11.1.4</b> d) <em>Equal variance assumption</em></a></li>
+<li class="chapter" data-level="11.1.5" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#e-hypothesis-testing"><i class="fa fa-check"></i><b>11.1.5</b> e) Hypothesis testing</a></li>
+<li class="chapter" data-level="11.1.6" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#f-variable-selection"><i class="fa fa-check"></i><b>11.1.6</b> f) Variable Selection</a></li>
+<li class="chapter" data-level="11.1.7" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#g-colliniearity"><i class="fa fa-check"></i><b>11.1.7</b> g) Colliniearity</a></li>
+<li class="chapter" data-level="11.1.8" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#h-non-linearity"><i class="fa fa-check"></i><b>11.1.8</b> h) Non-linearity</a></li>
+<li class="chapter" data-level="11.1.9" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#i-correlated-errors-and-nonindependent-errors"><i class="fa fa-check"></i><b>11.1.9</b> i) Correlated errors and nonindependent errors</a></li>
+<li class="chapter" data-level="11.1.10" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#j-centering-and-scaling"><i class="fa fa-check"></i><b>11.1.10</b> j) Centering and Scaling</a></li>
+<li class="chapter" data-level="11.1.11" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#k-standardized-coefficients"><i class="fa fa-check"></i><b>11.1.11</b> k) Standardized coefficients</a></li>
+<li class="chapter" data-level="11.1.12" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#l-interactions"><i class="fa fa-check"></i><b>11.1.12</b> l) Interactions</a></li>
+<li class="chapter" data-level="11.1.13" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#m-estimators"><i class="fa fa-check"></i><b>11.1.13</b> m) Estimators</a></li>
+<li class="chapter" data-level="11.1.14" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#n-robust-regression"><i class="fa fa-check"></i><b>11.1.14</b> n) Robust Regression</a></li>
+<li class="chapter" data-level="11.1.15" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#o-sample-size-and-statistical-power"><i class="fa fa-check"></i><b>11.1.15</b> o) Sample size and statistical power</a></li>
+<li class="chapter" data-level="11.1.16" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#p-reliability-of-variables"><i class="fa fa-check"></i><b>11.1.16</b> p) Reliability of variables</a></li>
+<li class="chapter" data-level="11.1.17" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#q-the-nature-of-the-variables"><i class="fa fa-check"></i><b>11.1.17</b> q) The nature of the variables</a></li>
+<li class="chapter" data-level="11.1.18" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#r-multiple-dependent-variables"><i class="fa fa-check"></i><b>11.1.18</b> r) Multiple dependent variables</a></li>
+<li class="chapter" data-level="11.1.19" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#s-missing-variables"><i class="fa fa-check"></i><b>11.1.19</b> s) Missing variables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="useful-r-codes.html"><a href="useful-r-codes.html"><i class="fa fa-check"></i><b>12</b> Useful R codes</a><ul>
+<li class="chapter" data-level="12.1" data-path="useful-r-codes.html"><a href="useful-r-codes.html#more-on-the-apastyle-package"><i class="fa fa-check"></i><b>12.1</b> More on the apaStyle package</a></li>
+<li class="chapter" data-level="12.2" data-path="useful-r-codes.html"><a href="useful-r-codes.html#a-useful-shiny-application"><i class="fa fa-check"></i><b>12.2</b> A useful shiny application</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">BETA: An R Platform for Social Scientists</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="analysis-of-variance-anova" class="section level1">
+<h1><span class="header-section-number"> 9</span> Analysis of Variance (ANOVA)</h1>
+<div id="terminology" class="section level2">
+<h2><span class="header-section-number">9.1</span> Terminology</h2>
+<p>Designs are usually described using a standard terminology. The following is an introduction to this terminology.</p>
+<p><strong>Factor</strong> a collection of treatments. For example, in the Magnetic vs. Inactive device study, device is a factor. In the priming study, type of prime word is a factor.</p>
+<p><strong>Level</strong> an instance of a factor. In the Magnetic vs. Inactive device study <a href="comparing-two-means-the-t-test.html#designbetween">8.3.2</a>, magnetic device is a level of the type of instruction factor, as is inactive device. In the priming study, weapon word is a level of the type of prime word factor, as is non-weapon word.</p>
+<p><strong>Crossed factors</strong> two factors are crossed if each level of one factor occurs in combination with every level of the second factor. For example, consider the diagram of a repeated measures design in which the treatment factor has two levels.</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Levels of Treatment Factor</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>Subjects</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>.</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>n</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Subjects can be considered a factor and is crossed with the treatment factor since each subject occurs in combination with each treatment.</p>
+<p><strong>Nesting</strong> one factor is nested in a second factor if each level of the first factor occurs in combination with only one level of the second factor. For example, consider the following diagram of an independent samples design in which the treatment factor has two levels.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Levels of Treatment Factor</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(S_1\)</span></td>
+<td><span class="math inline">\(S_{n+1}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(S_2\)</span></td>
+<td><span class="math inline">\(S_{n+2}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(S_3\)</span></td>
+<td><span class="math inline">\(S_{n+3}\)</span></td>
+</tr>
+<tr class="odd">
+<td>…</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(S_n\)</span></td>
+<td><span class="math inline">\(S_{2n}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Subjects are nested in treatments because each subjects appears in only one treatment.</p>
+<p><strong>Within-subjects factor</strong> a factor that is crossed with subjects. The name derives from the fact that the levels of the factor vary within a subject as can be seen in the diagram for the repeated measures design. The following designs have a within-subjects factor: subjects as own control and longitudinal, both of which are examples of repeated measures designs.</p>
+<p><strong>Within-blocks factor</strong> a factor that is crossed with blocks. The name derives from the fact that the levels of the factor vary within a block as can be seen in the following diagram.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Block</th>
+<th align="center">Levels of factor</th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"></td>
+<td align="center">1</td>
+<td align="center">2</td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">…</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">n</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p>The following designs have a within-blocks factor: randomized block, nonrandomized block, familial, and dyads.</p>
+<p>Many people do not distinguish between within-subjects and within-blocks factors, because they lead to the same method of analysis. Typically, we will not distinguish between the two types of factors and will label both as a within-subjects factor.</p>
+<p><strong>Between-subjects factor</strong> a factor that has subjects nested in its levels; the subjects in the levels are not crossed with blocks. The qualifier following the semi-colon is necessary to distinguish a between-subjects factor from a within-blocks factor because in both factors a subject is assigned to only one level of a factor. This can be seen from the diagram for the independent samples design:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Levels of Treatment Factor</th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">2</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(S_1\)</span></td>
+<td align="center"><span class="math inline">\(S_{n+1}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(S_2\)</span></td>
+<td align="center"><span class="math inline">\(S_{n+2}\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(S_3\)</span></td>
+<td align="center"><span class="math inline">\(S_{n+3}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">…</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(S_n\)</span></td>
+<td align="center"><span class="math inline">\(S_{2n}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="between-subjects-anova" class="section level2">
+<h2><span class="header-section-number">9.2</span> Between Subjects ANOVA</h2>
+<p>The name between-subjects derives from the fact that the levels of the factor vary between subjects.</p>
+<div id="one-way-between-subjects-anova" class="section level3">
+<h3><span class="header-section-number">9.2.1</span> One-way Between Subjects ANOVA</h3>
+<p>The structural model for a one-factor between subjects ANOVA is <span class="math inline">\(Y_{ij}=\mu+\alpha_{j}+\epsilon_{ij}\)</span>, in which <span class="math inline">\(Y_{ij}\)</span> is the score for the participant <em>i</em> in group <em>j</em>, <span class="math inline">\(\mu\)</span> is the grand mean of the scores, <span class="math inline">\(\alpha_j\)</span> is the effect of the level <em>j</em>, and <span class="math inline">\(\epsilon_{ij}\)</span> is the error term (nuisance). It can be shown that <span class="math inline">\(\mu_j=\mu+\alpha_j\)</span>, where <span class="math inline">\(\mu_j\)</span> is the the mean for the jth level of the factor.</p>
+<p>Generally, the interest is on <span class="math inline">\(\alpha_j\)</span> because it represents <span class="math inline">\(\mu_j-\mu\)</span>. This interest leads to hypothesis testing: <span class="math inline">\(H_0: \mu_1 = \mu_2 = \cdots = \mu_j\)</span></p>
+<p>The alternative hypothesis states that at least one population mean is different. It is possible to test the null by partitioning the variance, for a one factor model using the notation by <span class="citation">Myers et al. (<a href="#ref-myerswell13">2013</a>)</span></p>
+<table style="width:53%;">
+<colgroup>
+<col width="13%" />
+<col width="11%" />
+<col width="9%" />
+<col width="9%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">SV</th>
+<th align="center">df</th>
+<th align="center">SS</th>
+<th align="center">MS</th>
+<th align="center">F</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Total</td>
+<td align="center"><span class="math inline">\(N-1\)</span></td>
+<td align="center"><span class="math inline">\(\sum_{j=1}^{J}\sum_{i=1}^{n_j}(Y_{ij} - \bar{Y}_{\cdot \cdot})^2\)</span></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">A</td>
+<td align="center"><span class="math inline">\(J-1\)</span></td>
+<td align="center"><span class="math inline">\(\sum_{j=1}^{J}n_j(\bar{Y}_{\cdot j}-\bar{Y{\cdot \cdot}})^2\)</span></td>
+<td align="center"><span class="math inline">\(SS_A/df_{A}\)</span></td>
+<td align="center"><span class="math inline">\(MS_A/MS_{S/A}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">S/A</td>
+<td align="center"><span class="math inline">\(N-J\)</span></td>
+<td align="center"><span class="math inline">\(\sum_{j=1}^{J}\sum_{i=1}^{n_j}(Y_{ij} - \bar{Y}_{\cdot j})^2\)</span></td>
+<td align="center"><span class="math inline">\(SS_{S/A} / df_{S/A}\)</span></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th align="center">SV</th>
+<th align="center">EMS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Total</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">A</td>
+<td align="center"><span class="math inline">\(\sigma_{S/A}^2 + \frac{1}{J-1} \sum_{j} n_j (\mu_j-\mu)^2\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">S/A</td>
+<td align="center"><span class="math inline">\(\sigma_{S/A}^2\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>where SV=Source of Variance, df=degrees of freedom, SS=Sum of squares, MS= Mean Square, EMS= Expected Mean Square, A is the between subjects factor with J levels, S/A is the subjects within A, N is the total sample size, j=1,…,J factor level indicator, i=1,…,<span class="math inline">\(n_j\)</span> individual indicator, <span class="math inline">\(Y_{ij}\)</span> is the individual score, <span class="math inline">\(\bar{Y}_{\cdot \cdot}\)</span> is the grand mean, <span class="math inline">\(\bar{Y}_{\cdot j}\)</span> is the group j’s mean.</p>
+<p>The ratio of <span class="math inline">\(MS_{A}/ MS_{S/A}\)</span> , when the null is true and assumptions are met, follows an F distribution with J-1 and N-J degrees of freedom; hence, if <span class="math inline">\(MS_{A}/ MS_{S/A}\)</span> is larger than the <span class="math inline">\(F_{\alpha,J-1,N-J}\)</span> the null is rejected.</p>
+<div id="effect-size-for-one-way-between-subjects-anova" class="section level4">
+<h4><span class="header-section-number">9.2.1.1</span> Effect size for one-way between-subjects ANOVA</h4>
+<p>To simplify the illustration, let us assume each treatment level has the same number of participants, <span class="math inline">\(n_1=n_2=\cdots=n_j=n\)</span>. Hence, the expected mean square for A is <span class="math inline">\(\sigma^2+n\theta^2_A\)</span> in which <span class="math display">\[\theta^2_A=\sum_{j=1}^{J}\frac{(\mu-\mu_j)^2}{J-1}\]</span>.</p>
+<p>The estimate of <span class="math inline">\(\theta^2_A\)</span>, the <span class="math inline">\(\hat\theta^2_A\)</span> is equal to <span class="math inline">\(\frac{MS_A-MS_{S/A}}{n}\)</span>, and the estimate of <span class="math inline">\(\sigma_{S/A}^2\)</span>, the <span class="math inline">\(\hat\sigma_{S/A}\)</span> is equal to <span class="math inline">\(MS_{S/A}\)</span></p>
+<p>As stated in Section <a href="comparing-two-means-the-t-test.html#indepteff">8.1.4</a> to judge whether a mean difference is large in a substantive sense one can use an effect size. For a one-way between subjects ANOVA, reporting at least one type of effect size is a general practice. Among them, omega-hat-squared (<span class="math inline">\(\hat\omega^2\)</span>), eta-hat-squared (<span class="math inline">\(\hat\eta^2\)</span>) and <span class="math inline">\(f\)</span> are well known.</p>
+<div id="omega-squared-for-one-way-between-subjects-anova" class="section level5">
+<h5><span class="header-section-number">9.2.1.1.1</span> Omega-squared for one-way between-subjects ANOVA</h5>
+<p>Omega-hat-squared is the proportion of total variance that is due to the factor. <span class="math inline">\(\hat\omega^2=\frac{(J-1)\hat\theta^2/J}{((J-1)\hat\theta^2/J)+\hat\sigma^2_{S/A})}\)</span></p>
+<p>An omega-squared is considered small if it is 0.01, medium if 0.06, large if 0.14 <span class="citation">Myers et al. (<a href="#ref-myerswell13">2013</a>)</span>.</p>
+</div>
+<div id="eta-squared-for-one-way-between-subjects-anova" class="section level5">
+<h5><span class="header-section-number">9.2.1.1.2</span> Eta-squared for one-way between-subjects ANOVA</h5>
+<p><span class="math inline">\(\hat\eta^2=\frac{SS_A}{SS_{Total}}\)</span> also attempts to estimate the proportion of total variance that is due to the factor.</p>
+<p><span class="math inline">\(\hat\eta^2\)</span> is larger than <span class="math inline">\(\hat\omega^2\)</span> because <span class="math inline">\(\hat\eta^2\)</span> is a positively biased statistics, that is, it tends to be too large, especially when n is small.</p>
+<p><span class="math inline">\(\hat\eta^2\)</span> is probably the most widely used effect size for ANOVA and also reported in a regression fashion as <span class="math inline">\(R^2\)</span>.</p>
+</div>
+<div id="effect-size-f-for-one-way-between-subjects-anova" class="section level5">
+<h5><span class="header-section-number">9.2.1.1.3</span> Effect size f for one-way between-subjects ANOVA</h5>
+<p>Cohen’s <span class="math inline">\(f=\frac{\hat\theta_A}{\hat\sigma_{S/A}}\)</span>. An f value is considered small if it is 0.10, medium if 0.25, large if 0.40.</p>
+</div>
+<div id="a-general-note-on-the-effect-size-measures" class="section level5">
+<h5><span class="header-section-number">9.2.1.1.4</span> A general note on the Effect Size Measures</h5>
+<p>For illustrative purposes, we briefly summarized effect size measures for equal sample size in each group. In practice it is generally not common to have equal sample sizes. It is also not common to have a single factor design. In addition, factors in a design are either measured or manipulated, which which affect the effect size computation. The <em>ezANOVA</em> function (<span class="citation">Lawrence (<a href="#ref-R-ez">2016</a>)</span>) reports generalized eta-squares based on <span class="citation">Bakeman (<a href="#ref-Bakeman2005">2005</a>)</span>. The work by <span class="citation">Bakeman (<a href="#ref-Bakeman2005">2005</a>)</span> encourages researchers to use generalized eta-squared defined by <span class="citation">Olejnik and Algina (<a href="#ref-olejnikalgina03">2003</a>)</span>. Hence, a convenient choice for a researcher is to use the <em>ezANOVA</em> function, while paying attention to the <em>observed</em> argument to declare the measured factors. On the other hand, if it is not desired to be dependent on an R package, the researcher can examine and apply the formulae by <span class="citation">Olejnik and Algina (<a href="#ref-olejnikalgina03">2003</a>)</span>.</p>
+</div>
+</div>
+<div id="testing-specific-contrasts-of-means" class="section level4">
+<h4><span class="header-section-number">9.2.1.2</span> Testing specific contrasts of means</h4>
+<p>Either in addition to or in place of the ANOVA, specific contrasts (comparisons) of means may be tested. A contrast is a weighted sum of means in which the weights sum to zero. There are two classes of contrasts: pairwise contrasts and complex contrasts. To illustrate these classes consider a one-way design in which the factor has three levels, a control treatment and two active treatments. Let the population means for these levels be <span class="math inline">\(\mu_1\)</span>, <span class="math inline">\(\mu_2\)</span>, and <span class="math inline">\(\mu_3\)</span>, respectively. In a pairwise contrast two means are compared and the weights are 1 for one mean, -1 for another and zero for all others. A pairwise contrast of the means for the active treatments is <span class="math inline">\((0)\mu_1+(1)\mu_2+(-1)\mu_3\)</span>. The complex contrast <span class="math inline">\((-1) \mu_1+(.5)\mu_2+(.5)\mu_3\)</span> is a comparison of the mean for the control group to the average of the means for the two active treatments. Under the assumptions of a one-way between-subjects ANOVA, the null hypothesis that a contrast is equal to zero can be tested using</p>
+<p><span class="math display">\[t=\frac{\sum_{j=1}^J(w_j\bar{Y})}{\sqrt{MS_{S/A}\sum_{j=1}^J(\frac{w_j^2}{n_j})}}\]</span></p>
+</div>
+<div id="testing-all-possible-pairwise-comparisons" class="section level4">
+<h4><span class="header-section-number">9.2.1.3</span> Testing all possible pairwise comparisons</h4>
+<p>There are several procedures for testing all possible pairwise contrasts. An important issue in such testing is the error rate to control. Controlling an error rate means keeping it at or below some conventional level (e.g., .05). Two of the most common error rates are the per comparison error rate and the familywise error rate. The per comparison error rate is the probability of making a Type I error when one of the contrasts is tested. To control the per comparison error rate the critical value for a pairwise comparison is <span class="math inline">\(\pm t_{(1-\alpha⁄2),N-J}\)</span>. When this critical value is used, the per comparison error rate is <span class="math inline">\(\alpha\)</span>. The family wise error rate is the probability of falsely rejecting one of more of the contrasts. If all pairwise contrasts are equal to zero, the family wise error rate is between <span class="math inline">\(\alpha\)</span> and <span class="math inline">\([J(J-1)⁄2]\alpha\)</span>. The upper limit can be quite high even when the number of levels of the factor is small. For example if there are J=3 levels, the upper limit is <span class="math inline">\(3\alpha\)</span>. There are several procedures for controlling the familywise error rate.</p>
+<div id="trend-analyses-following-one-way-between-subjects-anova" class="section level5">
+<h5><span class="header-section-number">9.2.1.3.1</span> Trend analyses following one-way between-subjects ANOVA</h5>
+<p>To be added.</p>
+</div>
+</div>
+<div id="moreonindependence" class="section level4">
+<h4><span class="header-section-number">9.2.1.4</span> Assumptions of the one-way between-subjects ANOVA</h4>
+<p>The assumptions of the one-way between-subjects ANOVA are the same as the assumptions of the independent samples t test.</p>
+<ol style="list-style-type: decimal">
+<li><p>Independence. The scores in each group should be independently distributed and the scores in different groups should also be independent. The validity of this assumption in regard to independence within groups is questionable when (a) scores for participants within a group are collected over time or (b) the participants within a group work together in a manner such that a participant’s response could have been influenced by another participant in the study. The validity of this assumption in regard to independence between groups is questionable when the factor is a within-subjects factor rather than a between-subjects factor. Violating the independence assumption is a critical violation that usually can be addresses by adopting an analysis appropriate for the lack of independence. For example, if there are different participants in each group, but within each group there are subgroups of participants who work together then according to (b) above independence is likely to have been violated. This violation can be addressed by using multilevel analysis. If there are different participants in each group, but the participants in the groups have been matched, using a randomized block ANOVA can address the violation of independence.</p></li>
+<li><p>Normality. The scores with each group are drawn from a normal distribution. Statistical power is likely to be compromised if the distributions of scores have long tails. When the sample sizes are equal violating normality is not likely to affect the type I error rate, unless the non-normality is severe and the sample sizes are small.</p></li>
+<li><p>Equal variance. This assumption is also called the homogeneity of variance assumption and means it is assumed that samples in the J groups are drawn from J populations with equal variances. Violation of the equal variance assumption is likely to affect the Type I error rate except when the sample sizes are equal and fairly large.</p></li>
+</ol>
+<p>Even though we briefly summarized the assumptions of the one-way between subjects ANOVA above, they were only introductory. If independence does not appear to be violated, then when the sample sizes are equal and at least 20 in each group and the scores are approximately normally distributed the one-way between subjects ANOVA can be used. In other situations alternatives should be used. When the robust analyses (e. g. <span class="citation">Wilcox (<a href="#ref-wilcox2012">2012</a>)</span>) and conventional analyses yield the same decisions about <strong>all hypothesis tests</strong>, results of the conventional analyses can be reported due to their greater familiarity to most readers.</p>
+</div>
+<div id="r-codes-for-a-one-way-between-subjects-anova" class="section level4">
+<h4><span class="header-section-number">9.2.1.5</span> R codes for a one-way between-subjects ANOVA</h4>
+<p>For illustrative purposes, the city of KOCAELI is subsetted from the DataWBT (Section <a href="preface.html#dataWBT">2.3</a>). The gender attitudes scores is the dependent variable and the highest degree completed is the between subjects factor. This factor had seven levels; no-degree, primary school, middle school, high school,vocational high school, 2 year college and bachelors. However, there is only one participant in the <em>no-degree</em> group. We combined the no-degree and primary school groups. The gender attitude score for this participant is 1.6.<a href="#fn14" class="footnoteRef" id="fnref14"><sup>14</sup></a></p>
+<p>Step 1: Set up data and report descriptive</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
+<span class="co"># load csv from an online repository</span>
+urlfile=<span class="st">&#39;https://raw.githubusercontent.com/burakaydin/materyaller/gh-pages/ARPASS/dataWBT.csv&#39;</span>
+dataWBT=<span class="kw">read.csv</span>(urlfile)
+
+<span class="co">#remove URL </span>
+<span class="kw">rm</span>(urlfile)
+
+<span class="co">#select the city of KOCAELI</span>
+<span class="co"># listwise deletion for gen_att and education variables</span>
+dataWBT_KOCAELI=<span class="kw">na.omit</span>(dataWBT[dataWBT$city==<span class="st">&quot;KOCAELI&quot;</span>,
+                                <span class="kw">c</span>(<span class="st">&quot;id&quot;</span>,<span class="st">&quot;gen_att&quot;</span>,<span class="st">&quot;education&quot;</span>)])
+
+
+<span class="co">#There is only 1 participant in the level &quot;None&quot;, merge it into Primary school</span>
+<span class="co"># the gender attitude score for this participant is 1.6 </span>
+<span class="kw">library</span>(car)
+dataWBT_KOCAELI$eduNEW &lt;-<span class="st"> </span><span class="kw">recode</span>(dataWBT_KOCAELI$education,
+                                 <span class="st">&quot;&#39;None&#39;=&#39;Primary School (5 years)&#39;&quot;</span>)
+
+dataWBT_KOCAELI$eduNEW &lt;-<span class="st"> </span><span class="kw">recode</span>(dataWBT_KOCAELI$eduNEW,
+                                 <span class="st">&quot;&#39;High School (Lycee)&#39;=</span>
+<span class="st">                                 &#39;High School (Lycee) (4 years)&#39;&quot;</span>)
+
+dataWBT_KOCAELI$eduNEW &lt;-<span class="st"> </span><span class="kw">recode</span>(dataWBT_KOCAELI$eduNEW,
+                                 <span class="st">&quot;&#39;Vocational School&#39;=</span>
+<span class="st">                                 &#39;Vocational High School (4 years)&#39;&quot;</span>)
+<span class="co">#table(dataWBT_KOCAELI$eduNEW)</span>
+
+##optional re-order levels (cosmetic)
+<span class="co">#levels(dataWBT_KOCAELI$eduNEW)</span>
+dataWBT_KOCAELI$eduNEW =<span class="st"> </span><span class="kw">factor</span>(dataWBT_KOCAELI$eduNEW,
+                         <span class="kw">levels</span>(dataWBT_KOCAELI$eduNEW)[<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">6</span>,<span class="dv">2</span>,<span class="dv">5</span>)])
+
+
+<span class="co">#which(dataWBT_KOCAELI$education==&quot;None&quot;)</span>
+
+<span class="co">#drop empty levels</span>
+dataWBT_KOCAELI$eduNEW=<span class="kw">droplevels</span>(dataWBT_KOCAELI$eduNEW)
+
+
+<span class="co">#get descriptives </span>
+<span class="kw">library</span>(psych)
+desc1BW=<span class="kw">data.frame</span>(<span class="kw">with</span>(dataWBT_KOCAELI,
+                        <span class="kw">describeBy</span>(gen_att, eduNEW,<span class="dt">mat=</span>T,<span class="dt">digits =</span> <span class="dv">2</span>)),
+                        <span class="dt">row.names=</span><span class="ot">NULL</span>)
+
+
+<span class="co">#select relevant descriptives</span>
+<span class="co"># Table 1</span>
+desc1BW[,<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">13</span>,<span class="dv">14</span>)]
+##                                 group1   n mean   sd median  skew kurtosis
+## 1             Primary School (5 years)  70 2.11 0.41    2.2 -0.19     0.81
+## 2 Junior High/ Middle School (8 years)  94 2.08 0.52    2.1 -0.35    -0.37
+## 3        High School (Lycee) (4 years) 158 1.84 0.58    2.0  0.29     0.64
+## 4     Vocational High School (4 years)  74 2.04 0.50    2.0 -0.14     0.41
+## 5          Higher education of 2 years 112 1.80 0.53    1.8  0.28    -0.36
+## 6    University - Undergraduate degree  62 1.78 0.53    1.8  0.06    -0.63
+<span class="co">#write.csv(desc1BW,file=&quot;onewayB_ANOVA_desc.csv&quot;)</span></code></pre></div>
+<p>Step 2: Check assumptions</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
+<span class="kw">require</span>(ggplot2)
+<span class="kw">ggplot</span>(dataWBT_KOCAELI, <span class="kw">aes</span>(<span class="dt">x =</span> gen_att)) +
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..),<span class="dt">col=</span><span class="st">&quot;black&quot;</span>,<span class="dt">binwidth =</span> <span class="fl">0.2</span>,<span class="dt">alpha=</span><span class="fl">0.7</span>) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">size=</span><span class="fl">1.5</span>) +
+<span class="st">  </span><span class="kw">theme_bw</span>()+<span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Gender Attitude by Degree in Kocaeli&quot;</span>)+<span class="st"> </span><span class="kw">facet_wrap</span>(~<span class="st"> </span>eduNEW)+
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>),
+        <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>,<span class="dt">face=</span><span class="st">&quot;bold&quot;</span>))</code></pre></div>
+<div class="figure"><span id="fig:genattKOCAELI"></span>
+<img src="SARP_files/figure-html/genattKOCAELI-1.png" alt="Gender Attitudes by Degree " width="672" />
+<p class="caption">
+Figure 9.1: Gender Attitudes by Degree
+</p>
+</div>
+<p>Departures from the normality do not seem to be severe.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
+<span class="kw">require</span>(ggplot2)
+<span class="kw">ggplot</span>(dataWBT_KOCAELI, <span class="kw">aes</span>(eduNEW,gen_att)) +
+<span class="st">  </span><span class="kw">geom_boxplot</span>() +<span class="st"> </span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Education&quot;</span>,<span class="dt">y=</span><span class="st">&quot;Gender Attitude by degree in Kocaeli&quot;</span>)+<span class="kw">coord_flip</span>()</code></pre></div>
+<div class="figure"><span id="fig:genattKOCAELIbox"></span>
+<img src="SARP_files/figure-html/genattKOCAELIbox-1.png" alt="Gender Attitudes by Degree " width="672" />
+<p class="caption">
+Figure 9.2: Gender Attitudes by Degree
+</p>
+</div>
+<p>Homogeneity of variance is questionable but not severely violated.</p>
+<p>Step 3: Run ANOVA</p>
+<p>For illustrative purposes, let us ignore the violations first. The <em>ezANOVA</em> function (<span class="citation">Lawrence (<a href="#ref-R-ez">2016</a>)</span>) reports the F test, the Levene Test and an effect size. Type of the effect size depends on the model. For further details, please carefully study the Table 1 in <span class="citation">Bakeman (<a href="#ref-Bakeman2005">2005</a>)</span>, an open access article, or <span class="citation">Olejnik and Algina (<a href="#ref-olejnikalgina03">2003</a>)</span>. The Levene test rejects the null hypothesis of equal variances across factor levels.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
+<span class="kw">library</span>(ez)
+<span class="co">#the ezANOVA function throws a warning if id is not a factor</span>
+
+dataWBT_KOCAELI$id=<span class="kw">as.factor</span>(dataWBT_KOCAELI$id)
+
+<span class="co"># set the number of decimals (cosmetic)</span>
+<span class="kw">options</span>(<span class="dt">digits =</span> <span class="dv">3</span>)
+
+
+<span class="co">#alternative 1 the ezANOVA function</span>
+
+alternative1 =<span class="st"> </span><span class="kw">ezANOVA</span>(
+    <span class="dt">data =</span> dataWBT_KOCAELI,
+    <span class="dt">wid=</span>id, <span class="dt">dv =</span> gen_att, <span class="dt">between =</span> eduNEW,<span class="dt">observed=</span>eduNEW)
+## Warning: Data is unbalanced (unequal N per group). Make sure you specified
+## a well-considered value for the type argument to ezANOVA().
+
+alternative1
+## $ANOVA
+##   Effect DFn DFd    F        p p&lt;.05    ges
+## 1 eduNEW   5 564 7.27 1.31e-06     * 0.0605
+## 
+## $`Levene&#39;s Test for Homogeneity of Variance`
+##   DFn DFd  SSn  SSd   F      p p&lt;.05
+## 1   5 564 1.35 63.5 2.4 0.0361     *
+
+
+
+<span class="co"># critical F value</span>
+<span class="kw">qf</span>(.<span class="dv">95</span>,<span class="dv">5</span>,<span class="dv">564</span>)
+## [1] 2.23</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
+ABOUT the warning of ez function; 
+<span class="co">#Warning: Data is unbalanced (unequal N per group). Make sure you specified</span>
+<span class="co">#a well-considered value for the type argument to ezANOVA().</span>
+
+ezANOVA can calculate three different types of sums of squares 
+for main effects and interactions.  
+For a one-way between-subjects design the F test is the same 
+for all three types and this warning can be ignored.</code></pre></div>
+<p>The same results can be obtained with the <em>lm</em> (linear model) function in <span class="citation">R Core Team (<a href="#ref-R-base">2016</a><a href="#ref-R-base">b</a>)</span>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
+<span class="co"># alternative 2 the lm function</span>
+alternative2=<span class="kw">lm</span>(gen_att~eduNEW,<span class="dt">data=</span>dataWBT_KOCAELI)
+
+<span class="co">#Table 2</span>
+<span class="kw">anova</span>(alternative2)
+## Analysis of Variance Table
+## 
+## Response: gen_att
+##            Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+## eduNEW      5  10.13 2.02610  7.2676 1.306e-06 ***
+## Residuals 564 157.24 0.27879                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre></div>
+<p>The <em>aov</em> function in <span class="citation">R Core Team (<a href="#ref-R-base">2016</a><a href="#ref-R-base">b</a>)</span> is the third alternative.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
+<span class="co">#alternative 3 the aov function</span>
+alternative3=<span class="kw">aov</span>(gen_att~eduNEW,<span class="dt">data=</span>dataWBT_KOCAELI)
+<span class="kw">summary</span>(alternative3)
+##              Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+## eduNEW        5  10.13  2.0261   7.268 1.31e-06 ***
+## Residuals   564 157.24  0.2788                     
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre></div>
+<p>The <em>pairwise.t.test</em> function in the <em>stats</em> package (<span class="citation">R Core Team (<a href="#ref-R-base">2016</a><a href="#ref-R-base">b</a>)</span>) is convenient. Provide the preferred procedure by using <em>p.adjust.method</em> argument, for example <em>p.adjust.method =“Holm”</em> to use the adjustment given by <span class="citation">Holm (<a href="#ref-holm1979">1979</a>)</span>. Five other procedures are available with this function, please see <em>?p.adjust</em>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
+<span class="co"># pairwise comparisons</span>
+<span class="co"># Table 3</span>
+<span class="kw">with</span>(dataWBT_KOCAELI, <span class="kw">pairwise.t.test</span>(gen_att,eduNEW,<span class="dt">p.adjust.method =</span><span class="st">&quot;holm&quot;</span>))
+## 
+##  Pairwise comparisons using t tests with pooled SD 
+## 
+## data:  gen_att and eduNEW 
+## 
+##                                      Primary School (5 years)
+## Junior High/ Middle School (8 years) 1.0000                  
+## High School (Lycee) (4 years)        0.0040                  
+## Vocational High School (4 years)     1.0000                  
+## Higher education of 2 years          0.0014                  
+## University - Undergraduate degree    0.0043                  
+##                                      Junior High/ Middle School (8 years)
+## Junior High/ Middle School (8 years) -                                   
+## High School (Lycee) (4 years)        0.0046                              
+## Vocational High School (4 years)     1.0000                              
+## Higher education of 2 years          0.0017                              
+## University - Undergraduate degree    0.0057                              
+##                                      High School (Lycee) (4 years)
+## Junior High/ Middle School (8 years) -                            
+## High School (Lycee) (4 years)        -                            
+## Vocational High School (4 years)     0.0435                       
+## Higher education of 2 years          1.0000                       
+## University - Undergraduate degree    1.0000                       
+##                                      Vocational High School (4 years)
+## Junior High/ Middle School (8 years) -                               
+## High School (Lycee) (4 years)        -                               
+## Vocational High School (4 years)     -                               
+## Higher education of 2 years          0.0176                          
+## University - Undergraduate degree    0.0357                          
+##                                      Higher education of 2 years
+## Junior High/ Middle School (8 years) -                          
+## High School (Lycee) (4 years)        -                          
+## Vocational High School (4 years)     -                          
+## Higher education of 2 years          -                          
+## University - Undergraduate degree    1.0000                     
+## 
+## P value adjustment method: holm</code></pre></div>
+</div>
+<div id="robust-estimation-and-hypothesis-testing-for-a-one-way-between-subjects-design" class="section level4">
+<h4><span class="header-section-number">9.2.1.6</span> Robust estimation and hypothesis testing for a one-way between-subjects design</h4>
+<p>Several approaches to conducting a robust one-way between subjects ANOVA, have been presented by <span class="citation">Wilcox (<a href="#ref-wilcox2012">2012</a>)</span> One of the convenient robust procedure , a heteroscedastic one-way ANOVA for trimmed means, has been compressed into the <em>t1way</em> function, available via WRS-2 (<span class="citation">Mair and Wilcox (<a href="#ref-R-WRS2">2016</a>)</span>). Please use <em>?t1way</em> for the current details, this promising package is being improved frequently .</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(WRS2)
+
+<span class="co">#t1way</span>
+<span class="co"># 20% trimmed</span>
+<span class="kw">t1way</span>(gen_att~eduNEW,<span class="dt">data=</span>dataWBT_KOCAELI,<span class="dt">tr=</span>.<span class="dv">2</span>,<span class="dt">nboot=</span><span class="dv">5000</span>)
+## Call:
+## t1way(formula = gen_att ~ eduNEW, data = dataWBT_KOCAELI, tr = 0.2, 
+##     nboot = 5000)
+## 
+## Test statistic: 7.5658 
+## Degrees of Freedom 1: 5 
+## Degrees of Freedom 2: 143.78 
+## p-value: 0 
+## 
+## Explanatory measure of effect size: 0.29
+
+<span class="co"># 10% trimmed</span>
+<span class="kw">t1way</span>(gen_att~eduNEW,<span class="dt">data=</span>dataWBT_KOCAELI,<span class="dt">tr=</span>.<span class="dv">1</span>,<span class="dt">nboot=</span><span class="dv">5000</span>)
+## Call:
+## t1way(formula = gen_att ~ eduNEW, data = dataWBT_KOCAELI, tr = 0.1, 
+##     nboot = 5000)
+## 
+## Test statistic: 9.5355 
+## Degrees of Freedom 1: 5 
+## Degrees of Freedom 2: 187.52 
+## p-value: 0 
+## 
+## Explanatory measure of effect size: 0.3
+
+<span class="co"># 5% trimmed</span>
+<span class="kw">t1way</span>(gen_att~eduNEW,<span class="dt">data=</span>dataWBT_KOCAELI,<span class="dt">tr=</span>.<span class="dv">05</span>,<span class="dt">nboot=</span><span class="dv">5000</span>)
+## Call:
+## t1way(formula = gen_att ~ eduNEW, data = dataWBT_KOCAELI, tr = 0.05, 
+##     nboot = 5000)
+## 
+## Test statistic: 9.415 
+## Degrees of Freedom 1: 5 
+## Degrees of Freedom 2: 211.55 
+## p-value: 0 
+## 
+## Explanatory measure of effect size: 0.31
+
+## heteroscedastic pairwise comparisons
+
+<span class="co">#level order</span>
+<span class="kw">lincon</span>(gen_att~eduNEW,<span class="dt">data=</span>dataWBT_KOCAELI,<span class="dt">tr=</span>.<span class="dv">1</span>)[[<span class="dv">2</span>]]
+## [1] &quot;Higher education of 2 years&quot;         
+## [2] &quot;Junior High/ Middle School (8 years)&quot;
+## [3] &quot;University - Undergraduate degree&quot;   
+## [4] &quot;Vocational High School (4 years)&quot;    
+## [5] &quot;High School (Lycee) (4 years)&quot;       
+## [6] &quot;Primary School (5 years)&quot;
+<span class="kw">round</span>(<span class="kw">lincon</span>(gen_att~eduNEW,<span class="dt">data=</span>dataWBT_KOCAELI,<span class="dt">tr=</span>.<span class="dv">1</span>)[[<span class="dv">1</span>]][,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">6</span>)],<span class="dv">3</span>)
+##       Group Group p.value
+##  [1,]     1     2   0.701
+##  [2,]     1     3   0.000
+##  [3,]     1     4   0.360
+##  [4,]     1     5   0.000
+##  [5,]     1     6   0.000
+##  [6,]     2     3   0.000
+##  [7,]     2     4   0.597
+##  [8,]     2     5   0.000
+##  [9,]     2     6   0.000
+## [10,]     3     4   0.004
+## [11,]     3     5   0.460
+## [12,]     3     6   0.467
+## [13,]     4     5   0.001
+## [14,]     4     6   0.003
+## [15,]     5     6   0.911</code></pre></div>
+</div>
+<div id="example-writeup-for-one-way-between-subjects-anova" class="section level4">
+<h4><span class="header-section-number">9.2.1.7</span> Example writeup for one-way between-subjects ANOVA</h4>
+<p>For our illustrative example, results of hypothesis tests conducted using robust procedures did not disagree with the results of the ANOVA and pairwise comparisons of means. This was expected given the assumptions were not severely violated. When the robust analyses and conventional analyses yield the same decisions about <em>all hypothesis tests</em>, results of the conventional analyses can be reported due to their greater familiarity to most readers. A possible write up for our illustrative example would be:</p>
+<p>An ANOVA was performed to investigate whether the gender attitudes scores differ across education level. The means,standard deviations, skewness and kurtosis values of the gender scores, grouped by the highest-degree obtained, are presented in Table 1. The analysis of variance indicated a significant difference in the gender attitudes scores , F(5,564) = 7.27, p &lt; .001, <span class="math inline">\(\hat\eta^2_G=.06\)</span>. Table 2 is the ANOVA table for this analysis. Pairwise comparisons were planned a’ priori. The familywise error rate was selected for control and the Holm procedure (<span class="citation">Holm (<a href="#ref-holm1979">1979</a>)</span>) was used. The results of the pairwise comparisons are presented in the Table 3. Nine out of fifteen comparisons yielded statistically significant results; (primary school vs lycee, primary school vs 2-year-collage, primary school vs undergraduate,… (provide details). Robust statistical procedures yielded the same conclusions.</p>
+</div>
+<div id="missing-data-techniques-for-one-way-between-subjects-anova" class="section level4">
+<h4><span class="header-section-number">9.2.1.8</span> Missing data techniques for one-way between-subjects ANOVA</h4>
+<p>To be added</p>
+</div>
+<div id="power-calculations-for-one-way-between-subjects-anova" class="section level4">
+<h4><span class="header-section-number">9.2.1.9</span> Power calculations for one-way between-subjects ANOVA</h4>
+<p>To be added</p>
+</div>
+</div>
+<div id="two-factor-between-subjects-anova" class="section level3">
+<h3><span class="header-section-number">9.2.2</span> Two-Factor Between Subjects ANOVA</h3>
+<p>This topic concerns designs in which there are two between-subjects factors: factor A with J levels and factor B with K levels for a total of JK combinations of levels; each combination is called a cell. The factors are between-subjects if (a) different subjects appear in each cell and (b) subjects are not matched in any way. In the simplest version of this design, each factor has two levels. For example, consider if a researcher is interested in the effect of the gender and college education on the gender attitudes scores. The following is a depiction of a study designed to investigate these two factors.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"></th>
+<th align="center">non-college</th>
+<th align="center">college</th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Female</td>
+<td align="center"><span class="math inline">\(\mu_{11}\)</span></td>
+<td align="center"><span class="math inline">\(\mu_{12}\)</span></td>
+<td align="center"><span class="math inline">\(\mu_{1\cdot}\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">Male</td>
+<td align="center"><span class="math inline">\(\mu_{21}\)</span></td>
+<td align="center"><span class="math inline">\(\mu_{22}\)</span></td>
+<td align="center"><span class="math inline">\(\mu_{2\cdot}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"></td>
+<td align="center"><span class="math inline">\(\mu_{\cdot 1}\)</span></td>
+<td align="center"><span class="math inline">\(\mu_{\cdot 2}\)</span></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p>Also shown are the parameters about which hypotheses will be tested: the population cell means (<span class="math inline">\(\mu_{11}, \mu_{12}, \mu_{21},\mu_{22}\)</span>), row means ( <span class="math inline">\(\mu_{1 \cdot}\)</span>, <span class="math inline">\(\mu_{2 \cdot}\)</span>) and column means (<span class="math inline">\(\mu_{\cdot 1}\)</span>, <span class="math inline">\(\mu_{\cdot 2}\)</span>). The general term for a row or column mean is a marginal mean.</p>
+<p>Symbolically the hypothesis of no interaction can be written as <span class="math inline">\(H_0: \mu_{11} - \mu_{12} = \mu_{21} - \mu_{22}\)</span>. The interation is also a comparison of the two simple effects of gender <span class="math inline">\((\mu_{21}−\mu_{11} and \mu_{22} − \mu_{12})\)</span> leading to the null hypothesis <span class="math inline">\(H_0: \mu_{21}−\mu_{11}= \mu_{22}- \mu_{12}\)</span>. If one of the null hypotheses is true the other must also be true and if one is false the other must also be false.</p>
+<p><strong>Interaction</strong> The first null hypothesis of interest is the hypothesis of no interaction between the two factors. Before defining an interaction, we first define a simple main effect. A simple main effect refers to differences among the cell means in a particular row or in a particular column. In the current example, there are two types of simple main effects: simple main effects of gender and simple main effects of college education.</p>
+<p>For each type there are two simple main effects. There is a simple main effect of gender at college graduates (<span class="math inline">\(\mu_{12}\)</span> versus <span class="math inline">\(\mu_{22}\)</span>) and a simple main effect of gender at non-college graduates (<span class="math inline">\(\mu_{11}\)</span> versus <span class="math inline">\(\mu_{21}\)</span>).</p>
+<p>There is a simple main effect of education for Female (<span class="math inline">\(\mu_{11}\)</span> versus <span class="math inline">\(\mu_{12}\)</span>) and a simple main effect of education for Male (<span class="math inline">\(\mu_{21}\)</span> versus <span class="math inline">\(\mu_{22}\)</span>).</p>
+<p><strong>The main effects</strong> Effects defined in terms of marginal (row and column) means are called main effects. Symbolically, the main effect of gender is <span class="math inline">\(\mu_{1\cdot} - \mu_{2\cdot}\)</span>, and the hypothesis of no main effect due to gender is <span class="math inline">\(H_0:\mu_{1\cdot} - \mu_{2\cdot} = 0\)</span>. Similarly, the hypothesis of no main effect due to college education is <span class="math inline">\(H_0:\mu_{\cdot 1} - \mu_{\cdot 2} = 0\)</span>.</p>
+<p>When there is an interaction:</p>
+<ol style="list-style-type: decimal">
+<li><p>Inspection of the main effect for a factor is misleading when the directions of the simple main effects of the factor are not the same at all levels of the second factor.</p></li>
+<li><p>It is a matter of opinion as to whether it is misleading to inspect the main effect for a factor the directions of the simple main effects of the factor are the same at all levels of the second factor.</p></li>
+</ol>
+<p>When the main effect is misleading about the effect of a factor, the cell means are the proper basis for studying the effects of the factor.</p>
+<p><strong>The structural model</strong> for a two-factor between subjects ANOVA is <span class="math inline">\(Y_{ijk}=\mu+\alpha_{j}+\beta_k + \alpha\beta_{jk}+ \epsilon_{ij}\)</span>, in which <span class="math inline">\(Y_{ijk}\)</span> is the score for the participant <em>i</em> in first factor level <em>j</em> , and the second factor level <em>k</em>; <span class="math inline">\(\mu\)</span> is the grand mean of the scores, <span class="math inline">\(\alpha_j\)</span> is the effect of the level <em>j</em> of the first factor, <span class="math inline">\(\beta_k\)</span> is the effect of the level <em>k</em> of the second factor, <span class="math inline">\(\alpha\beta_{jk}\)</span> is the interaction effect and <span class="math inline">\(\epsilon_{ij}\)</span> is the error term (nuisance).</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">SV</th>
+<th align="center">df</th>
+<th align="center">F</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">A</td>
+<td align="center"><span class="math inline">\(J-1\)</span></td>
+<td align="center"><span class="math inline">\(\frac{MS_A}{MS_{S/AB}}\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">B</td>
+<td align="center"><span class="math inline">\(K-1\)</span></td>
+<td align="center"><span class="math inline">\(\frac{MS_B}{MS_{S/AB}}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">AB</td>
+<td align="center"><span class="math inline">\((J-1)(K-1)\)</span></td>
+<td align="center"><span class="math inline">\(\frac{MS_{AB}}{MS_{S/AB}}\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">S/AB</td>
+<td align="center"><span class="math inline">\(N-JK\)</span></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">Total</td>
+<td align="center"><span class="math inline">\(N-1\)</span></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<div id="type-i-ii-and-iii-sum-of-squares" class="section level4">
+<h4><span class="header-section-number">9.2.2.1</span> Type I, II and III sum of squares</h4>
+<p>As we pointed out in the section on one-way between-subjects designs, the F test of the main effect is the same for all three types of sums of squares. This is not true in designs with two or more between-subjects factors. In designs with three or more between-subjects of effects F tests for interaction other than the highest order interaction can vary across the types of sums of squares. Selecting among the three types can be an important decision and we refer the reader to <span class="citation">Carlson and Timm (<a href="#ref-carlson74">1974</a>)</span> for a discussion of the issues in selecting among the three types of sums of squares in experimental studies and to <span class="citation">Appelbaum and Cramer (<a href="#ref-appelbaum76">1976</a>)</span> for a discussion of the issues in survey studies.</p>
+</div>
+<div id="r-codes-for-a-two-way-between-subjects-anova" class="section level4">
+<h4><span class="header-section-number">9.2.2.2</span> R codes for a two-way between-subjects ANOVA</h4>
+<p>For illustrative purposes, the city of Kayseri is subsetted from the DataWBT (Section <a href="preface.html#dataWBT">2.3</a>). The gender attitudes scores is the dependent variable, gender and higher education indicator are the between subjects factors.</p>
+<p>Step 1: Set up data and report descriptive</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
+<span class="co"># load csv from an online repository</span>
+urlfile=<span class="st">&#39;https://raw.githubusercontent.com/burakaydin/materyaller/gh-pages/ARPASS/dataWBT.csv&#39;</span>
+dataWBT=<span class="kw">read.csv</span>(urlfile)
+
+<span class="co">#remove URL </span>
+<span class="kw">rm</span>(urlfile)
+
+<span class="co">#select the city of KAYSERI</span>
+<span class="co"># listwise deletion for gen_att and education variables</span>
+dataWBT_Kayseri=<span class="kw">na.omit</span>(dataWBT[dataWBT$city==<span class="st">&quot;KAYSERI&quot;</span>,<span class="kw">c</span>(<span class="st">&quot;id&quot;</span>,<span class="st">&quot;gen_att&quot;</span>,<span class="st">&quot;higher_ed&quot;</span>,<span class="st">&quot;gender&quot;</span>)])
+
+<span class="co"># Higher education is coded as 0 and 1, change it to non-college, college </span>
+dataWBT_Kayseri$HEF=<span class="kw">droplevels</span>(<span class="kw">factor</span>(dataWBT_Kayseri$higher_ed, 
+                    <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), 
+                    <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;non-college&quot;</span>, <span class="st">&quot;college&quot;</span>)))
+
+<span class="co">#table(dataWBT_Kayseri$gender)</span>
+<span class="co">#table(dataWBT_Kayseri$HEF)</span>
+
+<span class="co">#drop empty levels</span>
+dataWBT_Kayseri$gender=<span class="kw">droplevels</span>(dataWBT_Kayseri$gender)
+
+<span class="kw">with</span>(dataWBT_Kayseri,
+     <span class="kw">table</span>(gender,HEF))
+##         HEF
+## gender   non-college college
+##   Female          99      50
+##   Male            67      36
+
+
+<span class="co"># set the number of decimals (cosmetic)</span>
+<span class="kw">options</span>(<span class="dt">digits =</span> <span class="dv">3</span>)
+
+<span class="co">#get descriptives </span>
+<span class="kw">library</span>(doBy)
+<span class="kw">library</span>(moments)
+desc2BW=<span class="kw">as.matrix</span>(<span class="kw">summaryBy</span>(gen_att~HEF+gender, <span class="dt">data =</span> dataWBT_Kayseri, 
+          <span class="dt">FUN =</span> function(x) { <span class="kw">c</span>(<span class="dt">n =</span> <span class="kw">sum</span>(!<span class="kw">is.na</span>(x)),
+                                <span class="dt">mean =</span> <span class="kw">mean</span>(x,<span class="dt">na.rm=</span>T), <span class="dt">sdv =</span> <span class="kw">sd</span>(x,<span class="dt">na.rm=</span>T),
+                               <span class="dt">skw=</span>moments::<span class="kw">skewness</span>(x,<span class="dt">na.rm=</span>T),                    
+                               <span class="dt">krt=</span>moments::<span class="kw">kurtosis</span>(x,<span class="dt">na.rm=</span>T)) } ))
+<span class="co"># Table 4</span>
+desc2BW
+##   HEF           gender   gen_att.n gen_att.mean gen_att.sdv gen_att.skw
+## 1 &quot;non-college&quot; &quot;Female&quot; &quot;99&quot;      &quot;1.93&quot;       &quot;0.424&quot;     &quot;-0.548&quot;   
+## 2 &quot;non-college&quot; &quot;Male&quot;   &quot;67&quot;      &quot;2.32&quot;       &quot;0.419&quot;     &quot;-0.191&quot;   
+## 3 &quot;college&quot;     &quot;Female&quot; &quot;50&quot;      &quot;1.80&quot;       &quot;0.346&quot;     &quot; 0.263&quot;   
+## 4 &quot;college&quot;     &quot;Male&quot;   &quot;36&quot;      &quot;2.13&quot;       &quot;0.543&quot;     &quot; 0.159&quot;   
+##   gen_att.krt
+## 1 &quot;2.51&quot;     
+## 2 &quot;3.18&quot;     
+## 3 &quot;1.94&quot;     
+## 4 &quot;2.25&quot;
+<span class="co">#write.csv(desc2BW,file=&quot;twowayB_ANOVA_desc.csv&quot;)</span></code></pre></div>
+<p>Step 2: Inspect assumptions</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
+<span class="kw">require</span>(ggplot2)
+<span class="kw">ggplot</span>(dataWBT_Kayseri, <span class="kw">aes</span>(<span class="dt">x =</span> gen_att)) +
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..),<span class="dt">col=</span><span class="st">&quot;black&quot;</span>,<span class="dt">binwidth =</span> <span class="fl">0.2</span>,<span class="dt">alpha=</span><span class="fl">0.7</span>) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">size=</span><span class="fl">1.5</span>) +
+<span class="st">  </span><span class="kw">theme_bw</span>()+<span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Gender Attitudes by HEF and Gender in Kayseri&quot;</span>)+<span class="st"> </span><span class="kw">facet_wrap</span>(~<span class="st"> </span>HEF+gender)+
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>),
+        <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>,<span class="dt">face=</span><span class="st">&quot;bold&quot;</span>))</code></pre></div>
+<div class="figure"><span id="fig:genattKayseri"></span>
+<img src="SARP_files/figure-html/genattKayseri-1.png" alt="Gender Attitudes by HEF and Gender " width="672" />
+<p class="caption">
+Figure 9.3: Gender Attitudes by HEF and Gender
+</p>
+</div>
+<p>Departures from the normality do not seem to be severe.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
+<span class="kw">require</span>(ggplot2)
+<span class="kw">ggplot</span>(dataWBT_Kayseri, <span class="kw">aes</span>(<span class="dt">x=</span>gender, <span class="dt">y=</span>gen_att))+
+<span class="st">  </span><span class="kw">geom_boxplot</span>()+
+<span class="st">  </span><span class="kw">facet_grid</span>(.~HEF)+
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Gender&quot;</span>,<span class="dt">y=</span><span class="st">&quot;Gender Attitude by Gender and HEF in Kayseri&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:genattKayseribox"></span>
+<img src="SARP_files/figure-html/genattKayseribox-1.png" alt="Gender Attitudes by Degree " width="672" />
+<p class="caption">
+Figure 9.4: Gender Attitudes by Degree
+</p>
+</div>
+<p>Variances look similar.</p>
+<p>Step 3: Run ANOVA</p>
+<p>The <em>ezANOVA</em> function (<span class="citation">Lawrence (<a href="#ref-R-ez">2016</a>)</span>) reports the F test, the Levene Test and an effect size. Type of the effect size depends on the model and indirectly depends on the type of sum of squares used. The <em>type</em> argument (1,2 or 3) transmits the choice.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
+<span class="kw">library</span>(ez)
+<span class="co">#the ezANOVA function throws a warning if id is not a factor</span>
+
+dataWBT_Kayseri$id=<span class="kw">as.factor</span>(dataWBT_Kayseri$id)
+
+<span class="co">#alternative 1 the ezANOVA function</span>
+alternative1 =<span class="st"> </span><span class="kw">ezANOVA</span>(
+    <span class="dt">data =</span> dataWBT_Kayseri,
+    <span class="dt">wid=</span>id, <span class="dt">dv =</span> gen_att, <span class="dt">between =</span> .(HEF,gender),<span class="dt">observed=</span>.(HEF,gender),<span class="dt">type=</span><span class="dv">2</span>)
+## Warning: Data is unbalanced (unequal N per group). Make sure you specified
+## a well-considered value for the type argument to ezANOVA().
+
+alternative1
+## $ANOVA
+##       Effect DFn DFd      F        p p&lt;.05      ges
+## 1        HEF   1 248  6.739 9.99e-03     * 0.022436
+## 2     gender   1 248 45.389 1.12e-10     * 0.151106
+## 3 HEF:gender   1 248  0.251 6.17e-01       0.000837
+## 
+## $`Levene&#39;s Test for Homogeneity of Variance`
+##   DFn DFd   SSn  SSd    F      p p&lt;.05
+## 1   3 248 0.469 17.5 2.22 0.0867
+
+
+<span class="co"># Type III SS</span>
+<span class="co"># alternative1b = ezANOVA(</span>
+<span class="co">#     data = dataWBT_Kayseri,</span>
+<span class="co">#     wid=id, dv = gen_att, between = HEF+gender,type=3)</span>
+<span class="co"># </span>
+<span class="co"># alternative1b</span>
+
+<span class="co"># critical F value</span>
+<span class="kw">qf</span>(.<span class="dv">95</span>,<span class="dv">1</span>,<span class="dv">248</span>)
+## [1] 3.88</code></pre></div>
+</div>
+<div id="robust-estimation-and-hypothesis-testing-for-a-two-way-between-subjects-design" class="section level4">
+<h4><span class="header-section-number">9.2.2.3</span> Robust estimation and hypothesis testing for a two-way between-subjects design</h4>
+<p>Several approaches to conducting a robust two-way between subjects ANOVA, have been presented by <span class="citation">Wilcox (<a href="#ref-wilcox2012">2012</a>)</span> One of the convenient robust procedure , a heteroscedastic two-way ANOVA for trimmed means, has been compressed into the <em>t2way</em> function, available via WRS-2 (<span class="citation">Mair and Wilcox (<a href="#ref-R-WRS2">2016</a>)</span>). Please use <em>?t2way</em> for the current details, this promising package is being improved frequently .</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(WRS2)
+
+<span class="co">#t2way</span>
+<span class="co"># 20% trimmed</span>
+<span class="kw">t2way</span>(gen_att~HEF*gender,<span class="dt">data=</span>dataWBT_Kayseri,<span class="dt">tr=</span>.<span class="dv">2</span>)
+## Call:
+## t2way(formula = gen_att ~ HEF * gender, data = dataWBT_Kayseri, 
+##     tr = 0.2)
+## 
+##              value p.value
+## HEF         7.1310   0.011
+## gender     20.2039   0.001
+## HEF:gender  0.0855   0.772
+
+<span class="co"># 10% trimmed</span>
+<span class="kw">t2way</span>(gen_att~HEF*gender,<span class="dt">data=</span>dataWBT_Kayseri,<span class="dt">tr=</span>.<span class="dv">1</span>)
+## Call:
+## t2way(formula = gen_att ~ HEF * gender, data = dataWBT_Kayseri, 
+##     tr = 0.1)
+## 
+##              value p.value
+## HEF         8.4235   0.005
+## gender     33.1599   0.001
+## HEF:gender  0.0361   0.850
+
+<span class="co"># 5% trimmed</span>
+<span class="kw">t2way</span>(gen_att~HEF*gender,<span class="dt">data=</span>dataWBT_Kayseri,<span class="dt">tr=</span>.<span class="dv">05</span>)
+## Call:
+## t2way(formula = gen_att ~ HEF * gender, data = dataWBT_Kayseri, 
+##     tr = 0.05)
+## 
+##              value p.value
+## HEF         6.1688   0.015
+## gender     29.8383   0.001
+## HEF:gender  0.1642   0.687</code></pre></div>
+</div>
+<div id="example-writeup-two-way-between-subjects-anova" class="section level4">
+<h4><span class="header-section-number">9.2.2.4</span> Example writeup two-way between-subjects ANOVA</h4>
+<p>For our illustrative example, robust procedures did not disagree with our initial analyses. This was expected given the assumptions were not severely violated. When the robust analyses yield very similar results, we prefer to report initial results to ease communication. A possible write up for our illustrative example would be:</p>
+<p>Descriptive statistics for the gender attitudes scores as a function of gender and higher education in the city of Kayseri are presented in Table 4. A 2x2 ANOVA was reported. F tests were conducted at <span class="math inline">\(\alpha=.05\)</span>. There was a significant difference for gender <span class="math inline">\(F(1,248)=45.39, p&lt;.001\)</span>. There was also a significant difference for the college effect <span class="math inline">\(F(1,248)=6.24, p=.013\)</span>. However, there was no significant interaction between the gender and higher education status, <span class="math inline">\(F(1,248)=0.25, p=.617\)</span>. The <em>ezANOVA</em> (<span class="citation">Lawrence (<a href="#ref-R-ez">2016</a>)</span>) function reported generalized eta hat squared (<span class="math inline">\(\hat\eta^2_G\)</span>) of 0.15 for the gender effect and 0.02 for the college-effect. Table 5 is the ANOVA table for these analyses.</p>
+</div>
+<div id="follow-ups-for-two-way-between-subjects-anova" class="section level4">
+<h4><span class="header-section-number">9.2.2.5</span> Follow ups for two-way between-subjects ANOVA</h4>
+<p>To be added.</p>
+<div id="pairwise-comparisons-following-two-way-between-subjects-anova" class="section level5">
+<h5><span class="header-section-number">9.2.2.5.1</span> Pairwise comparisons following two-way between-subjects ANOVA</h5>
+<p>To be added.</p>
+</div>
+<div id="contrats-comparisons-following-two-way-between-subjects-anova" class="section level5">
+<h5><span class="header-section-number">9.2.2.5.2</span> Contrats comparisons following two-way between-subjects ANOVA</h5>
+<p>To be added.</p>
+</div>
+</div>
+<div id="missing-data-techniques-for-two-way-between-subjects-anova" class="section level4">
+<h4><span class="header-section-number">9.2.2.6</span> Missing data techniques for two-way between-subjects ANOVA</h4>
+<p>To be added</p>
+</div>
+<div id="power-calculations-for-two-way-between-subjects-anova" class="section level4">
+<h4><span class="header-section-number">9.2.2.7</span> Power calculations for two-way between-subjects ANOVA</h4>
+<p>To be added</p>
+</div>
+</div>
+</div>
+<div id="within-subjects-anova" class="section level2">
+<h2><span class="header-section-number">9.3</span> Within Subjects ANOVA</h2>
+<p>This procedure can be used when there are score on the same participants under several treatments or at several time points and is then called repeated measures ANOVA. It can also be used in blocking designs and is then called randomized block ANOVA. Compared to between-subjects designs, this procedure is expected to eliminate influence of individual differences, in other words, to reduced variability, and thus, to reduce error. This development results in more power than independent-samples ANOVA with the same sample size. Of course there are issues other than power that must be considered in selecting a design. For example, if the goal is to compare reading achievement under three instructional methods, using a design in which each participant is exposed to the three methods will be problematic because the effect of exposure to one treatment will continue to influence reading ability during the other treatments.</p>
+<div id="one-way-within-subjects-anova" class="section level3">
+<h3><span class="header-section-number">9.3.1</span> One-way Within-Subjects ANOVA</h3>
+<p>The structural model following <span class="citation">Myers et al. (<a href="#ref-myerswell13">2013</a>)</span> notation for a non-additive model;</p>
+<span class="math display" id="eq:withinstr">\[\begin{equation} 
+  Y_{ij}=\mu + \eta_i + \alpha_j + (\eta \alpha)_{ij} + \epsilon_{ij}
+  \tag{9.1}
+\end{equation}\]</span>
+<p>where <em>i</em> represents the individual, i=1,…,n; <em>j</em> represents the levels of the within-subjects factor (i.e, the repeated measurement or the treatment factor), j=1,…,P. Y is the score; <span class="math inline">\(\mu\)</span> is the grand mean; <span class="math inline">\(\eta_i\)</span> represents the difference between individual’s average score over the levels and the grand mean; <span class="math inline">\(\alpha_j\)</span> represents the difference between the average score under level j of the within-subjects factor and the grand mean; <span class="math inline">\((\eta \alpha)_ij\)</span> represents the interaction, and <span class="math inline">\(\epsilon_{ij}\)</span> represent the error component. Because <span class="math inline">\((\eta \alpha)_ij\)</span> and <span class="math inline">\(\epsilon_{ij}\)</span> have the same subscripts, they are confounded.</p>
+<p>Generally, the interest is on <span class="math inline">\(\alpha_j\)</span>. This interest leads to hypothesis testing:</p>
+<p><span class="math display">\[H_0: \mu_1 = \mu_2 = \cdots = \mu_P\]</span></p>
+<p>The alternative hypothesis states that at least one population mean is different. The ANOVA table for a one-way with-subjects ANOVA is;</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">SV</th>
+<th align="center">df</th>
+<th align="center">F</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Subjects (S)</td>
+<td align="center"><span class="math inline">\(n-1\)</span></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">Waves (A)</td>
+<td align="center"><span class="math inline">\(P-1\)</span></td>
+<td align="center"><span class="math inline">\(\frac{MS_A}{MS_{SA}}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">SA</td>
+<td align="center"><span class="math inline">\((n-1)(P-1)\)</span></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">Total</td>
+<td align="center"><span class="math inline">\(nP-1\)</span></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note on additivity</strong> The simplest explanation of additivity is the situation that would justify <span class="math inline">\((\eta \alpha)_ij = 0\)</span> in Equation <a href="analysis-of-variance-anova.html#eq:withinstr">(9.1)</a>. This unrealistic restriction implies that the effect of levels of the within-subject factor waves is the same for all individuals.</p>
+<p>Shown below in Table <a href="analysis-of-variance-anova.html#tab:tablewithinaov">9.1</a> are data for an experiment in which each person participates in four treatments defined by the amount of alcohol consumed. The dependent variable is a reaction time measure.</p>
+<table>
+<caption><span id="tab:tablewithinaov">Table 9.1: </span>Original Alcohol Data</caption>
+<thead>
+<tr class="header">
+<th align="right">id</th>
+<th align="right">noALC</th>
+<th align="right">twoOZ</th>
+<th align="right">fouroz</th>
+<th align="right">sixoz</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">5</td>
+<td align="right">7</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">5</td>
+<td align="right">8</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">6</td>
+<td align="right">8</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">6</td>
+<td align="right">9</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">6</td>
+<td align="right">9</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">7</td>
+<td align="right">10</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">7</td>
+<td align="right">10</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="right">6</td>
+<td align="right">5</td>
+<td align="right">8</td>
+<td align="right">11</td>
+</tr>
+</tbody>
+</table>
+<p>Treatment means, treatment standard deviations, and subject means are shown below. A subject mean is the average of the four scores for that subject.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set the number of decimals (cosmetic)</span>
+<span class="kw">options</span>(<span class="dt">digits =</span> <span class="dv">2</span>)
+
+<span class="co">#participants mean</span>
+<span class="kw">apply</span>(owadata,<span class="dv">1</span>, mean)
+## [1] 3.2 4.0 4.4 4.8 5.4 6.0 6.2 7.6
+
+<span class="co">#treatment mean</span>
+<span class="kw">apply</span>(owadata[,-<span class="dv">1</span>],<span class="dv">2</span>, mean)
+##  noALC  twoOZ fouroz  sixoz 
+##    2.8    3.5    6.2    9.0
+
+<span class="co">#treatment sd</span>
+<span class="kw">apply</span>(owadata[,-<span class="dv">1</span>],<span class="dv">2</span>,sd)
+##  noALC  twoOZ fouroz  sixoz 
+##   1.49   0.93   1.04   1.31</code></pre></div>
+<p>Because each participant has a score for each treatment, amount of alcohol is a within-subjects factor and it is possible to calculate a correlation for each pair of treatments. These correlations, which are presented in Table 9.2, indicate that reaction time is highly correlated for each pair of treatments. Recall that corresponding to each correlation there is a covariance;</p>
+<p><span class="math display">\[Cov_{pp^`}=S_pS_{p^`}r_{pp^`}\]</span></p>
+<p>where <span class="math inline">\(p\)</span> and <span class="math inline">\(p&#39;\)</span> are two levels of the alcohol consumption factor. For example the correlation between the scores in the first two levels of the alcohol consumption factor is <span class="math inline">\(r_{02}=0.93\)</span>. And the corresponding covariance is <span class="math inline">\(Cov_{02}=1.5*0.9*0.93=1.26\)</span></p>
+<table>
+<caption><span id="tab:alchcor">Table 9.2: </span>Correlation Coefficients for Reaction Time Data</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">noALC</th>
+<th align="right">twoOZ</th>
+<th align="right">fouroz</th>
+<th align="right">sixoz</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>noALC</td>
+<td align="right">1.00</td>
+<td align="right">0.93</td>
+<td align="right">0.88</td>
+<td align="right">0.88</td>
+</tr>
+<tr class="even">
+<td>twoOZ</td>
+<td align="right">0.93</td>
+<td align="right">1.00</td>
+<td align="right">0.89</td>
+<td align="right">0.94</td>
+</tr>
+<tr class="odd">
+<td>fouroz</td>
+<td align="right">0.88</td>
+<td align="right">0.89</td>
+<td align="right">1.00</td>
+<td align="right">0.95</td>
+</tr>
+<tr class="even">
+<td>sixoz</td>
+<td align="right">0.88</td>
+<td align="right">0.94</td>
+<td align="right">0.95</td>
+<td align="right">1.00</td>
+</tr>
+</tbody>
+</table>
+<p>The alcohol consumption factor is a within-subjects factor. Consequently the F statistic for comparing the four treatment means should be appropriate for a design with a within-subjects factor. Let</p>
+<p>P = the number of levels of the within-subjects factor, in the example P=4 ;</p>
+<p><span class="math inline">\(\bar C\)</span> = the average covariance; in the example <span class="math inline">\(\bar C\)</span> = 1.26.</p>
+<p>The appropriate F statistic is</p>
+<p><span class="math display">\[F_W=\frac{MS_A}{MS_{SA}}=\frac{MS_A}{MS_{S/A}- \bar C}\]</span></p>
+<p>where <span class="math inline">\(MS_A\)</span> and <span class="math inline">\(MS_{S/A}\)</span> are calculated as they are for a between-subjects factor and the <em>W</em> emphasizes the F statistic is for a within-subjects factor. The critical value is <span class="math inline">\(F_{\alpha,P-1,(P-1)(n-1)}\)</span> . The denominator mean square, <span class="math inline">\(MS_{SA}\)</span> , is read mean square Subjects x A where A is the generic label for the treatment factor. Recall that the F statistic for a between-subjects factor is <span class="math inline">\(F_B=MS_A/MS_{S/A}\)</span>. Comparison of <span class="math inline">\(F_W\)</span> and <span class="math inline">\(F_B\)</span> shows that <span class="math inline">\(F_W\)</span> incorporates the correlations between the pairs of treatments and <span class="math inline">\(F_B\)</span> does not. (Recall that, in like fashion, the dependent samples t statistic incorporates the correlation whereas the independent samples t statistic does not.) As a result, when applied to a design with a within-subjects factor <span class="math inline">\(F_W \geq F_B\)</span>.Therefore, incorrectly using will usually result in a loss of power.</p>
+<div id="assumptions-of-one-way-within-subjects-anova" class="section level4">
+<h4><span class="header-section-number">9.3.1.1</span> Assumptions of one-way within-subjects ANOVA</h4>
+<p><strong>Sphericity</strong> is an assumption about the pattern of variances and covariances.If the data are spherical, the difference between each pair of repeated measures has the same variance for all pairs.</p>
+<p>Example covariance matrix;</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"></th>
+<th align="center"><span class="math inline">\(Y_1\)</span></th>
+<th align="center"><span class="math inline">\(Y_2\)</span></th>
+<th align="center"><span class="math inline">\(Y_3\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(Y_1\)</span></td>
+<td align="center">10</td>
+<td align="center">7.5</td>
+<td align="center">10</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(Y_2\)</span></td>
+<td align="center">7.5</td>
+<td align="center">15</td>
+<td align="center">12.5</td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(Y_3\)</span></td>
+<td align="center">10</td>
+<td align="center">12.5</td>
+<td align="center">20</td>
+</tr>
+</tbody>
+</table>
+<p>Sphericity holds;</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><span class="math inline">\(Y_p-Y_{p&#39;}\)</span></th>
+<th align="center"><span class="math inline">\(\sigma^2_p + \sigma^2_{p&#39;} - 2\sigma_{pp&#39;}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(Y_1-Y_2\)</span></td>
+<td align="center">10+15-2(7.5)=10</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(Y_1-Y_3\)</span></td>
+<td align="center">10+20-2(10)=10</td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(Y_2-Y_3\)</span></td>
+<td align="center">15+20-2(12.5)=10</td>
+</tr>
+</tbody>
+</table>
+<p>Box’s epsilon —measures how severely sphericity is violated.</p>
+<p><span class="math display">\[\frac{1}{P-1}\leq \epsilon \leq 1\]</span></p>
+<p>Estimates of <span class="math inline">\(\epsilon\)</span> are Greenhouse-Geisser (<span class="math inline">\(\hat \epsilon\)</span>) and Huynh-Feldt (<span class="math inline">\(\tilde{\epsilon}\)</span>)</p>
+<p><span class="math inline">\(\tilde{\epsilon}\)</span> can be larger than 1.0; if it is <span class="math inline">\(\tilde{\epsilon}\)</span> is set equal to 1.0.</p>
+<p>Critical value assuming sphericity is <span class="math inline">\(F_{alpha,(P-1),(n-1)(P-1)}\)</span>.</p>
+<p>Approximately correct critical value when sphericity is violated <span class="math inline">\(F_{alpha,\epsilon (P-1),\epsilon (n-1)(P-1)}\)</span>.</p>
+<p><strong>normality of errors</strong> in Equation <a href="analysis-of-variance-anova.html#eq:withinstr">(9.1)</a>, <span class="math inline">\(\epsilon_{ij}\)</span> is assumed to be normally and independently distributed with a mean value of zero.</p>
+<p><strong>normality of <span class="math inline">\(\eta_i\)</span> </strong> in Equation <a href="analysis-of-variance-anova.html#eq:withinstr">(9.1)</a>, <span class="math inline">\(\eta_{i}\)</span> is assumed to be normally and independently distributed with a mean value of zero.</p>
+<p>Together the assumptions listed immediately above imply that the repeated measures are drawn from a multivariate normal distribution.</p>
+<div id="the-relationship-between-additivity-and-sphericity" class="section level5">
+<h5><span class="header-section-number">9.3.1.1.1</span> The relationship between additivity and sphericity</h5>
+<p>Although assumptions can be stated in terms of <span class="math inline">\(\eta_{i}\)</span> and <span class="math inline">\(\epsilon_{ij}\)</span>, a simpler approach is that the repeated measures are drawn from a multivariate normal distribution with covariance matrix that meets the sphericity assumption. If the data meet the sphericity assumption, the difference between each pair of repeated measures has the same variance for all pairs.</p>
+<p>Assuming that the data are drawn from a multivariate normal distribution and within each level of the within-subjects factor the scores are independent, having equal variance and covariances (compound symmetry) is a sufficient condition for the F test on the within-subjects factor to be valid.</p>
+<p>If additivity holds and the equal variance assumption holds then compound symmetry holds. But compund symmetry is a stricter assumption than the sphericity. Considering that sphericity is a necessary and sufficient requirement for the F test on the within-subjects factor to be valid (assuming that data are drawn from a multivariate normal distribution and scores are independent within each level of the within-subjects factor the) checking for spericity is more important than checking for additivity. In addition because there are adjusted degrees of freedom procedures that adjust the F test on the within-subjects factor for violation of sphericity, it is not necessary to test for additivity.</p>
+</div>
+</div>
+<div id="r-codes-for-a-one-way-within-subjects-anova" class="section level4">
+<h4><span class="header-section-number">9.3.1.2</span> R codes for a one-way within-subjects ANOVA</h4>
+<p>For illustrative purposes, a subsample from an original cluster randomized trial study (for details see <span class="citation">Daunic et al. (<a href="#ref-Daunic12">2012</a>)</span>) was taken. The subsample included 1 control-classroom and 17 students. The variable of interest is the problem solving knowledge. Each wave was approximately one year apart. Higher scores mean higher knowledge.</p>
+<p>Step 1: Set up data</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
+<span class="co">#enter data</span>
+PSdata=<span class="kw">data.frame</span>(<span class="dt">id=</span><span class="kw">factor</span>(<span class="dv">1</span>:<span class="dv">17</span>),
+                    <span class="dt">wave1=</span><span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">19</span>,<span class="dv">13</span>,<span class="dv">10</span>,<span class="dv">16</span>,<span class="dv">12</span>,<span class="dv">16</span>,<span class="dv">11</span>,<span class="dv">11</span>,<span class="dv">14</span>,<span class="dv">13</span>,<span class="dv">17</span>,<span class="dv">16</span>,<span class="dv">12</span>,<span class="dv">12</span>,<span class="dv">16</span>,<span class="dv">16</span>),
+                    <span class="dt">wave2=</span><span class="kw">c</span>(<span class="dv">28</span>,<span class="dv">27</span>,<span class="dv">18</span>,<span class="dv">17</span>,<span class="dv">29</span>,<span class="dv">18</span>,<span class="dv">26</span>,<span class="dv">21</span>,<span class="dv">15</span>,<span class="dv">26</span>,<span class="dv">28</span>,<span class="dv">23</span>,<span class="dv">29</span>,<span class="dv">18</span>,<span class="dv">26</span>,<span class="dv">21</span>,<span class="dv">22</span>),
+                    <span class="dt">wave3=</span><span class="kw">c</span>(<span class="dv">21</span>,<span class="dv">24</span>,<span class="dv">14</span>,<span class="dv">8</span>,<span class="dv">23</span>,<span class="dv">15</span>,<span class="dv">21</span>,<span class="dv">15</span>,<span class="dv">12</span>,<span class="dv">21</span>,<span class="dv">23</span>,<span class="dv">17</span>,<span class="dv">26</span>,<span class="dv">18</span>,<span class="dv">14</span>,<span class="dv">18</span>,<span class="dv">19</span>))</code></pre></div>
+<p>Report descriptive</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set the number of decimals (cosmetic)</span>
+<span class="kw">options</span>(<span class="dt">digits =</span> <span class="dv">3</span>)
+
+##the long format will be needed
+<span class="co">#head(PSdata)</span>
+<span class="kw">library</span>(tidyr)
+data_long =<span class="st"> </span><span class="kw">gather</span>(PSdata, wave, PrbSol, wave1:wave3, <span class="dt">factor_key=</span><span class="ot">TRUE</span>)
+
+<span class="co">#get descriptives </span>
+<span class="kw">library</span>(doBy)
+<span class="kw">library</span>(moments)
+desc1W=<span class="kw">as.matrix</span>(<span class="kw">summaryBy</span>(PrbSol~wave, <span class="dt">data =</span> data_long, 
+          <span class="dt">FUN =</span> function(x) { <span class="kw">c</span>(<span class="dt">n =</span> <span class="kw">sum</span>(!<span class="kw">is.na</span>(x)),
+                                <span class="dt">mean =</span> <span class="kw">mean</span>(x,<span class="dt">na.rm=</span>T), <span class="dt">sdv =</span> <span class="kw">sd</span>(x,<span class="dt">na.rm=</span>T),
+                                <span class="dt">skw=</span>moments::<span class="kw">skewness</span>(x,<span class="dt">na.rm=</span>T),                    
+                                <span class="dt">krt=</span>moments::<span class="kw">kurtosis</span>(x,<span class="dt">na.rm=</span>T)) } ))
+<span class="co"># Table 6</span>
+desc1W
+##   wave    PrbSol.n PrbSol.mean PrbSol.sdv PrbSol.skw PrbSol.krt
+## 1 &quot;wave1&quot; &quot;17&quot;     &quot;14.4&quot;      &quot;2.91&quot;     &quot; 0.311&quot;   &quot;2.10&quot;    
+## 2 &quot;wave2&quot; &quot;17&quot;     &quot;23.1&quot;      &quot;4.67&quot;     &quot;-0.224&quot;   &quot;1.64&quot;    
+## 3 &quot;wave3&quot; &quot;17&quot;     &quot;18.2&quot;      &quot;4.77&quot;     &quot;-0.315&quot;   &quot;2.45&quot;
+<span class="co">#write.csv(desc1W,file=&quot;onewayW_ANOVA_desc.csv&quot;)</span></code></pre></div>
+<p>The covariance matrix might be helpful.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># check covariance  Table 7</span>
+<span class="kw">cov</span>(PSdata[,-<span class="dv">1</span>])
+##       wave1 wave2 wave3
+## wave1  8.49  8.85  9.87
+## wave2  8.85 21.81 18.49
+## wave3  9.87 18.49 22.78</code></pre></div>
+<p>Step 2: Check assumptions</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
+<span class="kw">ggplot</span>(data_long, <span class="kw">aes</span>(<span class="dt">x=</span>wave, <span class="dt">y=</span>PrbSol))+
+<span class="st">  </span><span class="kw">geom_boxplot</span>()+
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Wave&quot;</span>,<span class="dt">y=</span><span class="st">&quot;Problem Solving Knowledge scores&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:inhibitbox"></span>
+<img src="SARP_files/figure-html/inhibitbox-1.png" alt="Problem Solving Knowledge score by wave" width="672" />
+<p class="caption">
+Figure 9.5: Problem Solving Knowledge score by wave
+</p>
+</div>
+<p>We will test for the sphericity assumption using Mauchly’s test integrated in the <em>ezANOVA</em> function, but this graph implies that it might be violated.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
+<span class="kw">require</span>(ggplot2)
+<span class="kw">ggplot</span>(data_long, <span class="kw">aes</span>(<span class="dt">x=</span>wave, <span class="dt">y=</span>PrbSol, <span class="dt">group=</span>id))+
+<span class="kw">geom_line</span>() +<span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Wave&quot;</span>,<span class="dt">y=</span><span class="st">&quot;Problem Solving Knowledge scores&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:inhibitline"></span>
+<img src="SARP_files/figure-html/inhibitline-1.png" alt="Problem Solving Knowledge score by wave, line graph" width="672" />
+<p class="caption">
+Figure 9.6: Problem Solving Knowledge score by wave, line graph
+</p>
+</div>
+<p>This graph, which plots the problem solving scores by wave, suggests that the <span class="math inline">\(\eta \beta_{ij}\)</span> interaction terms are not likely to all be zero; therefore assuming sphericity while testing the hypothesis of equal wave means is not likely to be justified. The tukey.add.test function in <em>asbio</em> (<span class="citation">Aho (<a href="#ref-R-asbio">2016</a>)</span>) investigates <span class="math inline">\(H_0\)</span> <em>: main effect and blocks are additive</em>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(asbio)
+<span class="kw">with</span>(data_long,<span class="kw">tukey.add.test</span>(PrbSol,wave,id))
+## 
+## Tukey&#39;s one df test for additivity 
+## F = 5.943   Denom df = 31    p-value = 0.021
+
+<span class="co"># if additivity exists a randomized block approach might be appropriate</span>
+<span class="co">#additive=with(data_long,lm(PrbSol~id+wave))</span>
+<span class="co">#anova(additive)</span></code></pre></div>
+<p>The Tukey additive test rejects the null hypothesis of additivity agrees with the line graph. In other words, a non-additive model is more appropriate for the problem solving knowledge data.</p>
+<p>Step 3: Run ANOVA (including checks for the sphericity and normality of residuals assumptions)</p>
+<p>The <em>ezANOVA</em> function (<span class="citation">Lawrence (<a href="#ref-R-ez">2016</a>)</span>) reports the F test, the Levene Test and an effect size. Type of the effect size depends on the model and indirectly depends on the type of sum of squares used, the <em>type</em> argument (1,2 or 3) transmits the choice.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ez)
+<span class="co">#alternative 1 the ezANOVA function</span>
+
+alternative1 =<span class="st"> </span><span class="kw">ezANOVA</span>(
+    <span class="dt">data =</span> data_long,
+    <span class="dt">wid=</span>id, <span class="dt">dv =</span> PrbSol, <span class="dt">within =</span> wave,
+    <span class="dt">detailed =</span> T,<span class="dt">return_aov=</span>T)
+
+alternative1
+## $ANOVA
+##        Effect DFn DFd   SSn SSd     F        p p&lt;.05   ges
+## 1 (Intercept)   1  16 17510 680 412.0 7.62e-13     * 0.954
+## 2        wave   2  32   647 169  61.2 1.16e-11     * 0.433
+## 
+## $`Mauchly&#39;s Test for Sphericity`
+##   Effect     W     p p&lt;.05
+## 2   wave 0.918 0.526      
+## 
+## $`Sphericity Corrections`
+##   Effect   GGe    p[GG] p[GG]&lt;.05  HFe    p[HF] p[HF]&lt;.05
+## 2   wave 0.924 6.17e-11         * 1.04 1.16e-11         *
+## 
+## $aov
+## 
+## Call:
+## aov(formula = formula(aov_formula), data = data)
+## 
+## Grand Mean: 18.5
+## 
+## Stratum 1: id
+## 
+## Terms:
+##                 Residuals
+## Sum of Squares        680
+## Deg. of Freedom        16
+## 
+## Residual standard error: 6.52
+## 
+## Stratum 2: id:wave
+## 
+## Terms:
+##                 wave Residuals
+## Sum of Squares   647       169
+## Deg. of Freedom    2        32
+## 
+## Residual standard error: 2.3
+## Estimated effects may be unbalanced</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">PrbSolres=<span class="kw">sort</span>(alternative1$aov$id$residuals)
+<span class="kw">qqnorm</span>(PrbSolres);<span class="kw">qqline</span>(PrbSolres)</code></pre></div>
+<div class="figure"><span id="fig:inhibitresiduals"></span>
+<img src="SARP_files/figure-html/inhibitresiduals-1.png" alt="PSK model residuals" width="672" />
+<p class="caption">
+Figure 9.7: PSK model residuals
+</p>
+</div>
+<p>The distribution of the residuals is not severely non-normal.</p>
+<p>The <em>aov</em> function is the second alternative.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
+<span class="co"># alternative 2 the aov function</span>
+<span class="kw">summary</span>(<span class="kw">aov</span>(PrbSol ~<span class="st"> </span>wave +<span class="st"> </span><span class="kw">Error</span>(id/wave), <span class="dt">data=</span>data_long))
+## 
+## Error: id
+##           Df Sum Sq Mean Sq F value Pr(&gt;F)
+## Residuals 16    680    42.5               
+## 
+## Error: id:wave
+##           Df Sum Sq Mean Sq F value  Pr(&gt;F)    
+## wave       2    647     324    61.2 1.2e-11 ***
+## Residuals 32    169       5                    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre></div>
+</div>
+<div id="robust-estimation-and-hypothesis-testing-for-a-one-way-within-subjects-design" class="section level4">
+<h4><span class="header-section-number">9.3.1.3</span> Robust estimation and hypothesis testing for a one-way within-subjects design</h4>
+<p>One of the convenient robust procedures, a heteroscedastic one-way repeated measures ANOVA for trimmed means, has been compressed into the <em>rmanova</em> function, available via WRS-2 (<span class="citation">Mair and Wilcox (<a href="#ref-R-WRS2">2016</a>)</span>).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(WRS2)
+
+<span class="co">#rmanova</span>
+<span class="co"># 20% trimmed</span>
+<span class="kw">with</span>(data_long,<span class="kw">rmanova</span>(PrbSol,wave,id,<span class="dt">tr=</span>.<span class="dv">20</span>))
+## Call:
+## rmanova(y = PrbSol, groups = wave, blocks = id, tr = 0.2)
+## 
+## Test statistic: 34.9 
+## Degrees of Freedom 1: 1.9 
+## Degrees of Freedom 2: 19 
+## p-value: 0</code></pre></div>
+</div>
+<div id="example-writeup-one-way-within-subjects-anova" class="section level4">
+<h4><span class="header-section-number">9.3.1.4</span> Example writeup one-way within-subjects ANOVA</h4>
+<p>Descriptive statistics for the problem solving knowledge scores at each wave are presented in Table 6. The covariance matrix is presented in Table 7. A one-way within ANOVA was reported. F test was conducted at <span class="math inline">\(\alpha=.05\)</span>. The assumptions of one-way within subjects ANOVA are satisfied. There was a significant difference between waves <span class="math inline">\(F(2,32)=61.2, p&lt;.001\)</span>. The <em>ezANOVA</em> function reported a generalized eta hat squared (<span class="math inline">\(\hat\eta^2_G\)</span>) of 0.43.</p>
+</div>
+<div id="follow-ups-for-one-way-within-subjects-anova" class="section level4">
+<h4><span class="header-section-number">9.3.1.5</span> Follow ups for one-way within-subjects ANOVA</h4>
+<p>To be added.</p>
+</div>
+<div id="missing-data-techniques-for-one-way-within-subjects-anova" class="section level4">
+<h4><span class="header-section-number">9.3.1.6</span> Missing data techniques for one-way within-subjects ANOVA</h4>
+<p>To be added.</p>
+</div>
+<div id="power-calculations-for-one-way-within-subjects-anova" class="section level4">
+<h4><span class="header-section-number">9.3.1.7</span> Power calculations for one-way within-subjects ANOVA</h4>
+<p>To be added.</p>
+</div>
+</div>
+</div>
+<div id="mixed-design" class="section level2">
+<h2><span class="header-section-number">9.4</span> Mixed Design</h2>
+<p>To be added.</p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-myerswell13">
+<p>Myers, Jerome L., A. Well, Robert F. Lorch, and Ebooks Corporation. 2013. <em>Research Design and Statistical Analysis</em>. 3rd ed. New York: Routledge.</p>
+</div>
+<div id="ref-R-ez">
+<p>Lawrence, Michael A. 2016. <em>Ez: Easy Analysis and Visualization of Factorial Experiments</em>. <a href="https://CRAN.R-project.org/package=ez" class="uri">https://CRAN.R-project.org/package=ez</a>.</p>
+</div>
+<div id="ref-Bakeman2005">
+<p>Bakeman, Roger. 2005. “Recommended Effect Size Statistics for Repeated Measures Designs.” <em>Behavior Research Methods</em> 37 (3): 379–84. doi:<a href="https://doi.org/10.3758/BF03192707">10.3758/BF03192707</a>.</p>
+</div>
+<div id="ref-olejnikalgina03">
+<p>Olejnik, Stephen, and James Algina. 2003. “Generalized Eta and Omega Squared Statistics: Measures of Effect Size for Some Common Research Designs.” <em>Psychological Methods</em> 8 (4): 434–47.</p>
+</div>
+<div id="ref-wilcox2012">
+<p>Wilcox, Rand R. 2012. <em>Introduction to Robust Estimation and Hypothesis Testing</em>. 3rd;3; US: Academic Press.</p>
+</div>
+<div id="ref-R-base">
+<p>R Core Team. 2016b. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
+</div>
+<div id="ref-holm1979">
+<p>Holm, Sture. 1979. “A Simple Sequentially Rejective Multiple Test Procedure.” <em>Scandinavian Journal of Statistics</em> 6 (2): 65–70.</p>
+</div>
+<div id="ref-R-WRS2">
+<p>Mair, Patrick, and Rand Wilcox. 2016. <em>WRS2: A Collection of Robust Statistical Methods</em>. <a href="https://CRAN.R-project.org/package=WRS2" class="uri">https://CRAN.R-project.org/package=WRS2</a>.</p>
+</div>
+<div id="ref-carlson74">
+<p>Carlson, James E., and Neil H. Timm. 1974. “Analysis of Nonorthogonal Fixed-Effects Designs.” <em>Psychological Bulletin</em> 81 (9): 563–70.</p>
+</div>
+<div id="ref-appelbaum76">
+<p>Appelbaum, Mark I., and Elliot M. Cramer. 1976. “Balancing - Analysis of Variance by Another Name.” <em>Journal of Educational Statistics</em> 1 (3): 233–52.</p>
+</div>
+<div id="ref-Daunic12">
+<p>Daunic, Ann P., Stephen W. Smith, Cynthia W. Garvan, Brian R. Barber, Mallory K. Becker, Christine D. Peters, Gregory G. Taylor, Christopher L. Van Loan, Wei Li, and Arlene H. Naranjo. 2012. “Reducing Developmental Risk for Emotional/Behavioral Problems: A Randomized Controlled Trial Examining the Tools for Getting Along Curriculum.” <em>Journal of School Psychology</em> 50 (2): 149–66.</p>
+</div>
+<div id="ref-R-asbio">
+<p>Aho, Ken. 2016. <em>Asbio: A Collection of Statistical Tools for Biologists</em>. <a href="https://CRAN.R-project.org/package=asbio" class="uri">https://CRAN.R-project.org/package=asbio</a>.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="14">
+<li id="fn14"><p>Removing this participant from the ANOVA would have had no substantial effect on the results.<a href="analysis-of-variance-anova.html#fnref14">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="comparing-two-means-the-t-test.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="correlation.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/burakaydin/BAP2219/tree/gh-pages/08_ANOVA.Rmd",
+"text": "Edit"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

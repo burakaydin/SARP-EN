@@ -1,0 +1,428 @@
+# Correlation
+In our chapter 7, we introduced descriptive statistics; mean, variance, median, kurtosis, etc. These descriptive statistics aimed to ease the communication for a single variable. In other words, instead of transferring the entire raw data set to a colleague (or to a machine), providing these descriptives is generally satisfying and easier. However when the interest is in the association between variables, other measures are needed.
+
+The sum of cross products, $S_{XY}=\sum(X-\bar X)(Y- \bar Y)$, can provide some information about the association. For example Figure \@ref(fig:zerocrossproduct) depicts an X and a Y variable. The sum of cross products for these two variables is zero. 
+
+
+```{r, collapse=T, eval=T, cache=T, message=F,echo=FALSE}
+circledat <- function(r = 0.5, ns = 100){
+    refs <- seq(0,2*pi,length.out = ns)
+    xvar <- 0 + r * cos(refs)
+    yvar <- 0 + r * sin(refs)
+    return(data.frame(x = xvar, y = yvar))
+}
+dat <- circledat(r=1,ns = 15)
+dat$deviationX=dat$x-mean(dat$x)
+dat$deviationY=dat$y-mean(dat$y)
+dat$crossPRODUCT=dat$deviationX*dat$deviationY
+round(dat,2)
+```
+
+```{r zerocrossproduct, message=F,warning=F,echo=F,fig.cap='Sum of cross products=0'}
+
+library(ggplot2)
+ggplot(dat,aes(x,y)) + geom_path()+geom_point(size=2)+
+  geom_line(aes(y = 0), size=2) +
+  geom_line(aes(x = 0), color='red',size=2)+
+  annotate("text", label="positive" , x=0.5, y=0.5, parse=T, fontface =2, size=6)+
+  annotate("text", label="negative", x=-0.5  , y=0.5, parse=T, fontface =2, size=6)+
+  annotate("text", label="positive", x=-0.5, y=-0.5, parse=T, fontface =2,size=6)+
+  annotate("text", label="negative", x=0.5, y=-0.5, parse=T, fontface =2,size=6) 
+```
+
+The covariance between two variable is simply $Cov_{XY}=S_{XY}/n-1$, but its a scale dependent measure, the correlation coefficient on the other hand generally has its bounds.
+
+## Pearson correlation coefficient 
+Pearson introduced a correlation coefficient in 1896. This coefficient ranges between -1 and +1, can be calculated as $Cov_{XY}/S_X S_Y$. This coefficient measures the linear relationship between two variables. Figure \@ref(fig:zerocrossproduct) depicts a correlation of zero. Even though X and Y in this figure are related to form a 14-sided polygon, the relation is not linear. Hence the correlation is zero. Figure \@ref(fig:corsample) depicts several other associations; (A) is a perfect positive linear relationship, (B)is a positive correlation of .7, (C) substantially no linear relation, (D) is a correlation of -.4 and (E) is a correlation of -1.
+
+```{r corsample, echo=FALSE , warning=FALSE, message=FALSE,fig.cap='Correlation examples'}
+par(mfrow=c(2,3))
+library(mvtnorm)  
+
+kor1=data.frame(X1=seq(0,100,by=1.25),X2=seq(0,80,by=1))
+p1=ggplot(kor1, aes(x=X1, y=X2)) +
+    geom_point(shape=1,size=2) +   
+    geom_smooth(method=lm,   
+                se=FALSE,col="red")  +   
+   xlab("Total score") +    
+   ylab("Correct answer ")+     
+   ggtitle("(A)")
+  
+kor7=data.frame(rmvnorm(800,mean=c(70,70),sigma=matrix(c(10,7,7,10), ncol=2)))
+p2=ggplot(kor7, aes(x=X1, y=X2)) +
+    geom_point(shape=1,size=2) +   
+    geom_smooth(method=lm,   
+                se=FALSE,col="red")  +    
+   xlab("research self-efficacy ") +    
+   ylab("interest in research")  +   
+   ggtitle("(B)")
+
+
+kor0=data.frame(rmvnorm(400,mean=c(70,155),sigma=matrix(c(10,0,0,10), ncol=2)))
+p3=ggplot(kor0, aes(x=X1, y=X2)) +
+    geom_point(shape=1,size=2) + 
+  geom_smooth(method=lm,   
+                se=FALSE,col="red")  + 
+   xlab("Shark attacks") +    
+   ylab("Economic Growth")  +   
+   ggtitle("(C)")
+
+korn4=data.frame(rmvnorm(400,mean=c(70,21),sigma=matrix(c(10,-4,-4,10), ncol=2)))
+p4=ggplot(korn4, aes(x=X1, y=X2)) +
+    geom_point(shape=1,size=2) + 
+  geom_smooth(method=lm,    
+                se=FALSE,col="red")  + 
+   xlab("Academic Achievement") +   
+   ylab("Classroom size")  +   
+   ggtitle("(D)")
+
+korn1=data.frame(X1=seq(0,40,by=1),X2=seq(0,-10,by=-0.25))
+p5=ggplot(korn1, aes(x=X1, y=X2)) +
+    geom_point(shape=1,size=2) +   
+    geom_smooth(method=lm,   
+                se=FALSE,col="red")  +    
+   xlab("number if incorrect answer") +   
+   ylab("Score")+    
+   ggtitle("(E)")
+
+library(gridExtra)
+grid.arrange(p1, p2, p3, p4,p5, ncol=3, nrow =2)
+
+```
+
+###Inference on a Pearson correlation coefficient
+Information from the sample ($r$) can be utilized to make judgement about the population ($\rho$).
+
+__The z transformation__ , assuming a bivariate normality and a sample size of at least 10 (@myerswell13), is a helpful procedure to reach a judgement. The transformation equation is;
+$$z_r = \frac{1}{2}ln \left( \frac{1+r}{1-r} \right)$$
+
+The standard error is;
+$$\sigma_r = \frac{1}{\sqrt{n-3}}$$
+
+Hence the confidence intervals are $z_r \pm z_{\alpha / 2} \sigma_r$. Back transformation is needed to make interpretation about the correlation coefficient; $r=\frac{e^{2z_r}-1}{e^{2z_r}+1}$. 
+
+Utilizing a normal distribution, a null hypothesis can be tested;
+$$z=\frac{z_r - z_{\rho_{null}}}{\frac{1}{\sqrt{n-3}}}$$
+__The t distribution__ can also be utilized to test $H_0:\rho=0$. 
+
+$$t=r\sqrt{\frac{n-2}{1-r^2}}$$
+
+The distribution for this statistic follows a t distribution with a degrees of freedom of $n-2$. 
+
+### R codes for Pearson Correlation coefficent 
+For illustrative purposes we selected the city of Bayburt. The Pearson correlation is computed for the association between the Gender Attitudes scores and the annual income per person. The income per person is calculated as "total household income" divided by the "total number of residents in the house".
+
+```{r, collapse=T, eval=T, cache=T, echo=T, message=F}
+# load csv from an online repository
+urlfile='https://raw.githubusercontent.com/burakaydin/materyaller/gh-pages/ARPASS/dataWBT.csv'
+dataWBT=read.csv(urlfile)
+
+#remove URL 
+rm(urlfile)
+
+#select the city of Bayburt
+# listwise deletion for gen_att and education variables
+dataWBT_Bayburt=dataWBT[dataWBT$city=="BAYBURT",]
+#hist(dataWBT_Bayburt$income_per_member)
+
+```
+
+The bivariate distribution can be seen in \@ref(fig:testbivarnorm). This is an interactive graph, please use your mouse to inspect it, created with the _rgl_ package  (@R-rgl). 
+
+```{r testbivarnorm, collapse=T, eval=T, cache=F, echo=F, message=F, warning=F, fig.show='hold', fig.cap='Gender Attitudes and Income'}
+
+#kernel densities
+library(MASS)
+dataWBT_Bayburt2=na.omit(dataWBT_Bayburt[,c("gen_att","income_per_member")])
+kernden <- with(dataWBT_Bayburt2,kde2d(gen_att, income_per_member, n = 100))
+
+library(rgl)
+col1 <- rainbow(length(kernden$z))[rank(kernden$z)]
+
+# plot3d(mtcars[, 1:3], type = "s",)  
+# plot3d(mtcars[, 4:6], type = "s")
+
+# mfrow3d(nr = 1, nc = 1, sharedMouse = TRUE)  
+ open3d()
+ persp3d(x=kernden,col=col1)
+ rglwidget()
+
+
+# graph
+#persp(kernden, phi = 45, theta = 30)
+
+# graph 2
+#persp(kernden, phi = 45, theta = 30, shade = .1, border = NA)
+```
+
+Bivariate normality  seems to be violated. For comparison, below graph \@ref(fig:perfectbinorm).depicts a bivarite normal distribution with r=0.7. Nevertheless, for illustrative purposes we use these data to test the null hypothesis $H_0: \rho=0$ against the non-directional alternative hypothesis $H_1: \rho \neq0$.The scatter plot is provided in \@ref(fig:scatterincgenatt).
+
+```{r perfectbinorm, collapse=T, eval=T, cache=F, echo=F, message=F, warning=F, fig.show='hold', fig.cap='Bivariate Normal Distribution '}
+library(mvtnorm)  
+kor7=data.frame(rmvnorm(8000,mean=c(0,0),sigma=matrix(c(1,.7,.7,1), ncol=2)))
+#kernel densities
+library(MASS)
+kernden2 <- with(kor7,kde2d(X1, X2, n = 200))
+library(rgl)
+# graph
+#persp(kernden2, phi = 45, theta = 30)
+
+persp(kernden2, phi = 45, theta = 30, shade = .1, border = NA)
+```
+
+
+
+
+```{r scatterincgenatt, echo=FALSE , warning=FALSE, message=FALSE,fig.cap='Bayburt: Gender attitudes vs income scatterplot'}
+p1=ggplot(dataWBT_Bayburt2, aes(x=gen_att, y=income_per_member)) +
+    geom_point(shape=1,size=2) +   
+    geom_smooth(method=lm,   
+                se=FALSE,col="blue")  +   
+   xlab("Gender Attitudes") +    
+   ylab("Income")
+p1
+```
+
+The correlation between these two variables is computed by the _cor_ function in the _stats_ package (@R-base). The _cor.test_ function in the same package performs the t-test and provides a confidence interval based on Fisher's z transformation.
+
+
+```{r, collapse=T, eval=T, cache=F, message=F}
+#use ?cor to see use="complete.obs" is doing casewise deletion
+
+with(dataWBT_Bayburt,cor(gen_att,income_per_member,
+                         use = "complete.obs",method="pearson"))
+
+with(dataWBT_Bayburt,cor.test(gen_att,income_per_member,
+         alternative = "two.sided",
+         method="pearson",
+         conf.level = 0.95,
+         na.action="na.omit"))   
+```
+
+These procedures can easily be hard coded.Stating $H_0: \rho=0$ and $H_0: \rho \neq 0$ 
+
+```{r, eval=T,collapse=TRUE,cache=F, message=F}
+sample_r=0.06641641 
+r0=0        #the null
+sample_n=137       # the number of complete.cases
+zr=(0.5)*log((1+sample_r)/(1-sample_r))  # Z transformasyonu
+z0=(0.5)*log((1+r0)/(1-r0))  # Z transformasyonu
+sigmar=1/(sqrt(sample_n-3))
+
+#the z test statistic
+(zr-z0)/sigmar
+
+
+ll=zr-(qnorm(0.975)*sigmar)  # lower limit
+
+
+ul=zr+(qnorm(0.975)*sigmar)  # upper limit
+
+
+(exp(2*ll)-1)/(exp(2*ll)+1)  #transformback
+(exp(2*ul)-1)/(exp(2*ul)+1)  #transformback
+
+
+t=sample_r*(sqrt((sample_n-2)/(1-sample_r^2)))        
+qt(c(.025, .975), df=(sample_n-2))      
+p.value = 2*pt(-abs(t), df=sample_n-2)  
+p.value
+```
+
+A percentile bootstrap method might perform satisfactorily as a robust approach (@myerswell13)
+
+```{r,collapse=T, eval=T, cache=F,message=F}
+#Calculate 95% CI using bootstrap (normality is not assumed)
+set.seed(31012017)
+B=5000       # number of bootstraps
+alpha=0.05   # alpha
+
+#gender attitudes and income
+originaldata=dataWBT_Bayburt2
+
+#add id
+originaldata$id=1:nrow(originaldata)
+
+output=c()
+for (i in 1:B){
+  #sample rows
+  bs_rows=sample(originaldata$id,replace=T,size=nrow(originaldata))
+  bs_sample=originaldata[bs_rows,]
+  output[i]=cor(bs_sample$gen_att,bs_sample$income_per_member)
+  }
+output=sort(output)
+
+## Non-directional 
+# lower limit
+output[as.integer(B*alpha/2)]
+
+# d star upper
+output[B-as.integer(B*alpha/2)+1]
+
+
+```
+
+There are alternatives to percentile bootstrapping for a correlation coefficient, extensively discussed by @wilcox2012. The WRS 2 package offers two alternatives, the percentage bend correlation and the Winsorized correlation. Only for illustrative purposes below is an R code;
+
+```{r,collapse=T, eval=T, cache=F,message=F}
+# investigate the WRS package
+library(WRS2)
+pbcor(dataWBT_Bayburt2$gen_att,dataWBT_Bayburt2$income_per_member,beta=.2)
+
+wincor(dataWBT_Bayburt2$gen_att,dataWBT_Bayburt2$income_per_member,tr=.2)
+
+```
+
+
+__Write up:__ We tested a null hypothesis stating the gender attitudes scores and income variable are correlated against an non-directional alternative hypothesis. The Pearson correlation coefficient was $r=.066,p=.44$, the confidence interval with a .05 probability of a type I error using the z transformation is -.10 to .23. The null hypothesis is retained. This conclusion is consistent with the bootstrap results, using 5000 iterations, the 95% CI is -.138 to .252.     
+
+
+__Sign difference note__ The Pearson correlation coefficent is .066 but not significantly different than zero. The WRS package functions also agreed to retain the null but the coefficent was negative. 
+The income variable was sligthly skewed due to a small number of relatively large income values. In fact, when the World Bank team analyzed the data using a regression, they top-coded and transformed the income variable (for details @Hirshleifer16).
+Let us top-code and transform the income variable, inspect bivariate normality and calculate the Pearson correlation;
+
+```{r incometransformed, collapse=T, eval=T, cache=F, echo=F, message=F, warning=F, fig.show='hold', fig.cap='Top-coded and transformed income variable '}
+# top code the income at 95th percentile
+top=quantile(dataWBT_Bayburt2$income_per_member,.95)
+dataWBT_Bayburt2$incomeTC=ifelse(dataWBT_Bayburt2$income_per_member>top,                                               top,dataWBT_Bayburt2$income_per_member)
+#transform
+dataWBT_Bayburt2$incomeTC=log(dataWBT_Bayburt2$incomeTC+
+                                sqrt((dataWBT_Bayburt2$incomeTC^2)+1))
+
+#kernel densities
+library(MASS)
+kernden3 <- with(dataWBT_Bayburt2,kde2d(gen_att, incomeTC, n = 100))
+library(rgl)
+# graph
+#persp(kernden2, phi = 45, theta = 30)
+
+persp(kernden3, phi = 45, theta = 30, shade = .1, border = NA)
+```
+
+
+```{r,collapse=T, eval=T, cache=F,message=F}
+
+with(dataWBT_Bayburt2,cor.test(gen_att,incomeTC,
+         alternative = "two.sided",
+         method="pearson",
+         conf.level = 0.95,
+         na.action="na.omit"))  
+```
+
+
+Top-coding and transforming the income variable produced a distribution relatively closer to normal. The sign of the Pearson correlation coefficent is negative.
+
+## Spearman’s rho and Kendall’s tau
+When the data is in the rank format, or there is a need for protection against outliers^[Here protection refers to being less sensetive to outliers compared to Pearson coefficient. However Spearman's rho and Kendall's tau might be more sensetive to outliers compared to robust procedures, see @wilcox2012.] when working with continuous data the Spearman correlation coefficient is used. If the number of ties in the ranks is not large, procedures provided for the Pearson correlation coefficient can be utilized. Setting the method argument to "spearman", the _cor.test_ function first transforms the data into ranks and performs the procedures introduced for the Pearson coefficient. 
+
+###The R code for Spearman's rho and Kendall's tau
+We calculated the Pearson correlation coefficient to assess the association between the gender attitudes scores and the income for the participants in Bayburt. The Spearman correlation coefficient can conveniently be calculated by R;
+
+```{r, collapse=T, eval=T, cache=F, message=F}
+#use ?cor to see use="complete.obs" is doing casewise deletion
+with(dataWBT_Bayburt,cor.test(gen_att,income_per_member,
+         alternative = "two.sided",
+         method="spearman",
+         conf.level = 0.95,
+         na.action="na.omit",
+         exact=FALSE)) 
+
+```
+
+When there are ties, the _cor.test_ function corrects the Spearman coefficient but the exact p value can not be calculated. Instead  _exact=FALSE_ argument yields a p value based on a t distribution. @Andy2012 suggests using Kendall's tau with large number of ties;
+
+```{r, collapse=T, eval=T, cache=F, message=F}
+#use ?cor to see use="complete.obs" is doing casewise deletion
+with(dataWBT_Bayburt,cor.test(gen_att,income_per_member,
+         alternative = "two.sided",
+         method="kendall",
+         conf.level = 0.95,
+         na.action="na.omit",
+         exact=FALSE)) 
+
+```
+
+The _exact=FALSE_ argument with _method="kendall"_ uses normal approximation.
+
+The Spearman correlation between the gender attitudes scores and income was $r_S=-.051, p=.56$, and the Kendall's tau was $\tau = -.037,p=.54$
+
+## Biserial and Point-Biserial Correlation Coefficients with R
+
+The association between a continuous variable and a dichotomously reflected latent continious variable can be examined with a biserial correlation. In psychometrics , for example, biserial correlation is used for calculating the correlation between a total test score (continuous) and  a dichotomous item score (assumed to underlie a latent variable).
+
+For illustrative purposes let us use dichotomized item1^[This item is indeed dichotomized by the Worldbank team in their analyses] and the gender attitudes score. The _biserial_ function in the _psych_ (@R-psych) package can calculate the bi-serial correlation;
+
+```{r, collapse=T, eval=T, cache=F, message=F}
+
+dataWBT_Bayburt$binitem1=ifelse(dataWBT_Bayburt$item1==4,1,0)
+require(psych)
+with(dataWBT_Bayburt,biserial(gen_att,binitem1))
+
+```
+
+
+The point-biserial correlation is calculated for an association between a dichotomous variable and a continuous variable. The _cor.test_ function with _method=“pearson”_ can be used to calculate a point-biserial correlation. The association between the gender and the gender attitudes scores is examined below;
+
+```{r, collapse=T, eval=T, cache=F, message=F}
+dataWBT_Kayseri=dataWBT[dataWBT$city=="KAYSERI",]
+dataWBT_Kayseri$genderNUM=ifelse(dataWBT_Kayseri$gender=="Female",1,0)
+with(dataWBT_Kayseri,cor.test(gen_att,genderNUM,
+         alternative = "two.sided",
+         method="pearson",
+         conf.level = 0.95,
+         na.action="na.omit"))   
+```
+
+
+
+## Phi Correlation Coefficient with R
+When the two variables are dichotomous, a phi ($\phi$) correlation coefficient is calculated. For illustrative purposes we calculated the phi coefficent between the gender and the wage variable. This variable equals to "yes" if one of the house members receives wage in the past 12 months. The _phi_ function in the _psych_ package requires the 2 x 2 matrix of frequencies to calculate the phi coefficient.
+
+
+```{r, collapse=T, eval=T, cache=F, message=F}
+dataWBT_Kayseri=dataWBT[dataWBT$city=="KAYSERI",]
+table(dataWBT_Kayseri$gender,dataWBT_Kayseri$wage01)
+
+genderWAGE=matrix(c(52,49,97,54),ncol=2)
+library(psych)
+phi(genderWAGE)
+
+phi(genderWAGE)
+
+```
+
+
+
+## Issues in Interpreting Correlation Coefficients
+Several issues arise in interpreting correlation coefficients.
+
+__Causation__ A correlation coefficient does not imply causation.  For any correlation there are at least four possible interpretations involving cuasation: (a) X causes Y, (b) Y causes X,  (c) both X and Y  share one or more common causes, and (d) X and Y have different causes, but these causes are correlated.
+
+__The magnitude__ Whether a correlation of .6 is large or not depends on the context. For example suppose the .6 is the correlation between scores on two forms of a standardized achievement tests. This correlation is called an alternate forms reliability coefficient. Alternate forms reliability coefficients for standardized tests are expected to be at least .70 and preferably higher, so the .6 correlation would be regarded as small. 
+Now suppose the correlation is between GRE scores and GPA.  The correlation between GRE scores and GPA is typically somewhere between .10 and .30, so a .60 correaltion would be a very large correlation coefficient.
+
+__Outliers__ Correlation coefficients can be misleading when the data set contains outliers.
+
+__Reliability__ If either X or Y contains measurement error, the effect of the measurement error is to attenuate the correlation coefficient. Attenuate means to make the correlation coefficient closer to zero than it would have been if there had been no measurement error.
+
+Its possible to correct for attenuation using $$r_{T_x T_y}=\frac{r_{xy}}{\sqrt(r_{xx}r_{yy})}$$ where $r_{xx}$ and $r_{yy}$ is the reliability coefficients.
+
+• _When NOT to correct for attenuation:_ When a variable is used for practical decision making and we are interested in the validity of those decisions, we should NOT correct for attenuation because the decisions are made on the basis of an observed variable, not a true variable.
+
+• _When to correct for attenuation:_ We can correct for attenuation when our motivation is to examine theory. 
+
+• _Comparison of Correlation Coefficients:_ A comparison of correlation coefficients for two variables with a third variable can be affected by differences in reliability for the first two variables. If we are interested in theoretical relationships between variables and we want to compare the strength of relationship of two constructs  (call these A and B and let them be measured by X1  and X2 ) with a third (call this C and let it be measured by Y),  the comparison of the strength of relationship  between A and C to the strength of relationship  between B and C is compromised if X1  and X2  have different reliability coefficients.  To compare strength of relationship we want the reliability of X1  and  X2 to be the similar. Of course, it is best if both reliability coefficients are high, but it is critical that that are quite similar.
+
+__Unit of analysis__ A correlation calculated for one unit of analysis (e.g., individuals without regard to school) should not be applied to other units of analysis (i.e., individuals within schools or school means).
+
+__Variance in the two variables being correlated__ The correlation coefficient for two variables can be strongly affected by the amount of variance for the variables being correlated.  Other things being equal when the variance of either or both variables is small, the correlation will tend to be small.  If the variance for either or both variables is artificially small, misleading small correlation coefficients can occur. Variance can be artificially small due to
+
+•	Categorizing Based on Quantitative Variables 
+
+•	Limited Range Scales
+
+•	Restriction of range
+
+•	Floor and Ceiling Effects
+
+

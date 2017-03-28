@@ -1,0 +1,23 @@
+
+
+# Setting up R for Windows
+
+Downloading R into a computer is straight forward. The web page <a href="https://www.r-project.org/" target="_blank">r-project</a> has instructions on how to download. A silent video is recorded and posted on YouTube for the first time users (Video1 \@ref(fig:Video1)).
+
+```{r Video1, fig.cap='Download R for Windows ', fig.width=8, fig.height=6 , echo=FALSE}
+knitr::include_url("https://www.youtube.com/embed/ym8szN2Zim4")
+```
+
+
+It is possible to use R without a script, however an editor is needed to record every steps in an organized manner. One of the simplest editors comes within R, open R, click _File_ and open a new script. Alternatively click (Video2 \@ref(fig:Video2)).
+
+```{r Video2, fig.cap='R script ', fig.width=8, fig.height=6 , echo=FALSE}
+knitr::include_url("https://www.youtube.com/embed/6AEdcRmG4Rk")
+```
+
+
+There are more sophisticated editors compared to R's built in editor, more broadly, any text editor can support R. Tinn-R and R-studio are popular R editors. This book and relevant examples are indirect products of R-studio. The web page <a href="https://www.rstudio.com/" target="_blank">RStudio</a> has instructions on how to download R studio. Another silent video is recorded and posted on YouTube for the first time users (Video3 \@ref(fig:Video3)).
+
+```{r Video3, fig.cap='Download R Studio  ', fig.width=8, fig.height=6 , echo=FALSE}
+knitr::include_url("https://www.youtube.com/embed/i6DjNs-hgz4")
+```

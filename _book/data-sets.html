@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>BETA: An R Platform for Social Scientists</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="R book for social scientists">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="BETA: An R Platform for Social Scientists" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/coverpicture.png" />
+  <meta property="og:description" content="R book for social scientists" />
+  <meta name="github-repo" content="burakaydin/BAP2219" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="BETA: An R Platform for Social Scientists" />
+  
+  <meta name="twitter:description" content="R book for social scientists" />
+  <meta name="twitter:image" content="images/coverpicture.png" />
+
+<meta name="author" content="Burak AYDIN, James ALGINA, Walter LEITE">
+
+
+<meta name="date" content="2017-01-01">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="basics.html">
+<link rel="next" href="descriptive-statistics-and-hypthoses-testing.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-0.8/htmlwidgets.js"></script>
+<link href="libs/rglwidgetClass-2/rgl.css" rel="stylesheet" />
+<script src="libs/rglwidgetClass-2/rglClass.src.js"></script>
+<script src="libs/CanvasMatrix4-2016/CanvasMatrix.src.js"></script>
+<script src="libs/rglWebGL-binding-0.97.0/rglWebGL.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">SARP</a></li>
+<li><a href="https://burakaydin.github.io/SARP/_book/" target="blank">SAPR-TR</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Cover</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#why-bookdown"><i class="fa fa-check"></i><b>1.1.1</b> Why Bookdown?</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#content"><i class="fa fa-check"></i><b>1.1.2</b> Content</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i><b>2</b> Preface</a><ul>
+<li class="chapter" data-level="2.1" data-path="preface.html"><a href="preface.html#authors"><i class="fa fa-check"></i><b>2.1</b> Authors</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="preface.html"><a href="preface.html#burak-aydn-ph.d."><i class="fa fa-check"></i><b>2.1.1</b> Burak Aydın, Ph.D.</a></li>
+<li class="chapter" data-level="2.1.2" data-path="preface.html"><a href="preface.html#james-algina-ph.d."><i class="fa fa-check"></i><b>2.1.2</b> James Algina, Ph.D.</a></li>
+<li class="chapter" data-level="2.1.3" data-path="preface.html"><a href="preface.html#walter-l.-leite-ph.d."><i class="fa fa-check"></i><b>2.1.3</b> Walter L. Leite, Ph.D.</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="preface.html"><a href="preface.html#acknowledgement"><i class="fa fa-check"></i><b>2.2</b> Acknowledgement</a></li>
+<li class="chapter" data-level="2.3" data-path="preface.html"><a href="preface.html#dataWBT"><i class="fa fa-check"></i><b>2.3</b> Data</a></li>
+<li class="chapter" data-level="2.4" data-path="preface.html"><a href="preface.html#fund"><i class="fa fa-check"></i><b>2.4</b> Fund</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="rs-popularity.html"><a href="rs-popularity.html"><i class="fa fa-check"></i><b>3</b> R’s Popularity</a></li>
+<li class="chapter" data-level="4" data-path="setting-up-r-for-windows.html"><a href="setting-up-r-for-windows.html"><i class="fa fa-check"></i><b>4</b> Setting up R for Windows</a></li>
+<li class="chapter" data-level="5" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>5</b> Basics</a><ul>
+<li class="chapter" data-level="5.1" data-path="basics.html"><a href="basics.html#functions"><i class="fa fa-check"></i><b>5.1</b> Functions</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="basics.html"><a href="basics.html#r-as-a-basic-calculator."><i class="fa fa-check"></i><b>5.1.1</b> R as a Basic Calculator.</a></li>
+<li class="chapter" data-level="5.1.2" data-path="basics.html"><a href="basics.html#r-as-a-programmable-calculator"><i class="fa fa-check"></i><b>5.1.2</b> R as a Programmable Calculator</a></li>
+<li class="chapter" data-level="5.1.3" data-path="basics.html"><a href="basics.html#help"><i class="fa fa-check"></i><b>5.1.3</b> Help!</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="basics.html"><a href="basics.html#r-data-types"><i class="fa fa-check"></i><b>5.2</b> R Data Types</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="basics.html"><a href="basics.html#vectors"><i class="fa fa-check"></i><b>5.2.1</b> Vectors</a></li>
+<li class="chapter" data-level="5.2.2" data-path="basics.html"><a href="basics.html#matricies"><i class="fa fa-check"></i><b>5.2.2</b> Matricies</a></li>
+<li class="chapter" data-level="5.2.3" data-path="basics.html"><a href="basics.html#variables"><i class="fa fa-check"></i><b>5.2.3</b> Variables</a></li>
+<li class="chapter" data-level="5.2.4" data-path="basics.html"><a href="basics.html#factors"><i class="fa fa-check"></i><b>5.2.4</b> Factors</a></li>
+<li class="chapter" data-level="5.2.5" data-path="basics.html"><a href="basics.html#missing-values"><i class="fa fa-check"></i><b>5.2.5</b> Missing Values</a></li>
+<li class="chapter" data-level="5.2.6" data-path="basics.html"><a href="basics.html#dataframes"><i class="fa fa-check"></i><b>5.2.6</b> Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="basics.html"><a href="basics.html#r-packages"><i class="fa fa-check"></i><b>5.3</b> R Packages</a></li>
+<li class="chapter" data-level="5.4" data-path="basics.html"><a href="basics.html#theworkspace"><i class="fa fa-check"></i><b>5.4</b> The Workspace</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-sets.html"><a href="data-sets.html"><i class="fa fa-check"></i><b>6</b> Data Sets</a><ul>
+<li class="chapter" data-level="6.1" data-path="data-sets.html"><a href="data-sets.html#import-data"><i class="fa fa-check"></i><b>6.1</b> Import Data</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="data-sets.html"><a href="data-sets.html#csv"><i class="fa fa-check"></i><b>6.1.1</b> CSV</a></li>
+<li class="chapter" data-level="6.1.2" data-path="data-sets.html"><a href="data-sets.html#spss"><i class="fa fa-check"></i><b>6.1.2</b> SPSS</a></li>
+<li class="chapter" data-level="6.1.3" data-path="data-sets.html"><a href="data-sets.html#rdata"><i class="fa fa-check"></i><b>6.1.3</b> Rdata</a></li>
+<li class="chapter" data-level="6.1.4" data-path="data-sets.html"><a href="data-sets.html#pullonline"><i class="fa fa-check"></i><b>6.1.4</b> Pull online</a></li>
+<li class="chapter" data-level="6.1.5" data-path="data-sets.html"><a href="data-sets.html#read-data-through-r-studio"><i class="fa fa-check"></i><b>6.1.5</b> Read data through R studio</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="data-sets.html"><a href="data-sets.html#basic-data-manipulation"><i class="fa fa-check"></i><b>6.2</b> Basic Data Manipulation</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="data-sets.html"><a href="data-sets.html#replacing-values"><i class="fa fa-check"></i><b>6.2.1</b> Replacing values</a></li>
+<li class="chapter" data-level="6.2.2" data-path="data-sets.html"><a href="data-sets.html#subsetting"><i class="fa fa-check"></i><b>6.2.2</b> Subsetting</a></li>
+<li class="chapter" data-level="6.2.3" data-path="data-sets.html"><a href="data-sets.html#creating-new-variables"><i class="fa fa-check"></i><b>6.2.3</b> Creating new variables</a></li>
+<li class="chapter" data-level="6.2.4" data-path="data-sets.html"><a href="data-sets.html#reshaping-data"><i class="fa fa-check"></i><b>6.2.4</b> Reshaping data</a></li>
+<li class="chapter" data-level="6.2.5" data-path="data-sets.html"><a href="data-sets.html#converting-between-variable-types"><i class="fa fa-check"></i><b>6.2.5</b> Converting between variable types</a></li>
+<li class="chapter" data-level="6.2.6" data-path="data-sets.html"><a href="data-sets.html#delete-cases"><i class="fa fa-check"></i><b>6.2.6</b> Delete cases</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="data-sets.html"><a href="data-sets.html#export-data"><i class="fa fa-check"></i><b>6.3</b> Export Data</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html"><i class="fa fa-check"></i><b>7</b> Descriptive Statistics and Hypthoses Testing</a><ul>
+<li class="chapter" data-level="7.1" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#descstats"><i class="fa fa-check"></i><b>7.1</b> Descriptive Statistics</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#mean"><i class="fa fa-check"></i><b>7.1.1</b> Mean</a></li>
+<li class="chapter" data-level="7.1.2" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#median"><i class="fa fa-check"></i><b>7.1.2</b> Median</a></li>
+<li class="chapter" data-level="7.1.3" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#variance"><i class="fa fa-check"></i><b>7.1.3</b> Variance</a></li>
+<li class="chapter" data-level="7.1.4" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#standard-deviation"><i class="fa fa-check"></i><b>7.1.4</b> Standard deviation</a></li>
+<li class="chapter" data-level="7.1.5" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#skewness"><i class="fa fa-check"></i><b>7.1.5</b> Skewness</a></li>
+<li class="chapter" data-level="7.1.6" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#kurtosis"><i class="fa fa-check"></i><b>7.1.6</b> Kurtosis</a></li>
+<li class="chapter" data-level="7.1.7" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#reporting-descriptives"><i class="fa fa-check"></i><b>7.1.7</b> Reporting descriptives</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#basic-graphics"><i class="fa fa-check"></i><b>7.2</b> Basic graphics</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#histogram"><i class="fa fa-check"></i><b>7.2.1</b> Histogram</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#hypothesis-testing-introduction"><i class="fa fa-check"></i><b>7.3</b> Hypothesis testing introduction</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#samplingdist"><i class="fa fa-check"></i><b>7.3.1</b> The Sampling distribution</a></li>
+<li class="chapter" data-level="7.3.2" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-confidence-intervals-ci"><i class="fa fa-check"></i><b>7.3.2</b> The Confidence Intervals (CI)</a></li>
+<li class="chapter" data-level="7.3.3" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-null-hypothesis"><i class="fa fa-check"></i><b>7.3.3</b> The null hypothesis</a></li>
+<li class="chapter" data-level="7.3.4" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-z-score-and-the-z-test"><i class="fa fa-check"></i><b>7.3.4</b> The z score and the z test</a></li>
+<li class="chapter" data-level="7.3.5" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-one-sample-t-test"><i class="fa fa-check"></i><b>7.3.5</b> The one-sample t test</a></li>
+<li class="chapter" data-level="7.3.6" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-p-value"><i class="fa fa-check"></i><b>7.3.6</b> The p value</a></li>
+<li class="chapter" data-level="7.3.7" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-p-value-illustration"><i class="fa fa-check"></i><b>7.3.7</b> The p value illustration</a></li>
+<li class="chapter" data-level="7.3.8" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#statisticalpower"><i class="fa fa-check"></i><b>7.3.8</b> Statistical power</a></li>
+<li class="chapter" data-level="7.3.9" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#in-case-the-z-and-the-t-distribution-is-not-valid"><i class="fa fa-check"></i><b>7.3.9</b> In case the z and the t distribution is not valid</a></li>
+<li class="chapter" data-level="7.3.10" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#shiny-application-to-visualize-sampling-distribution"><i class="fa fa-check"></i><b>7.3.10</b> Shiny application to visualize sampling distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html"><i class="fa fa-check"></i><b>8</b> Comparing Two Means, the t-test</a><ul>
+<li class="chapter" data-level="8.1" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#between-subjects-t-test-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1</b> Between-Subjects t-test (The Independent Groups t-test)</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#r-codes-for-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1.1</b> R codes for the independent groups t-test</a></li>
+<li class="chapter" data-level="8.1.2" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#assumptions-of-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1.2</b> Assumptions of the independent groups t-test</a></li>
+<li class="chapter" data-level="8.1.3" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#using-welchs-t-test"><i class="fa fa-check"></i><b>8.1.3</b> Using Welch’s t test</a></li>
+<li class="chapter" data-level="8.1.4" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#indepteff"><i class="fa fa-check"></i><b>8.1.4</b> Effect size for the independent groups t-test</a></li>
+<li class="chapter" data-level="8.1.5" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#extra-practical-significance-vs-statistical-significance"><i class="fa fa-check"></i><b>8.1.5</b> Extra: Practical significance vs statistical significance</a></li>
+<li class="chapter" data-level="8.1.6" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#missing-data-techniques-for-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1.6</b> Missing data techniques for the independent groups t-test</a></li>
+<li class="chapter" data-level="8.1.7" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#supportive-graphs-for-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1.7</b> Supportive graphs for the independent groups t-test</a></li>
+<li class="chapter" data-level="8.1.8" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#power-calculations-for-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1.8</b> Power calculations for the independent groups t-test</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#the-dependent-groups-t-test-within-subjects-t-test"><i class="fa fa-check"></i><b>8.2</b> The dependent groups t-test (Within-subjects t-test)</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#r-codes-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.1</b> R codes for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.2" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#assumption-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.2</b> Assumption for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.3" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#robust-estimation-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.3</b> Robust estimation for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.4" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#effect-size-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.4</b> Effect size for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.5" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#missing-data-techniques-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.5</b> Missing data techniques for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.6" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#supportive-graphs-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.6</b> Supportive graphs for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.7" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#power-calculations-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.7</b> Power calculations for the dependent groups t-test</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#common-designs"><i class="fa fa-check"></i><b>8.3</b> Common Designs</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#designs-in-which-scores-in-the-two-treatments-are-correlated"><i class="fa fa-check"></i><b>8.3.1</b> Designs in which Scores in the Two Treatments are Correlated</a></li>
+<li class="chapter" data-level="8.3.2" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#designbetween"><i class="fa fa-check"></i><b>8.3.2</b> Designs in which Scores in the Two Treatments are Independent</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html"><i class="fa fa-check"></i><b>9</b> Analysis of Variance (ANOVA)</a><ul>
+<li class="chapter" data-level="9.1" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#terminology"><i class="fa fa-check"></i><b>9.1</b> Terminology</a></li>
+<li class="chapter" data-level="9.2" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#between-subjects-anova"><i class="fa fa-check"></i><b>9.2</b> Between Subjects ANOVA</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#one-way-between-subjects-anova"><i class="fa fa-check"></i><b>9.2.1</b> One-way Between Subjects ANOVA</a></li>
+<li class="chapter" data-level="9.2.2" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#two-factor-between-subjects-anova"><i class="fa fa-check"></i><b>9.2.2</b> Two-Factor Between Subjects ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#within-subjects-anova"><i class="fa fa-check"></i><b>9.3</b> Within Subjects ANOVA</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#one-way-within-subjects-anova"><i class="fa fa-check"></i><b>9.3.1</b> One-way Within-Subjects ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#mixed-design"><i class="fa fa-check"></i><b>9.4</b> Mixed Design</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="correlation.html"><a href="correlation.html"><i class="fa fa-check"></i><b>10</b> Correlation</a><ul>
+<li class="chapter" data-level="10.1" data-path="correlation.html"><a href="correlation.html#pearson-correlation-coefficient"><i class="fa fa-check"></i><b>10.1</b> Pearson correlation coefficient</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="correlation.html"><a href="correlation.html#inference-on-a-pearson-correlation-coefficient"><i class="fa fa-check"></i><b>10.1.1</b> Inference on a Pearson correlation coefficient</a></li>
+<li class="chapter" data-level="10.1.2" data-path="correlation.html"><a href="correlation.html#r-codes-for-pearson-correlation-coefficent"><i class="fa fa-check"></i><b>10.1.2</b> R codes for Pearson Correlation coefficent</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="correlation.html"><a href="correlation.html#spearmans-rho-and-kendalls-tau"><i class="fa fa-check"></i><b>10.2</b> Spearman’s rho and Kendall’s tau</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="correlation.html"><a href="correlation.html#the-r-code-for-spearmans-rho-and-kendalls-tau"><i class="fa fa-check"></i><b>10.2.1</b> The R code for Spearman’s rho and Kendall’s tau</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="correlation.html"><a href="correlation.html#biserial-and-point-biserial-correlation-coefficients-with-r"><i class="fa fa-check"></i><b>10.3</b> Biserial and Point-Biserial Correlation Coefficients with R</a></li>
+<li class="chapter" data-level="10.4" data-path="correlation.html"><a href="correlation.html#phi-correlation-coefficient-with-r"><i class="fa fa-check"></i><b>10.4</b> Phi Correlation Coefficient with R</a></li>
+<li class="chapter" data-level="10.5" data-path="correlation.html"><a href="correlation.html#issues-in-interpreting-correlation-coefficients"><i class="fa fa-check"></i><b>10.5</b> Issues in Interpreting Correlation Coefficients</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html"><i class="fa fa-check"></i><b>11</b> Multiple Linear Regression, A Short Introduction</a><ul>
+<li class="chapter" data-level="11.1" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#matricies-and-least-square-estimation"><i class="fa fa-check"></i><b>11.1</b> Matricies and Least Square Estimation</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#a-essentially-all-models-are-wrong-but-some-are-useful."><i class="fa fa-check"></i><b>11.1.1</b> a) “Essentially, all models are wrong, but some are useful.”</a></li>
+<li class="chapter" data-level="11.1.2" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#b-strength-of-relationship-between-the-dependent-and-independent-variables"><i class="fa fa-check"></i><b>11.1.2</b> b) Strength of relationship between the dependent and independent variables</a></li>
+<li class="chapter" data-level="11.1.3" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#c-residuals-and-influential-data-points"><i class="fa fa-check"></i><b>11.1.3</b> c) Residuals and influential data points</a></li>
+<li class="chapter" data-level="11.1.4" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#d-equal-variance-assumption"><i class="fa fa-check"></i><b>11.1.4</b> d) <em>Equal variance assumption</em></a></li>
+<li class="chapter" data-level="11.1.5" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#e-hypothesis-testing"><i class="fa fa-check"></i><b>11.1.5</b> e) Hypothesis testing</a></li>
+<li class="chapter" data-level="11.1.6" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#f-variable-selection"><i class="fa fa-check"></i><b>11.1.6</b> f) Variable Selection</a></li>
+<li class="chapter" data-level="11.1.7" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#g-colliniearity"><i class="fa fa-check"></i><b>11.1.7</b> g) Colliniearity</a></li>
+<li class="chapter" data-level="11.1.8" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#h-non-linearity"><i class="fa fa-check"></i><b>11.1.8</b> h) Non-linearity</a></li>
+<li class="chapter" data-level="11.1.9" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#i-correlated-errors-and-nonindependent-errors"><i class="fa fa-check"></i><b>11.1.9</b> i) Correlated errors and nonindependent errors</a></li>
+<li class="chapter" data-level="11.1.10" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#j-centering-and-scaling"><i class="fa fa-check"></i><b>11.1.10</b> j) Centering and Scaling</a></li>
+<li class="chapter" data-level="11.1.11" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#k-standardized-coefficients"><i class="fa fa-check"></i><b>11.1.11</b> k) Standardized coefficients</a></li>
+<li class="chapter" data-level="11.1.12" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#l-interactions"><i class="fa fa-check"></i><b>11.1.12</b> l) Interactions</a></li>
+<li class="chapter" data-level="11.1.13" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#m-estimators"><i class="fa fa-check"></i><b>11.1.13</b> m) Estimators</a></li>
+<li class="chapter" data-level="11.1.14" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#n-robust-regression"><i class="fa fa-check"></i><b>11.1.14</b> n) Robust Regression</a></li>
+<li class="chapter" data-level="11.1.15" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#o-sample-size-and-statistical-power"><i class="fa fa-check"></i><b>11.1.15</b> o) Sample size and statistical power</a></li>
+<li class="chapter" data-level="11.1.16" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#p-reliability-of-variables"><i class="fa fa-check"></i><b>11.1.16</b> p) Reliability of variables</a></li>
+<li class="chapter" data-level="11.1.17" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#q-the-nature-of-the-variables"><i class="fa fa-check"></i><b>11.1.17</b> q) The nature of the variables</a></li>
+<li class="chapter" data-level="11.1.18" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#r-multiple-dependent-variables"><i class="fa fa-check"></i><b>11.1.18</b> r) Multiple dependent variables</a></li>
+<li class="chapter" data-level="11.1.19" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#s-missing-variables"><i class="fa fa-check"></i><b>11.1.19</b> s) Missing variables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="useful-r-codes.html"><a href="useful-r-codes.html"><i class="fa fa-check"></i><b>12</b> Useful R codes</a><ul>
+<li class="chapter" data-level="12.1" data-path="useful-r-codes.html"><a href="useful-r-codes.html#more-on-the-apastyle-package"><i class="fa fa-check"></i><b>12.1</b> More on the apaStyle package</a></li>
+<li class="chapter" data-level="12.2" data-path="useful-r-codes.html"><a href="useful-r-codes.html#a-useful-shiny-application"><i class="fa fa-check"></i><b>12.2</b> A useful shiny application</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">BETA: An R Platform for Social Scientists</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-sets" class="section level1">
+<h1><span class="header-section-number"> 6</span> Data Sets</h1>
+<p>In section <a href="basics.html#dataframes">5.2.6</a> we have illustrated how to enter data manually. However the data are generally available beforehand. This section aims to illustrate how to (a) import data into R, (b) perform basic data manipulation and (c) export data.</p>
+<div id="import-data" class="section level2">
+<h2><span class="header-section-number">6.1</span> Import Data</h2>
+<p>A data set might be available in different formats. Some of the most commonly used formats are .csv, .sav, .Rdata, .txt. Importing data and checking their status are initial steps and should be conducted carefully. As mentioned in <a href="basics.html#theworkspace">5.4</a>, if the data and the R script are in the same folder, a detailed path to locate the data is NOT needed.</p>
+<div id="csv" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> CSV</h3>
+<p>CSV stands for comma separated values. Microsoft Excel is a useful tool to create this format. The csv is simpler compared to xls, xlsx, xlsb or other Excel formats. A csv file can be imported into R working space using <em>read.csv</em> function. Following code is the simplest specification to read a csv file</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data=<span class="kw">read.csv</span>(<span class="st">&quot;dataname.csv&quot;</span>)   <span class="co"># works if dataname.csv is located within the working directory</span>
+
+<span class="co">#In a windows machine</span>
+data=<span class="kw">read.csv</span>(<span class="st">&quot;C:</span><span class="ch">\\</span><span class="st">Users\Desktop</span><span class="ch">\\</span><span class="st">folderX</span><span class="ch">\\</span><span class="st">data.name.csv&quot;</span>)  <span class="co"># with path</span>
+data=<span class="kw">read.csv</span>(<span class="st">&quot;C:/Users/Desktop/folderX/data.name.csv&quot;</span>)  <span class="co"># with path</span>
+<span class="co">#NOTE: A backslash (\) will cause error in a windows machine </span></code></pre></div>
+<p>Use <em>?read.csv</em> to view its arguments. See following notes for relatively important arguments</p>
+<ol style="list-style-type: lower-alpha">
+<li><em>header=FALSE</em> or <em>header=TRUE</em> indicates whether the file contains variable names.<br />
+</li>
+<li><em>na.strings</em> is used for declaring missing value indicators. This is generally critical. For example <em>na.strings = “-99”</em> indicates that -99s should be interpreted as <em>NA</em> or <em>na.strings = c(“-99” , “-9” )</em> indicates that both -99s and -9s represents missing data.</li>
+<li><em>stringsAsFactors=TRUE</em> or <em>stringsAsFactors=FALSE</em> indicates whether character vectors should be converted into factors.</li>
+<li><em>col.names</em> allows renaming variables while reading the data. For example, when reading three variables, <em>col.names</em> should have three elements, such as <em>col.names=c(“A1”,“B2”,“C3”)</em>.</li>
+</ol>
+<p>Use <em>read.csv2</em> function when decimals indicated with a comma and values are separated with semicolon. Alternatively use <em>sep=“;”</em> and <em>dec=“,”</em> arguments in <em>read.csv</em> function.</p>
+<p>A silent video is recorded (Video5 <a href="data-sets.html#fig:Video5">6.1</a>) to show these steps.</p>
+<div class="figure"><span id="fig:Video5"></span>
+<iframe src="https://www.youtube.com/embed/RjiKIWxaZBk" width="768" height="400px">
+</iframe>
+<p class="caption">
+Figure 6.1: Read CSV file
+</p>
+</div>
+</div>
+<div id="spss" class="section level3">
+<h3><span class="header-section-number">6.1.2</span> SPSS</h3>
+<p>SAV files are common data formats, at least among the social scientists. The package <em>foreign</em> <span class="citation">(R Core Team <a href="#ref-foreign">2016</a><a href="#ref-foreign">a</a>)</span> includes <em>read.spss</em> function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(foreign)
+?read.spss
+data=<span class="kw">read.spss</span>(<span class="st">&quot;dataname.sav&quot;</span>,<span class="dt">to.data.frame=</span><span class="ot">TRUE</span>)   
+<span class="co"># works if dataname.sav is located within the working directory</span></code></pre></div>
+</div>
+<div id="rdata" class="section level3">
+<h3><span class="header-section-number">6.1.3</span> Rdata</h3>
+<p>Rdata format is a memory friendly alternative. By default, it includes a name for the data set.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">load</span>(<span class="st">&quot;dataname.Rdata&quot;</span>)  <span class="co"># works if dataname.Rdata is located within the working directory</span></code></pre></div>
+</div>
+<div id="pullonline" class="section level3">
+<h3><span class="header-section-number">6.1.4</span> Pull online</h3>
+<p>Its possible to import data from the web, but these procedures are well beyond the scope of this material. The basic approach includes mainly three steps, (a) correctly specify the location , (b) correctly specify the data format, (c) download and import or directly import into R. Following code should import the World Bank data introduced in Section <a href="preface.html#dataWBT">2.3</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#read csv from an online repository</span>
+urlfile=<span class="st">&#39;https://raw.githubusercontent.com/burakaydin/materyaller/gh-pages/ARPASS/dataWBT.csv&#39;</span>
+dataname=<span class="kw">read.csv</span>(urlfile)
+<span class="kw">str</span>(dataname)
+
+
+<span class="co"># load Rdata from an online repository</span>
+urlfile2=<span class="st">&#39;https://github.com/burakaydin/materyaller/blob/gh-pages/ARPASS/dataWBT.Rdata?raw=true&#39;</span>
+<span class="kw">load</span>(<span class="kw">url</span>(urlfile2))
+<span class="kw">str</span>(dataWBT)</code></pre></div>
+<p>These data sets can be downloaded as a file from the <a href="https://github.com/burakaydin/materyaller/tree/gh-pages/ARPASS" target="_blank">Github Repository</a>. Alternatively, an excel file is located <a href="https://www.aydinburak.net/sarp" target="_blank">here</a>.</p>
+</div>
+<div id="read-data-through-r-studio" class="section level3">
+<h3><span class="header-section-number">6.1.5</span> Read data through R studio</h3>
+<p>When the data are not located within the working directory or point-click approach is preferable, <em>Import Dataset</em> gadget located in <em>Environment</em> window might be helpful. A silent video is recorded (Video6 <a href="data-sets.html#fig:Video6">6.2</a>) to show how to read a csv file through Rstudio. It is also possible to read from Excel, SPSS, SAS and Stata.</p>
+<div class="figure"><span id="fig:Video6"></span>
+<iframe src="https://www.youtube.com/embed/D_5wJFmlmxk" width="768" height="400px">
+</iframe>
+<p class="caption">
+Figure 6.2: Read CSV file through R Studio
+</p>
+</div>
+</div>
+</div>
+<div id="basic-data-manipulation" class="section level2">
+<h2><span class="header-section-number">6.2</span> Basic Data Manipulation</h2>
+<p>Generally a data set should be processed after it is imported. This section illustrates basic manipulation procedures, (a) replace values, (b) subsetting, (c) create new variables, (d) reshape (e) convert between variable types, (f) delete cases.</p>
+<div id="replacing-values" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> Replacing values</h3>
+<p>It is possible to replace a specific datum or a value. It is also possible to rename variables. The R package <em>plyr</em> <span class="citation">(Wickham <a href="#ref-plyrpack">2011</a>)</span> might be useful.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
+<span class="co"># load csv from an online repository</span>
+urlfile=<span class="st">&#39;https://raw.githubusercontent.com/burakaydin/materyaller/gh-pages/ARPASS/dataWBT.csv&#39;</span>
+tempdata=<span class="kw">read.csv</span>(urlfile)
+
+<span class="co">#remove URL </span>
+<span class="kw">rm</span>(urlfile)
+
+
+<span class="co"># replace a specific datum:i.e. row 151 column 16 should be 30 </span>
+tempdata[<span class="dv">151</span>,<span class="dv">16</span>]=<span class="dv">30</span>
+
+<span class="co"># replace a specific datum using locaters</span>
+<span class="co"># row 151 belongs to id 67034022 and column 16 is named &quot;age&quot;.</span>
+tempdata[tempdata$id==<span class="dv">67034022</span>,<span class="st">&quot;age&quot;</span>]=<span class="dv">32</span>
+
+<span class="co"># Replace values</span>
+<span class="co"># Replace treatment values</span>
+<span class="co"># originally has 1 for treatment and 2 for control</span>
+<span class="co"># Replace 1s with &quot;trt&quot; and 2s with &quot;cnt&quot; </span>
+tempdata[tempdata$treatment==<span class="dv">1</span>,<span class="st">&quot;treatment&quot;</span>]=<span class="st">&quot;trt&quot;</span>
+tempdata[tempdata$treatment==<span class="dv">2</span>,<span class="st">&quot;treatment&quot;</span>]=<span class="st">&quot;cnt&quot;</span>
+
+<span class="co"># Or use ifelse function</span>
+<span class="co"># replace &quot;wage01&quot; If &quot;wage01&quot; equals &quot;Yes&quot; change to 0.5, otherwise -0.5</span>
+tempdata$wage01=<span class="kw">ifelse</span>(tempdata$wage01==<span class="st">&quot;Yes&quot;</span>,<span class="fl">0.5</span>,-<span class="fl">0.5</span>)
+
+<span class="co"># Or use mapvalue function in the plyr package</span>
+<span class="kw">require</span>(plyr)
+<span class="co"># create a new variable named pension01NEW, 0 if pension01 is &quot;No&quot;, 1 if &quot;Yes&quot;</span>
+tempdata$pension01NEW &lt;-<span class="st"> </span><span class="kw">mapvalues</span>(tempdata$pension01, 
+                                   <span class="dt">from=</span><span class="kw">c</span>(<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;No&quot;</span>),<span class="dt">to=</span><span class="kw">c</span>(<span class="st">&quot;1&quot;</span>,<span class="st">&quot;0&quot;</span>))
+
+
+<span class="co">#rename a variable</span>
+<span class="co">#rename 4th and 5th column</span>
+<span class="kw">colnames</span>(tempdata)[<span class="dv">4</span>]=<span class="st">&quot;course&quot;</span>
+<span class="kw">colnames</span>(tempdata)[<span class="dv">5</span>]=<span class="st">&quot;region&quot;</span>
+
+<span class="co">#rename at the same time</span>
+<span class="kw">colnames</span>(tempdata)[<span class="kw">c</span>(<span class="dv">17</span>,<span class="dv">21</span>)]=<span class="kw">c</span>(<span class="st">&quot;Tinc&quot;</span>,<span class="st">&quot;WAGE1&quot;</span>)
+
+<span class="co">#rename using plyr package</span>
+tempdata &lt;-<span class="st"> </span><span class="kw">rename</span>(tempdata,<span class="kw">c</span>(<span class="st">&#39;gen_att&#39;</span>=<span class="st">&#39;GENDERATT&#39;</span>))
+
+<span class="co">#use head(tempdata) to visually check</span>
+<span class="co">#use summary(tempdata) to check</span>
+
+<span class="co">#remove tempdata</span>
+<span class="kw">rm</span>(tempdata)</code></pre></div>
+</div>
+<div id="subsetting" class="section level3">
+<h3><span class="header-section-number">6.2.2</span> Subsetting</h3>
+<p>It is easily possible to subset a data set.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
+<span class="co"># load csv from an online repository</span>
+urlfile=<span class="st">&#39;https://raw.githubusercontent.com/burakaydin/materyaller/gh-pages/ARPASS/dataWBT.csv&#39;</span>
+tempdata=<span class="kw">read.csv</span>(urlfile)
+
+<span class="co">#remove URL </span>
+<span class="kw">rm</span>(urlfile)
+
+
+<span class="co"># select only city=ISTANBUL</span>
+istDAT=tempdata[tempdata$city==<span class="st">&quot;ISTANBUL&quot;</span>,]
+
+<span class="co"># select only city=ISTANBUL and first 8 columns</span>
+istDAT18=tempdata[tempdata$city==<span class="st">&quot;ISTANBUL&quot;</span>,<span class="dv">1</span>:<span class="dv">8</span>]
+
+<span class="co"># select only city=ISTANBUL and Gender Attitude score larger than 2</span>
+istDATGAT2=tempdata[tempdata$city==<span class="st">&quot;ISTANBUL&quot;</span> |<span class="st"> </span>tempdata$gen_att &gt;<span class="dv">2</span> ,]
+
+<span class="co"># Alternatively use the subset function</span>
+<span class="co"># use the select argument to specify the columns, otherwise all columns are selected</span>
+istDATGAT2B=<span class="kw">subset</span>(tempdata, city==<span class="st">&quot;ISTANBUL&quot;</span> |<span class="st"> </span>tempdata$gen_att &gt;<span class="dv">2</span>, <span class="dt">select=</span><span class="dv">1</span>:<span class="dv">8</span>) 
+
+<span class="co">#subset based on variable values</span>
+item1_123 &lt;-<span class="st"> </span>tempdata[tempdata$item1 %in%<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), ]
+
+<span class="co">#remove all objects in workspace</span>
+<span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</code></pre></div>
+</div>
+<div id="creating-new-variables" class="section level3">
+<h3><span class="header-section-number">6.2.3</span> Creating new variables</h3>
+<p>Procedures to create new variables are covered in Section <a href="basics.html#basics">5</a>. Following computations are mainly a review.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load csv from an online repository</span>
+urlfile=<span class="st">&#39;https://raw.githubusercontent.com/burakaydin/materyaller/gh-pages/ARPASS/dataWBT.csv&#39;</span>
+tempdata=<span class="kw">read.csv</span>(urlfile)
+
+<span class="co">#remove URL </span>
+<span class="kw">rm</span>(urlfile)
+
+<span class="co"># create sum for item2 to item6</span>
+tempdata$itemSUM=<span class="kw">with</span>(tempdata,item2+item3+item4+item5+item6)
+
+<span class="co"># create average of item2 to item6 (notice na.rm)</span>
+tempdata$itemAVE=<span class="kw">with</span>(tempdata,
+                      <span class="kw">rowMeans</span>(<span class="kw">cbind</span>(item2,item3,item4,item5,item6),<span class="dt">na.rm=</span>T))
+
+<span class="co">#or</span>
+tempdata$itemAVE=<span class="kw">rowMeans</span>(tempdata[,<span class="dv">10</span>:<span class="dv">14</span>],<span class="dt">na.rm =</span> T)
+
+<span class="co"># Create average by city</span>
+tempdata$CityAVEscore =<span class="kw">with</span>(tempdata, <span class="kw">ave</span>(itemAVE,city,<span class="dt">FUN=</span>function(x) <span class="kw">mean</span>(x, <span class="dt">na.rm=</span>T)))
+
+<span class="co">#or</span>
+tempdata=<span class="kw">merge</span>(tempdata, <span class="kw">aggregate</span>(itemAVE ~<span class="st"> </span>city, <span class="dt">data =</span> tempdata, <span class="dt">FUN=</span>mean, <span class="dt">na.rm=</span><span class="ot">TRUE</span>), 
+          <span class="dt">by =</span> <span class="st">&quot;city&quot;</span>, <span class="dt">suffixes =</span> <span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;citymean&quot;</span>),<span class="dt">all=</span>T)
+
+<span class="co">#or take each item&#39;s average by city</span>
+tempdata=<span class="kw">merge</span>(tempdata, <span class="kw">aggregate</span>(<span class="kw">cbind</span>(item2,item3,item4,item5,item6) ~<span class="st"> </span>city, 
+                                   <span class="dt">data =</span> tempdata, <span class="dt">FUN=</span>mean, <span class="dt">na.rm=</span><span class="ot">TRUE</span>), 
+                                   <span class="dt">by =</span> <span class="st">&quot;city&quot;</span>, <span class="dt">suffixes =</span> <span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;Citymean&quot;</span>),<span class="dt">all=</span>T)
+
+
+<span class="co"># categorize variables. Create 0s if itemAVE is lower than 2 and 1 otherwise</span>
+tempdata$itemAVE01=<span class="kw">ifelse</span>(tempdata$itemAVE&lt;<span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">1</span>)
+
+<span class="co"># create 1s if the average is between 0 and 1.8</span>
+<span class="co"># create 2s if the average is between 1.8 and 2.5</span>
+<span class="co"># create 3s if the average is between 2.5 and 5</span>
+tempdata$itemAVE123=<span class="kw">with</span>(tempdata,<span class="kw">cut</span>(itemAVE, <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">1.8</span>,<span class="fl">2.5</span>,<span class="dv">5</span>), <span class="dt">labels =</span> <span class="ot">FALSE</span>))
+<span class="co"># check right=TRUE argument.</span>
+<span class="co"># i.e if right=T  values exactly equal to 1.8 goes into category 1</span>
+<span class="co">#     if right=F  values exactly equal to 1.8 goes into category 2</span>
+     </code></pre></div>
+</div>
+<div id="reshaping-data" class="section level3">
+<h3><span class="header-section-number">6.2.4</span> Reshaping data</h3>
+<p>It might be needed to reshape the data. Mainly from a wide format to long format or vice versa. The R package <em>tidyr</em> <span class="citation">(Wickham <a href="#ref-tidyrpack">2016</a>)</span> might be useful.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load csv from an online repository</span>
+urlfile=<span class="st">&#39;https://raw.githubusercontent.com/burakaydin/materyaller/gh-pages/ARPASS/dataWBT.csv&#39;</span>
+tempdata=<span class="kw">read.csv</span>(urlfile)
+
+<span class="co">#remove URL </span>
+<span class="kw">rm</span>(urlfile)
+
+<span class="co"># from wide to long. Create one single item column based on item1 to item6</span>
+<span class="co"># while keeping other values in the data set </span>
+<span class="kw">library</span>(tidyr)
+data_long =<span class="st"> </span><span class="kw">gather</span>(tempdata, item, score, item1:item6, <span class="dt">factor_key=</span><span class="ot">TRUE</span>)
+
+<span class="co">#sort data by id</span>
+data_long=data_long[<span class="kw">order</span>(data_long$id),] 
+
+<span class="co"># from long  to wide.</span>
+data_wide =<span class="st"> </span><span class="kw">spread</span>(data_long, item, score)
+
+## remove all objects but certain in workspace
+<span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">setdiff</span>(<span class="kw">ls</span>(),<span class="kw">c</span>(<span class="st">&quot;tempdata&quot;</span>)))</code></pre></div>
+</div>
+<div id="converting-between-variable-types" class="section level3">
+<h3><span class="header-section-number">6.2.5</span> Converting between variable types</h3>
+<p>Converting numeric values to factors or vice versa might be needed.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load csv from an online repository</span>
+urlfile=<span class="st">&#39;https://raw.githubusercontent.com/burakaydin/materyaller/gh-pages/ARPASS/dataWBT.csv&#39;</span>
+tempdata=<span class="kw">read.csv</span>(urlfile,<span class="dt">stringsAsFactors =</span> F)
+
+<span class="co">#remove URL </span>
+<span class="kw">rm</span>(urlfile)
+
+<span class="co">#check treatment variable&#39;s structure </span>
+<span class="kw">str</span>(tempdata$treatment)
+
+<span class="co">#convert numeric to factor.</span>
+tempdata$treatmentFactor=<span class="kw">factor</span>(tempdata$treatment,<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;treatment&quot;</span>,<span class="st">&quot;control&quot;</span>))
+
+<span class="co">#convert factors to numeric (when numbers show up as a character variable)</span>
+
+<span class="co">#create illustrative variable</span>
+tempdata$iv1=<span class="kw">factor</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;1&quot;</span>,<span class="st">&quot;2&quot;</span>,<span class="st">&quot;3&quot;</span>),<span class="dt">length=</span><span class="kw">nrow</span>(tempdata)))
+tempdata$iv1numeric=<span class="kw">as.numeric</span>(<span class="kw">levels</span>(tempdata$iv1))[tempdata$iv1]
+<span class="co">#or</span>
+tempdata$iv1numeric=<span class="kw">as.numeric</span>(<span class="kw">as.character</span>(tempdata$iv1))
+
+<span class="co">#convert NAs to -99  </span>
+tempdata[<span class="kw">is.na</span>(tempdata)]=<span class="st"> </span>(-<span class="dv">99</span>)
+
+<span class="co">#remove all objects in workspace</span>
+<span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</code></pre></div>
+</div>
+<div id="delete-cases" class="section level3">
+<h3><span class="header-section-number">6.2.6</span> Delete cases</h3>
+<p>It might be needed to delete an element, an entire row or an entire column</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load csv from an online repository</span>
+urlfile=<span class="st">&#39;https://raw.githubusercontent.com/burakaydin/materyaller/gh-pages/ARPASS/dataWBT.csv&#39;</span>
+tempdata=<span class="kw">read.csv</span>(urlfile,<span class="dt">stringsAsFactors =</span> F)
+
+<span class="co">#remove URL </span>
+<span class="kw">rm</span>(urlfile)
+
+<span class="co">#Delete a specific element i.e row 3 column 5</span>
+tempdata[<span class="dv">3</span>,<span class="dv">5</span>]=<span class="ot">NA</span>
+
+<span class="co">#Delete a row. i.e the 3rd </span>
+tempdata[<span class="dv">3</span>,]=<span class="st"> </span><span class="ot">NA</span>
+
+<span class="co">#or</span>
+tempdata=tempdata[-<span class="dv">3</span>,]
+
+<span class="co">#delete a column, i.e the 5th </span>
+tempdata$course_taken=<span class="ot">NULL</span>
+
+<span class="co">#listwise deletion, remove any row with missing data</span>
+<span class="co"># subset temp for illustrative purposes</span>
+temp=tempdata[,<span class="dv">1</span>:<span class="dv">10</span>]
+
+<span class="co"># listwise deletion</span>
+temp=<span class="kw">na.omit</span>(temp)
+
+<span class="co">#remove all objects in workspace</span>
+<span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</code></pre></div>
+</div>
+</div>
+<div id="export-data" class="section level2">
+<h2><span class="header-section-number">6.3</span> Export Data</h2>
+<p>It is possible to export R objects. Unless the working directory is changed using <em>setwd()</em> or a path is provided, all the objects are sent to your current working directory.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load csv from an online repository</span>
+urlfile=<span class="st">&#39;https://raw.githubusercontent.com/burakaydin/materyaller/gh-pages/ARPASS/dataWBT.csv&#39;</span>
+tempdata=<span class="kw">read.csv</span>(urlfile,<span class="dt">stringsAsFactors =</span> F)
+
+<span class="co">#remove URL </span>
+<span class="kw">rm</span>(urlfile)
+
+<span class="co">#create objects</span>
+<span class="co"># select rows 1 to 20 and columns 1 to 5</span>
+subset1=tempdata[<span class="dv">1</span>:<span class="dv">20</span>,<span class="dv">1</span>:<span class="dv">5</span>]
+object2=<span class="kw">mean</span>(tempdata$item1,<span class="dt">na.rm =</span> T)
+
+
+<span class="co">#Check working directory</span>
+<span class="kw">getwd</span>()
+
+<span class="co"># save as an R object</span>
+<span class="kw">save</span>(subset1,<span class="dt">file=</span><span class="st">&quot;subset1Rfile.Rdata&quot;</span>)
+<span class="co"># provide a path if needed</span>
+<span class="kw">save</span>(object2,<span class="dt">file=</span><span class="st">&quot;C:/Users/Desktop/object2Rfile.Rdata&quot;</span>)
+
+<span class="co"># Export as a csv</span>
+<span class="kw">write.csv</span>(subset1,<span class="dt">file=</span><span class="st">&quot;subset1CSVfile.csv&quot;</span>,<span class="dt">row.names =</span> F)
+
+<span class="co">#Export to SPSS</span>
+<span class="kw">library</span>(foreign)
+<span class="kw">write.foreign</span>(subset1, <span class="st">&quot;subset1SPSfile.txt&quot;</span>,<span class="st">&quot;subset1SPSfile.sps&quot;</span>, <span class="dt">package=</span><span class="st">&quot;SPSS&quot;</span>)
+
+<span class="co">#remove all objects in workspace</span>
+<span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</code></pre></div>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-foreign">
+<p>R Core Team. 2016a. <em>Foreign: Read Data Stored by Minitab, S, Sas, Spss, Stata, Systat, Weka, DBase, .</em> <a href="https://CRAN.R-project.org/package=foreign" class="uri">https://CRAN.R-project.org/package=foreign</a>.</p>
+</div>
+<div id="ref-plyrpack">
+<p>Wickham, Hadley. 2011. “The Split-Apply-Combine Strategy for Data Analysis.” <em>Journal of Statistical Software</em> 40 (1): 1–29. <a href="http://www.jstatsoft.org/v40/i01/" class="uri">http://www.jstatsoft.org/v40/i01/</a>.</p>
+</div>
+<div id="ref-tidyrpack">
+<p>Wickham, Hadley. 2016. <em>Tidyr: Easily Tidy Data with ‘Spread()‘ and ‘Gather()‘ Functions</em>. <a href="https://CRAN.R-project.org/package=tidyr" class="uri">https://CRAN.R-project.org/package=tidyr</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="basics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="descriptive-statistics-and-hypthoses-testing.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/burakaydin/BAP2219/tree/gh-pages/05_Read_data.Rmd",
+"text": "Edit"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

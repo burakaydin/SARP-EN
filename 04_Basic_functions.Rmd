@@ -1,0 +1,442 @@
+
+
+# Basics {#basics}
+
+R can create advanced outputs. This section aims to familiarize readers with the basic principles of R before creating or reproducing advanced outputs.
+
+## Functions
+
+A programmable calculator enables its users to write and save functions. It is useful for an R user to understand how R functions work.
+
+### R as a Basic Calculator.
+R can calculate. See the examples below followed by R syntax.
+
+\begin{equation}
+1+1=2 
+(\#eq:bc1)
+\end{equation}
+
+```{r, collapse=T}
+1+1
+```
+
+\begin{equation}
+1-1=0 
+(\#eq:bc2)
+\end{equation}
+
+```{r,collapse=T}
+1-1
+```
+
+\begin{equation}
+1 + (2 / 3) - (2 * 6.5) = -11.33 
+(\#eq:bc3)
+\end{equation}
+
+```{r, collapse=TRUE}
+1 + (2 / 3) - (2 * 6.5)
+```
+
+\begin{equation}
+sin(30) + 4^3 + log(4) + e^3 + \sqrt{7} = 87.13 
+(\#eq:bc4)
+\end{equation}
+
+```{r, collapse=TRUE}
+sin(30) + 4^3 + log(4) + exp(3) + sqrt(7)
+```
+
+When typed and run with R, Equations \@ref(eq:bc1) through \@ref(eq:bc4) are calculated but not kept. If an outcome of an R operation will be used later, it should be named. When a name is assigned, the outcome can be recalled easily. The assigned outputs are saved in the R environment throughout the session.  Assignment can be done with "=", "<-" or "<<-". This book uses "=".
+Let's assign a name for the Equations \@ref(eq:bc1) through \@ref(eq:bc4)'s outputs.
+
+```{r, collapse=TRUE}
+a=1 - 1
+b=1 + 1
+c=1 + (2 / 3) - (2 * 6.5)
+d=sin(30) + 4^3 + log(4) + exp(3) + sqrt(7)
+```
+
+It is possible to operate with these assigned variables. 
+```{r, collapse=TRUE}
+a+b+c+d
+```
+
+It is possible to overwrite.
+```{r, collapse=TRUE}
+e=3+2
+e
+e=e+10
+e
+```
+
+It is possible to rename. (Note: R is case sensitive).
+```{r, collapse=TRUE}
+Equation1_output=a
+Equation1_output + b + c + d  #is equal to a+b+c+d
+```
+
+
+### R as a Programmable Calculator
+
+A function basically has 3 parts, an input, a process and an output. Let's use an analogy, assume that below functions are created by a teacher to examine test scores.
+
+#### Single input - Single output  
+
+A simple function is given below and named as _constant5_. Let's assume it adds 5 points to each score. The _constant5_ function takes a value, adds 5 and produces an output.
+
+```{r,collapse=T}
+constant5=function(input){
+    output=input+5
+    return(output)
+    }
+
+constant5(input=50)
+constant5(100)
+constant5(120)
+```
+
+With above code, we use R as a programmable calculator. We define  _constant5_ as a _function_ that takes an input, processes it by adding 5 _(input+5)_, creates an output _(output=input+5)_ and reports it _(return(output))_.  All these steps should be given in _{   }_. 
+
+
+Another simple function will be that _systematic1_, adds 1% for each score. It will take a value, add 1% and produce an output.
+
+```{r,collapse=T}
+systematic1=function(input){
+    output=input+(input/100)
+    return(output)
+    }
+
+systematic1(input=50)
+systematic1(100)
+systematic1(120)
+```
+
+
+#### Multiple input - Single output 
+
+Above two examples use one single value as an input. Let us use two values for _nomistake_ function. In this example, lets say the teacher cuts 0.2 points for each spelling mistake. For example, if a grade was 90, it will go down to 88.8 if there are 6 spelling errors. The _nomistake_ asks for a grade and the number of spelling errors to calculate the reduced grade.
+
+```{r, collapse=TRUE}
+nomistake=function(grade, nserror){
+    output=grade - (0.2 * nserror)
+    return(output)
+    }
+nomistake(grade=90,nserror=6)
+nomistake(90,17)
+```
+
+Inputs for an R function are generally called _arguments_. _nomistake_ is programmed to receive 2 arguments to calculate one single output. It is possible to create functions with multiple arguments and multiple outcomes.
+
+#### Multiple input - Multiple output 
+
+The _feedback_ function asks for number of correct responses and points for each to calculate a total score. It also provides the number of correct responses needed for a full score of 100.
+
+```{r, collapse=TRUE}
+feedback=function(correct, point){
+    total=correct*point
+    remained=(100-total)/point
+    output=c(paste("score:", total," missed items:",remained))
+    return(output)
+    }
+feedback(correct=20,point=2)
+feedback(27,2)
+```
+
+#### Basic error
+
+R functions need arguments to work. Please see the following error if you forget to feed _point_ parameter into  the _feedback_ function 
+
+```{r, collapse=TRUE,error=T}
+feedback=function(correct, point){
+    total=correct*point
+    remained=(100-total)/point
+    output=c(paste("score:", total," missed items:",remained))
+    return(output)
+    }
+feedback(correct=20)
+
+```
+
+#### Basic warning
+R functions can produce warnings. Let us create _nomistake2_ that calculates the remaining score after cuts
+
+```{r, collapse=TRUE,error=T}
+nomistake2=function(grade, nserror){
+    output=grade - (0.2 * nserror)
+    return(output)
+    }
+nomistake2(grade=50,nserror=10)
+```
+
+We can produce a warning if the final score is lower than 0.
+
+```{r, collapse=TRUE}
+nomistake2=function(grade, nserror){
+      output=grade - (0.2 * nserror)
+      if (output<0) 
+    warning("Final score is lower than 0")  
+    return(output)
+    }
+nomistake2(grade=10,nserror=60)
+```
+
+
+#### Basic failure
+A function can stop. Let us create _nomistake3_ that calculates the final score. However,this time, it stops if the score is lower than 20 to avoid further cuts. 
+```{r, collapse=TRUE,error=T}
+nomistake3=function(grade, nserror){
+ 
+    if ((grade)<(20)) 
+    stop("Score is already low")
+  
+     output=grade - (0.2 * nserror)
+      return(output)
+    }
+nomistake3(10,9)
+
+```
+
+
+### Help!
+Although applied R users do not need to write new functions, they should know the principles of how R functions work. Whenever an R function throws a warning or an error, it generally is caused by the users (or their data) rather than the function itself. 
+
+R basically runs on functions. Researchers write functions, place them in R packages and make them available. There are currently 10000+ R packages available via Comprehensive R Archive Network. R version 3.3.1 downloads to your computer with 30 packages that includes thousands of functions.  
+
+One of the main packages that has been downloaded to you computer is called _base_, and it has 1200+ functions. For example this package has the _mean_ function to calculate the arithmetic mean. Packages and functions are generally well documented. Users should be effectively using the documentations via _help_ function, _?_ or _??_. _example_ function may also be helpful.
+
+```{r, collapse=T, eval=F}
+help("base")  # see description, you can click on index at the bottom to see 1200+ functions
+help(mean)    # see the mean function and its arguments
+?mean         # see the mean function and its arguments
+??mean        # see the mean function and its arguments
+example(mean) # see an example
+
+```
+
+
+## R Data Types
+Vectors, matrices, variable types, factors, missing values and data frames are briefly introduced.
+
+### Vectors
+R can create vectors using _c()_ function. Let's create grades for 10 students
+```{r, collapse=T}
+grades=c(40,50,53,65,72,77,79,81,86,90)
+grades
+```
+
+R can operate with vectors.
+
+```{r, collapse=T}
+grades=c(40,50,53,65,72,77,79,81,86,90)
+grades+10
+grades+(grades*0.10)
+grades*grades
+grades2=c(30,40,46,58,64,66,69,72,74,81)
+(grades+grades2)/2
+grades*0.4 + grades2*0.6
+
+
+```
+
+There are useful functions to create vectors. For example the _rep_ function (see example(rep)) is helpful to repeat values.  
+
+The _rnorm_ function can create random variables. If you run _?rnorm_ you will see it has three arguments, _rnorm(n, mean = 0, sd = 1)_ . This function requires the number of observations ( _n_ ) argument to be provided. By default the mean is set to be 0 and standard deviation to be 1. However, you can change the default for example by running _rnorm(12,mean=10,sd=2)_ to create 12 observations from a normal distribution with mean 10 and standard deviation 2. A similar function is _runif(n, min = 0, max = 1)_ to generate _n_ observations from a uniform distribution on the interval from minimum=0 to maximum=2. You can change the interval, for example by running _runif(12, min = 10, max = 37)_.
+
+```{r, collapse=T}
+a=1:12            # a is a regular sequence from 1 to 12 created with ':'
+rep(0,12)         # repeat zero 12 times
+rep(1:5,each=3)   # repeat 1 to 5 each 3 times 
+rep(1:5,times=3)  # repeat 1 to 5 , 3 times
+seq(from=1,to=12) # create 1 to 12 sequence
+seq(1,25,by=2)    # create 1 to 25 by 2
+seq(1,6,by=0.5)   # create 1 to 6 by 0.5
+rnorm(12)        # create  12 random observations from ~N(0,1)
+rnorm(12,mean=10,sd=2) #create 12 random observations from ~ N(10,2)
+runif(12, min = 10, max = 37) # create 12 random observations from a uniform distribution.
+```
+
+
+
+### Matricies
+R can create matrices and operate.
+
+```{r, collapse=T}
+A=matrix(1:16,ncol=4,nrow=4) #create a 4 x 4 matrix
+A
+B=matrix(runif(16,min=20,max=40),ncol=4) #create a 4 x 4 matrix
+
+# example operations
+A+B    # add
+A*B    # multiply
+A%*%B  # matrix multipication
+t(B)   # transpose
+```
+
+### Variables {#variables}
+It is important to know the data before running basic or sophisticated analyses. In an R environment, a variable subject to an analysis is generally defined as nominal, ordered, continuous, missing or date variable.
+
+#### Nominal
+In R, a nominal variable can be represented alphanumerically. However the interpretation of a nominal variable is not numeric. It is helpful for naming a characteristic rather than quantify it. Below commands can create nominal vectors.
+
+```{r, collapse=T,cache=T}
+address=c("AAX","BBZ","CBT","DBA","DDC","XZT")
+gender=c("M","F","F","M","F","M")
+id=sample(letters,6)
+treatment=rep(c("cntrl","trt"),each=3)
+city=as.character(1:6)
+```
+
+#### Ordered
+An ordered variable includes more information compared to a nominal variable. It represents order but the difference between values are not informative. Below commands can create ordered variables. The _level_ argument for an ordered factor provides the information of order. If the _level_ argument is not provided, R , by default, sorts the unique set of given values into increasing order.
+
+```{r, collapse=T,cache=T}
+item1=ordered(c("poor","average","good","good","poor","poor"),
+              levels=c("poor","average","good"))
+ses=ordered(c(1,3,2,2,1,3),levels=c("1","2","3"))
+```
+
+#### Continuous
+An interval or ratio (true-zero variable) provides more information compared to ordinal and nominal variable. The difference between values are informative. Below commands can create continuous variables.
+```{r, collapse=T,cache=T}
+grade=c(52,75,39,62,24,86)
+score=rnorm(n=6,mean=160,sd=5)
+```
+
+
+#### Date Variable
+One of the several date variable creation methods is using the as.Date() function. It will try to convert what is provided into a date. This is a flexible function and you can use the _format_ argument to provide the information on how you enter a date. By default it looks for a format of _YYYY-MM-DD_ .Another convenient way to input a date variable might be in _MM/DD/YYYY_ format. This is possible by using _format="%m/%d/%y"_ . _Sys.Date()_ function will give you today's date in a _YYYY-MM-DD_ format. You can operate with dates, for example the _Sys.Date( )-birthday_ command below calculates the number of days between the provided birthdays and today.
+
+```{r, collapse=T,cache=T}
+birthday=as.Date(c("1984-06-01","1988-10-20","1990-12-01",
+                   "1978-03-23","1974-08-22","1994-11-04"))
+
+birthday
+
+holidays=as.Date(c("01/01/2016","04/23/2016","05/19/2016","08/30/2016","09/29/2016"),
+                 format="%m/%d/%y")
+
+holidays
+
+Sys.Date( )
+Sys.Date( )-birthday
+```
+
+#### Logical variable
+A logical variable takes a value of either TRUE or FALSE. When forced to be numeric, a logical variable takes the form of 1 and 0. Below command tests the grade variable whether its elements are larger than its mean or not. 
+
+```{r, collapse=T,cache=T}
+grade=c(52,75,39,62,24,86)    # create grades
+grade>mean(grade)             # create TRUE-FALSE by testing if the grade is larger than the mean
+as.numeric(grade>mean(grade)) # force the logical variable to be 1 and 0.
+```
+
+### Factors
+R has a data type of _factor_. It can be considered as a general frame for nominal and ordered variables. 
+```{r, collapse=T,cache=T}
+course=factor(c("Cook","Plumber","Designer","Plumber","Cook","Plumber"))
+ga1=factor(c(1,1,3,4,2,3),levels = 1:4,
+           labels=c("StronglyDisagree","Disagree","Agree","StronglyAgree"))
+ga2=factor(c(1,3,4,4,2,3),ordered = T)
+ga3=gl(n=3,k=2,labels=c("A","B","C"),ordered=F)
+
+```
+
+Factors are important data types. Levels of a factor should be examined. It might be necessary to drop levels if they are not used in the variable. 
+For example, if the main data has a factor , lets say _Color_ and the levels are "blue", "green" and "yellow".  Assume a subset is chosen from the data and it has only "blue" and "yellow", R will still treat it as factor with 3 levels.This will cause problems. 
+
+The droplevel function drops unused levels. Examine the code below;
+```{r, collapse=T,cache=T}
+#the ga4 factor is defined with 4 levels A,B,C and D.
+#BUT the data has only 1s,2s and 3s, the level D is not used.
+ga4=factor(c(1,1,3,2,2,3),levels = 1:4,labels=c("A","B","C","D"))
+ga4
+droplevels(ga4)
+```
+
+
+### Missing Values
+The data might be incomplete. R uses __NA__ (not available) to represent missing values. 
+```{r, collapse=T,cache=T}
+incomeSource=c("wage","wage","pension",NA,NA,"wage")
+houseMember=c(3,2,3,NA,NA,4)
+```
+
+NOTE: Missing data indicators might be confusing. Notice the difference between NA, <NA> , " " (empty cell) and a predefined missing indicator, such as -99.
+
+```{r, collapse=T,cache=T}
+temp = factor(c('wage','pension', NA, 'NA'," ",-99,"-99"))
+
+#for a factor or a character variable NA is shown as <NA> to specify a true missing cell
+# NA without < > represents a factor level
+# " " also represents a factor level
+#-99 and "-99" represents the same factor level
+
+is.na(temp) # identifies only the third element as a missing value.
+
+#A possible solution
+temp[temp=='NA' | temp==" "| temp== -99 | temp== "-99"]=NA
+
+#check
+is.na(temp)
+
+#DO NOT forget to drop levels
+temp=droplevels(temp)
+
+```
+
+### Data Frames {#dataframes}
+A data frame includes variables. Assuming a social scientist is generally interested in the relationships between the variables, a data frame is their main R structure. Below command creates a data frame using some of the earlier created variables. 
+
+```{r, collapse=T,cache=T}
+# reminder
+# id=sample(letters,6)
+
+# treatment=rep(c("cntrl","trt"),each=3)
+
+# gender=c("M","F","F","M","F","M")
+
+# item1=ordered(c("poor","average","good","good","poor","poor"),
+#              levels=c("poor","average","good"))
+
+# ses=ordered(c(1,3,2,2,1,3),levels=c("1","2","3"))
+
+# grade=c(52,75,39,62,24,86)
+
+# incomeSource=c("wage","wage","pension",NA,NA,"wage")
+
+# birthday=as.Date(c("1984-06-01","1988-10-20","1990-12-01",
+#                   "1978-03-23","1974-08-22","1994-11-04"))
+
+# course=factor(c("Cook","Plumber","Designer","Plumber","Cook","Plumber"))
+
+basic_data=data.frame(id,treatment,gender,item1,ses,
+                      grade,incomeSource,birthday,course)
+basic_data
+
+```
+
+Data can be entered manually into R. However this is generally not the case. When a data transferred into the R environment, a useful function to check its internal structure is named as _str_.
+
+```{r, collapse=T,cache=T}
+str(basic_data)
+```
+
+## R Packages
+R version 3.3.1 downloads to a computer with 30 packages that includes thousands of functions.These packages stored under _system library_. Other useful functions are created by R users and made available to R community. For example linear mixed effect models can be analyzed R using _lme4_[@lme4pack] package. This package is cited more than 1500 times and has been downloaded more than 60000 times. You can use Figure \@ref(fig:Rpackdown) to check its current usage. R packages are generally available via CRAN and they are generally not archived further if they are maintained properly. You can download R packages into your computer and store them locally, under _user library_ . You need to load (activate) the packages in each session before you can use them. 
+
+You have probably noticed that R, RStudio and R packages are interconnected. When you download Rstuido after you have downloaded R, The Rstudio scans your computer, locates R and connects to it. Both R and RStudio can locate your libraries unless you manually manipulated the file locations. If you wonder the location of your R packages you can run _.libPaths()_ function. 
+
+R packages located in CRAN can easily be downloaded into your machine using RStuido's __Packages__ tab, or you can directly type _install.packages("packagename")_. When you open a new session, some of the main packages are loaded automatically. When a package is loaded, you can see the tick in the _Packages_ tab. If the package you plan to use in a session is not loaded, you can click the box or you can directly type _library("packagename")_. You can see these steps in (Video4 \@ref(fig:Video4)).
+
+```{r Video4, fig.cap='Download R Packages', fig.width=8, fig.height=6 , echo=FALSE}
+knitr::include_url("https://www.youtube.com/embed/BiJhU0Rn6t4")
+``` 
+
+
+## The Workspace {#theworkspace}
+When a session is started by opening an R script, every operation takes place in the working space. Every step is recorded and can be seen in _History_ tab of R Studio. Working space can be saved when closing the session. The objects created in a session are kept in the space. You can use _ls()_ function to see your objects in the working space, you can also check _Environment_ tab of R Studio.
+
+The objects in a workspace can easily be saved into the working directory as separate outputs. Also the objects in the working directory can easily be loaded into the working space. Here _easily_ refers to the unnecessity of providing a path. If the path is provided, you can save or load objects from different directories.
+
+You can run _getwd()_ command to see your working directory. You can change the working directory within a session using _setwd()_ function. Alternatively you can change the directory using _Session_ tab of R Studio. The data input and output is covered more broadly in the next chapter.

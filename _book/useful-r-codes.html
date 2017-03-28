@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>BETA: An R Platform for Social Scientists</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="R book for social scientists">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="BETA: An R Platform for Social Scientists" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/coverpicture.png" />
+  <meta property="og:description" content="R book for social scientists" />
+  <meta name="github-repo" content="burakaydin/BAP2219" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="BETA: An R Platform for Social Scientists" />
+  
+  <meta name="twitter:description" content="R book for social scientists" />
+  <meta name="twitter:image" content="images/coverpicture.png" />
+
+<meta name="author" content="Burak AYDIN, James ALGINA, Walter LEITE">
+
+
+<meta name="date" content="2017-01-01">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="multiple-linear-regression-a-short-introduction.html">
+
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-0.8/htmlwidgets.js"></script>
+<link href="libs/rglwidgetClass-2/rgl.css" rel="stylesheet" />
+<script src="libs/rglwidgetClass-2/rglClass.src.js"></script>
+<script src="libs/CanvasMatrix4-2016/CanvasMatrix.src.js"></script>
+<script src="libs/rglWebGL-binding-0.97.0/rglWebGL.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">SARP</a></li>
+<li><a href="https://burakaydin.github.io/SARP/_book/" target="blank">SAPR-TR</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Cover</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#why-bookdown"><i class="fa fa-check"></i><b>1.1.1</b> Why Bookdown?</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#content"><i class="fa fa-check"></i><b>1.1.2</b> Content</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i><b>2</b> Preface</a><ul>
+<li class="chapter" data-level="2.1" data-path="preface.html"><a href="preface.html#authors"><i class="fa fa-check"></i><b>2.1</b> Authors</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="preface.html"><a href="preface.html#burak-aydn-ph.d."><i class="fa fa-check"></i><b>2.1.1</b> Burak Aydın, Ph.D.</a></li>
+<li class="chapter" data-level="2.1.2" data-path="preface.html"><a href="preface.html#james-algina-ph.d."><i class="fa fa-check"></i><b>2.1.2</b> James Algina, Ph.D.</a></li>
+<li class="chapter" data-level="2.1.3" data-path="preface.html"><a href="preface.html#walter-l.-leite-ph.d."><i class="fa fa-check"></i><b>2.1.3</b> Walter L. Leite, Ph.D.</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="preface.html"><a href="preface.html#acknowledgement"><i class="fa fa-check"></i><b>2.2</b> Acknowledgement</a></li>
+<li class="chapter" data-level="2.3" data-path="preface.html"><a href="preface.html#dataWBT"><i class="fa fa-check"></i><b>2.3</b> Data</a></li>
+<li class="chapter" data-level="2.4" data-path="preface.html"><a href="preface.html#fund"><i class="fa fa-check"></i><b>2.4</b> Fund</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="rs-popularity.html"><a href="rs-popularity.html"><i class="fa fa-check"></i><b>3</b> R’s Popularity</a></li>
+<li class="chapter" data-level="4" data-path="setting-up-r-for-windows.html"><a href="setting-up-r-for-windows.html"><i class="fa fa-check"></i><b>4</b> Setting up R for Windows</a></li>
+<li class="chapter" data-level="5" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>5</b> Basics</a><ul>
+<li class="chapter" data-level="5.1" data-path="basics.html"><a href="basics.html#functions"><i class="fa fa-check"></i><b>5.1</b> Functions</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="basics.html"><a href="basics.html#r-as-a-basic-calculator."><i class="fa fa-check"></i><b>5.1.1</b> R as a Basic Calculator.</a></li>
+<li class="chapter" data-level="5.1.2" data-path="basics.html"><a href="basics.html#r-as-a-programmable-calculator"><i class="fa fa-check"></i><b>5.1.2</b> R as a Programmable Calculator</a></li>
+<li class="chapter" data-level="5.1.3" data-path="basics.html"><a href="basics.html#help"><i class="fa fa-check"></i><b>5.1.3</b> Help!</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="basics.html"><a href="basics.html#r-data-types"><i class="fa fa-check"></i><b>5.2</b> R Data Types</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="basics.html"><a href="basics.html#vectors"><i class="fa fa-check"></i><b>5.2.1</b> Vectors</a></li>
+<li class="chapter" data-level="5.2.2" data-path="basics.html"><a href="basics.html#matricies"><i class="fa fa-check"></i><b>5.2.2</b> Matricies</a></li>
+<li class="chapter" data-level="5.2.3" data-path="basics.html"><a href="basics.html#variables"><i class="fa fa-check"></i><b>5.2.3</b> Variables</a></li>
+<li class="chapter" data-level="5.2.4" data-path="basics.html"><a href="basics.html#factors"><i class="fa fa-check"></i><b>5.2.4</b> Factors</a></li>
+<li class="chapter" data-level="5.2.5" data-path="basics.html"><a href="basics.html#missing-values"><i class="fa fa-check"></i><b>5.2.5</b> Missing Values</a></li>
+<li class="chapter" data-level="5.2.6" data-path="basics.html"><a href="basics.html#dataframes"><i class="fa fa-check"></i><b>5.2.6</b> Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="basics.html"><a href="basics.html#r-packages"><i class="fa fa-check"></i><b>5.3</b> R Packages</a></li>
+<li class="chapter" data-level="5.4" data-path="basics.html"><a href="basics.html#theworkspace"><i class="fa fa-check"></i><b>5.4</b> The Workspace</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-sets.html"><a href="data-sets.html"><i class="fa fa-check"></i><b>6</b> Data Sets</a><ul>
+<li class="chapter" data-level="6.1" data-path="data-sets.html"><a href="data-sets.html#import-data"><i class="fa fa-check"></i><b>6.1</b> Import Data</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="data-sets.html"><a href="data-sets.html#csv"><i class="fa fa-check"></i><b>6.1.1</b> CSV</a></li>
+<li class="chapter" data-level="6.1.2" data-path="data-sets.html"><a href="data-sets.html#spss"><i class="fa fa-check"></i><b>6.1.2</b> SPSS</a></li>
+<li class="chapter" data-level="6.1.3" data-path="data-sets.html"><a href="data-sets.html#rdata"><i class="fa fa-check"></i><b>6.1.3</b> Rdata</a></li>
+<li class="chapter" data-level="6.1.4" data-path="data-sets.html"><a href="data-sets.html#pullonline"><i class="fa fa-check"></i><b>6.1.4</b> Pull online</a></li>
+<li class="chapter" data-level="6.1.5" data-path="data-sets.html"><a href="data-sets.html#read-data-through-r-studio"><i class="fa fa-check"></i><b>6.1.5</b> Read data through R studio</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="data-sets.html"><a href="data-sets.html#basic-data-manipulation"><i class="fa fa-check"></i><b>6.2</b> Basic Data Manipulation</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="data-sets.html"><a href="data-sets.html#replacing-values"><i class="fa fa-check"></i><b>6.2.1</b> Replacing values</a></li>
+<li class="chapter" data-level="6.2.2" data-path="data-sets.html"><a href="data-sets.html#subsetting"><i class="fa fa-check"></i><b>6.2.2</b> Subsetting</a></li>
+<li class="chapter" data-level="6.2.3" data-path="data-sets.html"><a href="data-sets.html#creating-new-variables"><i class="fa fa-check"></i><b>6.2.3</b> Creating new variables</a></li>
+<li class="chapter" data-level="6.2.4" data-path="data-sets.html"><a href="data-sets.html#reshaping-data"><i class="fa fa-check"></i><b>6.2.4</b> Reshaping data</a></li>
+<li class="chapter" data-level="6.2.5" data-path="data-sets.html"><a href="data-sets.html#converting-between-variable-types"><i class="fa fa-check"></i><b>6.2.5</b> Converting between variable types</a></li>
+<li class="chapter" data-level="6.2.6" data-path="data-sets.html"><a href="data-sets.html#delete-cases"><i class="fa fa-check"></i><b>6.2.6</b> Delete cases</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="data-sets.html"><a href="data-sets.html#export-data"><i class="fa fa-check"></i><b>6.3</b> Export Data</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html"><i class="fa fa-check"></i><b>7</b> Descriptive Statistics and Hypthoses Testing</a><ul>
+<li class="chapter" data-level="7.1" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#descstats"><i class="fa fa-check"></i><b>7.1</b> Descriptive Statistics</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#mean"><i class="fa fa-check"></i><b>7.1.1</b> Mean</a></li>
+<li class="chapter" data-level="7.1.2" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#median"><i class="fa fa-check"></i><b>7.1.2</b> Median</a></li>
+<li class="chapter" data-level="7.1.3" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#variance"><i class="fa fa-check"></i><b>7.1.3</b> Variance</a></li>
+<li class="chapter" data-level="7.1.4" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#standard-deviation"><i class="fa fa-check"></i><b>7.1.4</b> Standard deviation</a></li>
+<li class="chapter" data-level="7.1.5" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#skewness"><i class="fa fa-check"></i><b>7.1.5</b> Skewness</a></li>
+<li class="chapter" data-level="7.1.6" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#kurtosis"><i class="fa fa-check"></i><b>7.1.6</b> Kurtosis</a></li>
+<li class="chapter" data-level="7.1.7" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#reporting-descriptives"><i class="fa fa-check"></i><b>7.1.7</b> Reporting descriptives</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#basic-graphics"><i class="fa fa-check"></i><b>7.2</b> Basic graphics</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#histogram"><i class="fa fa-check"></i><b>7.2.1</b> Histogram</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#hypothesis-testing-introduction"><i class="fa fa-check"></i><b>7.3</b> Hypothesis testing introduction</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#samplingdist"><i class="fa fa-check"></i><b>7.3.1</b> The Sampling distribution</a></li>
+<li class="chapter" data-level="7.3.2" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-confidence-intervals-ci"><i class="fa fa-check"></i><b>7.3.2</b> The Confidence Intervals (CI)</a></li>
+<li class="chapter" data-level="7.3.3" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-null-hypothesis"><i class="fa fa-check"></i><b>7.3.3</b> The null hypothesis</a></li>
+<li class="chapter" data-level="7.3.4" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-z-score-and-the-z-test"><i class="fa fa-check"></i><b>7.3.4</b> The z score and the z test</a></li>
+<li class="chapter" data-level="7.3.5" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-one-sample-t-test"><i class="fa fa-check"></i><b>7.3.5</b> The one-sample t test</a></li>
+<li class="chapter" data-level="7.3.6" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-p-value"><i class="fa fa-check"></i><b>7.3.6</b> The p value</a></li>
+<li class="chapter" data-level="7.3.7" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-p-value-illustration"><i class="fa fa-check"></i><b>7.3.7</b> The p value illustration</a></li>
+<li class="chapter" data-level="7.3.8" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#statisticalpower"><i class="fa fa-check"></i><b>7.3.8</b> Statistical power</a></li>
+<li class="chapter" data-level="7.3.9" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#in-case-the-z-and-the-t-distribution-is-not-valid"><i class="fa fa-check"></i><b>7.3.9</b> In case the z and the t distribution is not valid</a></li>
+<li class="chapter" data-level="7.3.10" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#shiny-application-to-visualize-sampling-distribution"><i class="fa fa-check"></i><b>7.3.10</b> Shiny application to visualize sampling distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html"><i class="fa fa-check"></i><b>8</b> Comparing Two Means, the t-test</a><ul>
+<li class="chapter" data-level="8.1" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#between-subjects-t-test-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1</b> Between-Subjects t-test (The Independent Groups t-test)</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#r-codes-for-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1.1</b> R codes for the independent groups t-test</a></li>
+<li class="chapter" data-level="8.1.2" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#assumptions-of-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1.2</b> Assumptions of the independent groups t-test</a></li>
+<li class="chapter" data-level="8.1.3" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#using-welchs-t-test"><i class="fa fa-check"></i><b>8.1.3</b> Using Welch’s t test</a></li>
+<li class="chapter" data-level="8.1.4" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#indepteff"><i class="fa fa-check"></i><b>8.1.4</b> Effect size for the independent groups t-test</a></li>
+<li class="chapter" data-level="8.1.5" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#extra-practical-significance-vs-statistical-significance"><i class="fa fa-check"></i><b>8.1.5</b> Extra: Practical significance vs statistical significance</a></li>
+<li class="chapter" data-level="8.1.6" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#missing-data-techniques-for-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1.6</b> Missing data techniques for the independent groups t-test</a></li>
+<li class="chapter" data-level="8.1.7" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#supportive-graphs-for-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1.7</b> Supportive graphs for the independent groups t-test</a></li>
+<li class="chapter" data-level="8.1.8" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#power-calculations-for-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1.8</b> Power calculations for the independent groups t-test</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#the-dependent-groups-t-test-within-subjects-t-test"><i class="fa fa-check"></i><b>8.2</b> The dependent groups t-test (Within-subjects t-test)</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#r-codes-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.1</b> R codes for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.2" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#assumption-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.2</b> Assumption for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.3" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#robust-estimation-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.3</b> Robust estimation for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.4" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#effect-size-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.4</b> Effect size for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.5" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#missing-data-techniques-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.5</b> Missing data techniques for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.6" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#supportive-graphs-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.6</b> Supportive graphs for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.7" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#power-calculations-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.7</b> Power calculations for the dependent groups t-test</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#common-designs"><i class="fa fa-check"></i><b>8.3</b> Common Designs</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#designs-in-which-scores-in-the-two-treatments-are-correlated"><i class="fa fa-check"></i><b>8.3.1</b> Designs in which Scores in the Two Treatments are Correlated</a></li>
+<li class="chapter" data-level="8.3.2" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#designbetween"><i class="fa fa-check"></i><b>8.3.2</b> Designs in which Scores in the Two Treatments are Independent</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html"><i class="fa fa-check"></i><b>9</b> Analysis of Variance (ANOVA)</a><ul>
+<li class="chapter" data-level="9.1" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#terminology"><i class="fa fa-check"></i><b>9.1</b> Terminology</a></li>
+<li class="chapter" data-level="9.2" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#between-subjects-anova"><i class="fa fa-check"></i><b>9.2</b> Between Subjects ANOVA</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#one-way-between-subjects-anova"><i class="fa fa-check"></i><b>9.2.1</b> One-way Between Subjects ANOVA</a></li>
+<li class="chapter" data-level="9.2.2" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#two-factor-between-subjects-anova"><i class="fa fa-check"></i><b>9.2.2</b> Two-Factor Between Subjects ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#within-subjects-anova"><i class="fa fa-check"></i><b>9.3</b> Within Subjects ANOVA</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#one-way-within-subjects-anova"><i class="fa fa-check"></i><b>9.3.1</b> One-way Within-Subjects ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#mixed-design"><i class="fa fa-check"></i><b>9.4</b> Mixed Design</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="correlation.html"><a href="correlation.html"><i class="fa fa-check"></i><b>10</b> Correlation</a><ul>
+<li class="chapter" data-level="10.1" data-path="correlation.html"><a href="correlation.html#pearson-correlation-coefficient"><i class="fa fa-check"></i><b>10.1</b> Pearson correlation coefficient</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="correlation.html"><a href="correlation.html#inference-on-a-pearson-correlation-coefficient"><i class="fa fa-check"></i><b>10.1.1</b> Inference on a Pearson correlation coefficient</a></li>
+<li class="chapter" data-level="10.1.2" data-path="correlation.html"><a href="correlation.html#r-codes-for-pearson-correlation-coefficent"><i class="fa fa-check"></i><b>10.1.2</b> R codes for Pearson Correlation coefficent</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="correlation.html"><a href="correlation.html#spearmans-rho-and-kendalls-tau"><i class="fa fa-check"></i><b>10.2</b> Spearman’s rho and Kendall’s tau</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="correlation.html"><a href="correlation.html#the-r-code-for-spearmans-rho-and-kendalls-tau"><i class="fa fa-check"></i><b>10.2.1</b> The R code for Spearman’s rho and Kendall’s tau</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="correlation.html"><a href="correlation.html#biserial-and-point-biserial-correlation-coefficients-with-r"><i class="fa fa-check"></i><b>10.3</b> Biserial and Point-Biserial Correlation Coefficients with R</a></li>
+<li class="chapter" data-level="10.4" data-path="correlation.html"><a href="correlation.html#phi-correlation-coefficient-with-r"><i class="fa fa-check"></i><b>10.4</b> Phi Correlation Coefficient with R</a></li>
+<li class="chapter" data-level="10.5" data-path="correlation.html"><a href="correlation.html#issues-in-interpreting-correlation-coefficients"><i class="fa fa-check"></i><b>10.5</b> Issues in Interpreting Correlation Coefficients</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html"><i class="fa fa-check"></i><b>11</b> Multiple Linear Regression, A Short Introduction</a><ul>
+<li class="chapter" data-level="11.1" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#matricies-and-least-square-estimation"><i class="fa fa-check"></i><b>11.1</b> Matricies and Least Square Estimation</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#a-essentially-all-models-are-wrong-but-some-are-useful."><i class="fa fa-check"></i><b>11.1.1</b> a) “Essentially, all models are wrong, but some are useful.”</a></li>
+<li class="chapter" data-level="11.1.2" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#b-strength-of-relationship-between-the-dependent-and-independent-variables"><i class="fa fa-check"></i><b>11.1.2</b> b) Strength of relationship between the dependent and independent variables</a></li>
+<li class="chapter" data-level="11.1.3" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#c-residuals-and-influential-data-points"><i class="fa fa-check"></i><b>11.1.3</b> c) Residuals and influential data points</a></li>
+<li class="chapter" data-level="11.1.4" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#d-equal-variance-assumption"><i class="fa fa-check"></i><b>11.1.4</b> d) <em>Equal variance assumption</em></a></li>
+<li class="chapter" data-level="11.1.5" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#e-hypothesis-testing"><i class="fa fa-check"></i><b>11.1.5</b> e) Hypothesis testing</a></li>
+<li class="chapter" data-level="11.1.6" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#f-variable-selection"><i class="fa fa-check"></i><b>11.1.6</b> f) Variable Selection</a></li>
+<li class="chapter" data-level="11.1.7" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#g-colliniearity"><i class="fa fa-check"></i><b>11.1.7</b> g) Colliniearity</a></li>
+<li class="chapter" data-level="11.1.8" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#h-non-linearity"><i class="fa fa-check"></i><b>11.1.8</b> h) Non-linearity</a></li>
+<li class="chapter" data-level="11.1.9" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#i-correlated-errors-and-nonindependent-errors"><i class="fa fa-check"></i><b>11.1.9</b> i) Correlated errors and nonindependent errors</a></li>
+<li class="chapter" data-level="11.1.10" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#j-centering-and-scaling"><i class="fa fa-check"></i><b>11.1.10</b> j) Centering and Scaling</a></li>
+<li class="chapter" data-level="11.1.11" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#k-standardized-coefficients"><i class="fa fa-check"></i><b>11.1.11</b> k) Standardized coefficients</a></li>
+<li class="chapter" data-level="11.1.12" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#l-interactions"><i class="fa fa-check"></i><b>11.1.12</b> l) Interactions</a></li>
+<li class="chapter" data-level="11.1.13" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#m-estimators"><i class="fa fa-check"></i><b>11.1.13</b> m) Estimators</a></li>
+<li class="chapter" data-level="11.1.14" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#n-robust-regression"><i class="fa fa-check"></i><b>11.1.14</b> n) Robust Regression</a></li>
+<li class="chapter" data-level="11.1.15" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#o-sample-size-and-statistical-power"><i class="fa fa-check"></i><b>11.1.15</b> o) Sample size and statistical power</a></li>
+<li class="chapter" data-level="11.1.16" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#p-reliability-of-variables"><i class="fa fa-check"></i><b>11.1.16</b> p) Reliability of variables</a></li>
+<li class="chapter" data-level="11.1.17" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#q-the-nature-of-the-variables"><i class="fa fa-check"></i><b>11.1.17</b> q) The nature of the variables</a></li>
+<li class="chapter" data-level="11.1.18" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#r-multiple-dependent-variables"><i class="fa fa-check"></i><b>11.1.18</b> r) Multiple dependent variables</a></li>
+<li class="chapter" data-level="11.1.19" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#s-missing-variables"><i class="fa fa-check"></i><b>11.1.19</b> s) Missing variables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="useful-r-codes.html"><a href="useful-r-codes.html"><i class="fa fa-check"></i><b>12</b> Useful R codes</a><ul>
+<li class="chapter" data-level="12.1" data-path="useful-r-codes.html"><a href="useful-r-codes.html#more-on-the-apastyle-package"><i class="fa fa-check"></i><b>12.1</b> More on the apaStyle package</a></li>
+<li class="chapter" data-level="12.2" data-path="useful-r-codes.html"><a href="useful-r-codes.html#a-useful-shiny-application"><i class="fa fa-check"></i><b>12.2</b> A useful shiny application</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">BETA: An R Platform for Social Scientists</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="useful-r-codes" class="section level1">
+<h1><span class="header-section-number"> 12</span> Useful R codes</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Convert numeric to factor</span>
+
+temdata[,<span class="dv">2</span>:<span class="dv">9</span>] &lt;-<span class="st"> </span><span class="kw">lapply</span>(temdata[,<span class="dv">2</span>:<span class="dv">9</span>], as.factor) 
+
+<span class="co"># Convert factor to numeric</span>
+as.numeric.factor &lt;-<span class="st"> </span>function(x) {<span class="kw">as.numeric</span>(<span class="kw">levels</span>(x))[x]}
+temdata[,<span class="dv">2</span>:<span class="dv">5</span>] &lt;-<span class="st"> </span><span class="kw">lapply</span>(temdata[,<span class="dv">2</span>:<span class="dv">5</span>], as.numeric.factor) 
+
+<span class="co"># Have frequencies table for multiple columns</span>
+
+dems=<span class="kw">apply</span>(temdata[,<span class="dv">5</span>:<span class="dv">11</span>], <span class="dv">2</span>, function(x){<span class="kw">table</span>(x,temdata$grp)})
+<span class="kw">library</span> (plyr)
+mydems &lt;-<span class="st"> </span><span class="kw">ldply</span> (mydems, data.frame)
+
+<span class="co"># Aggregate variables by grp</span>
+
+uncagg=<span class="kw">aggregate</span>(. ~<span class="st"> </span>grp, <span class="dt">data =</span> temdata, <span class="dt">FUN=</span>mean, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)
+
+uncaggfaster=temdata[, <span class="kw">lapply</span>(.SD, mean,<span class="dt">na.rm=</span>T), by =<span class="st"> </span>grp]
+
+<span class="co"># Find max in a table</span>
+<span class="kw">which.max</span>(x)
+
+
+<span class="co"># Update R</span>
+if(!<span class="kw">require</span>(installr)) { 
+  <span class="kw">install.packages</span>(<span class="st">&quot;installr&quot;</span>); <span class="kw">require</span>(installr)} <span class="co">#load / install+load installr</span>
+<span class="kw">updateR</span>()
+
+
+<span class="co"># Create dummy variable from a factor</span>
+<span class="kw">head</span>(temdata)
+for(level in <span class="kw">unique</span>(temdata$zp)){
+  temdata[<span class="kw">paste</span>(<span class="st">&quot;dummy&quot;</span>, level, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>)] &lt;-<span class="st"> </span><span class="kw">ifelse</span>(temdata$zp ==<span class="st"> </span>level, <span class="dv">1</span>, <span class="dv">0</span>)
+}
+
+
+<span class="co"># Using semi colon to send multiple input</span>
+x=<span class="kw">rnorm</span>(<span class="dv">10000</span>,<span class="dv">5</span>,<span class="dv">10</span>)
+<span class="kw">mean</span>(x);<span class="kw">var</span>(x);<span class="kw">sqrt</span>(<span class="kw">var</span>(x))
+
+<span class="co"># Remove an object</span>
+y=<span class="kw">rnorm</span>(<span class="dv">10</span>)
+<span class="kw">rm</span>(y)
+
+<span class="co"># Empty the working space</span>
+<span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())
+
+<span class="co"># Remove all but some</span>
+<span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">setdiff</span>(<span class="kw">ls</span>(),<span class="kw">c</span>(<span class="st">&quot;temdata&quot;</span>, <span class="st">&quot;temdata2&quot;</span>)))
+
+
+<span class="co"># Integer division</span>
+<span class="dv">7</span>%/%<span class="dv">2</span>
+
+<span class="co"># Modulo = remainder</span>
+<span class="dv">5</span>%%<span class="dv">2</span> 
+
+<span class="co"># Define and print </span>
+(<span class="dt">count=</span><span class="kw">c</span>(<span class="dv">25</span>,<span class="dv">12</span>,<span class="dv">7</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">2</span>))
+
+<span class="co"># Read csv by clicking</span>
+data=<span class="kw">read.csv</span>(<span class="kw">file.choose</span>(),<span class="dt">header=</span><span class="ot">TRUE</span>,)
+
+<span class="co">#Combine more than 1 csv files</span>
+filenames &lt;-<span class="st"> </span><span class="kw">list.files</span>()
+temdata=<span class="kw">do.call</span>(<span class="st">&quot;rbind&quot;</span>, <span class="kw">lapply</span>(filenames, read.csv, <span class="dt">header =</span> F))
+<span class="kw">write.table</span>(temdata, <span class="dt">file =</span><span class="st">&quot;temdata.binded.csv&quot;</span> , <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>,<span class="dt">col.names =</span> F, <span class="dt">row.names =</span> F)
+
+
+<span class="co">#Multiple QQ plot</span>
+  <span class="co">#split screen</span>
+<span class="kw">layout</span>(<span class="kw">matrix</span>(<span class="dv">1</span>:<span class="dv">9</span>, <span class="dt">nc =</span> <span class="dv">3</span>))
+<span class="kw">sapply</span>(<span class="kw">names</span>(temdata)[<span class="dv">1</span>:<span class="dv">9</span>], function(x) {
+  <span class="kw">qqnorm</span>(temdata[[x]], <span class="dt">main =</span> x)
+  <span class="kw">qqline</span>(temdata[[x]])
+})
+
+
+
+
+<span class="co">#Split for more plots</span>
+
+<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>))
+
+
+<span class="co">#Double for loop</span>
+x=<span class="kw">matrix</span>(<span class="dv">1</span>:<span class="dv">15</span>,<span class="dv">3</span>,<span class="dv">5</span>)
+for(i in <span class="kw">seq_len</span>(<span class="kw">nrow</span>(x)))
+{
+  for(j in <span class="kw">seq_len</span>(<span class="kw">ncol</span>(x)))
+  {
+    <span class="kw">print</span>(x[i,j])
+      
+  }
+}
+
+
+
+<span class="co">#While loop</span>
+count=<span class="dv">0</span>
+while(count&lt;<span class="dv">10</span>){
+  <span class="kw">print</span>(count)
+  count=count<span class="dv">+1</span>
+}
+
+
+<span class="co">#Missing data </span>
+convert -999s to NAs 
+
+<span class="kw">read.csv</span>(<span class="st">&quot;x.csv&quot;</span>, <span class="dt">na.strings=</span><span class="st">&quot;-999&quot;</span>)
+temdata[<span class="kw">is.na</span>(temdata)] &lt;-<span class="st"> </span><span class="dv">0</span>
+
+
+<span class="co">#convert NAs to -99s</span>
+
+vector[<span class="kw">which</span>(vector==<span class="st"> </span><span class="ot">NA</span>)]=<span class="st"> </span>(-<span class="dv">99</span>)
+temdata[<span class="kw">is.na</span>(temdata)]=<span class="st"> </span>(-<span class="dv">99</span>)
+
+<span class="co">#if you are having trouble converting &lt;NA&gt; (but not NA)</span>
+temdata=<span class="kw">read.csv</span>(<span class="st">&quot;temdata.csv&quot;</span>,<span class="dt">stringsAsFactors=</span><span class="ot">FALSE</span>)
+
+
+<span class="co"># add group mean</span>
+
+temdata2=<span class="kw">merge</span>(temdata, <span class="kw">aggregate</span>(X ~<span class="st"> </span>grp, <span class="dt">data =</span> temdata, <span class="dt">FUN=</span>mean, <span class="dt">na.rm=</span><span class="ot">TRUE</span>), 
+          <span class="dt">by =</span> <span class="st">&quot;grp&quot;</span>, <span class="dt">suffixes =</span> <span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;.mean&quot;</span>),<span class="dt">all=</span>T)
+
+
+temdata2=<span class="kw">merge</span>(temdata, <span class="kw">aggregate</span>(<span class="kw">cbind</span>(X1 ,X2 ,X3 , X4) ~<span class="st"> </span>grp, <span class="dt">data =</span> temdata, <span class="dt">FUN=</span>mean,                      <span class="dt">na.rm=</span><span class="ot">TRUE</span>), <span class="dt">by =</span> <span class="st">&quot;grp&quot;</span>, <span class="dt">suffixes =</span> <span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;.mean&quot;</span>),<span class="dt">all=</span>T)
+
+temdata2=<span class="kw">merge</span>(temdata, 
+          <span class="kw">ddply</span>(temdata, <span class="kw">c</span>(<span class="st">&quot;grp&quot;</span>), function(x) <span class="kw">colMeans</span>(x[<span class="kw">c</span>(<span class="st">&quot;X1&quot;</span> ,<span class="st">&quot;X2&quot;</span>,<span class="st">&quot;X3&quot;</span> , <span class="st">&quot;X4&quot;</span>)])), 
+          <span class="dt">by =</span> <span class="st">&quot;grp&quot;</span>, <span class="dt">suffixes =</span> <span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;.mean&quot;</span>),<span class="dt">all=</span>T)
+
+
+
+
+<span class="co">#ifelse</span>
+y=<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>)
+y2=<span class="kw">ifelse</span>(y==<span class="dv">5</span>,<span class="ot">NA</span>,y)
+y2
+
+
+temdata &lt;-<span class="st"> </span><span class="kw">data.frame</span> (<span class="dt">ID=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>), <span class="dt">Hunger =</span><span class="kw">c</span>(<span class="dv">415</span>,<span class="dv">452</span>,<span class="dv">550</span>,<span class="dv">318</span> ))
+
+temdata$newcol&lt;-<span class="kw">ifelse</span>(temdata[,<span class="dv">2</span>]&gt;=<span class="dv">300</span> &amp;<span class="st"> </span>temdata[,<span class="dv">2</span>]&lt;<span class="dv">400</span>,<span class="dv">350</span>,
+                       <span class="kw">ifelse</span>(temdata[,<span class="dv">2</span>]&gt;=<span class="dv">400</span> &amp;temdata[,<span class="dv">2</span>]&lt;<span class="dv">500</span>,<span class="dv">450</span>,
+                              <span class="kw">ifelse</span>(temdata[,<span class="dv">2</span>]&gt;=<span class="dv">500</span> &amp;<span class="st"> </span>temdata[,<span class="dv">2</span>]&lt;<span class="dv">600</span>,<span class="dv">550</span>,<span class="ot">NA</span>)))
+
+
+
+<span class="co">#if </span>
+x=<span class="dv">5</span>
+y=if(x&gt;<span class="dv">6</span>){<span class="dv">1</span>}else{<span class="dv">0</span>}
+y=if(x&gt;<span class="dv">6</span>){<span class="dv">1</span>} else if(x==<span class="dv">5</span>) {<span class="dv">99</span>} else {<span class="dv">0</span>}
+
+
+<span class="co">#sort a dataframe by the order of the elements in B</span>
+temdata[<span class="kw">order</span>(temdata$B),]                            
+
+<span class="co">#sort the dataframe in reverse order</span>
+temdata[<span class="kw">rev</span>(<span class="kw">order</span>(temdata$B)),]                         
+
+
+<span class="co">#create combinations</span>
+m=<span class="kw">c</span>(<span class="dv">54</span>,<span class="dv">38</span>,<span class="dv">51</span>,<span class="dv">62</span>,<span class="dv">18</span>,<span class="dv">31</span>,<span class="dv">58</span>,<span class="dv">74</span>,<span class="dv">35</span>,<span class="dv">34</span>)
+f=<span class="kw">c</span>(<span class="dv">41</span>,<span class="dv">18</span>,<span class="dv">19</span>,<span class="dv">39</span>,<span class="dv">44</span>,<span class="dv">18</span>,<span class="dv">58</span>,<span class="dv">21</span>,<span class="dv">38</span>)
+
+<span class="kw">mean</span>(m)
+<span class="kw">mean</span>(f)
+
+<span class="kw">combn</span>(m,<span class="dv">8</span>,<span class="dt">FUN=</span>mean)
+<span class="kw">combn</span>(f,<span class="dv">8</span>)
+
+<span class="kw">min</span>(<span class="kw">combn</span>(m,<span class="dv">8</span>,<span class="dt">FUN=</span>mean))
+<span class="kw">max</span>(<span class="kw">combn</span>(f,<span class="dv">8</span>,mean))
+
+
+<span class="co">#setting contrasts</span>
+<span class="kw">options</span>(<span class="st">&#39;contrasts&#39;</span>)
+<span class="kw">options</span>(<span class="dt">contrasts=</span><span class="kw">c</span>(<span class="st">&#39;contr.sum&#39;</span>,<span class="st">&#39;contr.poly&#39;</span>))
+<span class="kw">options</span>(<span class="dt">contrasts=</span><span class="kw">c</span>(<span class="st">&#39;contr.treatment&#39;</span>,<span class="st">&#39;contr.poly&#39;</span>))
+
+
+<span class="co"># delete if all NA </span>
+temdata=temdata[<span class="kw">apply</span>(temdata,<span class="dv">1</span>,function(x)<span class="kw">any</span>(!<span class="kw">is.na</span>(x))),]
+
+
+<span class="co"># add group frequency</span>
+temdata=<span class="kw">ddply</span>(temdata, <span class="st">&quot;grp&quot;</span>, transform, <span class="dt">cellsize =</span> <span class="kw">count</span>(grp)[<span class="dv">2</span>])
+
+
+<span class="co">#create new folder</span>
+<span class="kw">dir.create</span>(<span class="st">&quot;testdir&quot;</span>)
+
+<span class="co">#split data frame</span>
+<span class="kw">library</span>(datasets)
+<span class="kw">head</span>(airquality)
+splitdata=<span class="kw">split</span>(airquality,airquality$Month)
+splitdata
+<span class="kw">str</span>(splitdata)
+splitdata[[<span class="dv">2</span>]]
+
+
+x=<span class="kw">list</span>(<span class="dt">a=</span><span class="dv">1</span>:<span class="dv">5</span>, <span class="dt">b=</span><span class="kw">rnorm</span>(<span class="dv">10</span>))
+x
+<span class="kw">lapply</span>(x,mean)
+
+<span class="co"># output is always a list</span>
+
+x=<span class="dv">1</span>:<span class="dv">4</span>
+<span class="kw">lapply</span>(x,runif)
+<span class="kw">lapply</span>(x,runif,<span class="dt">min=</span><span class="dv">10</span>, <span class="dt">max=</span><span class="dv">20</span>)
+
+
+x=<span class="kw">list</span>(<span class="dt">a=</span><span class="kw">matrix</span>(<span class="dv">1</span>:<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>),<span class="dt">b=</span><span class="kw">matrix</span>(<span class="dv">1</span>:<span class="dv">6</span>,<span class="dv">3</span>,<span class="dv">2</span>))
+
+<span class="kw">lapply</span>(x,function(elt) elt[,<span class="dv">1</span>])
+
+
+<span class="co"># sapply</span>
+
+x=<span class="kw">list</span>(<span class="dt">a=</span><span class="dv">1</span>:<span class="dv">5</span>, <span class="dt">b=</span><span class="kw">rnorm</span>(<span class="dv">10</span>),<span class="dt">c=</span><span class="kw">runif</span>(<span class="dv">10</span>))
+x
+<span class="kw">lapply</span>(x,mean)
+<span class="kw">sapply</span>(x,mean)
+
+
+
+<span class="co">#apply generally used for rows or columns</span>
+
+x=<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">200</span>),<span class="dv">20</span>,<span class="dv">10</span>)
+x
+<span class="kw">apply</span>(x,<span class="dv">2</span>,mean)
+<span class="kw">apply</span>(x,<span class="dv">1</span>,sum)
+
+<span class="co">#tapply </span>
+x=<span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">10</span>,<span class="kw">rnorm</span>(<span class="dv">10</span>),<span class="kw">runif</span>(<span class="dv">10</span>,<span class="dv">3</span>,<span class="dv">5</span>))
+f=<span class="kw">gl</span>(<span class="dv">3</span>,<span class="dv">10</span>)
+?gl
+h=<span class="kw">factor</span>(<span class="kw">rep</span>(<span class="dv">1</span>:<span class="dv">3</span>,<span class="dt">each=</span><span class="dv">10</span>))
+<span class="kw">tapply</span>(x,f,mean)
+<span class="kw">tapply</span>(x,h,mean)
+<span class="kw">tapply</span>(x,h,mean,<span class="dt">simplify=</span>F)
+<span class="kw">tapply</span>(x,h,range)
+
+
+
+
+<span class="co">#missing data proportion percentage</span>
+propmiss &lt;-<span class="st"> </span>function(temdata) <span class="kw">lapply</span>(temdata,function(x) <span class="kw">data.frame</span>(<span class="dt">nmiss=</span><span class="kw">sum</span>(<span class="kw">is.na</span>(x)), <span class="dt">n=</span><span class="kw">length</span>(x), <span class="dt">propmiss=</span><span class="kw">sum</span>(<span class="kw">is.na</span>(x))/<span class="kw">length</span>(x)))
+<span class="kw">propmiss</span>(temdata)
+
+
+<span class="co">#upper case</span>
+temdata$childid=<span class="kw">toupper</span>(temdata$childid)
+
+
+
+<span class="co"># plot graph individual all variables</span>
+
+plotpdf=<span class="st">&quot;C:/Users/Desktop/work/multiplePLOTS.pdf&quot;</span>
+<span class="kw">pdf</span>(<span class="dt">file=</span>plotpdf)
+for (i in <span class="dv">7</span>:<span class="dv">55</span>){
+  muis=<span class="kw">round</span>(<span class="kw">mean</span>(temdata[,i],<span class="dt">na.rm=</span>T),<span class="dv">3</span>)
+  sdis=<span class="kw">round</span>(<span class="kw">sd</span>(temdata[,i],<span class="dt">na.rm=</span>T),<span class="dv">3</span>)
+  meansc=<span class="kw">c</span>(<span class="st">&quot;mean&quot;</span>,muis)
+  <span class="kw">hist</span>(temdata[,i],<span class="dt">freq=</span>F,<span class="dt">main=</span><span class="kw">names</span>(temdata)[i],<span class="dt">xlab=</span>meansc)
+  <span class="co">#lines(density(temdata[,i],na.rm=T))</span>
+  <span class="kw">curve</span>(<span class="kw">dnorm</span>(x, <span class="dt">mean=</span>muis, <span class="dt">sd=</span>sdis), <span class="dt">add=</span><span class="ot">TRUE</span>)
+  <span class="kw">lines</span>(<span class="kw">density</span>(temdata[,i],<span class="dt">na.rm=</span>T, <span class="dt">adjust=</span><span class="dv">2</span>), <span class="dt">lty=</span><span class="st">&quot;dotted&quot;</span>, <span class="dt">col=</span><span class="st">&quot;darkgreen&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>)
+  <span class="kw">abline</span>(<span class="dt">v=</span>muis,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)
+  <span class="kw">abline</span>(<span class="dt">v=</span>muis<span class="dv">+3</span>*sdis,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)
+  <span class="kw">abline</span>(<span class="dt">v=</span>muis<span class="dv">-3</span>*sdis,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)
+}
+
+<span class="kw">dev.off</span>()
+
+
+<span class="co"># read in upper directory</span>
+dd=<span class="kw">read.csv</span>(<span class="st">&quot;../temdata.csv&quot;</span>)</code></pre></div>
+<div id="more-on-the-apastyle-package" class="section level2">
+<h2><span class="header-section-number">12.1</span> More on the apaStyle package</h2>
+<p>Here is more details on the apaStyle package;</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(pastecs)
+<span class="kw">require</span>(apaStyle)
+<span class="kw">library</span>(rJava)
+<span class="co">#if this throws an error</span>
+<span class="kw">Sys.setenv</span>(<span class="dt">JAVA_HOME=</span><span class="st">&#39;C:</span><span class="ch">\\</span><span class="st">Program Files</span><span class="ch">\\</span><span class="st">Java</span><span class="ch">\\</span><span class="st">jre1.8.0_111&#39;</span>) <span class="co"># for 64-bit version</span>
+
+<span class="co">#define a data set </span>
+
+<span class="kw">apa.descriptives</span>(<span class="dt">data =</span> temdataet[,<span class="dv">1</span>:<span class="dv">5</span>], <span class="dt">variables =</span> <span class="kw">names</span>(temdataet[,<span class="dv">1</span>:<span class="dv">5</span>]), <span class="dt">report =</span> <span class="st">&quot;&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;test&quot;</span>, <span class="dt">filename =</span> <span class="st">&quot;test.docx&quot;</span>, <span class="dt">note =</span> <span class="ot">NULL</span>, <span class="dt">position =</span> <span class="st">&quot;lower&quot;</span>, <span class="dt">merge =</span> <span class="ot">FALSE</span>, <span class="dt">landscape =</span> <span class="ot">FALSE</span>, <span class="dt">save =</span> <span class="ot">TRUE</span>)
+
+example &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">c</span>(<span class="st">&quot;Column 1&quot;</span>, <span class="st">&quot;Column 2&quot;</span>, <span class="st">&quot;Column 3&quot;</span>), <span class="kw">c</span>(<span class="fl">3.45</span>, <span class="fl">5.21</span>, <span class="fl">2.64</span>), <span class="kw">c</span>(<span class="fl">1.23</span>, <span class="fl">1.06</span>, <span class="fl">1.12</span>) )
+<span class="kw">apa.table</span>(<span class="dt">data =</span> example, <span class="dt">level1.header =</span> <span class="kw">c</span>(<span class="st">&quot;Variable&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;SD&quot;</span>))
+
+
+example &lt;-<span class="st"> </span><span class="kw">data.frame</span>( <span class="kw">c</span>(<span class="st">&quot;Column 1&quot;</span>, <span class="st">&quot;Column 2&quot;</span>, <span class="st">&quot;Column 3&quot;</span>), 
+                       <span class="kw">c</span>(<span class="fl">3.45</span>, <span class="fl">5.21</span>, <span class="fl">2.64</span>), 
+                       <span class="kw">c</span>(<span class="fl">1.23</span>, <span class="fl">1.06</span>, <span class="fl">1.12</span>), 
+                       <span class="kw">c</span>(<span class="fl">8.22</span>, <span class="fl">25.12</span>, <span class="fl">30.27</span>), 
+                       <span class="kw">c</span>(<span class="st">&quot;+&quot;</span>, <span class="st">&quot;**&quot;</span>, <span class="st">&quot;***&quot;</span>) )
+
+
+<span class="kw">apa.table</span>( <span class="dt">data =</span> example, <span class="dt">level1.header =</span> <span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;Descriptives&quot;</span>, <span class="st">&quot;Inferential&quot;</span>), 
+           <span class="dt">level1.colspan =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>), 
+           <span class="dt">level2.header =</span> <span class="kw">c</span>(<span class="st">&quot;Variable&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;SD&quot;</span>, <span class="st">&quot;t-value&quot;</span>, <span class="st">&quot;*&quot;</span>) )$table</code></pre></div>
+</div>
+<div id="a-useful-shiny-application" class="section level2">
+<h2><span class="header-section-number">12.2</span> A useful shiny application</h2>
+<p>Below is a Shiny app example (Figure <a href="useful-r-codes.html#fig:ancovaN">12.1</a>) to calculate sample size for an analyses of covariance design;</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr::<span class="kw">include_app</span>(<span class="st">&#39;https://burakaydin.shinyapps.io/ancovaN/&#39;</span>, <span class="dt">height =</span> <span class="st">&#39;800px&#39;</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ancovaN"></span>
+<iframe src="https://burakaydin.shinyapps.io/ancovaN/?showcase=0" width="768" height="800px">
+</iframe>
+<p class="caption">
+Figure 12.1: ANCOVA sample size calculator
+</p>
+</div>
+
+<div id="refs" class="references">
+<div>
+<p>Adler, Daniel, and Duncan Murdoch. 2017. <em>Rgl: 3D Visualization Using Opengl</em>. <a href="https://CRAN.R-project.org/package=rgl" class="uri">https://CRAN.R-project.org/package=rgl</a>.</p>
+</div>
+<div>
+<p>Aho, Ken. 2016. <em>Asbio: A Collection of Statistical Tools for Biologists</em>. <a href="https://CRAN.R-project.org/package=asbio" class="uri">https://CRAN.R-project.org/package=asbio</a>.</p>
+</div>
+<div>
+<p>Allaire, JJ, Joe Cheng, Yihui Xie, Jonathan McPherson, Winston Chang, Jeff Allen, Hadley Wickham, Aron Atkins, and Rob Hyndman. 2016. <em>Rmarkdown: Dynamic Documents for R</em>. <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
+</div>
+<div>
+<p>Appelbaum, Mark I., and Elliot M. Cramer. 1976. “Balancing - Analysis of Variance by Another Name.” <em>Journal of Educational Statistics</em> 1 (3): 233–52.</p>
+</div>
+<div>
+<p>Bakeman, Roger. 2005. “Recommended Effect Size Statistics for Repeated Measures Designs.” <em>Behavior Research Methods</em> 37 (3): 379–84. doi:<a href="https://doi.org/10.3758/BF03192707">10.3758/BF03192707</a>.</p>
+</div>
+<div>
+<p>Bates, Douglas, Martin Mächler, Ben Bolker, and Steve Walker. 2015. “Fitting Linear Mixed-Effects Models Using lme4.” <em>Journal of Statistical Software</em> 67 (1): 1–48. doi:<a href="https://doi.org/10.18637/jss.v067.i01">10.18637/jss.v067.i01</a>.</p>
+</div>
+<div>
+<p>Box, George E. P., and Norman R. Draper. 1987. <em>Empirical Model-Building and Response Surfaces</em>. New York: Wiley.</p>
+</div>
+<div>
+<p>Breheny, Patrick, and Woodrow Burchett. 2016. <em>Visreg: Visualization of Regression Models</em>. <a href="https://CRAN.R-project.org/package=visreg" class="uri">https://CRAN.R-project.org/package=visreg</a>.</p>
+</div>
+<div>
+<p>Carlson, James E., and Neil H. Timm. 1974. “Analysis of Nonorthogonal Fixed-Effects Designs.” <em>Psychological Bulletin</em> 81 (9): 563–70.</p>
+</div>
+<div>
+<p>Cohen, Jacob. 1962. “The Statistical Power of Abnormal-Social Psychological Research: A Review.” <em>The Journal of Abnormal and Social Psychology</em> 65 (3): 145–53.</p>
+</div>
+<div>
+<p>Daunic, Ann P., Stephen W. Smith, Cynthia W. Garvan, Brian R. Barber, Mallory K. Becker, Christine D. Peters, Gregory G. Taylor, Christopher L. Van Loan, Wei Li, and Arlene H. Naranjo. 2012. “Reducing Developmental Risk for Emotional/Behavioral Problems: A Randomized Controlled Trial Examining the Tools for Getting Along Curriculum.” <em>Journal of School Psychology</em> 50 (2): 149–66.</p>
+</div>
+<div>
+<p>de Vreeze, Jort. 2016. <em>ApaStyle: Generate Apa Tables for Ms Word</em>. <a href="https://CRAN.R-project.org/package=apaStyle" class="uri">https://CRAN.R-project.org/package=apaStyle</a>.</p>
+</div>
+<div>
+<p>Field, Andy P., Jeremy Miles, and Zoë Field. 2012. <em>Discovering Statistics Using R</em>. Thousand Oaks, Calif;London; Sage.</p>
+</div>
+<div>
+<p>Gelman, Andrew, and Jennifer Hill. 2007. <em>Data Analysis Using Regression and Multilevel/Hierarchical Models</em>. Cambridge;New York; Cambridge University Press.</p>
+</div>
+<div>
+<p>Hirshleifer, Sarojini, David McKenzie, Rita Almeida, and Cristobal Ridao-Cano. 2016. “The Impact of Vocational Training for the Unemployed: Experimental Evidence from Turkey.” <em>The Economic Journal</em> 126 (597): 2115–46.</p>
+</div>
+<div>
+<p>Holm, Sture. 1979. “A Simple Sequentially Rejective Multiple Test Procedure.” <em>Scandinavian Journal of Statistics</em> 6 (2): 65–70.</p>
+</div>
+<div>
+<p>Højsgaard, Søren, and Ulrich Halekoh. 2016. <em>DoBy: Groupwise Statistics, Lsmeans, Linear Contrasts, Utilities</em>. <a href="https://CRAN.R-project.org/package=doBy" class="uri">https://CRAN.R-project.org/package=doBy</a>.</p>
+</div>
+<div>
+<p>Komsta, Lukasz, and Frederick Novomestky. 2015. <em>Moments: Moments, Cumulants, Skewness, Kurtosis and Related Tests</em>. <a href="https://CRAN.R-project.org/package=moments" class="uri">https://CRAN.R-project.org/package=moments</a>.</p>
+</div>
+<div>
+<p>Lakens, Daniel. 2013. “Calculating and Reporting Effect Sizes to Facilitate Cumulative Science: A Practical Primer for T-Tests and Anovas.” <em>Frontiers in Psychology</em> 4: 863. doi:<a href="https://doi.org/10.3389/fpsyg.2013.00863">10.3389/fpsyg.2013.00863</a>.</p>
+</div>
+<div>
+<p>Lawrence, Michael A. 2016. <em>Ez: Easy Analysis and Visualization of Factorial Experiments</em>. <a href="https://CRAN.R-project.org/package=ez" class="uri">https://CRAN.R-project.org/package=ez</a>.</p>
+</div>
+<div>
+<p>Lemon, Jim, Ben Bolker, Sander Oom, Eduardo Klein, Barry Rowlingson, Hadley Wickham, Anupam Tyagi, et al. 2016. <em>Plotrix: Various Plotting Functions</em>. <a href="https://CRAN.R-project.org/package=plotrix" class="uri">https://CRAN.R-project.org/package=plotrix</a>.</p>
+</div>
+<div>
+<p>Lumley, Thomas, and Achim Zeileis. 2015. <em>Sandwich: Robust Covariance Matrix Estimators</em>. <a href="https://CRAN.R-project.org/package=sandwich" class="uri">https://CRAN.R-project.org/package=sandwich</a>.</p>
+</div>
+<div>
+<p>Mair, Patrick, and Rand Wilcox. 2016. <em>WRS2: A Collection of Robust Statistical Methods</em>. <a href="https://CRAN.R-project.org/package=WRS2" class="uri">https://CRAN.R-project.org/package=WRS2</a>.</p>
+</div>
+<div>
+<p>Muenchen, Robert A. 2011. <em>R for Sas and Spss Users</em>. 2nd ed. New York: Springer.</p>
+</div>
+<div>
+<p>Myers, Jerome L., A. Well, Robert F. Lorch, and Ebooks Corporation. 2013. <em>Research Design and Statistical Analysis</em>. 3rd ed. New York: Routledge.</p>
+</div>
+<div>
+<p>Obrien, Robert M. 2007. “A Caution Regarding Rules of Thumb for Variance Inflation Factors.” <em>Quality and Quantity</em> 41 (5).</p>
+</div>
+<div>
+<p>Olejnik, Stephen, and James Algina. 2003. “Generalized Eta and Omega Squared Statistics: Measures of Effect Size for Some Common Research Designs.” <em>Psychological Methods</em> 8 (4): 434–47.</p>
+</div>
+<div>
+<p>Pearl, Judea. 2009. <em>Causality: Models, Reasoning, and Inference</em>. 2nd ed. Cambridge;New York: Cambridge University Press.</p>
+</div>
+<div>
+<p>R Core Team. 2016a. <em>Foreign: Read Data Stored by Minitab, S, Sas, Spss, Stata, Systat, Weka, DBase, .</em> <a href="https://CRAN.R-project.org/package=foreign" class="uri">https://CRAN.R-project.org/package=foreign</a>.</p>
+</div>
+<div>
+<p>———. 2016b. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
+</div>
+<div>
+<p>Rawlings, John O., Sastry G. Pantula, and David A. Dickey. 1998. <em>Applied Regression Analysis: A Research Tool</em>. 2nd ed. New York: Springer.</p>
+</div>
+<div>
+<p>Revelle, William. 2016. <em>Psych: Procedures for Psychological, Psychometric, and Personality Research</em>. <a href="https://CRAN.R-project.org/package=psych" class="uri">https://CRAN.R-project.org/package=psych</a>.</p>
+</div>
+<div>
+<p>RStudio Team. 2016. <em>RStudio: Integrated Development Environment for R</em>. Boston, MA: RStudio, Inc. <a href="http://www.rstudio.com/" class="uri">http://www.rstudio.com/</a>.</p>
+</div>
+<div>
+<p>Sarkar, Deepayan. 2016. <em>Lattice: Trellis Graphics for R</em>. <a href="https://CRAN.R-project.org/package=lattice" class="uri">https://CRAN.R-project.org/package=lattice</a>.</p>
+</div>
+<div>
+<p>Tippmann, Sylvia. 2015. “Programming Tools: Adventures with R: A Guide to the Popular, Free Statistics and Visualization Software That Gives Scientists Control of Their Own Data Analysis.” <em>Nature</em>, no. 7532: 109.</p>
+</div>
+<div>
+<p>Torchiano, Marco. 2016. <em>Effsize: Efficient Effect Size Computation</em>. <a href="https://CRAN.R-project.org/package=effsize" class="uri">https://CRAN.R-project.org/package=effsize</a>.</p>
+</div>
+<div>
+<p>Verzani, John. 2014. <em>Using R for Introductory Statistics</em>. Second. Boca Raton: CRC Press Taylor; Francis Group.</p>
+</div>
+<div>
+<p>Wickham, Hadley. 2011. “The Split-Apply-Combine Strategy for Data Analysis.” <em>Journal of Statistical Software</em> 40 (1): 1–29. <a href="http://www.jstatsoft.org/v40/i01/" class="uri">http://www.jstatsoft.org/v40/i01/</a>.</p>
+</div>
+<div>
+<p>———. 2016. <em>Tidyr: Easily Tidy Data with ‘Spread()‘ and ‘Gather()‘ Functions</em>. <a href="https://CRAN.R-project.org/package=tidyr" class="uri">https://CRAN.R-project.org/package=tidyr</a>.</p>
+</div>
+<div>
+<p>Wickham, Hadley, and Winston Chang. 2016. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://CRAN.R-project.org/package=ggplot2" class="uri">https://CRAN.R-project.org/package=ggplot2</a>.</p>
+</div>
+<div>
+<p>Wilcox, Rand R. 2012. <em>Introduction to Robust Estimation and Hypothesis Testing</em>. 3rd;3; US: Academic Press.</p>
+</div>
+<div>
+<p>Xie, Yihui. 2016. <em>Bookdown: Authoring Books with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown" class="uri">https://CRAN.R-project.org/package=bookdown</a>.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="multiple-linear-regression-a-short-introduction.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/burakaydin/BAP2219/tree/gh-pages/11_Useful.Rmd",
+"text": "Edit"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

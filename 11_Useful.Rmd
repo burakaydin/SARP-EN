@@ -1,0 +1,329 @@
+# Useful R codes
+
+
+```{r, eval=F}
+# Convert numeric to factor
+
+temdata[,2:9] <- lapply(temdata[,2:9], as.factor) 
+
+# Convert factor to numeric
+as.numeric.factor <- function(x) {as.numeric(levels(x))[x]}
+temdata[,2:5] <- lapply(temdata[,2:5], as.numeric.factor) 
+
+# Have frequencies table for multiple columns
+
+dems=apply(temdata[,5:11], 2, function(x){table(x,temdata$grp)})
+library (plyr)
+mydems <- ldply (mydems, data.frame)
+
+# Aggregate variables by grp
+
+uncagg=aggregate(. ~ grp, data = temdata, FUN=mean, na.rm=TRUE)
+
+uncaggfaster=temdata[, lapply(.SD, mean,na.rm=T), by = grp]
+
+# Find max in a table
+which.max(x)
+
+
+# Update R
+if(!require(installr)) { 
+  install.packages("installr"); require(installr)} #load / install+load installr
+updateR()
+
+
+# Create dummy variable from a factor
+head(temdata)
+for(level in unique(temdata$zp)){
+  temdata[paste("dummy", level, sep = "_")] <- ifelse(temdata$zp == level, 1, 0)
+}
+
+
+# Using semi colon to send multiple input
+x=rnorm(10000,5,10)
+mean(x);var(x);sqrt(var(x))
+
+# Remove an object
+y=rnorm(10)
+rm(y)
+
+# Empty the working space
+rm(list=ls())
+
+# Remove all but some
+rm(list=setdiff(ls(),c("temdata", "temdata2")))
+
+
+# Integer division
+7%/%2
+
+# Modulo = remainder
+5%%2 
+
+# Define and print 
+(count=c(25,12,7,4,6,2,1,0,2))
+
+# Read csv by clicking
+data=read.csv(file.choose(),header=TRUE,)
+
+#Combine more than 1 csv files
+filenames <- list.files()
+temdata=do.call("rbind", lapply(filenames, read.csv, header = F))
+write.table(temdata, file ="temdata.binded.csv" , sep = ",",col.names = F, row.names = F)
+
+
+#Multiple QQ plot
+  #split screen
+layout(matrix(1:9, nc = 3))
+sapply(names(temdata)[1:9], function(x) {
+  qqnorm(temdata[[x]], main = x)
+  qqline(temdata[[x]])
+})
+
+
+
+
+#Split for more plots
+
+par(mfrow=c(3,3))
+
+
+#Double for loop
+x=matrix(1:15,3,5)
+for(i in seq_len(nrow(x)))
+{
+  for(j in seq_len(ncol(x)))
+  {
+    print(x[i,j])
+      
+  }
+}
+
+
+
+#While loop
+count=0
+while(count<10){
+  print(count)
+  count=count+1
+}
+
+
+#Missing data 
+convert -999s to NAs 
+
+read.csv("x.csv", na.strings="-999")
+temdata[is.na(temdata)] <- 0
+
+
+#convert NAs to -99s
+
+vector[which(vector== NA)]= (-99)
+temdata[is.na(temdata)]= (-99)
+
+#if you are having trouble converting <NA> (but not NA)
+temdata=read.csv("temdata.csv",stringsAsFactors=FALSE)
+
+
+# add group mean
+
+temdata2=merge(temdata, aggregate(X ~ grp, data = temdata, FUN=mean, na.rm=TRUE), 
+          by = "grp", suffixes = c("", ".mean"),all=T)
+
+
+temdata2=merge(temdata, aggregate(cbind(X1 ,X2 ,X3 , X4) ~ grp, data = temdata, FUN=mean,                      na.rm=TRUE), by = "grp", suffixes = c("", ".mean"),all=T)
+
+temdata2=merge(temdata, 
+          ddply(temdata, c("grp"), function(x) colMeans(x[c("X1" ,"X2","X3" , "X4")])), 
+          by = "grp", suffixes = c("", ".mean"),all=T)
+
+
+
+
+#ifelse
+y=c(1,2,3,4,5,5,5)
+y2=ifelse(y==5,NA,y)
+y2
+
+
+temdata <- data.frame (ID=c(2,3,4,5), Hunger =c(415,452,550,318 ))
+
+temdata$newcol<-ifelse(temdata[,2]>=300 & temdata[,2]<400,350,
+                       ifelse(temdata[,2]>=400 &temdata[,2]<500,450,
+                              ifelse(temdata[,2]>=500 & temdata[,2]<600,550,NA)))
+
+
+
+#if 
+x=5
+y=if(x>6){1}else{0}
+y=if(x>6){1} else if(x==5) {99} else {0}
+
+
+#sort a dataframe by the order of the elements in B
+temdata[order(temdata$B),]                            
+
+#sort the dataframe in reverse order
+temdata[rev(order(temdata$B)),]                         
+
+
+#create combinations
+m=c(54,38,51,62,18,31,58,74,35,34)
+f=c(41,18,19,39,44,18,58,21,38)
+
+mean(m)
+mean(f)
+
+combn(m,8,FUN=mean)
+combn(f,8)
+
+min(combn(m,8,FUN=mean))
+max(combn(f,8,mean))
+
+
+#setting contrasts
+options('contrasts')
+options(contrasts=c('contr.sum','contr.poly'))
+options(contrasts=c('contr.treatment','contr.poly'))
+
+
+# delete if all NA 
+temdata=temdata[apply(temdata,1,function(x)any(!is.na(x))),]
+
+
+# add group frequency
+temdata=ddply(temdata, "grp", transform, cellsize = count(grp)[2])
+
+
+#create new folder
+dir.create("testdir")
+
+#split data frame
+library(datasets)
+head(airquality)
+splitdata=split(airquality,airquality$Month)
+splitdata
+str(splitdata)
+splitdata[[2]]
+
+
+x=list(a=1:5, b=rnorm(10))
+x
+lapply(x,mean)
+
+# output is always a list
+
+x=1:4
+lapply(x,runif)
+lapply(x,runif,min=10, max=20)
+
+
+x=list(a=matrix(1:4,2,2),b=matrix(1:6,3,2))
+
+lapply(x,function(elt) elt[,1])
+
+
+# sapply
+
+x=list(a=1:5, b=rnorm(10),c=runif(10))
+x
+lapply(x,mean)
+sapply(x,mean)
+
+
+
+#apply generally used for rows or columns
+
+x=matrix(rnorm(200),20,10)
+x
+apply(x,2,mean)
+apply(x,1,sum)
+
+#tapply 
+x=c(1:10,rnorm(10),runif(10,3,5))
+f=gl(3,10)
+?gl
+h=factor(rep(1:3,each=10))
+tapply(x,f,mean)
+tapply(x,h,mean)
+tapply(x,h,mean,simplify=F)
+tapply(x,h,range)
+
+
+
+
+#missing data proportion percentage
+propmiss <- function(temdata) lapply(temdata,function(x) data.frame(nmiss=sum(is.na(x)), n=length(x), propmiss=sum(is.na(x))/length(x)))
+propmiss(temdata)
+
+
+#upper case
+temdata$childid=toupper(temdata$childid)
+
+
+
+# plot graph individual all variables
+
+plotpdf="C:/Users/Desktop/work/multiplePLOTS.pdf"
+pdf(file=plotpdf)
+for (i in 7:55){
+  muis=round(mean(temdata[,i],na.rm=T),3)
+  sdis=round(sd(temdata[,i],na.rm=T),3)
+  meansc=c("mean",muis)
+  hist(temdata[,i],freq=F,main=names(temdata)[i],xlab=meansc)
+  #lines(density(temdata[,i],na.rm=T))
+  curve(dnorm(x, mean=muis, sd=sdis), add=TRUE)
+  lines(density(temdata[,i],na.rm=T, adjust=2), lty="dotted", col="darkgreen", lwd=2)
+  abline(v=muis,col="blue")
+  abline(v=muis+3*sdis,col="red")
+  abline(v=muis-3*sdis,col="red")
+}
+
+dev.off()
+
+
+# read in upper directory
+dd=read.csv("../temdata.csv")
+
+```
+
+
+## More on the apaStyle package
+Here is more details on the apaStyle package;
+```{r, eval=F}
+require(pastecs)
+require(apaStyle)
+library(rJava)
+#if this throws an error
+Sys.setenv(JAVA_HOME='C:\\Program Files\\Java\\jre1.8.0_111') # for 64-bit version
+
+#define a data set 
+
+apa.descriptives(data = temdataet[,1:5], variables = names(temdataet[,1:5]), report = "", title = "test", filename = "test.docx", note = NULL, position = "lower", merge = FALSE, landscape = FALSE, save = TRUE)
+
+example <- data.frame(c("Column 1", "Column 2", "Column 3"), c(3.45, 5.21, 2.64), c(1.23, 1.06, 1.12) )
+apa.table(data = example, level1.header = c("Variable", "M", "SD"))
+
+
+example <- data.frame( c("Column 1", "Column 2", "Column 3"), 
+                       c(3.45, 5.21, 2.64), 
+                       c(1.23, 1.06, 1.12), 
+                       c(8.22, 25.12, 30.27), 
+                       c("+", "**", "***") )
+
+
+apa.table( data = example, level1.header = c("", "Descriptives", "Inferential"), 
+           level1.colspan = c(1, 2, 1), 
+           level2.header = c("Variable", "M", "SD", "t-value", "*") )$table
+
+
+```
+
+
+## A useful shiny application
+Below is a Shiny app example (Figure \@ref(fig:ancovaN)) to calculate sample size for an analyses of covariance design;
+
+```{r ancovaN, fig.cap='ANCOVA sample size calculator', screenshot.opts=list(delay=10), dev='png', cache=TRUE, fig.align='center', fig.width=8, fig.height=8}
+knitr::include_app('https://burakaydin.shinyapps.io/ancovaN/', height = '800px')
+```
+

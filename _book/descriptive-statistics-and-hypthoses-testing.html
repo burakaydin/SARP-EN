@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>BETA: An R Platform for Social Scientists</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="R book for social scientists">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="BETA: An R Platform for Social Scientists" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/coverpicture.png" />
+  <meta property="og:description" content="R book for social scientists" />
+  <meta name="github-repo" content="burakaydin/BAP2219" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="BETA: An R Platform for Social Scientists" />
+  
+  <meta name="twitter:description" content="R book for social scientists" />
+  <meta name="twitter:image" content="images/coverpicture.png" />
+
+<meta name="author" content="Burak AYDIN, James ALGINA, Walter LEITE">
+
+
+<meta name="date" content="2017-01-01">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="data-sets.html">
+<link rel="next" href="comparing-two-means-the-t-test.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-0.8/htmlwidgets.js"></script>
+<link href="libs/rglwidgetClass-2/rgl.css" rel="stylesheet" />
+<script src="libs/rglwidgetClass-2/rglClass.src.js"></script>
+<script src="libs/CanvasMatrix4-2016/CanvasMatrix.src.js"></script>
+<script src="libs/rglWebGL-binding-0.97.0/rglWebGL.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">SARP</a></li>
+<li><a href="https://burakaydin.github.io/SARP/_book/" target="blank">SAPR-TR</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Cover</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#why-bookdown"><i class="fa fa-check"></i><b>1.1.1</b> Why Bookdown?</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#content"><i class="fa fa-check"></i><b>1.1.2</b> Content</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i><b>2</b> Preface</a><ul>
+<li class="chapter" data-level="2.1" data-path="preface.html"><a href="preface.html#authors"><i class="fa fa-check"></i><b>2.1</b> Authors</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="preface.html"><a href="preface.html#burak-aydn-ph.d."><i class="fa fa-check"></i><b>2.1.1</b> Burak Aydın, Ph.D.</a></li>
+<li class="chapter" data-level="2.1.2" data-path="preface.html"><a href="preface.html#james-algina-ph.d."><i class="fa fa-check"></i><b>2.1.2</b> James Algina, Ph.D.</a></li>
+<li class="chapter" data-level="2.1.3" data-path="preface.html"><a href="preface.html#walter-l.-leite-ph.d."><i class="fa fa-check"></i><b>2.1.3</b> Walter L. Leite, Ph.D.</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="preface.html"><a href="preface.html#acknowledgement"><i class="fa fa-check"></i><b>2.2</b> Acknowledgement</a></li>
+<li class="chapter" data-level="2.3" data-path="preface.html"><a href="preface.html#dataWBT"><i class="fa fa-check"></i><b>2.3</b> Data</a></li>
+<li class="chapter" data-level="2.4" data-path="preface.html"><a href="preface.html#fund"><i class="fa fa-check"></i><b>2.4</b> Fund</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="rs-popularity.html"><a href="rs-popularity.html"><i class="fa fa-check"></i><b>3</b> R’s Popularity</a></li>
+<li class="chapter" data-level="4" data-path="setting-up-r-for-windows.html"><a href="setting-up-r-for-windows.html"><i class="fa fa-check"></i><b>4</b> Setting up R for Windows</a></li>
+<li class="chapter" data-level="5" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>5</b> Basics</a><ul>
+<li class="chapter" data-level="5.1" data-path="basics.html"><a href="basics.html#functions"><i class="fa fa-check"></i><b>5.1</b> Functions</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="basics.html"><a href="basics.html#r-as-a-basic-calculator."><i class="fa fa-check"></i><b>5.1.1</b> R as a Basic Calculator.</a></li>
+<li class="chapter" data-level="5.1.2" data-path="basics.html"><a href="basics.html#r-as-a-programmable-calculator"><i class="fa fa-check"></i><b>5.1.2</b> R as a Programmable Calculator</a></li>
+<li class="chapter" data-level="5.1.3" data-path="basics.html"><a href="basics.html#help"><i class="fa fa-check"></i><b>5.1.3</b> Help!</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="basics.html"><a href="basics.html#r-data-types"><i class="fa fa-check"></i><b>5.2</b> R Data Types</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="basics.html"><a href="basics.html#vectors"><i class="fa fa-check"></i><b>5.2.1</b> Vectors</a></li>
+<li class="chapter" data-level="5.2.2" data-path="basics.html"><a href="basics.html#matricies"><i class="fa fa-check"></i><b>5.2.2</b> Matricies</a></li>
+<li class="chapter" data-level="5.2.3" data-path="basics.html"><a href="basics.html#variables"><i class="fa fa-check"></i><b>5.2.3</b> Variables</a></li>
+<li class="chapter" data-level="5.2.4" data-path="basics.html"><a href="basics.html#factors"><i class="fa fa-check"></i><b>5.2.4</b> Factors</a></li>
+<li class="chapter" data-level="5.2.5" data-path="basics.html"><a href="basics.html#missing-values"><i class="fa fa-check"></i><b>5.2.5</b> Missing Values</a></li>
+<li class="chapter" data-level="5.2.6" data-path="basics.html"><a href="basics.html#dataframes"><i class="fa fa-check"></i><b>5.2.6</b> Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="basics.html"><a href="basics.html#r-packages"><i class="fa fa-check"></i><b>5.3</b> R Packages</a></li>
+<li class="chapter" data-level="5.4" data-path="basics.html"><a href="basics.html#theworkspace"><i class="fa fa-check"></i><b>5.4</b> The Workspace</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-sets.html"><a href="data-sets.html"><i class="fa fa-check"></i><b>6</b> Data Sets</a><ul>
+<li class="chapter" data-level="6.1" data-path="data-sets.html"><a href="data-sets.html#import-data"><i class="fa fa-check"></i><b>6.1</b> Import Data</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="data-sets.html"><a href="data-sets.html#csv"><i class="fa fa-check"></i><b>6.1.1</b> CSV</a></li>
+<li class="chapter" data-level="6.1.2" data-path="data-sets.html"><a href="data-sets.html#spss"><i class="fa fa-check"></i><b>6.1.2</b> SPSS</a></li>
+<li class="chapter" data-level="6.1.3" data-path="data-sets.html"><a href="data-sets.html#rdata"><i class="fa fa-check"></i><b>6.1.3</b> Rdata</a></li>
+<li class="chapter" data-level="6.1.4" data-path="data-sets.html"><a href="data-sets.html#pullonline"><i class="fa fa-check"></i><b>6.1.4</b> Pull online</a></li>
+<li class="chapter" data-level="6.1.5" data-path="data-sets.html"><a href="data-sets.html#read-data-through-r-studio"><i class="fa fa-check"></i><b>6.1.5</b> Read data through R studio</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="data-sets.html"><a href="data-sets.html#basic-data-manipulation"><i class="fa fa-check"></i><b>6.2</b> Basic Data Manipulation</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="data-sets.html"><a href="data-sets.html#replacing-values"><i class="fa fa-check"></i><b>6.2.1</b> Replacing values</a></li>
+<li class="chapter" data-level="6.2.2" data-path="data-sets.html"><a href="data-sets.html#subsetting"><i class="fa fa-check"></i><b>6.2.2</b> Subsetting</a></li>
+<li class="chapter" data-level="6.2.3" data-path="data-sets.html"><a href="data-sets.html#creating-new-variables"><i class="fa fa-check"></i><b>6.2.3</b> Creating new variables</a></li>
+<li class="chapter" data-level="6.2.4" data-path="data-sets.html"><a href="data-sets.html#reshaping-data"><i class="fa fa-check"></i><b>6.2.4</b> Reshaping data</a></li>
+<li class="chapter" data-level="6.2.5" data-path="data-sets.html"><a href="data-sets.html#converting-between-variable-types"><i class="fa fa-check"></i><b>6.2.5</b> Converting between variable types</a></li>
+<li class="chapter" data-level="6.2.6" data-path="data-sets.html"><a href="data-sets.html#delete-cases"><i class="fa fa-check"></i><b>6.2.6</b> Delete cases</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="data-sets.html"><a href="data-sets.html#export-data"><i class="fa fa-check"></i><b>6.3</b> Export Data</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html"><i class="fa fa-check"></i><b>7</b> Descriptive Statistics and Hypthoses Testing</a><ul>
+<li class="chapter" data-level="7.1" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#descstats"><i class="fa fa-check"></i><b>7.1</b> Descriptive Statistics</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#mean"><i class="fa fa-check"></i><b>7.1.1</b> Mean</a></li>
+<li class="chapter" data-level="7.1.2" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#median"><i class="fa fa-check"></i><b>7.1.2</b> Median</a></li>
+<li class="chapter" data-level="7.1.3" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#variance"><i class="fa fa-check"></i><b>7.1.3</b> Variance</a></li>
+<li class="chapter" data-level="7.1.4" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#standard-deviation"><i class="fa fa-check"></i><b>7.1.4</b> Standard deviation</a></li>
+<li class="chapter" data-level="7.1.5" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#skewness"><i class="fa fa-check"></i><b>7.1.5</b> Skewness</a></li>
+<li class="chapter" data-level="7.1.6" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#kurtosis"><i class="fa fa-check"></i><b>7.1.6</b> Kurtosis</a></li>
+<li class="chapter" data-level="7.1.7" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#reporting-descriptives"><i class="fa fa-check"></i><b>7.1.7</b> Reporting descriptives</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#basic-graphics"><i class="fa fa-check"></i><b>7.2</b> Basic graphics</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#histogram"><i class="fa fa-check"></i><b>7.2.1</b> Histogram</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#hypothesis-testing-introduction"><i class="fa fa-check"></i><b>7.3</b> Hypothesis testing introduction</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#samplingdist"><i class="fa fa-check"></i><b>7.3.1</b> The Sampling distribution</a></li>
+<li class="chapter" data-level="7.3.2" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-confidence-intervals-ci"><i class="fa fa-check"></i><b>7.3.2</b> The Confidence Intervals (CI)</a></li>
+<li class="chapter" data-level="7.3.3" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-null-hypothesis"><i class="fa fa-check"></i><b>7.3.3</b> The null hypothesis</a></li>
+<li class="chapter" data-level="7.3.4" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-z-score-and-the-z-test"><i class="fa fa-check"></i><b>7.3.4</b> The z score and the z test</a></li>
+<li class="chapter" data-level="7.3.5" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-one-sample-t-test"><i class="fa fa-check"></i><b>7.3.5</b> The one-sample t test</a></li>
+<li class="chapter" data-level="7.3.6" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-p-value"><i class="fa fa-check"></i><b>7.3.6</b> The p value</a></li>
+<li class="chapter" data-level="7.3.7" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-p-value-illustration"><i class="fa fa-check"></i><b>7.3.7</b> The p value illustration</a></li>
+<li class="chapter" data-level="7.3.8" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#statisticalpower"><i class="fa fa-check"></i><b>7.3.8</b> Statistical power</a></li>
+<li class="chapter" data-level="7.3.9" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#in-case-the-z-and-the-t-distribution-is-not-valid"><i class="fa fa-check"></i><b>7.3.9</b> In case the z and the t distribution is not valid</a></li>
+<li class="chapter" data-level="7.3.10" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#shiny-application-to-visualize-sampling-distribution"><i class="fa fa-check"></i><b>7.3.10</b> Shiny application to visualize sampling distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html"><i class="fa fa-check"></i><b>8</b> Comparing Two Means, the t-test</a><ul>
+<li class="chapter" data-level="8.1" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#between-subjects-t-test-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1</b> Between-Subjects t-test (The Independent Groups t-test)</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#r-codes-for-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1.1</b> R codes for the independent groups t-test</a></li>
+<li class="chapter" data-level="8.1.2" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#assumptions-of-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1.2</b> Assumptions of the independent groups t-test</a></li>
+<li class="chapter" data-level="8.1.3" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#using-welchs-t-test"><i class="fa fa-check"></i><b>8.1.3</b> Using Welch’s t test</a></li>
+<li class="chapter" data-level="8.1.4" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#indepteff"><i class="fa fa-check"></i><b>8.1.4</b> Effect size for the independent groups t-test</a></li>
+<li class="chapter" data-level="8.1.5" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#extra-practical-significance-vs-statistical-significance"><i class="fa fa-check"></i><b>8.1.5</b> Extra: Practical significance vs statistical significance</a></li>
+<li class="chapter" data-level="8.1.6" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#missing-data-techniques-for-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1.6</b> Missing data techniques for the independent groups t-test</a></li>
+<li class="chapter" data-level="8.1.7" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#supportive-graphs-for-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1.7</b> Supportive graphs for the independent groups t-test</a></li>
+<li class="chapter" data-level="8.1.8" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#power-calculations-for-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1.8</b> Power calculations for the independent groups t-test</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#the-dependent-groups-t-test-within-subjects-t-test"><i class="fa fa-check"></i><b>8.2</b> The dependent groups t-test (Within-subjects t-test)</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#r-codes-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.1</b> R codes for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.2" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#assumption-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.2</b> Assumption for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.3" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#robust-estimation-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.3</b> Robust estimation for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.4" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#effect-size-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.4</b> Effect size for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.5" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#missing-data-techniques-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.5</b> Missing data techniques for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.6" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#supportive-graphs-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.6</b> Supportive graphs for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.7" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#power-calculations-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.7</b> Power calculations for the dependent groups t-test</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#common-designs"><i class="fa fa-check"></i><b>8.3</b> Common Designs</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#designs-in-which-scores-in-the-two-treatments-are-correlated"><i class="fa fa-check"></i><b>8.3.1</b> Designs in which Scores in the Two Treatments are Correlated</a></li>
+<li class="chapter" data-level="8.3.2" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#designbetween"><i class="fa fa-check"></i><b>8.3.2</b> Designs in which Scores in the Two Treatments are Independent</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html"><i class="fa fa-check"></i><b>9</b> Analysis of Variance (ANOVA)</a><ul>
+<li class="chapter" data-level="9.1" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#terminology"><i class="fa fa-check"></i><b>9.1</b> Terminology</a></li>
+<li class="chapter" data-level="9.2" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#between-subjects-anova"><i class="fa fa-check"></i><b>9.2</b> Between Subjects ANOVA</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#one-way-between-subjects-anova"><i class="fa fa-check"></i><b>9.2.1</b> One-way Between Subjects ANOVA</a></li>
+<li class="chapter" data-level="9.2.2" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#two-factor-between-subjects-anova"><i class="fa fa-check"></i><b>9.2.2</b> Two-Factor Between Subjects ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#within-subjects-anova"><i class="fa fa-check"></i><b>9.3</b> Within Subjects ANOVA</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#one-way-within-subjects-anova"><i class="fa fa-check"></i><b>9.3.1</b> One-way Within-Subjects ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#mixed-design"><i class="fa fa-check"></i><b>9.4</b> Mixed Design</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="correlation.html"><a href="correlation.html"><i class="fa fa-check"></i><b>10</b> Correlation</a><ul>
+<li class="chapter" data-level="10.1" data-path="correlation.html"><a href="correlation.html#pearson-correlation-coefficient"><i class="fa fa-check"></i><b>10.1</b> Pearson correlation coefficient</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="correlation.html"><a href="correlation.html#inference-on-a-pearson-correlation-coefficient"><i class="fa fa-check"></i><b>10.1.1</b> Inference on a Pearson correlation coefficient</a></li>
+<li class="chapter" data-level="10.1.2" data-path="correlation.html"><a href="correlation.html#r-codes-for-pearson-correlation-coefficent"><i class="fa fa-check"></i><b>10.1.2</b> R codes for Pearson Correlation coefficent</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="correlation.html"><a href="correlation.html#spearmans-rho-and-kendalls-tau"><i class="fa fa-check"></i><b>10.2</b> Spearman’s rho and Kendall’s tau</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="correlation.html"><a href="correlation.html#the-r-code-for-spearmans-rho-and-kendalls-tau"><i class="fa fa-check"></i><b>10.2.1</b> The R code for Spearman’s rho and Kendall’s tau</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="correlation.html"><a href="correlation.html#biserial-and-point-biserial-correlation-coefficients-with-r"><i class="fa fa-check"></i><b>10.3</b> Biserial and Point-Biserial Correlation Coefficients with R</a></li>
+<li class="chapter" data-level="10.4" data-path="correlation.html"><a href="correlation.html#phi-correlation-coefficient-with-r"><i class="fa fa-check"></i><b>10.4</b> Phi Correlation Coefficient with R</a></li>
+<li class="chapter" data-level="10.5" data-path="correlation.html"><a href="correlation.html#issues-in-interpreting-correlation-coefficients"><i class="fa fa-check"></i><b>10.5</b> Issues in Interpreting Correlation Coefficients</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html"><i class="fa fa-check"></i><b>11</b> Multiple Linear Regression, A Short Introduction</a><ul>
+<li class="chapter" data-level="11.1" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#matricies-and-least-square-estimation"><i class="fa fa-check"></i><b>11.1</b> Matricies and Least Square Estimation</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#a-essentially-all-models-are-wrong-but-some-are-useful."><i class="fa fa-check"></i><b>11.1.1</b> a) “Essentially, all models are wrong, but some are useful.”</a></li>
+<li class="chapter" data-level="11.1.2" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#b-strength-of-relationship-between-the-dependent-and-independent-variables"><i class="fa fa-check"></i><b>11.1.2</b> b) Strength of relationship between the dependent and independent variables</a></li>
+<li class="chapter" data-level="11.1.3" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#c-residuals-and-influential-data-points"><i class="fa fa-check"></i><b>11.1.3</b> c) Residuals and influential data points</a></li>
+<li class="chapter" data-level="11.1.4" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#d-equal-variance-assumption"><i class="fa fa-check"></i><b>11.1.4</b> d) <em>Equal variance assumption</em></a></li>
+<li class="chapter" data-level="11.1.5" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#e-hypothesis-testing"><i class="fa fa-check"></i><b>11.1.5</b> e) Hypothesis testing</a></li>
+<li class="chapter" data-level="11.1.6" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#f-variable-selection"><i class="fa fa-check"></i><b>11.1.6</b> f) Variable Selection</a></li>
+<li class="chapter" data-level="11.1.7" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#g-colliniearity"><i class="fa fa-check"></i><b>11.1.7</b> g) Colliniearity</a></li>
+<li class="chapter" data-level="11.1.8" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#h-non-linearity"><i class="fa fa-check"></i><b>11.1.8</b> h) Non-linearity</a></li>
+<li class="chapter" data-level="11.1.9" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#i-correlated-errors-and-nonindependent-errors"><i class="fa fa-check"></i><b>11.1.9</b> i) Correlated errors and nonindependent errors</a></li>
+<li class="chapter" data-level="11.1.10" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#j-centering-and-scaling"><i class="fa fa-check"></i><b>11.1.10</b> j) Centering and Scaling</a></li>
+<li class="chapter" data-level="11.1.11" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#k-standardized-coefficients"><i class="fa fa-check"></i><b>11.1.11</b> k) Standardized coefficients</a></li>
+<li class="chapter" data-level="11.1.12" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#l-interactions"><i class="fa fa-check"></i><b>11.1.12</b> l) Interactions</a></li>
+<li class="chapter" data-level="11.1.13" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#m-estimators"><i class="fa fa-check"></i><b>11.1.13</b> m) Estimators</a></li>
+<li class="chapter" data-level="11.1.14" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#n-robust-regression"><i class="fa fa-check"></i><b>11.1.14</b> n) Robust Regression</a></li>
+<li class="chapter" data-level="11.1.15" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#o-sample-size-and-statistical-power"><i class="fa fa-check"></i><b>11.1.15</b> o) Sample size and statistical power</a></li>
+<li class="chapter" data-level="11.1.16" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#p-reliability-of-variables"><i class="fa fa-check"></i><b>11.1.16</b> p) Reliability of variables</a></li>
+<li class="chapter" data-level="11.1.17" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#q-the-nature-of-the-variables"><i class="fa fa-check"></i><b>11.1.17</b> q) The nature of the variables</a></li>
+<li class="chapter" data-level="11.1.18" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#r-multiple-dependent-variables"><i class="fa fa-check"></i><b>11.1.18</b> r) Multiple dependent variables</a></li>
+<li class="chapter" data-level="11.1.19" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#s-missing-variables"><i class="fa fa-check"></i><b>11.1.19</b> s) Missing variables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="useful-r-codes.html"><a href="useful-r-codes.html"><i class="fa fa-check"></i><b>12</b> Useful R codes</a><ul>
+<li class="chapter" data-level="12.1" data-path="useful-r-codes.html"><a href="useful-r-codes.html#more-on-the-apastyle-package"><i class="fa fa-check"></i><b>12.1</b> More on the apaStyle package</a></li>
+<li class="chapter" data-level="12.2" data-path="useful-r-codes.html"><a href="useful-r-codes.html#a-useful-shiny-application"><i class="fa fa-check"></i><b>12.2</b> A useful shiny application</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">BETA: An R Platform for Social Scientists</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="descriptive-statistics-and-hypthoses-testing" class="section level1">
+<h1><span class="header-section-number"> 7</span> Descriptive Statistics and Hypthoses Testing</h1>
+<p>Descriptive statistics are used to describe a sample. We used the dataWBT (Section <a href="preface.html#dataWBT">2.3</a>) to illustrate (a) how to calculate and report descriptive statistics, (b) prepare basic graphics and (c) conduct hypothesis testing.</p>
+<p>In section 2, we demonstrated how to download R, R studio and to create an R script. This section was built on an assumption that the reader would create a script and follow the steps. It would definetely be more convenient if each step is undertaken to given order.The dataWBT can be imported into your R environment by running:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
+<span class="co"># load csv from an online repository</span>
+urlfile=<span class="st">&#39;https://raw.githubusercontent.com/burakaydin/materyaller/gh-pages/ARPASS/dataWBT.csv&#39;</span>
+dataWBT=<span class="kw">read.csv</span>(urlfile)
+
+<span class="co">#remove URL </span>
+<span class="kw">rm</span>(urlfile)</code></pre></div>
+<div id="descstats" class="section level2">
+<h2><span class="header-section-number">7.1</span> Descriptive Statistics</h2>
+<p>This subsection covers mean, median, variance, standard deviation, skewness and kurtosis calculations. The gender attitude variable (<a href="preface.html#dataWBT">2.3</a>)is chosen for illustrations.</p>
+<div id="mean" class="section level3">
+<h3><span class="header-section-number">7.1.1</span> Mean</h3>
+<p>The arithmetic mean is the sum of the available scores on a variable divided by the number scores as shown in Equation <a href="descriptive-statistics-and-hypthoses-testing.html#eq:mean">(7.1)</a>.</p>
+<span class="math display" id="eq:mean">\[\begin{equation}
+\bar{Y} = \frac{1}{n} \sum\limits_{i=1}^n {Y_i}
+\tag{7.1}
+\end{equation}\]</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Calculate the mean for available gen_att variable</span>
+<span class="kw">mean</span>(dataWBT$gen_att,<span class="dt">na.rm =</span> T)
+## [1] 1.940576
+
+<span class="co"># Calculate the mean for more than one variable</span>
+<span class="co"># check ?colMeans</span>
+<span class="kw">colMeans</span>(dataWBT[,<span class="kw">c</span>(<span class="st">&quot;gen_att&quot;</span>,<span class="st">&quot;item1&quot;</span>)],<span class="dt">na.rm =</span> T)
+##  gen_att    item1 
+## 1.940576 3.451014</code></pre></div>
+</div>
+<div id="median" class="section level3">
+<h3><span class="header-section-number">7.1.2</span> Median</h3>
+<p>The median is the mid-point of the scores that have been ranked form low to high. If the number of elements in a vector is odd, the median is the <span class="math inline">\({(n+1)/2}^{th}\)</span> value. If it is even, the median is the average of <span class="math inline">\({n/2}^{th}\)</span> and <span class="math inline">\({(n+1)/2}^{th}\)</span> value.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Calculate the median </span>
+<span class="kw">median</span>(dataWBT$gen_att,<span class="dt">na.rm =</span> T)
+## [1] 2</code></pre></div>
+</div>
+<div id="variance" class="section level3">
+<h3><span class="header-section-number">7.1.3</span> Variance</h3>
+<p>The sample variance is a summary of spread. It is the average squared deviation of values around their mean as shown is Equation <a href="descriptive-statistics-and-hypthoses-testing.html#eq:variance">(7.2)</a>.</p>
+<span class="math display" id="eq:variance">\[\begin{equation}
+s_Y^2  = \frac{1}{{n - 1}}\sum\limits_{i = 1}^n {\left( {Y_i  - \bar Y} \right)^2 }
+\tag{7.2}
+\end{equation}\]</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#calculate variance</span>
+<span class="kw">var</span>(dataWBT$gen_att,<span class="dt">na.rm =</span> T)
+## [1] 0.3638408</code></pre></div>
+</div>
+<div id="standard-deviation" class="section level3">
+<h3><span class="header-section-number">7.1.4</span> Standard deviation</h3>
+<p>The sample standard deviation is the square root of the sample variance as shown is Equation <a href="descriptive-statistics-and-hypthoses-testing.html#eq:std">(7.3)</a>.</p>
+<span class="math display" id="eq:std">\[\begin{equation}
+s_Y  = \sqrt {\frac{1}{{n - 1}}\sum\limits_{i = 1}^n {\left( {Y_i  - \bar Y} \right)^2 } }
+\tag{7.3}
+\end{equation}\]</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#calculate standard deviation</span>
+<span class="kw">sd</span>(dataWBT$gen_att,<span class="dt">na.rm =</span> T)
+## [1] 0.6031922</code></pre></div>
+</div>
+<div id="skewness" class="section level3">
+<h3><span class="header-section-number">7.1.5</span> Skewness</h3>
+<p>Skewness is a measure of distributional shape. The skewness value of a perfectly symmetric distributional shape is 0.</p>
+<p>A negative value typically indicates that the shape has longer tails on the left side, hence called skewed left or negatively skewed. The median is larger than the mean.</p>
+<p>A positive value typically indicates that the shape has longer tails on the right side, hence called skewed right or positively skewed. The median is smaller than the mean.</p>
+<p>The sample skewness formula<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> is shown in Equation <a href="descriptive-statistics-and-hypthoses-testing.html#eq:skew">(7.4)</a>.</p>
+<span class="math display" id="eq:skew">\[\begin{equation}
+\sqrt{n}\frac{\sum_{i}^{n}\left ( X_{i}-\bar{X} \right )^{3}}
+{\left (\sum_{i}^{n} \left ( X_{i}-\bar{X} \right )^{2} \right )^{3/2}}
+\tag{7.4}
+\end{equation}\]</span>
+<p>The package <em>moments</em> <span class="citation">(Komsta and Novomestky <a href="#ref-moments">2015</a>)</span> includes the <em>skewness</em> function to calculate sample skewness.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#calculate sample skewness using the moments package</span>
+<span class="kw">library</span>(moments)
+<span class="kw">skewness</span>(dataWBT$gen_att,<span class="dt">na.rm =</span> T)
+## [1] 0.377095</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">NOTE:<span class="st"> </span>It is possible to estimate population skewness parameter and its standard error, 
+hence, to calculate a z-score. This z-score can be compared to a critical value , 
+such as <span class="fl">1.96</span>, to conclude whether the skewness is statistically significant or not.
+The same procedure applies to Kurtosis.
+There also are other procedures to test for normality, such as Shapiro-Wilk. 
+The decisions based on these procedures are sensitive to sample size. 
+These procedures are losing their popularity. 
+Robustness to non-normality for a given procedure is often investigated 
+via Monte Carlo simulation studies.</code></pre></div>
+<div id="skewness-examples" class="section level4">
+<h4><span class="header-section-number">7.1.5.1</span> Skewness Examples</h4>
+<p>A sample from a normal distribution and its skewness value</p>
+<div class="figure"><span id="fig:unnamed-chunk-51"></span>
+<img src="SARP_files/figure-html/unnamed-chunk-51-1.png" alt="A random variable with normal distribution" width="672" />
+<p class="caption">
+Figure 7.1: A random variable with normal distribution
+</p>
+</div>
+<p>A sample from a left skewed distribution</p>
+<div class="figure"><span id="fig:unnamed-chunk-52"></span>
+<img src="SARP_files/figure-html/unnamed-chunk-52-1.png" alt="A random variable with left skewed distribution" width="672" />
+<p class="caption">
+Figure 7.2: A random variable with left skewed distribution
+</p>
+</div>
+<p>A sample from a right skewed distribution</p>
+<div class="figure"><span id="fig:unnamed-chunk-53"></span>
+<img src="SARP_files/figure-html/unnamed-chunk-53-1.png" alt="A random variable with right skewed distribution" width="672" />
+<p class="caption">
+Figure 7.3: A random variable with right skewed distribution
+</p>
+</div>
+</div>
+</div>
+<div id="kurtosis" class="section level3">
+<h3><span class="header-section-number">7.1.6</span> Kurtosis</h3>
+<p>Kurtosis is another measure of distributional shape. The Pearson kurtosis value of a normal distribution, <span class="math inline">\(N \sim (0,1)\)</span> is 3.</p>
+<p>The sample kurtosis formula is shown in Equation <a href="descriptive-statistics-and-hypthoses-testing.html#eq:kurto">(7.5)</a> .</p>
+<span class="math display" id="eq:kurto">\[\begin{equation}
+n\frac{\sum_{i}^{n}(X_i-\bar{X})^4}{(\sum_{i}^{n}(X_i-\bar{X})^2)^2}
+\tag{7.5}
+\end{equation}\]</span>
+<p>Equation <a href="descriptive-statistics-and-hypthoses-testing.html#eq:kurto">(7.5)</a> does not give values lower than 0. Values between 0 and 3 might occur for flatter distributions, such as uniform. Values larger than might 3 occur for long tailed distributions. It is common practice to subtract 3 from the calculated value to ease interpretation.</p>
+<p>The package <em>moments</em> <span class="citation">(Komsta and Novomestky <a href="#ref-moments">2015</a>)</span> includes the <em>kurtosis</em> function to calculate the Pearson kurtosis value.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#calculate skewness using the moments package</span>
+<span class="kw">library</span>(moments)
+<span class="kw">kurtosis</span>(dataWBT$gen_att,<span class="dt">na.rm =</span> T)
+## [1] 2.903905</code></pre></div>
+<div id="kurtosis-examples" class="section level4">
+<h4><span class="header-section-number">7.1.6.1</span> Kurtosis Examples</h4>
+<p>A sample from a normal distribution and its kurtosis value</p>
+<div class="figure"><span id="fig:unnamed-chunk-55"></span>
+<img src="SARP_files/figure-html/unnamed-chunk-55-1.png" alt="A random variable with normal distribution" width="672" />
+<p class="caption">
+Figure 7.4: A random variable with normal distribution
+</p>
+</div>
+<p>A sample from a uniform distribution and its kurtosis value</p>
+<div class="figure"><span id="fig:unnamed-chunk-56"></span>
+<img src="SARP_files/figure-html/unnamed-chunk-56-1.png" alt="A random variable with unifrom distribution" width="672" />
+<p class="caption">
+Figure 7.5: A random variable with unifrom distribution
+</p>
+</div>
+<p>A sample from a beta distribution</p>
+<div class="figure"><span id="fig:unnamed-chunk-57"></span>
+<img src="SARP_files/figure-html/unnamed-chunk-57-1.png" alt="A random variable with right skewed distribution" width="672" />
+<p class="caption">
+Figure 7.6: A random variable with right skewed distribution
+</p>
+</div>
+</div>
+</div>
+<div id="reporting-descriptives" class="section level3">
+<h3><span class="header-section-number">7.1.7</span> Reporting descriptives</h3>
+<p>Library <em>psych</em> <span class="citation">(Revelle <a href="#ref-R-psych">2016</a>)</span>, <em>doBy</em> <span class="citation">(Højsgaard and Halekoh <a href="#ref-R-doBy">2016</a>)</span> and <em>apaStyle</em> <span class="citation">(de Vreeze <a href="#ref-R-apaStyle">2016</a>)</span> MIGHT be helpful for reporting results but it might need further modifications, for example rows should not be numbered. Following R code outputs descriptive statistics for the gender attitudes average score and age.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># psych package&#39;s describe function reports;</span>
+<span class="co"># n: the number of available scores</span>
+<span class="co"># mean, sd, median, trimmed mean (trim=0.05 5% trimmed)</span>
+<span class="co"># median absolute deviation, minimum, maximum, range</span>
+<span class="co"># skew and kurtosis-3 (type=2 provide population estimates)</span>
+<span class="co"># standard error </span>
+<span class="kw">library</span>(psych)
+desc1=<span class="kw">describe</span>(dataWBT[,<span class="kw">c</span>(<span class="st">&quot;gen_att&quot;</span>,<span class="st">&quot;age&quot;</span>)],<span class="dt">trim =</span> <span class="fl">0.05</span>,<span class="dt">type=</span><span class="dv">3</span>)
+desc1
+##         vars    n  mean   sd median trimmed  mad min max range skew
+## gen_att    1 5302  1.94 0.60      2    1.92 0.59   1   4     3 0.38
+## age        2 5308 27.08 7.21     25   26.62 5.93  15  60    45 0.96
+##         kurtosis   se
+## gen_att    -0.10 0.01
+## age         0.63 0.10
+
+<span class="co"># export</span>
+<span class="kw">write.csv</span>(desc1,<span class="dt">file=</span><span class="st">&quot;pscyhdesc.csv&quot;</span>)
+
+<span class="co">#doBy</span>
+<span class="co"># summaryBy is a wrapper, provide variables and functions</span>
+<span class="co"># its useful for summary by group</span>
+<span class="kw">library</span>(doBy)
+<span class="kw">library</span>(moments)
+desc2=<span class="kw">as.matrix</span>(<span class="kw">summaryBy</span>(gen_att+age~treatment, <span class="dt">data =</span> dataWBT, 
+          <span class="dt">FUN =</span> function(x) { <span class="kw">c</span>(<span class="dt">n =</span> <span class="kw">sum</span>(!<span class="kw">is.na</span>(x)), <span class="dt">nmis=</span><span class="kw">sum</span>(<span class="kw">is.na</span>(x)),
+                                <span class="dt">m =</span> <span class="kw">mean</span>(x,<span class="dt">na.rm=</span>T), <span class="dt">s =</span> <span class="kw">sd</span>(x,<span class="dt">na.rm=</span>T),
+                               <span class="dt">skw=</span>moments::<span class="kw">skewness</span>(x,<span class="dt">na.rm=</span>T),                    
+                               <span class="dt">krt=</span>moments::<span class="kw">kurtosis</span>(x,<span class="dt">na.rm=</span>T)) } ))
+
+<span class="co">#set decimals=2 using round function</span>
+<span class="kw">round</span>(desc2,<span class="dv">2</span>)
+##   treatment gen_att.n gen_att.nmis gen_att.m gen_att.s gen_att.skw
+## 1         1      2736          265      1.93       0.6        0.38
+## 2         2      2566          335      1.95       0.6        0.38
+##   gen_att.krt age.n age.nmis age.m age.s age.skw age.krt
+## 1        2.90  2739      262 26.89  7.17    0.99    3.69
+## 2        2.91  2569      332 27.28  7.24    0.93    3.57
+<span class="kw">write.csv</span>(<span class="kw">round</span>(desc2,<span class="dv">2</span>),<span class="dt">file=</span><span class="st">&quot;doBydesc.csv&quot;</span>)
+
+<span class="co">#apaStyle</span>
+<span class="co"># create APA style table as a word file</span>
+<span class="kw">library</span>(apaStyle)
+<span class="kw">apa.descriptives</span>(<span class="dt">data =</span> dataWBT[,<span class="kw">c</span>(<span class="st">&quot;gen_att&quot;</span>,<span class="st">&quot;age&quot;</span>)], 
+                 <span class="dt">variables =</span> <span class="kw">c</span>(<span class="st">&quot;Gender Attitude&quot;</span>,<span class="st">&quot;Age&quot;</span>), <span class="dt">report =</span> <span class="kw">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;SD&quot;</span>), 
+                 <span class="dt">title =</span> <span class="st">&quot;APAtableGenderAge&quot;</span>, <span class="dt">filename =</span> <span class="st">&quot;APAtableGenderAge.docx&quot;</span>, 
+                 <span class="dt">note =</span> <span class="ot">NULL</span>, <span class="dt">position =</span> <span class="st">&quot;lower&quot;</span>, <span class="dt">merge =</span> <span class="ot">FALSE</span>, 
+                 <span class="dt">landscape =</span> <span class="ot">FALSE</span>, <span class="dt">save =</span> <span class="ot">TRUE</span>)
+## 
+## Word document succesfully generated in: C:/Users/Burak/Desktop/github/SARP-EN
+
+<span class="co">#if you are receiving Rjava error a quick fix is described here</span>
+<span class="co">#https://www.r-statistics.com/2012/08/how-to-load-the-rjava-package-after-the-error-java_home-cannot-be-determined-from-the-registry/</span></code></pre></div>
+<div class="figure"><span id="fig:apatable"></span>
+<img src="apatable.png" alt="APAtableGenderAge.docx" width="683" />
+<p class="caption">
+Figure 7.7: APAtableGenderAge.docx
+</p>
+</div>
+<div id="write-up" class="section level4">
+<h4><span class="header-section-number">7.1.7.1</span> Write-up</h4>
+<p>The Gender Attitudes score from 5302 participants had a range of 1–4, a median of 2, a mean of 1.94 and SD=0.6. The score distribution has a sample skewness value of 0.38 and a sample kurtosis value of -0.1.<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a></p>
+</div>
+</div>
+</div>
+<div id="basic-graphics" class="section level2">
+<h2><span class="header-section-number">7.2</span> Basic graphics</h2>
+<p>One of R’s strong suit is its graphing capabilities. There are several plotting families; including R base<span class="citation">(R Core Team <a href="#ref-R-base">2016</a><a href="#ref-R-base">b</a>)</span>, lattice<span class="citation">(Sarkar <a href="#ref-R-lattice">2016</a>)</span>, ggplot2<span class="citation">(Wickham and Chang <a href="#ref-R-ggplot2">2016</a>)</span> and plotrix<span class="citation">(Lemon et al. <a href="#ref-R-plotrix">2016</a>)</span>. We prefer to use ggplot2. This subsection briefly includes basics. The number of arguments in a <em>ggplot</em> function is large, enabling a user to manipulate every detail in a graph<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a> .</p>
+<div id="histogram" class="section level3">
+<h3><span class="header-section-number">7.2.1</span> Histogram</h3>
+<p>A histogram is a diagram of rectangles. These rectangles are created as function of frequency/relative frequency given any variable.</p>
+<div id="histogram-of-one-variable" class="section level4">
+<h4><span class="header-section-number">7.2.1.1</span> Histogram of one variable</h4>
+<p>Useful for distributional evaluation.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+<span class="kw">ggplot</span>(dataWBT, <span class="kw">aes</span>(<span class="dt">x =</span> gen_att)) +
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.2</span>)+<span class="st"> </span><span class="kw">theme_bw</span>()+<span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Gender Attitude&quot;</span>)+
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">15</span>),
+        <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>,<span class="dt">face=</span><span class="st">&quot;bold&quot;</span>))</code></pre></div>
+<div class="figure"><span id="fig:genatthist"></span>
+<img src="SARP_files/figure-html/genatthist-1.png" alt="Gender Attitudes Score Distribution" width="672" />
+<p class="caption">
+Figure 7.8: Gender Attitudes Score Distribution
+</p>
+</div>
+</div>
+<div id="histogram-of-one-variable-by-one-factor" class="section level4">
+<h4><span class="header-section-number">7.2.1.2</span> Histogram of one variable by one factor</h4>
+<p>Useful for evaluating group differences.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dataWBT$HEF=<span class="kw">droplevels</span>(<span class="kw">factor</span>(dataWBT$higher_ed, 
+                    <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), 
+                    <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;non-college&quot;</span>, <span class="st">&quot;college&quot;</span>)))
+
+<span class="kw">ggplot</span>(dataWBT, <span class="kw">aes</span>(<span class="dt">x =</span> gen_att, <span class="dt">fill=</span>HEF,<span class="dt">drop=</span>T)) +
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dt">by =</span><span class="fl">0.2</span>),<span class="dt">alpha=</span>.<span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;black&quot;</span>)+<span class="st"> </span>
+<span class="st">  </span><span class="kw">theme_bw</span>()+<span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Gender Attitude&quot;</span>,<span class="dt">fill=</span><span class="st">&#39;Higher Ed.&#39;</span>)+<span class="st">  </span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">15</span>),
+        <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>,<span class="dt">face=</span><span class="st">&quot;bold&quot;</span>))
+
+dataWBT2=<span class="kw">na.omit</span>(dataWBT[,<span class="kw">c</span>(<span class="st">&quot;gen_att&quot;</span>,<span class="st">&quot;HEF&quot;</span>)])
+<span class="kw">ggplot</span>(dataWBT2, <span class="kw">aes</span>(<span class="dt">x =</span> gen_att)) +
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dt">by =</span><span class="fl">0.2</span>),<span class="dt">alpha=</span>.<span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;black&quot;</span>)+<span class="st"> </span>
+<span class="st">  </span><span class="kw">theme_bw</span>()+<span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Gender Attitude&quot;</span>)+<span class="st"> </span><span class="kw">facet_wrap</span>(~<span class="st"> </span>HEF)+
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">15</span>),
+        <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>,<span class="dt">face=</span><span class="st">&quot;bold&quot;</span>))</code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-59"></span>
+<img src="SARP_files/figure-html/unnamed-chunk-59-1.png" alt="Gender Attitudes by Treatment Group " width="50%" /><img src="SARP_files/figure-html/unnamed-chunk-59-2.png" alt="Gender Attitudes by Treatment Group " width="50%" />
+<p class="caption">
+Figure 7.9: Gender Attitudes by Treatment Group
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+<span class="kw">ggplot</span>(dataWBT, <span class="kw">aes</span>(<span class="dt">x =</span> gen_att)) +
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.2</span>)+<span class="st"> </span><span class="kw">theme_bw</span>()+
+<span class="st">   </span><span class="kw">facet_wrap</span>(~city, <span class="dt">ncol =</span> <span class="dv">8</span>)</code></pre></div>
+<p><img src="SARP_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
+</div>
+<div id="histogram-of-one-variable-by-two-factors" class="section level4">
+<h4><span class="header-section-number">7.2.1.3</span> Histogram of one variable by two factors</h4>
+<p>Useful for two way interactions</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dataWBT2=<span class="kw">na.omit</span>(dataWBT[,<span class="kw">c</span>(<span class="st">&quot;gen_att&quot;</span>,<span class="st">&quot;HEF&quot;</span>,<span class="st">&quot;gender&quot;</span>)])
+
+<span class="kw">ggplot</span>(dataWBT2, <span class="kw">aes</span>(<span class="dt">x =</span> gen_att,<span class="dt">fill=</span>gender)) +<span class="kw">labs</span>(<span class="dt">fill=</span><span class="st">&#39;Gender&#39;</span>)+<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.2</span>,<span class="dt">alpha=</span>.<span class="dv">5</span>)+<span class="st"> </span><span class="kw">theme_bw</span>()+
+<span class="st">    </span><span class="kw">facet_grid</span>(~HEF)</code></pre></div>
+<p><img src="SARP_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
+</div>
+<div id="histogram-of-one-variable-by-three-factors" class="section level4">
+<h4><span class="header-section-number">7.2.1.4</span> Histogram of one variable by three factors</h4>
+<p>Useful for three way interactions</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dataWBT$Condition=<span class="kw">droplevels</span>(<span class="kw">factor</span>(dataWBT$treatment, 
+                    <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), 
+                    <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;treatment&quot;</span>, <span class="st">&quot;control&quot;</span>)))
+
+dataWBT2=<span class="kw">na.omit</span>(dataWBT[,<span class="kw">c</span>(<span class="st">&quot;gen_att&quot;</span>,<span class="st">&quot;HEF&quot;</span>,<span class="st">&quot;gender&quot;</span>,<span class="st">&quot;Condition&quot;</span>)])
+
+<span class="kw">ggplot</span>(dataWBT2, <span class="kw">aes</span>(<span class="dt">x =</span> gen_att,<span class="dt">fill=</span>gender)) +<span class="kw">labs</span>(<span class="dt">fill=</span><span class="st">&#39;Gender&#39;</span>)+<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.2</span>,<span class="dt">alpha=</span>.<span class="dv">5</span>)+<span class="st"> </span><span class="kw">theme_bw</span>()+
+<span class="st">    </span><span class="kw">facet_grid</span>(~HEF+Condition)</code></pre></div>
+<p><img src="SARP_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
+</div>
+</div>
+</div>
+<div id="hypothesis-testing-introduction" class="section level2">
+<h2><span class="header-section-number">7.3</span> Hypothesis testing introduction</h2>
+<p>The Cambridge dictionary returns “all the people or animals of a particular type or group who live in one country, area, or place” as the definition of population. In social sciences, generally, a population is “all the people of a particular group”, for example <em>8 year old students</em>, or, <em>8 year old students in a specific country</em>, or <em>8 year old dyslectic students</em>. In any study the researcher can determine the population relevant to the research aims. Any measurable characteristics of the units in a given population can form a variable. In other words, the population of the variable can be definable. In section <a href="basics.html#variables">5.2.3</a>, possible variable types are identified. The population of the variable includes all of the possible values (outcomes), forms the range and probabilities of occurrence. Densities (for continuous) and mass functions (for discrete) can be used to summarize these probabilities. With a valid distributional assumption for the variable, we can infer from the sample to population.</p>
+<p>A random sample from a population might or might not include all of the possible values. But a random sample is expected to be selected so that there is no systematic bias in the selection and therefore to be similar to the population especially when the sample is large. A population parameter is estimated with a model using the information from the sample. Fitting a model consists of evaluating the degree of discrepancy between a model and the observed data. Hypothesis tests (or statistical inferences) based on a fitted model aim to reach a conclusion in terms of the substance of the problem.</p>
+<div id="samplingdist" class="section level3">
+<h3><span class="header-section-number">7.3.1</span> The Sampling distribution</h3>
+<p>A statistic computed from a random sample is a random variable and has a distribution. The most common example of a sampling distribution is the sampling distribution of the mean. The central limit theorem implies that under simple random sampling<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>, regardless of the shape of the distribution of the variables, the sampling distribution of the mean can be approximated by a normal distribution ;</p>
+<span class="math display" id="eq:CLTsem">\[\begin{equation}
+\bar X_n \sim N(\mu, \frac{\sigma^2}{n}).
+\tag{7.6}
+\end{equation}\]</span>
+<p>as the sample size gets larger. In addition if the shape of the distribution is normal, the sampling distribution of the mean is given by <a href="descriptive-statistics-and-hypthoses-testing.html#eq:CLTsem">(7.6)</a> for all sample sizes.</p>
+<p>The standard deviation of a sampling distribution of the mean is called as the standard error of the mean and it is used in statistical inference.</p>
+<p>The population parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span> in <a href="descriptive-statistics-and-hypthoses-testing.html#eq:CLTsem">(7.6)</a> are unknown, but the expression is useful in understanding how well the sample mean is likely to approximate the population mean. Suppose a researcher plans to draw a simple random sample of size n=10. According to <a href="descriptive-statistics-and-hypthoses-testing.html#eq:CLTsem">(7.6)</a> the sampling distribution will be approximately normally distributed with mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma⁄\sqrt{10}\)</span>. Suppose that unknown to the researcher, <span class="math inline">\(\mu=100\)</span> and <span class="math inline">\(\sigma=15\)</span>. Then the sampling distribution will have standard deviation <span class="math inline">\((15⁄\sqrt{10})=4.74\)</span> and there will be approximately a 95% chance that the sample mean will be between 90.7 and 109.3, an interval that suggests a sample size of 10 will result in a sample mean which could be quite inaccurate. If the researcher draws a simple random sample of 100, there will be approximately a 95% chance that the sample mean will be between 97.1 and 102.9, an interval that suggests a reasonably accurate sample mean.</p>
+<p>At this point, the question is which estimator is unbiased, consistent and efficient to estimate the expected values, hence the population parameters. It can be shown mathematically that Equation <a href="descriptive-statistics-and-hypthoses-testing.html#eq:mean">(7.1)</a> is an unbiased estimator of <span class="math inline">\(\mu\)</span> and Equation <a href="descriptive-statistics-and-hypthoses-testing.html#eq:variance">(7.2)</a> is an unbiased estimator of <span class="math inline">\(\sigma^2\)</span>.</p>
+<div id="unbiased-estimation-and-sampling" class="section level4">
+<h4><span class="header-section-number">7.3.1.1</span> Unbiased estimation and sampling</h4>
+<p>To be added</p>
+</div>
+</div>
+<div id="the-confidence-intervals-ci" class="section level3">
+<h3><span class="header-section-number">7.3.2</span> The Confidence Intervals (CI)</h3>
+<p>Using an assumption about the distribution, information from the sample and an appropriate estimator (to produce a point estimate), confidence intervals can be constructed. A confidence interval might include the population parameter and yields correct decisions, however if it does not include the population parameter, erroneous decisions are made. Creating a CI for a sample mean is straight forward. Assuming sampling from a normal distribution, the distribution is normal<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a> and the sample mean is an unbiased estimator. A normal distribution has known properties, the density function implies 95% of the density lies within 1.96 standard deviations from the mean. A visual is given below (Figure <a href="descriptive-statistics-and-hypthoses-testing.html#fig:normaldist">7.10</a>), the probability of a random draw from the blue area is only 5%. Similarly, the probability is 10% for a drawn from the blue or yellow area. The grey area (<span class="math inline">\(\pm 1\)</span>) represents approximately 68% of the density. This information is useful. Using the sample mean and variance, the 95% confidence interval for <span class="math inline">\(\mu\)</span> can be created.</p>
+<div class="figure"><span id="fig:normaldist"></span>
+<img src="SARP_files/figure-html/normaldist-1.png" alt="The z distribution" width="672" />
+<p class="caption">
+Figure 7.10: The z distribution
+</p>
+</div>
+<div id="a-confidence-interval-example" class="section level4">
+<h4><span class="header-section-number">7.3.2.1</span> A confidence interval example</h4>
+<p>Below R code calculates the sample mean, the standard deviation and the confidence interval for the Gender Attitude scores’ mean.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># the number of available data points, n</span>
+GA_n=<span class="kw">sum</span>(!<span class="kw">is.na</span>(dataWBT$gen_att))
+
+<span class="co">#calculate the mean</span>
+GA_m=<span class="kw">mean</span>(dataWBT$gen_att,<span class="dt">na.rm =</span> T)
+
+<span class="co">#calculate the sd</span>
+GA_s=<span class="kw">sd</span>(dataWBT$gen_att,<span class="dt">na.rm =</span> T)
+
+<span class="co">#95% confidence interval</span>
+lower=GA_m -<span class="st"> </span><span class="fl">1.96</span> *<span class="st"> </span>(GA_s/<span class="kw">sqrt</span>(GA_n))
+lower
+## [1] 1.924339
+upper=GA_m +<span class="st"> </span><span class="fl">1.96</span> *<span class="st"> </span>(GA_s/<span class="kw">sqrt</span>(GA_n))
+upper
+## [1] 1.956812
+
+<span class="co">#or </span>
+GA_m +<span class="kw">c</span>(-<span class="dv">1</span>,<span class="dv">1</span>)*<span class="fl">1.96</span> *<span class="st"> </span>(GA_s/<span class="kw">sqrt</span>(GA_n))
+## [1] 1.924339 1.956812
+
+
+<span class="co">#the value 1.96 can be called by qnorm(0.975)</span></code></pre></div>
+</div>
+<div id="write-up-1" class="section level4">
+<h4><span class="header-section-number">7.3.2.2</span> Write up</h4>
+<p>The Gender Attitudes score from 5302 participants had a mean score of 1.94 and 95% CI was 1.92–1.96 (SD=0.60).</p>
+</div>
+</div>
+<div id="the-null-hypothesis" class="section level3">
+<h3><span class="header-section-number">7.3.3</span> The null hypothesis</h3>
+<p>The purpose of a hypothesis test is to determine which of two hypotheses about the population are supported by the sample data. A hypothesis test includes mainly 5 steps;</p>
+<ol style="list-style-type: decimal">
+<li><p>State the null hypothesis (for example <span class="math inline">\(\mu=0\)</span>)</p></li>
+<li><p>Select an alternative hypothesis. (for example <span class="math inline">\(\mu \neq 0\)</span>)</p></li>
+<li><p>Select a test statistic</p></li>
+<li><p>Make a decision by comparing the calculated value of the test statistic to the critical value. If the calculated test statistic is more extreme than the critical value then we reject the null hypothesis.The critical value depends on the alternative hypothesis.</p></li>
+<li><p>State a conclusion. That is state what the decision means in term of the substance of the problem.</p></li>
+</ol>
+<p>The null (<span class="math inline">\(H_0\)</span>) and alternative (<span class="math inline">\(H_1\)</span>) hypotheses are established to answer the research question. Statistical evidence is used to decide whether to reject or fail to reject the null hypothesis. Rejecting or retaining a null hypothesis is a decision. The following table shows some important concepts in how statisticians think about hypothesis testing.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><strong>State of Nature</strong></th>
+<th align="center"><strong>Decision</strong></th>
+<th align="center"><strong>Result</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(H_0\)</span></td>
+<td align="center">Fail to reject <span class="math inline">\(H_0\)</span></td>
+<td align="center">Correct</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(H_0\)</span></td>
+<td align="center">Reject <span class="math inline">\(H_0\)</span></td>
+<td align="center">Incorrect <em>(Type I error,<span class="math inline">\(\alpha\)</span>)</em></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(H_1\)</span></td>
+<td align="center">Reject <span class="math inline">\(H_0\)</span></td>
+<td align="center">Correct</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(H_1\)</span></td>
+<td align="center">Fail to reject <span class="math inline">\(H_0\)</span></td>
+<td align="center">Incorrect <em>(Type II error, <span class="math inline">\(\beta\)</span>)</em></td>
+</tr>
+</tbody>
+</table>
+<p>Type I error—the act of rejecting <span class="math inline">\(H_0\)</span> when it is true, a false positive error. Alpha, <span class="math inline">\(\alpha\)</span>, is the probability of rejecting <span class="math inline">\(H_0\)</span> when it is true. An important goal in hypothesis testing is to ensure that <span class="math inline">\(\alpha\)</span> is sufficiently small. Usually this goal is met by requiring <span class="math inline">\(\alpha\)</span> to be .05, which says that the researcher is willing to tolerate a .05 probability that they will conclude there is a difference (Reject <span class="math inline">\(H_0\)</span>) when <span class="math inline">\(H_0\)</span> is true.</p>
+<p>Type II error - the act of failing to reject a hypothesis that is false. Beta, <span class="math inline">\(\beta\)</span>, is the probability of retaining <span class="math inline">\(H_0\)</span> when it is false.</p>
+</div>
+<div id="the-z-score-and-the-z-test" class="section level3">
+<h3><span class="header-section-number">7.3.4</span> The z score and the z test</h3>
+<p>A general formula for z is <span class="math display">\[z_X=\frac{X-\bar{X}}{s_X}\]</span></p>
+<p>This z-variable, also known as z-score, has a mean of 0 and standard deviation of 1. If X is normally distributed, z will also be normally distributed.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create z-scores for the Gender Attitudes </span>
+
+GA_m=<span class="kw">mean</span>(dataWBT$gen_att,<span class="dt">na.rm =</span> T)
+GA_s=<span class="kw">sd</span>(dataWBT$gen_att,<span class="dt">na.rm =</span> T)
+z_GA=(dataWBT$gen_att-GA_m)/GA_s
+
+<span class="co">#OR</span>
+z_GA=<span class="kw">scale</span>(dataWBT$gen_att, <span class="dt">center=</span>T, <span class="dt">scale=</span>T)
+
+<span class="co"># Scale function can be used for more than 1 variable</span>
+<span class="co"># center=T substracts mean from each score.</span>
+<span class="co"># scale=T divide the difference by standard deviation</span>
+<span class="co"># try scale(dataWBT$gen_att, center=3, scale=2)to substract 3 from each score and divide by 2.</span></code></pre></div>
+<p>The z test for a sample mean is straight forward; <span class="math display">\[ z=\frac{\bar{X}-\mu_{hypothesis}}{Standard error of the mean} = \frac{\bar{X}-\mu_{hypothoses}}{\sigma_X/\sqrt{n}}\]</span> This z statistic can be interpreted using a z distribution (Figure <a href="descriptive-statistics-and-hypthoses-testing.html#fig:normaldist">7.10</a>);</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>If the alternative hypothesis states that the observed mean is expected to be lower than the hypothesized mean, the z statistic is compared to <span class="math inline">\(z_{alpha}\)</span> or <span class="math inline">\(-z_{(1-alpha)}\)</span>. The null hypothesis is rejected if the z-statistic is less than or equal to <span class="math inline">\(z_{alpha}\)</span>.</p></li>
+<li><p>If the alternative hypothesis states that the observed mean is expected to be different than the hypothesized mean, the absolute value of the z statistic,<span class="math inline">\(|z|\)</span> is compared to <span class="math inline">\(z_{1-(alpha/2)}\)</span>. The absolute value of the z-statistic should be larger (or equal) than <span class="math inline">\(z_{1-(alpha/2)}\)</span> to reject the null.</p></li>
+<li><p>If the alternative hypothesis states that the observed mean is expected to be greater than the hypothesized mean, the z statistic is compared to <span class="math inline">\(z_{1-alpha}\)</span>. The z-statistic should be larger (or equal) than <span class="math inline">\(z_{1-(alpha)}\)</span> to reject the null.</p></li>
+</ol>
+<p>Here it should be emphasized that a directional alternative hypothesis (cases a and c) has a substantially different criteria compared to a non-directional (case b) hypothesis. The researcher should provide justification for the alternative hypothesis that is used.</p>
+<div id="z-test-illustration-1-non-directional" class="section level4">
+<h4><span class="header-section-number">7.3.4.1</span> z test illustration-1 (non-directional)</h4>
+<p>Stating the null as <span class="math inline">\(H_0: \mu_{Gender Attitudes} = 2\)</span> and alternative as <span class="math inline">\(H_1: \mu_{Gender Attitudes} \neq 2\)</span> and using <span class="math inline">\(\alpha=0.05\)</span>;</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># the number of available data points, n</span>
+GA_n=<span class="kw">sum</span>(!<span class="kw">is.na</span>(dataWBT$gen_att))
+
+<span class="co">#calculate the mean</span>
+GA_m=<span class="kw">mean</span>(dataWBT$gen_att,<span class="dt">na.rm =</span> T)
+
+<span class="co">#calculate the sd</span>
+GA_s=<span class="kw">sd</span>(dataWBT$gen_att,<span class="dt">na.rm =</span> T)
+
+<span class="co"># set the null</span>
+mu_hyp=<span class="dv">2</span>
+
+<span class="co"># z statistic</span>
+(GA_m-mu_hyp)/(GA_s/<span class="kw">sqrt</span>(GA_n))
+## [1] -7.17343
+
+<span class="co">#the critical value for alpha=0.05 and nondirectional test </span>
+<span class="kw">qnorm</span>(<span class="dv">1</span>-(<span class="fl">0.05</span>/<span class="dv">2</span>))
+## [1] 1.959964</code></pre></div>
+<p>The Gender Attitudes score from 5302 participants had a mean of 1.94 and SD=0.6. A one-sample z test revealed that the observed mean is 7.17 standard error below the hypothesized mean of 2. Using a rejection criteria of 1.96 (<span class="math inline">\(z_{1-(0.05/2)}\)</span>) the difference between the observed mean and the hypothesized mean was concluded to be statistically significant.</p>
+</div>
+<div id="z-test-illustration-2-directional" class="section level4">
+<h4><span class="header-section-number">7.3.4.2</span> z test illustration-2 (directional)</h4>
+<p>In this illustration, the Gender Attitudes scores’ population mean is assumed to be 1.9 with a standard deviation of 0.75. When the population standard deviation is known it should be used. Stating the null as <span class="math inline">\(H_0: \mu_{Gender Attitudes} = 1.9\)</span> and alternative as <span class="math inline">\(H_1: \mu_{Gender Attitudes} &gt; 1.9\)</span> and using <span class="math inline">\(\alpha=0.01\)</span>;</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set the null</span>
+mu_hyp=<span class="fl">1.9</span>
+
+<span class="co"># z statistic</span>
+(GA_m-mu_hyp)/(<span class="fl">0.75</span>/<span class="kw">sqrt</span>(GA_n))
+## [1] 3.939368
+
+<span class="co">#the critical value for alpha=0.01 and directional test </span>
+<span class="kw">qnorm</span>(<span class="dv">1</span>-(<span class="fl">0.01</span>))
+## [1] 2.326348</code></pre></div>
+<p>Using a critical value of 2.33 (<span class="math inline">\(z_{0.99}\)</span>), results indicated that the Gender Attitudes scores’ mean was significantly greater than the hypothesized value of 1.9 (<span class="math inline">\(z=3.94\)</span>).</p>
+</div>
+</div>
+<div id="the-one-sample-t-test" class="section level3">
+<h3><span class="header-section-number">7.3.5</span> The one-sample t test</h3>
+<p>Interpreting a z statistic based on a z distribution is not valid for small sample sizes. If the sample size is small, a t distribution with a n-1 degrees of freedom is valid assuming the population has a normal distribution. The procedure is the same as the z-statistic, but the critical values change.</p>
+<div id="t-test-illustration-1-non-directional" class="section level4">
+<h4><span class="header-section-number">7.3.5.1</span> t test illustration-1 (non-directional)</h4>
+<p>In the dataWBT, city <em>DUZCE</em> has only 52 participants and 47 available Gender Attitudes scores. For illustrative purposes this city is chosen.</p>
+<p>Stating the null as <span class="math inline">\(H_0: \mu_{Gender Attitudes} = 1.94\)</span> and alternative as <span class="math inline">\(H_1: \mu_{Gender Attitudes} \neq 1.94\)</span> and using <span class="math inline">\(\alpha=0.05\)</span>;</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dataWBT_DUZCE=dataWBT[dataWBT$city==<span class="st">&quot;DUZCE&quot;</span>,]
+<span class="co">#descriptive statistics</span>
+<span class="kw">describe</span>(dataWBT_DUZCE[,<span class="st">&quot;gen_att&quot;</span>],<span class="dt">type=</span><span class="dv">3</span>)
+##    vars  n mean   sd median trimmed  mad min max range skew kurtosis   se
+## X1    1 47 2.18 0.55      2    2.14 0.59   1 3.8   2.8 0.56     0.28 0.08
+
+<span class="co">#t test</span>
+<span class="kw">t.test</span>(dataWBT_DUZCE$gen_att,
+       <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>,
+       <span class="dt">mu=</span><span class="fl">1.94</span>,
+       <span class="dt">conf.level =</span> <span class="fl">0.95</span>)
+## 
+##  One Sample t-test
+## 
+## data:  dataWBT_DUZCE$gen_att
+## t = 2.9391, df = 46, p-value = 0.005133
+## alternative hypothesis: true mean is not equal to 1.94
+## 95 percent confidence interval:
+##  2.014224 2.336840
+## sample estimates:
+## mean of x 
+##  2.175532
+
+<span class="co">#critical value</span>
+<span class="kw">qt</span>(.<span class="dv">975</span>,<span class="dt">df=</span><span class="dv">46</span>)
+## [1] 2.012896</code></pre></div>
+<p>The Gender Attitudes scores from 47 participants in DUZCE had a range of 1–3.8, a median of 2, a mean of 2.18 and SD=0.55. The score distribution had a sample skewness value of 0.56 and a sample kurtosis value of 0.28.<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a> A one sample t-test revealed a significant difference, t(46)=2.94 between the city’s observed mean and the hypothesized mean of 1.94 using a critical value of 2.01 (<span class="math inline">\(t_{.975,46}\)</span>).</p>
+</div>
+<div id="t-test-illustration-2" class="section level4">
+<h4><span class="header-section-number">7.3.5.2</span> t test illustration-2</h4>
+<p>In the previous example a directional test was conducted in which the alternative hypothesis specified that the population mean would not be equal to 1.94. What will happen if the null hypothesis is <span class="math inline">\(H_1:\mu_{GenderAttitudes} \leq 1.94\)</span>?</p>
+<p>For the city <em>DUZCE</em>, stating the null as <span class="math inline">\(H_0: \mu_{Gender Attitudes} = 1.94\)</span> and alternative as <span class="math inline">\(H_1: \mu_{Gender Attitudes} \leq 1.94\)</span> and using <span class="math inline">\(\alpha=0.05\)</span>;</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#t test</span>
+<span class="kw">t.test</span>(dataWBT_DUZCE$gen_att,
+       <span class="dt">alternative=</span><span class="st">&quot;less&quot;</span>,
+       <span class="dt">mu=</span><span class="fl">1.94</span>,
+       <span class="dt">conf.level =</span> <span class="fl">0.95</span>)
+## 
+##  One Sample t-test
+## 
+## data:  dataWBT_DUZCE$gen_att
+## t = 2.9391, df = 46, p-value = 0.9974
+## alternative hypothesis: true mean is less than 1.94
+## 95 percent confidence interval:
+##      -Inf 2.310055
+## sample estimates:
+## mean of x 
+##  2.175532
+
+<span class="co">#critical value</span>
+<span class="kw">qt</span>(.<span class="dv">05</span>,<span class="dt">df=</span><span class="dv">46</span>)
+## [1] -1.67866</code></pre></div>
+<p>A one sample t-test, t(46)=2.94, revealed that the evidence does not support a conclusion that the population mean is smaller than 1.94, using a critical value of -1.68 (<span class="math inline">\(t_{.05,46}\)</span>).</p>
+</div>
+</div>
+<div id="the-p-value" class="section level3">
+<h3><span class="header-section-number">7.3.6</span> The p value</h3>
+<p>The t-test illustrations (the t.test function) reported a p-value. Calculation of a p-value is based on the assumption that the null hypothesis is true and an assumption about the distribution of the test statistic . The p-value aims to inform if the calculated statistic is ordinary or not for a given distribution. Historically, a p-value smaller than the pre-determined alpha value led researchers to conclude whether a finding is statistically significant.</p>
+</div>
+<div id="the-p-value-illustration" class="section level3">
+<h3><span class="header-section-number">7.3.7</span> The p value illustration</h3>
+<p>Assuming a z-distribution is valid, and the calculated z-statistic is 1.80, following visual is drawn.</p>
+<div class="figure"><span id="fig:pvalue1"></span>
+<img src="SARP_files/figure-html/pvalue1-1.png" alt="The z distribution and z=1.8" width="672" />
+<p class="caption">
+Figure 7.11: The z distribution and z=1.8
+</p>
+</div>
+<p>The blue area corresponds to 3.6% of the density, in other words p=0.0359;</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>-<span class="kw">pnorm</span>(<span class="fl">1.8</span>)</code></pre></div>
+<pre><code>## [1] 0.03593032</code></pre>
+<p>This p-value is valid for a directional test but not for a non-directional test. When the uncertainty exists for the direction, the following visual depicts the situation;</p>
+<div class="figure"><span id="fig:pvalue2"></span>
+<img src="SARP_files/figure-html/pvalue2-1.png" alt="The z distribution and abs(z)=1.8" width="672" />
+<p class="caption">
+Figure 7.12: The z distribution and abs(z)=1.8
+</p>
+</div>
+<p>The blue area, now, corresponds to 7.2% of the density, in other words p=0.0719;</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span>*(<span class="dv">1</span>-<span class="kw">pnorm</span>(<span class="fl">1.8</span>))</code></pre></div>
+<pre><code>## [1] 0.07186064</code></pre>
+</div>
+<div id="statisticalpower" class="section level3">
+<h3><span class="header-section-number">7.3.8</span> Statistical power</h3>
+<p>The power of a statistical test is the probability that it will correctly reject the null hypothesis,and is equal to <span class="math inline">\(1-\beta\)</span>. This probability can be computed a-priori or post-hoc, whereas a post-hoc analysis is less useful. A-priori power analyses is helpful to design a study and to decide the desired sample size. A-priori power analyses are required for the related grant proposals.</p>
+<p>The plot produce by the following R program can be used to explain statistical power<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">seq</span>(-<span class="dv">4</span>, <span class="dv">8</span>, <span class="fl">0.02</span>)
+zdat &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> x, <span class="dt">y1 =</span> <span class="kw">dnorm</span>(x, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">y2 =</span> <span class="kw">dnorm</span>(x, <span class="fl">2.5</span>, <span class="dv">1</span>))
+<span class="kw">ggplot</span>(zdat, <span class="kw">aes</span>(<span class="dt">x =</span> x)) +
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> y1), <span class="dt">size=</span><span class="dv">2</span>) +
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> y2), <span class="dt">color=</span><span class="st">&#39;red&#39;</span>,<span class="dt">size=</span><span class="dv">2</span>) +
+<span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">2.5</span>), <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;longdash&quot;</span>)+
+<span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">qnorm</span>(<span class="dv">1</span> -<span class="st"> </span><span class="fl">0.05</span>))+
+<span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(-<span class="dv">4</span>,<span class="dv">0</span>,<span class="fl">1.65</span>,<span class="fl">2.5</span>,<span class="dv">4</span>))+
+<span class="st">  </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">label=</span><span class="st">&quot;beta&quot;</span> , <span class="dt">x=</span><span class="fl">1.1</span>, <span class="dt">y=</span><span class="fl">0.05</span>, <span class="dt">parse=</span>T, <span class="dt">fontface =</span><span class="dv">2</span>, <span class="dt">size=</span><span class="dv">6</span>)+
+<span class="st">  </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">label=</span><span class="st">&quot;alpha&quot;</span>, <span class="dt">x=</span><span class="dv">2</span>  , <span class="dt">y=</span><span class="fl">0.02</span>, <span class="dt">parse=</span>T, <span class="dt">fontface =</span><span class="dv">2</span>, <span class="dt">size=</span><span class="dv">6</span>)+
+<span class="st">  </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">label=</span><span class="st">&quot;1-~beta&quot;</span>, <span class="dt">x=</span><span class="fl">3.3</span>, <span class="dt">y=</span><span class="fl">0.1</span>, <span class="dt">parse=</span>T, <span class="dt">fontface =</span><span class="dv">2</span>,<span class="dt">size=</span><span class="dv">6</span>)+
+<span class="st">  </span><span class="kw">geom_area</span>(<span class="kw">aes</span>(<span class="dt">y=</span>y1, <span class="dt">x =</span> <span class="kw">ifelse</span>(x &gt;<span class="st"> </span><span class="kw">qnorm</span>(.<span class="dv">95</span>), x, <span class="ot">NA</span>)), <span class="dt">fill =</span> <span class="st">&#39;blue&#39;</span>  , <span class="dt">alpha=</span><span class="fl">0.25</span>) +
+<span class="st">  </span><span class="kw">geom_area</span>(<span class="kw">aes</span>(<span class="dt">y=</span>y2, <span class="dt">x =</span> <span class="kw">ifelse</span>(x &gt;<span class="st"> </span><span class="kw">qnorm</span>(.<span class="dv">95</span>), x, <span class="ot">NA</span>)), <span class="dt">fill =</span> <span class="st">&#39;green&#39;</span> , <span class="dt">alpha=</span><span class="fl">0.25</span>) +
+<span class="st">  </span><span class="kw">geom_area</span>(<span class="kw">aes</span>(<span class="dt">y=</span>y2, <span class="dt">x =</span> <span class="kw">ifelse</span>(x &lt;<span class="st"> </span><span class="kw">qnorm</span>(.<span class="dv">95</span>), x, <span class="ot">NA</span>)), <span class="dt">fill =</span> <span class="st">&#39;yellow&#39;</span>, <span class="dt">alpha=</span><span class="fl">0.25</span>) +
+<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;z&quot;</span>) +<span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;dnorm(z)&quot;</span>) +<span class="st"> </span><span class="kw">theme_bw</span>()</code></pre></div>
+<div class="figure"><span id="fig:zpower"></span>
+<img src="SARP_files/figure-html/zpower-1.png" alt="Power illustration with z distribution" width="672" />
+<p class="caption">
+Figure 7.13: Power illustration with z distribution
+</p>
+</div>
+<p>The z distribution assuming a true null hypothesis (<span class="math inline">\(H_0:\mu=0\)</span>) is depicted with black borders; the mean for the sampling distribution is 0 under this assumption and is shown with a dashed line. The z distribution assuming (a) the null hypothesis is false and (b) the actual population mean and standard deviation are such that <span class="math inline">\(((\mu-\mu_{hypothesis} )⁄(\sigma⁄\sqrt{n})=2.5)\)</span> is depicted with red borders. This visual is valid for a directional test with <span class="math inline">\(\alpha=0.05\)</span>, hence, with a critical value of <span class="math inline">\(z_{0.95}=1.65\)</span>. The blue area represents <span class="math inline">\(\alpha\)</span>, the yellow area represent <span class="math inline">\(\beta\)</span> and the green area represents power. In this particular case the power is .804.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>-<span class="kw">pnorm</span>(<span class="kw">qnorm</span>(<span class="fl">0.95</span>),<span class="dt">mean=</span><span class="fl">2.5</span>)</code></pre></div>
+<pre><code>## [1] 0.8037649</code></pre>
+<p>Figure <a href="descriptive-statistics-and-hypthoses-testing.html#fig:zpower">7.13</a> visually shows that<a href="#fn9" class="footnoteRef" id="fnref9"><sup>9</sup></a> a power calculation includes 2 distributions, an alpha value and a test statistic. With these knowns the statistical power can be calculated. It should be noted that a test statistic has its own elements, generally a numerator and a denominator. For a z test, the numerator is the difference between the hypothesized mean and the null, whereas the denominator is the standard error of the mean (<span class="math inline">\(\sigma/\sqrt(n)\)</span>). If the power is set to a constant (i.e. .80) , equation can be solved for any desired unknown. Generally, the equation is solved for <em>n</em>, the sample size.</p>
+<p>The statistical power is revisited in the following chapters. Each design has its own standard error of the parameter estimate and the test statistic has its own distributional features. For a one sample t-test, the <em>power.t.test</em> function is useful;</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#power.t.test</span>
+<span class="kw">power.t.test</span>(<span class="dt">delta=</span>.<span class="dv">1</span>, <span class="dt">sd=</span>.<span class="dv">6</span>,<span class="dt">sig.level=</span><span class="fl">0.05</span>, <span class="dt">power=</span><span class="fl">0.9</span>, 
+             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;one.sided&quot;</span>)
+## 
+##      One-sample t test power calculation 
+## 
+##               n = 309.6563
+##           delta = 0.1
+##              sd = 0.6
+##       sig.level = 0.05
+##           power = 0.9
+##     alternative = one.sided</code></pre></div>
+<p>This illustration shows that for pre-determined knowns of a mean difference of 0.1, a standard deviation of 0.6, an alpha level of 0.05, a directional test and a desired power of 0.9, the sample size should be 310. In other words, the probability of rejecting the null (<span class="math inline">\(H_0:\mu=0\)</span>) is .9 with a sample size of 310, a mean difference of 0.1, SD=0.6, alpha=0.05 and a directional test.</p>
+</div>
+<div id="in-case-the-z-and-the-t-distribution-is-not-valid" class="section level3">
+<h3><span class="header-section-number">7.3.9</span> In case the z and the t distribution is not valid</h3>
+<p>Generalization from knowns to unknowns requires assumptions. A test statistic is robust to a violation of an assumption if, for a given sample size, the sampling distribution of the test statistic remains substantially the same under violation of the assumption(<span class="citation">Verzani (<a href="#ref-verzani2014">2014</a>)</span>). It should be noted that a test statistic may be robust to violations of one assumption but not to violation of another assumption. In addition a test statistic that is robust to violation of one assumption, may not be robust to violation of that assumption when a second assumption is also violated. Even when a test statistic is robust to violation of assumptions, there may be a better test statistic to use when those assumptions are violated.</p>
+<p>The z statistic for the one sample mean is expected to be robust against the violations of normality when the sample size is larger than 30 (<span class="citation">Field, Miles, and Field (<a href="#ref-Andy2012">2012</a>)</span>, page 198). However, it should be noted that the rate at which the sampling distribution converges to normality depends on the distribution of the data. As a separate note, if the population is assumed to be normal and the sample sizes small, a t distribution is valid.</p>
+<p>There are several approaches to produce robust statistics for a one-sample mean test, comprehensively illustrated by <span class="citation">Wilcox (<a href="#ref-wilcox2012">2012</a>)</span>. Below R code calculates 95% confidence intervals using the second variation of the bootstrap-t method (<span class="citation">Wilcox (<a href="#ref-wilcox2012">2012</a>)</span>, page 117)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#the second variation of the bootstrap-t method</span>
+<span class="co"># select DUZCE and perfom listwise deletion using na.omit</span>
+dataWBT_DUZCE=<span class="kw">na.omit</span>(dataWBT[dataWBT$city==<span class="st">&quot;DUZCE&quot;</span>,<span class="kw">c</span>(<span class="st">&quot;id&quot;</span>,<span class="st">&quot;gen_att&quot;</span>)])
+
+<span class="co"># test whether the Gender Attitudes&#39; mean is equal to 1.94</span>
+<span class="co"># assuming normality and using a t-test</span>
+<span class="kw">t.test</span>(dataWBT_DUZCE$gen_att,<span class="dt">mu=</span><span class="fl">1.94</span>,<span class="dt">conf.level =</span> <span class="fl">0.95</span>)
+## 
+##  One Sample t-test
+## 
+## data:  dataWBT_DUZCE$gen_att
+## t = 2.9391, df = 46, p-value = 0.005133
+## alternative hypothesis: true mean is not equal to 1.94
+## 95 percent confidence interval:
+##  2.014224 2.336840
+## sample estimates:
+## mean of x 
+##  2.175532
+
+
+<span class="co">#Calculate 95% CI using bootstrap (normality is not assumed)</span>
+<span class="kw">set.seed</span>(<span class="dv">04012017</span>)
+B=<span class="dv">5000</span>       <span class="co"># number of bootstraps</span>
+alpha=<span class="fl">0.05</span>   <span class="co"># alpha</span>
+
+<span class="co">#x is the variable</span>
+<span class="co"># xBAR is the observed mean</span>
+tstar=function(x,xBAR) <span class="kw">sqrt</span>(<span class="kw">length</span>(x))*<span class="kw">abs</span>(<span class="kw">mean</span>(x)-xBAR)/<span class="kw">sd</span>(x)
+
+
+output=<span class="kw">c</span>()
+for (i in <span class="dv">1</span>:B){
+  output[i]=<span class="kw">tstar</span>(<span class="kw">sample</span>(dataWBT_DUZCE$gen_att,
+                         <span class="dt">replace=</span>T,
+                         <span class="dt">size=</span><span class="kw">length</span>(dataWBT_DUZCE$gen_att)),
+                  <span class="dt">xBAR=</span><span class="kw">mean</span>(dataWBT_DUZCE$gen_att))
+  }
+output=<span class="kw">sort</span>(output)
+Tc=output[<span class="kw">as.integer</span>(B*(<span class="dv">1</span>-alpha))]
+
+<span class="co">#bootstrap confidence interval</span>
+<span class="kw">mean</span>(dataWBT_DUZCE$gen_att)+<span class="kw">c</span>(-<span class="dv">1</span>,<span class="dv">1</span>)*(Tc*<span class="kw">sd</span>(dataWBT_DUZCE$gen_att)/<span class="kw">sqrt</span>(<span class="kw">length</span>(dataWBT_DUZCE$gen_att)))
+## [1] 2.011540 2.339524</code></pre></div>
+<div id="write-up-2" class="section level4">
+<h4><span class="header-section-number">7.3.9.1</span> Write up</h4>
+<p>The Gender Attitudes scores from 47 participants in DUZCE had a range of 1 to 3.8, a median of 2, a mean of 2.18 and SD=0.55. The score distribution had a sample skewness value of 0.56 and a sample kurtosis value of 0.28. Using a critical value of 2.01 (<span class="math inline">\(t_{.975,46}\)</span>), a one sample t-test revealed a significant difference, t(46)=2.94 between the city’s observed mean and the hypothesized mean of 1.94 . When the normality is assumed, the 95% confidence intervals using a t-distribution were [2.01,2.34]. When this assumption is not made, the 95% confidence intervals using the bootstrap-t method with 5000 replications <span class="citation">(Wilcox <a href="#ref-wilcox2012">2012</a>)</span> were [2.01,2.34].</p>
+</div>
+</div>
+<div id="shiny-application-to-visualize-sampling-distribution" class="section level3">
+<h3><span class="header-section-number">7.3.10</span> Shiny application to visualize sampling distribution</h3>
+<p>To be added.</p>
+
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-moments">
+<p>Komsta, Lukasz, and Frederick Novomestky. 2015. <em>Moments: Moments, Cumulants, Skewness, Kurtosis and Related Tests</em>. <a href="https://CRAN.R-project.org/package=moments" class="uri">https://CRAN.R-project.org/package=moments</a>.</p>
+</div>
+<div id="ref-R-psych">
+<p>Revelle, William. 2016. <em>Psych: Procedures for Psychological, Psychometric, and Personality Research</em>. <a href="https://CRAN.R-project.org/package=psych" class="uri">https://CRAN.R-project.org/package=psych</a>.</p>
+</div>
+<div id="ref-R-doBy">
+<p>Højsgaard, Søren, and Ulrich Halekoh. 2016. <em>DoBy: Groupwise Statistics, Lsmeans, Linear Contrasts, Utilities</em>. <a href="https://CRAN.R-project.org/package=doBy" class="uri">https://CRAN.R-project.org/package=doBy</a>.</p>
+</div>
+<div id="ref-R-apaStyle">
+<p>de Vreeze, Jort. 2016. <em>ApaStyle: Generate Apa Tables for Ms Word</em>. <a href="https://CRAN.R-project.org/package=apaStyle" class="uri">https://CRAN.R-project.org/package=apaStyle</a>.</p>
+</div>
+<div id="ref-R-base">
+<p>R Core Team. 2016b. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
+</div>
+<div id="ref-R-lattice">
+<p>Sarkar, Deepayan. 2016. <em>Lattice: Trellis Graphics for R</em>. <a href="https://CRAN.R-project.org/package=lattice" class="uri">https://CRAN.R-project.org/package=lattice</a>.</p>
+</div>
+<div id="ref-R-ggplot2">
+<p>Wickham, Hadley, and Winston Chang. 2016. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://CRAN.R-project.org/package=ggplot2" class="uri">https://CRAN.R-project.org/package=ggplot2</a>.</p>
+</div>
+<div id="ref-R-plotrix">
+<p>Lemon, Jim, Ben Bolker, Sander Oom, Eduardo Klein, Barry Rowlingson, Hadley Wickham, Anupam Tyagi, et al. 2016. <em>Plotrix: Various Plotting Functions</em>. <a href="https://CRAN.R-project.org/package=plotrix" class="uri">https://CRAN.R-project.org/package=plotrix</a>.</p>
+</div>
+<div id="ref-verzani2014">
+<p>Verzani, John. 2014. <em>Using R for Introductory Statistics</em>. Second. Boca Raton: CRC Press Taylor; Francis Group.</p>
+</div>
+<div id="ref-Andy2012">
+<p>Field, Andy P., Jeremy Miles, and Zoë Field. 2012. <em>Discovering Statistics Using R</em>. Thousand Oaks, Calif;London; Sage.</p>
+</div>
+<div id="ref-wilcox2012">
+<p>Wilcox, Rand R. 2012. <em>Introduction to Robust Estimation and Hypothesis Testing</em>. 3rd;3; US: Academic Press.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="2">
+<li id="fn2"><p>These formulas are for biased estimators of skewness and kurtosis, R can calculate unbiased estimators, please see the note in the subsection <em>7.1.7</em>, specifically the <em>type</em> argument in the <em>describe</em> function<a href="descriptive-statistics-and-hypthoses-testing.html#fnref2">↩</a></p></li>
+<li id="fn3"><p>Descriptive statistics are calculated with <em>psych</em> <span class="citation">(Revelle <a href="#ref-R-psych">2016</a>)</span> package and a histogram <a href="descriptive-statistics-and-hypthoses-testing.html#fig:genatthist">7.8</a> is created by ggplot2 <span class="citation">(Wickham and Chang <a href="#ref-R-ggplot2">2016</a>)</span>.<a href="descriptive-statistics-and-hypthoses-testing.html#fnref3">↩</a></p></li>
+<li id="fn4"><p>ggplot cheatsheet might be helpful <a href="https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf" class="uri">https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf</a><a href="descriptive-statistics-and-hypthoses-testing.html#fnref4">↩</a></p></li>
+<li id="fn5"><p>every member of a population has an equal probability of being selected, a selected member does not affect any other member’s probablity of being selected<a href="descriptive-statistics-and-hypthoses-testing.html#fnref5">↩</a></p></li>
+<li id="fn6"><p>with small sample size, a t distribution. Not assuming sampling from a normal distribution, it is approximately normal with a large sample size<a href="descriptive-statistics-and-hypthoses-testing.html#fnref6">↩</a></p></li>
+<li id="fn7"><p>Descriptive statistics were calculated with <em>psych</em> <span class="citation">(Revelle <a href="#ref-R-psych">2016</a>)</span> package.<a href="descriptive-statistics-and-hypthoses-testing.html#fnref7">↩</a></p></li>
+<li id="fn8"><p>partially based on <a href="http://multithreaded.stitchfix.com/blog/2015/05/26/significant-sample/" class="uri">http://multithreaded.stitchfix.com/blog/2015/05/26/significant-sample/</a><a href="descriptive-statistics-and-hypthoses-testing.html#fnref8">↩</a></p></li>
+<li id="fn9"><p>accurate only for post hoc power<a href="descriptive-statistics-and-hypthoses-testing.html#fnref9">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-sets.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="comparing-two-means-the-t-test.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/burakaydin/BAP2219/tree/gh-pages/06_Descriptives.Rmd",
+"text": "Edit"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

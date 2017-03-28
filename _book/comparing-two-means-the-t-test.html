@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>BETA: An R Platform for Social Scientists</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="R book for social scientists">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="BETA: An R Platform for Social Scientists" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/coverpicture.png" />
+  <meta property="og:description" content="R book for social scientists" />
+  <meta name="github-repo" content="burakaydin/BAP2219" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="BETA: An R Platform for Social Scientists" />
+  
+  <meta name="twitter:description" content="R book for social scientists" />
+  <meta name="twitter:image" content="images/coverpicture.png" />
+
+<meta name="author" content="Burak AYDIN, James ALGINA, Walter LEITE">
+
+
+<meta name="date" content="2017-01-01">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="descriptive-statistics-and-hypthoses-testing.html">
+<link rel="next" href="analysis-of-variance-anova.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-0.8/htmlwidgets.js"></script>
+<link href="libs/rglwidgetClass-2/rgl.css" rel="stylesheet" />
+<script src="libs/rglwidgetClass-2/rglClass.src.js"></script>
+<script src="libs/CanvasMatrix4-2016/CanvasMatrix.src.js"></script>
+<script src="libs/rglWebGL-binding-0.97.0/rglWebGL.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">SARP</a></li>
+<li><a href="https://burakaydin.github.io/SARP/_book/" target="blank">SAPR-TR</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Cover</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#why-bookdown"><i class="fa fa-check"></i><b>1.1.1</b> Why Bookdown?</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#content"><i class="fa fa-check"></i><b>1.1.2</b> Content</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i><b>2</b> Preface</a><ul>
+<li class="chapter" data-level="2.1" data-path="preface.html"><a href="preface.html#authors"><i class="fa fa-check"></i><b>2.1</b> Authors</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="preface.html"><a href="preface.html#burak-aydn-ph.d."><i class="fa fa-check"></i><b>2.1.1</b> Burak Aydın, Ph.D.</a></li>
+<li class="chapter" data-level="2.1.2" data-path="preface.html"><a href="preface.html#james-algina-ph.d."><i class="fa fa-check"></i><b>2.1.2</b> James Algina, Ph.D.</a></li>
+<li class="chapter" data-level="2.1.3" data-path="preface.html"><a href="preface.html#walter-l.-leite-ph.d."><i class="fa fa-check"></i><b>2.1.3</b> Walter L. Leite, Ph.D.</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="preface.html"><a href="preface.html#acknowledgement"><i class="fa fa-check"></i><b>2.2</b> Acknowledgement</a></li>
+<li class="chapter" data-level="2.3" data-path="preface.html"><a href="preface.html#dataWBT"><i class="fa fa-check"></i><b>2.3</b> Data</a></li>
+<li class="chapter" data-level="2.4" data-path="preface.html"><a href="preface.html#fund"><i class="fa fa-check"></i><b>2.4</b> Fund</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="rs-popularity.html"><a href="rs-popularity.html"><i class="fa fa-check"></i><b>3</b> R’s Popularity</a></li>
+<li class="chapter" data-level="4" data-path="setting-up-r-for-windows.html"><a href="setting-up-r-for-windows.html"><i class="fa fa-check"></i><b>4</b> Setting up R for Windows</a></li>
+<li class="chapter" data-level="5" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>5</b> Basics</a><ul>
+<li class="chapter" data-level="5.1" data-path="basics.html"><a href="basics.html#functions"><i class="fa fa-check"></i><b>5.1</b> Functions</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="basics.html"><a href="basics.html#r-as-a-basic-calculator."><i class="fa fa-check"></i><b>5.1.1</b> R as a Basic Calculator.</a></li>
+<li class="chapter" data-level="5.1.2" data-path="basics.html"><a href="basics.html#r-as-a-programmable-calculator"><i class="fa fa-check"></i><b>5.1.2</b> R as a Programmable Calculator</a></li>
+<li class="chapter" data-level="5.1.3" data-path="basics.html"><a href="basics.html#help"><i class="fa fa-check"></i><b>5.1.3</b> Help!</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="basics.html"><a href="basics.html#r-data-types"><i class="fa fa-check"></i><b>5.2</b> R Data Types</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="basics.html"><a href="basics.html#vectors"><i class="fa fa-check"></i><b>5.2.1</b> Vectors</a></li>
+<li class="chapter" data-level="5.2.2" data-path="basics.html"><a href="basics.html#matricies"><i class="fa fa-check"></i><b>5.2.2</b> Matricies</a></li>
+<li class="chapter" data-level="5.2.3" data-path="basics.html"><a href="basics.html#variables"><i class="fa fa-check"></i><b>5.2.3</b> Variables</a></li>
+<li class="chapter" data-level="5.2.4" data-path="basics.html"><a href="basics.html#factors"><i class="fa fa-check"></i><b>5.2.4</b> Factors</a></li>
+<li class="chapter" data-level="5.2.5" data-path="basics.html"><a href="basics.html#missing-values"><i class="fa fa-check"></i><b>5.2.5</b> Missing Values</a></li>
+<li class="chapter" data-level="5.2.6" data-path="basics.html"><a href="basics.html#dataframes"><i class="fa fa-check"></i><b>5.2.6</b> Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="basics.html"><a href="basics.html#r-packages"><i class="fa fa-check"></i><b>5.3</b> R Packages</a></li>
+<li class="chapter" data-level="5.4" data-path="basics.html"><a href="basics.html#theworkspace"><i class="fa fa-check"></i><b>5.4</b> The Workspace</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-sets.html"><a href="data-sets.html"><i class="fa fa-check"></i><b>6</b> Data Sets</a><ul>
+<li class="chapter" data-level="6.1" data-path="data-sets.html"><a href="data-sets.html#import-data"><i class="fa fa-check"></i><b>6.1</b> Import Data</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="data-sets.html"><a href="data-sets.html#csv"><i class="fa fa-check"></i><b>6.1.1</b> CSV</a></li>
+<li class="chapter" data-level="6.1.2" data-path="data-sets.html"><a href="data-sets.html#spss"><i class="fa fa-check"></i><b>6.1.2</b> SPSS</a></li>
+<li class="chapter" data-level="6.1.3" data-path="data-sets.html"><a href="data-sets.html#rdata"><i class="fa fa-check"></i><b>6.1.3</b> Rdata</a></li>
+<li class="chapter" data-level="6.1.4" data-path="data-sets.html"><a href="data-sets.html#pullonline"><i class="fa fa-check"></i><b>6.1.4</b> Pull online</a></li>
+<li class="chapter" data-level="6.1.5" data-path="data-sets.html"><a href="data-sets.html#read-data-through-r-studio"><i class="fa fa-check"></i><b>6.1.5</b> Read data through R studio</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="data-sets.html"><a href="data-sets.html#basic-data-manipulation"><i class="fa fa-check"></i><b>6.2</b> Basic Data Manipulation</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="data-sets.html"><a href="data-sets.html#replacing-values"><i class="fa fa-check"></i><b>6.2.1</b> Replacing values</a></li>
+<li class="chapter" data-level="6.2.2" data-path="data-sets.html"><a href="data-sets.html#subsetting"><i class="fa fa-check"></i><b>6.2.2</b> Subsetting</a></li>
+<li class="chapter" data-level="6.2.3" data-path="data-sets.html"><a href="data-sets.html#creating-new-variables"><i class="fa fa-check"></i><b>6.2.3</b> Creating new variables</a></li>
+<li class="chapter" data-level="6.2.4" data-path="data-sets.html"><a href="data-sets.html#reshaping-data"><i class="fa fa-check"></i><b>6.2.4</b> Reshaping data</a></li>
+<li class="chapter" data-level="6.2.5" data-path="data-sets.html"><a href="data-sets.html#converting-between-variable-types"><i class="fa fa-check"></i><b>6.2.5</b> Converting between variable types</a></li>
+<li class="chapter" data-level="6.2.6" data-path="data-sets.html"><a href="data-sets.html#delete-cases"><i class="fa fa-check"></i><b>6.2.6</b> Delete cases</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="data-sets.html"><a href="data-sets.html#export-data"><i class="fa fa-check"></i><b>6.3</b> Export Data</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html"><i class="fa fa-check"></i><b>7</b> Descriptive Statistics and Hypthoses Testing</a><ul>
+<li class="chapter" data-level="7.1" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#descstats"><i class="fa fa-check"></i><b>7.1</b> Descriptive Statistics</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#mean"><i class="fa fa-check"></i><b>7.1.1</b> Mean</a></li>
+<li class="chapter" data-level="7.1.2" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#median"><i class="fa fa-check"></i><b>7.1.2</b> Median</a></li>
+<li class="chapter" data-level="7.1.3" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#variance"><i class="fa fa-check"></i><b>7.1.3</b> Variance</a></li>
+<li class="chapter" data-level="7.1.4" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#standard-deviation"><i class="fa fa-check"></i><b>7.1.4</b> Standard deviation</a></li>
+<li class="chapter" data-level="7.1.5" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#skewness"><i class="fa fa-check"></i><b>7.1.5</b> Skewness</a></li>
+<li class="chapter" data-level="7.1.6" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#kurtosis"><i class="fa fa-check"></i><b>7.1.6</b> Kurtosis</a></li>
+<li class="chapter" data-level="7.1.7" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#reporting-descriptives"><i class="fa fa-check"></i><b>7.1.7</b> Reporting descriptives</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#basic-graphics"><i class="fa fa-check"></i><b>7.2</b> Basic graphics</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#histogram"><i class="fa fa-check"></i><b>7.2.1</b> Histogram</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#hypothesis-testing-introduction"><i class="fa fa-check"></i><b>7.3</b> Hypothesis testing introduction</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#samplingdist"><i class="fa fa-check"></i><b>7.3.1</b> The Sampling distribution</a></li>
+<li class="chapter" data-level="7.3.2" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-confidence-intervals-ci"><i class="fa fa-check"></i><b>7.3.2</b> The Confidence Intervals (CI)</a></li>
+<li class="chapter" data-level="7.3.3" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-null-hypothesis"><i class="fa fa-check"></i><b>7.3.3</b> The null hypothesis</a></li>
+<li class="chapter" data-level="7.3.4" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-z-score-and-the-z-test"><i class="fa fa-check"></i><b>7.3.4</b> The z score and the z test</a></li>
+<li class="chapter" data-level="7.3.5" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-one-sample-t-test"><i class="fa fa-check"></i><b>7.3.5</b> The one-sample t test</a></li>
+<li class="chapter" data-level="7.3.6" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-p-value"><i class="fa fa-check"></i><b>7.3.6</b> The p value</a></li>
+<li class="chapter" data-level="7.3.7" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#the-p-value-illustration"><i class="fa fa-check"></i><b>7.3.7</b> The p value illustration</a></li>
+<li class="chapter" data-level="7.3.8" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#statisticalpower"><i class="fa fa-check"></i><b>7.3.8</b> Statistical power</a></li>
+<li class="chapter" data-level="7.3.9" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#in-case-the-z-and-the-t-distribution-is-not-valid"><i class="fa fa-check"></i><b>7.3.9</b> In case the z and the t distribution is not valid</a></li>
+<li class="chapter" data-level="7.3.10" data-path="descriptive-statistics-and-hypthoses-testing.html"><a href="descriptive-statistics-and-hypthoses-testing.html#shiny-application-to-visualize-sampling-distribution"><i class="fa fa-check"></i><b>7.3.10</b> Shiny application to visualize sampling distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html"><i class="fa fa-check"></i><b>8</b> Comparing Two Means, the t-test</a><ul>
+<li class="chapter" data-level="8.1" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#between-subjects-t-test-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1</b> Between-Subjects t-test (The Independent Groups t-test)</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#r-codes-for-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1.1</b> R codes for the independent groups t-test</a></li>
+<li class="chapter" data-level="8.1.2" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#assumptions-of-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1.2</b> Assumptions of the independent groups t-test</a></li>
+<li class="chapter" data-level="8.1.3" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#using-welchs-t-test"><i class="fa fa-check"></i><b>8.1.3</b> Using Welch’s t test</a></li>
+<li class="chapter" data-level="8.1.4" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#indepteff"><i class="fa fa-check"></i><b>8.1.4</b> Effect size for the independent groups t-test</a></li>
+<li class="chapter" data-level="8.1.5" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#extra-practical-significance-vs-statistical-significance"><i class="fa fa-check"></i><b>8.1.5</b> Extra: Practical significance vs statistical significance</a></li>
+<li class="chapter" data-level="8.1.6" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#missing-data-techniques-for-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1.6</b> Missing data techniques for the independent groups t-test</a></li>
+<li class="chapter" data-level="8.1.7" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#supportive-graphs-for-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1.7</b> Supportive graphs for the independent groups t-test</a></li>
+<li class="chapter" data-level="8.1.8" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#power-calculations-for-the-independent-groups-t-test"><i class="fa fa-check"></i><b>8.1.8</b> Power calculations for the independent groups t-test</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#the-dependent-groups-t-test-within-subjects-t-test"><i class="fa fa-check"></i><b>8.2</b> The dependent groups t-test (Within-subjects t-test)</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#r-codes-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.1</b> R codes for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.2" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#assumption-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.2</b> Assumption for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.3" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#robust-estimation-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.3</b> Robust estimation for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.4" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#effect-size-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.4</b> Effect size for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.5" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#missing-data-techniques-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.5</b> Missing data techniques for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.6" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#supportive-graphs-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.6</b> Supportive graphs for the dependent groups t-test</a></li>
+<li class="chapter" data-level="8.2.7" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#power-calculations-for-the-dependent-groups-t-test"><i class="fa fa-check"></i><b>8.2.7</b> Power calculations for the dependent groups t-test</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#common-designs"><i class="fa fa-check"></i><b>8.3</b> Common Designs</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#designs-in-which-scores-in-the-two-treatments-are-correlated"><i class="fa fa-check"></i><b>8.3.1</b> Designs in which Scores in the Two Treatments are Correlated</a></li>
+<li class="chapter" data-level="8.3.2" data-path="comparing-two-means-the-t-test.html"><a href="comparing-two-means-the-t-test.html#designbetween"><i class="fa fa-check"></i><b>8.3.2</b> Designs in which Scores in the Two Treatments are Independent</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html"><i class="fa fa-check"></i><b>9</b> Analysis of Variance (ANOVA)</a><ul>
+<li class="chapter" data-level="9.1" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#terminology"><i class="fa fa-check"></i><b>9.1</b> Terminology</a></li>
+<li class="chapter" data-level="9.2" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#between-subjects-anova"><i class="fa fa-check"></i><b>9.2</b> Between Subjects ANOVA</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#one-way-between-subjects-anova"><i class="fa fa-check"></i><b>9.2.1</b> One-way Between Subjects ANOVA</a></li>
+<li class="chapter" data-level="9.2.2" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#two-factor-between-subjects-anova"><i class="fa fa-check"></i><b>9.2.2</b> Two-Factor Between Subjects ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#within-subjects-anova"><i class="fa fa-check"></i><b>9.3</b> Within Subjects ANOVA</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#one-way-within-subjects-anova"><i class="fa fa-check"></i><b>9.3.1</b> One-way Within-Subjects ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="analysis-of-variance-anova.html"><a href="analysis-of-variance-anova.html#mixed-design"><i class="fa fa-check"></i><b>9.4</b> Mixed Design</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="correlation.html"><a href="correlation.html"><i class="fa fa-check"></i><b>10</b> Correlation</a><ul>
+<li class="chapter" data-level="10.1" data-path="correlation.html"><a href="correlation.html#pearson-correlation-coefficient"><i class="fa fa-check"></i><b>10.1</b> Pearson correlation coefficient</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="correlation.html"><a href="correlation.html#inference-on-a-pearson-correlation-coefficient"><i class="fa fa-check"></i><b>10.1.1</b> Inference on a Pearson correlation coefficient</a></li>
+<li class="chapter" data-level="10.1.2" data-path="correlation.html"><a href="correlation.html#r-codes-for-pearson-correlation-coefficent"><i class="fa fa-check"></i><b>10.1.2</b> R codes for Pearson Correlation coefficent</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="correlation.html"><a href="correlation.html#spearmans-rho-and-kendalls-tau"><i class="fa fa-check"></i><b>10.2</b> Spearman’s rho and Kendall’s tau</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="correlation.html"><a href="correlation.html#the-r-code-for-spearmans-rho-and-kendalls-tau"><i class="fa fa-check"></i><b>10.2.1</b> The R code for Spearman’s rho and Kendall’s tau</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="correlation.html"><a href="correlation.html#biserial-and-point-biserial-correlation-coefficients-with-r"><i class="fa fa-check"></i><b>10.3</b> Biserial and Point-Biserial Correlation Coefficients with R</a></li>
+<li class="chapter" data-level="10.4" data-path="correlation.html"><a href="correlation.html#phi-correlation-coefficient-with-r"><i class="fa fa-check"></i><b>10.4</b> Phi Correlation Coefficient with R</a></li>
+<li class="chapter" data-level="10.5" data-path="correlation.html"><a href="correlation.html#issues-in-interpreting-correlation-coefficients"><i class="fa fa-check"></i><b>10.5</b> Issues in Interpreting Correlation Coefficients</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html"><i class="fa fa-check"></i><b>11</b> Multiple Linear Regression, A Short Introduction</a><ul>
+<li class="chapter" data-level="11.1" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#matricies-and-least-square-estimation"><i class="fa fa-check"></i><b>11.1</b> Matricies and Least Square Estimation</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#a-essentially-all-models-are-wrong-but-some-are-useful."><i class="fa fa-check"></i><b>11.1.1</b> a) “Essentially, all models are wrong, but some are useful.”</a></li>
+<li class="chapter" data-level="11.1.2" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#b-strength-of-relationship-between-the-dependent-and-independent-variables"><i class="fa fa-check"></i><b>11.1.2</b> b) Strength of relationship between the dependent and independent variables</a></li>
+<li class="chapter" data-level="11.1.3" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#c-residuals-and-influential-data-points"><i class="fa fa-check"></i><b>11.1.3</b> c) Residuals and influential data points</a></li>
+<li class="chapter" data-level="11.1.4" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#d-equal-variance-assumption"><i class="fa fa-check"></i><b>11.1.4</b> d) <em>Equal variance assumption</em></a></li>
+<li class="chapter" data-level="11.1.5" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#e-hypothesis-testing"><i class="fa fa-check"></i><b>11.1.5</b> e) Hypothesis testing</a></li>
+<li class="chapter" data-level="11.1.6" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#f-variable-selection"><i class="fa fa-check"></i><b>11.1.6</b> f) Variable Selection</a></li>
+<li class="chapter" data-level="11.1.7" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#g-colliniearity"><i class="fa fa-check"></i><b>11.1.7</b> g) Colliniearity</a></li>
+<li class="chapter" data-level="11.1.8" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#h-non-linearity"><i class="fa fa-check"></i><b>11.1.8</b> h) Non-linearity</a></li>
+<li class="chapter" data-level="11.1.9" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#i-correlated-errors-and-nonindependent-errors"><i class="fa fa-check"></i><b>11.1.9</b> i) Correlated errors and nonindependent errors</a></li>
+<li class="chapter" data-level="11.1.10" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#j-centering-and-scaling"><i class="fa fa-check"></i><b>11.1.10</b> j) Centering and Scaling</a></li>
+<li class="chapter" data-level="11.1.11" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#k-standardized-coefficients"><i class="fa fa-check"></i><b>11.1.11</b> k) Standardized coefficients</a></li>
+<li class="chapter" data-level="11.1.12" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#l-interactions"><i class="fa fa-check"></i><b>11.1.12</b> l) Interactions</a></li>
+<li class="chapter" data-level="11.1.13" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#m-estimators"><i class="fa fa-check"></i><b>11.1.13</b> m) Estimators</a></li>
+<li class="chapter" data-level="11.1.14" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#n-robust-regression"><i class="fa fa-check"></i><b>11.1.14</b> n) Robust Regression</a></li>
+<li class="chapter" data-level="11.1.15" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#o-sample-size-and-statistical-power"><i class="fa fa-check"></i><b>11.1.15</b> o) Sample size and statistical power</a></li>
+<li class="chapter" data-level="11.1.16" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#p-reliability-of-variables"><i class="fa fa-check"></i><b>11.1.16</b> p) Reliability of variables</a></li>
+<li class="chapter" data-level="11.1.17" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#q-the-nature-of-the-variables"><i class="fa fa-check"></i><b>11.1.17</b> q) The nature of the variables</a></li>
+<li class="chapter" data-level="11.1.18" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#r-multiple-dependent-variables"><i class="fa fa-check"></i><b>11.1.18</b> r) Multiple dependent variables</a></li>
+<li class="chapter" data-level="11.1.19" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#s-missing-variables"><i class="fa fa-check"></i><b>11.1.19</b> s) Missing variables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="useful-r-codes.html"><a href="useful-r-codes.html"><i class="fa fa-check"></i><b>12</b> Useful R codes</a><ul>
+<li class="chapter" data-level="12.1" data-path="useful-r-codes.html"><a href="useful-r-codes.html#more-on-the-apastyle-package"><i class="fa fa-check"></i><b>12.1</b> More on the apaStyle package</a></li>
+<li class="chapter" data-level="12.2" data-path="useful-r-codes.html"><a href="useful-r-codes.html#a-useful-shiny-application"><i class="fa fa-check"></i><b>12.2</b> A useful shiny application</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">BETA: An R Platform for Social Scientists</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="comparing-two-means-the-t-test" class="section level1">
+<h1><span class="header-section-number"> 8</span> Comparing Two Means, the t-test</h1>
+<p>Section <a href="descriptive-statistics-and-hypthoses-testing.html#samplingdist">7.3.1</a> introduced the basics of a sampling distribution using the sample mean. When the interest is to compare two means the t-test is useful and the sampling distribution of the mean difference between two groups drives the analyses.</p>
+<p>The mean of the sampling distribution of <span class="math inline">\(\bar{Y_1}-\bar{Y_2}\)</span> <span class="math inline">\((\mu_{\bar{Y_1}-\bar{Y_2}})\)</span> is always equal to <span class="math inline">\(\mu_1 - \mu_2\)</span>, but the standard deviation of the sampling distribution <span class="math inline">\((\sigma_{\bar{Y_1}-\bar{Y_2}})\)</span> depends on the design used to collect the data.</p>
+<p><em>Example:</em> Consider an example in which the tensile strength of wounds closed by Suture and Tape is compared. The design for conducting this study will have one factor, Method of Wound Closure, with two levels, Tape and Suture. The following are two designs for conducting the study:</p>
+<p><strong>Within-subjects design.</strong> Incisions are made on both sides of the spine for each of 10 rats. Tape was used to close one of the wounds; the other was sutured. For each rat the wound closed by tape was determined randomly. This design is called within-subjects because the measurements under tape and suture are made on the same rat; rats are the subjects in the study.</p>
+<p><strong>Between-subjects design.</strong> Beginning with 20 rats, 10 are randomly assigned to have a wound closed by tape and the other 10 rats have a wound closed by suture. For each rat an incision is made on one side of the spine. The side is determined randomly for each rat.(Half of the rats assigned to each closure method have the incison on the left side of the spine and half on the right side. We ignore side of the spine as a factor in this example.) This design is called between-subjects because the measurements under tape and suture are made on different rats. An additional requirement for classifying the design as between-subjects is that no attempt was made to match the rats prior to random assignment. For example if the 20 rats were from 10 litters with different parents, the rats might have been matched on litter prior to random assignment.</p>
+<p>One can imagine a population mean and a population standard deviation under each closure method.<br />
+For example the population mean under tape closure is the mean for an indefinitely large group of rats all of which have a wound closed by tape.</p>
+<p>In the following comparison it is assumed that the population mean for tape closing will be the same in the within-subjects and the between-subjects design and that the population standard deviation will be the same in the within-subjects and the between-subjects design.</p>
+<p>The corresponding assumptions for the population mean and standard deviation for the suture closing are made.</p>
+<p>The following are the symbols for these population parameters.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Parameter for Population</th>
+<th align="center">Tape</th>
+<th align="center">Suture</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Mean</td>
+<td align="center"><span class="math inline">\(\mu_T\)</span></td>
+<td align="center"><span class="math inline">\(\mu_S\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">Standard deviation</td>
+<td align="center"><span class="math inline">\(\sigma_T\)</span></td>
+<td align="center"><span class="math inline">\(\sigma_S\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">Sample size</td>
+<td align="center"><span class="math inline">\(n_T\)</span></td>
+<td align="center"><span class="math inline">\(n_S\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Note. More generally, <span class="math inline">\(\mu_1\)</span> and <span class="math inline">\(\mu_2\)</span> for population means for the two treatments and <span class="math inline">\(\sigma_1\)</span> and <span class="math inline">\(\sigma_2\)</span> for population standard deviations for the two treatments.</p>
+<table style="width:100%;">
+<colgroup>
+<col width="29%" />
+<col width="20%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Parameter for Sampling Distribution</th>
+<th align="center">Between-Subjects</th>
+<th align="center">Within-Subjects</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Mean (<span class="math inline">\(\mu_{\bar{Y_T}-\bar{Y_S}}\)</span>)</td>
+<td align="center"><span class="math inline">\(\mu_T-\mu_S\)</span></td>
+<td align="center"><span class="math inline">\(\mu_T-\mu_S\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">Standard deviation (<span class="math inline">\(\sigma_{\bar{Y_T}-\bar{Y_S}}\)</span>)</td>
+<td align="center"><span class="math inline">\(\sqrt{\frac{\sigma_T^2+\sigma_S^2}{n}}\)</span></td>
+<td align="center"><span class="math inline">\(\sqrt{\frac{\sigma_T^2+\sigma_S^2-2\sigma_T \sigma_S \rho_{TS}}{n}}\)</span></td>
+</tr>
+</tbody>
+</table>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\rho_{TS}\)</span> is the correlation between the tensile strength scores in the tape and suture treatments in the within-subjects design.</p></li>
+<li><p>The difference in the standard errors is due to <span class="math inline">\(\rho_{TS}\)</span>. If this correlation is zero the designs result in the same standard error.</p></li>
+</ol>
+<p>An important goal in designing a study is to make the standard error as small as possible. When the standard error is small the statistic in which we are interested will tend to be close in numeric value to the parameter we are estimating.</p>
+<p>In data analysis we must select a formula for a standard error (or for the error variance). Selecting the wrong formula is a critical error in data analysis.</p>
+<p>In practice the standard error is selected by classifying the design as between-subjects or within subjects. This means that incorrectly classifying the design is a critical error in data analysis.</p>
+<div id="between-subjects-t-test-the-independent-groups-t-test" class="section level2">
+<h2><span class="header-section-number">8.1</span> Between-Subjects t-test (The Independent Groups t-test)</h2>
+<p>The gender attitudes scores for college graduates vs non-collage graduates in the city of USAK are compared. The density plot for each group’s gender attitudes scores are shown below.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
+<span class="co"># load csv from an online repository</span>
+urlfile=<span class="st">&#39;https://raw.githubusercontent.com/burakaydin/materyaller/gh-pages/ARPASS/dataWBT.csv&#39;</span>
+dataWBT=<span class="kw">read.csv</span>(urlfile)
+
+<span class="co">#remove URL </span>
+<span class="kw">rm</span>(urlfile)
+dataWBT_USAK=dataWBT[dataWBT$city==<span class="st">&quot;USAK&quot;</span>,]
+
+
+<span class="co"># We explained the functions &#39;factor&#39; and &#39;droplevels&#39; in section 5.2.4</span>
+<span class="co"># here we create a factor, Higher Education Factor (HEF). </span>
+<span class="co"># it is labeled as &#39;non-college&#39; when the higher_ed variable equals 0, </span>
+<span class="co"># &#39;college&#39; when equals to 1.</span>
+<span class="co"># if you dont use droplevels function, you might have an empty level </span>
+dataWBT_USAK$HEF=<span class="kw">droplevels</span>(<span class="kw">factor</span>(dataWBT_USAK$higher_ed, 
+                    <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), 
+                    <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;non-college&quot;</span>, <span class="st">&quot;college&quot;</span>)))
+
+<span class="kw">require</span>(ggplot2)
+plotdata=<span class="kw">na.omit</span>(dataWBT_USAK[,<span class="kw">c</span>(<span class="st">&quot;gen_att&quot;</span>,<span class="st">&quot;HEF&quot;</span>)])
+<span class="kw">ggplot</span>(plotdata, <span class="kw">aes</span>(<span class="dt">x =</span> gen_att)) +
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..),<span class="dt">col=</span><span class="st">&quot;black&quot;</span>,<span class="dt">binwidth =</span> <span class="fl">0.2</span>,<span class="dt">alpha=</span><span class="fl">0.7</span>) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">size=</span><span class="dv">2</span>) +
+<span class="st">  </span><span class="kw">theme_bw</span>()+<span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Gender Attitude by HEF in USAK&quot;</span>)+<span class="st"> </span><span class="kw">facet_wrap</span>(~<span class="st"> </span>HEF)+
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">15</span>),
+        <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>,<span class="dt">face=</span><span class="st">&quot;bold&quot;</span>))</code></pre></div>
+<div class="figure"><span id="fig:genattusakcity"></span>
+<img src="SARP_files/figure-html/genattusakcity-1.png" alt="Gender Attitudes by Treatment Group " width="672" />
+<p class="caption">
+Figure 8.1: Gender Attitudes by Treatment Group
+</p>
+</div>
+<div id="r-codes-for-the-independent-groups-t-test" class="section level3">
+<h3><span class="header-section-number">8.1.1</span> R codes for the independent groups t-test</h3>
+<p>The following are the steps for conducting the independent groups <em>t</em>-test and R code for implementing the steps</p>
+<ol style="list-style-type: decimal">
+<li>Create descriptive statistics</li>
+<li>Calculate the test statistic</li>
+</ol>
+<p><span class="math display">\[t=\frac{\bar{Y_1}-\bar{Y_2}}{S_p \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}\]</span></p>
+<p><span class="math display">\[ S_p = \sqrt{\frac{(n_1-1)S_1^2 + (n_2-1)S_2^2 }{n_1+n_2-2}}   \]</span> 3. Find the critical value <span class="math inline">\(\pm t_{\alpha/2,n_1+n_2-2}\)</span>to test <span class="math display">\[H_0:\mu_1-\mu_2=0\]</span> <span class="math display">\[H_1:\mu_1-\mu_2 \neq0\]</span></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
+<span class="kw">library</span>(psych)
+descIDT=<span class="kw">with</span>(dataWBT_USAK,<span class="kw">describeBy</span>(gen_att, HEF,<span class="dt">mat=</span>T,<span class="dt">digits =</span> <span class="dv">2</span>))
+descIDT
+##     item      group1 vars  n mean   sd median trimmed  mad min max range
+## X11    1 non-college    1 86 1.83 0.54    1.8    1.80 0.59   1 3.8   2.8
+## X12    2     college    1 51 1.64 0.61    1.6    1.54 0.59   1 3.4   2.4
+##     skew kurtosis   se
+## X11 0.72     0.90 0.06
+## X12 1.19     1.09 0.09
+<span class="co">#write.csv(descIDT,file=&quot;independent_t_test_desc.csv&quot;)</span>
+
+<span class="co"># Pooled sd</span>
+sp=<span class="kw">sqrt</span>((<span class="dv">85</span>*.<span class="dv">543</span>^<span class="dv">2</span> +<span class="st"> </span><span class="dv">50</span>*.<span class="dv">608</span>^<span class="dv">2</span>)/(<span class="dv">86+51-2</span>))
+
+<span class="co"># t-statistic</span>
+tstatistic=(<span class="fl">1.832-1.635</span>)/(sp*<span class="kw">sqrt</span>(<span class="dv">1</span>/<span class="dv">86+1</span>/<span class="dv">51</span>))
+
+<span class="co"># critical value for alpha=0.05</span>
+<span class="kw">qt</span>(.<span class="dv">975</span>,<span class="dt">df=</span><span class="dv">135</span>)
+## [1] 1.977692</code></pre></div>
+<p>Since 1.963 is smaller than the critical value of <span class="math inline">\(t_{.975,135}=1.978\)</span> , <span class="math inline">\(H_0\)</span> is retained.</p>
+<p>For <span class="math inline">\(H_1:\mu_1-\mu_2 &gt; 0\)</span>, the critical value is <span class="math inline">\(t_{.95,135}=1.66\)</span> which would yield the rejection of <span class="math inline">\(H_0\)</span> given 1.93 is greater than 1.66.</p>
+<p>For <span class="math inline">\(H_1:\mu_1-\mu_2 &lt; 0\)</span>, the critical value is <span class="math inline">\(t_{.05,135}=-1.66\)</span> which would yield the retaining of <span class="math inline">\(H_0\)</span> given 1.93 is not lower than -1.66.</p>
+<p>A more convenient R code would be;</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
+<span class="co"># The dataWBT does not have HEF factor, </span>
+<span class="co"># you should define it as it is given a few lines above.</span>
+
+<span class="kw">t.test</span>(gen_att~HEF,<span class="dt">data=</span>dataWBT_USAK,<span class="dt">var.equal=</span>T,
+                                     <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>,
+                                     <span class="dt">conf.level=</span><span class="fl">0.95</span>)
+## 
+##  Two Sample t-test
+## 
+## data:  gen_att by HEF
+## t = 1.9587, df = 135, p-value = 0.05221
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.001903268  0.394880924
+## sample estimates:
+## mean in group non-college     mean in group college 
+##                  1.831783                  1.635294
+
+<span class="co"># greater</span>
+<span class="kw">t.test</span>(gen_att~HEF,<span class="dt">data=</span>dataWBT_USAK,<span class="dt">var.equal=</span>T,
+                                     <span class="dt">alternative=</span><span class="st">&quot;greater&quot;</span>,
+                                     <span class="dt">conf.level=</span><span class="fl">0.95</span>)
+## 
+##  Two Sample t-test
+## 
+## data:  gen_att by HEF
+## t = 1.9587, df = 135, p-value = 0.0261
+## alternative hypothesis: true difference in means is greater than 0
+## 95 percent confidence interval:
+##  0.03034529        Inf
+## sample estimates:
+## mean in group non-college     mean in group college 
+##                  1.831783                  1.635294
+
+
+<span class="co"># less</span>
+<span class="kw">t.test</span>(gen_att~HEF,<span class="dt">data=</span>dataWBT_USAK,<span class="dt">var.equal=</span>T,
+                                     <span class="dt">alternative=</span><span class="st">&quot;less&quot;</span>,
+                                     <span class="dt">conf.level=</span><span class="fl">0.95</span>)
+## 
+##  Two Sample t-test
+## 
+## data:  gen_att by HEF
+## t = 1.9587, df = 135, p-value = 0.9739
+## alternative hypothesis: true difference in means is less than 0
+## 95 percent confidence interval:
+##       -Inf 0.3626324
+## sample estimates:
+## mean in group non-college     mean in group college 
+##                  1.831783                  1.635294</code></pre></div>
+<div id="write-up-for-non-directional-test" class="section level4">
+<h4><span class="header-section-number">8.1.1.1</span> Write up for non-directional test:</h4>
+<p>An independent groups t-test showed that in the city of USAK, the gender attitudes scores for the college graduates (n=51, mean=1.64, SD=0.61, skew=1.19, kurtosis=1.09) were not statistically different than the non-college graduates (n=86, mean=1.83, SD=0.54, skew=0.72, kurtosis=0.90), t(135)=1.96, p=0.052. The 95% confidence interval was [-0.002,0.395].<a href="#fn10" class="footnoteRef" id="fnref10"><sup>10</sup></a>:</p>
+</div>
+<div id="write-up-for-directional-test" class="section level4">
+<h4><span class="header-section-number">8.1.1.2</span> Write up for directional test:</h4>
+<p>A directional independent groups t-test showed that in the city of USAK, the gender attitudes scores for the college graduates (n=51, mean=1.64, SD=0.61, skew=1.19, kurtosis=1.09) were significantly lower than the non-college graduates (n=86, mean=1.83, SD=0.54, skew=0.72, kurtosis=0.90), t(135)=1.96, p=0.026. The 95% confidence interval was [0.030,<span class="math inline">\(\infty\)</span>].</p>
+</div>
+</div>
+<div id="assumptions-of-the-independent-groups-t-test" class="section level3">
+<h3><span class="header-section-number">8.1.2</span> Assumptions of the independent groups t-test</h3>
+<p>Three assumptions should be met to claim statistical validity for a conventional between-subjects t-test.</p>
+<ol style="list-style-type: decimal">
+<li><p>Independence . The scores in each group should be independently distributed. The validity of this assumption is questionable when (a) scores for participants within a group are collected over time or (b) the participants within a group work together in a manner such that a participant’s response could have been influenced by another participant in the study. (See <a href="analysis-of-variance-anova.html#moreonindependence">9.2.1.4</a> for additional discussion)</p></li>
+<li><p>Normality. The scores with each group are drawn from a normal distribution. However <span class="citation">Myers et al. (<a href="#ref-myerswell13">2013</a>)</span> states that when the two groups are equal in size and the total sample size is 40 or larger departures from normality can be tolerated unless the scores are drawn from extremely skewed distributions. As noted earlier, the authors of the current book are hesitant to conduct tests for normality. However the use of robust procedures is advised when there is doubt for the normality.</p></li>
+<li><p>Equal variance. This assumption is also called the homogeneity of variance assumption and means it is assumed that samples in the two groups are drawn from two populations with equal variances. <span class="citation">Myers et al. (<a href="#ref-myerswell13">2013</a>)</span> states that when the sample sizes are equal and larger than 5, even with very large variance ratios (<span class="math inline">\(s_1^2/s_2^2=100\)</span>) the conventional t-test leads to acceptable Type-I error rates. However this not the case with unequal sample sizes. <span class="citation">Field, Miles, and Field (<a href="#ref-Andy2012">2012</a>)</span> states that tests for the variance homogeneity, i.e. Levene, might not perform well with small and unequal sample sizes. The problems with tests on variance is that they are not powerful enough to detect inequality of variance even when it is large enough to cause problems with the t test and most are less robust to non-normality than the t test is. The <em>t.test</em> function , by default, does not assume equal variances and uses a Welch’s t-test.</p></li>
+</ol>
+<p>Even though we briefly summarized the assumptions of the independent groups t-test above, they were only introductory. For example we did not discuss violating equal variance and normality simultaneously. The discussion of what is “acceptable” is another limitation for our brief summary, for example when n1 = n2 = 10 we estimated the Type I error rate for <span class="math inline">\(\alpha = .01\)</span> and a non-directional test to be .018 based on a 100000 replications. Most people would see .018 as liberal with <span class="math inline">\(\alpha = .01\)</span></p>
+<p>There is an enormous literature on the effects of violating the assumptions of the independent samples t test on both Type I error rate and power and a great deal is known about when the independent samples t test works well and when it does not. However, because that literature is so large it is difficult to summarize it in a way that will allow data analysts to decide in every situation if the independent samples t test should be used. Perhaps a reasonable summary is that if independence appears to be violated an appropriate alternative to the independent sample t test should be used. If independence does not appear to be violated, then when the sample sizes are equal and at least 20 in each group and the scores are approximately normally distributed the independent samples t test can be used. In other situations alternatives to the independent samples t test should be used.</p>
+</div>
+<div id="using-welchs-t-test" class="section level3">
+<h3><span class="header-section-number">8.1.3</span> Using Welch’s t test</h3>
+<p>Welch’ t-test can be conveniently implemented in R and is a reasonable choice for comparing means for independent groups when the normality is not severely violated, the groups have different sample sizes and each groups’ sample size is reasonable large, (e.g. &gt; 20) , and the homogeneity of variance assumption is not made.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
+<span class="kw">t.test</span>(gen_att~HEF,<span class="dt">data=</span>dataWBT_USAK,<span class="dt">var.equal=</span>F,
+                                     <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>,
+                                     <span class="dt">conf.level=</span><span class="fl">0.95</span>)
+## 
+##  Welch Two Sample t-test
+## 
+## data:  gen_att by HEF
+## t = 1.9028, df = 95.885, p-value = 0.06006
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.008484626  0.401462282
+## sample estimates:
+## mean in group non-college     mean in group college 
+##                  1.831783                  1.635294</code></pre></div>
+<div id="write-up-for-non-directional-welchs-t-test" class="section level4">
+<h4><span class="header-section-number">8.1.3.1</span> Write up for non-directional Welch’s t-test:</h4>
+<p>An independent groups Welch’s t-test showed that in the city of USAK, the gender attitudes scores for the college graduates (n=51, mean=1.64, SD=0.61, skew=1.19, kurtosis=1.09) were not statistically different than the non-college graduates (n=86, mean=1.83, SD=0.54, skew=0.72, kurtosis=0.90), t(95.89)=1.90, p=0.06. The 95% confidence interval was [-0.008,0.402].</p>
+<p>When the departures from the normality is severe, especially when the groups demonstrate substantially different distributions, a percentile bootstrap procedure is effective (<span class="citation">Wilcox (<a href="#ref-wilcox2012">2012</a>)</span>,page 171).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Calculate 95% CI using bootstrap (normality is not assumed)</span>
+<span class="kw">set.seed</span>(<span class="dv">04012017</span>)
+B=<span class="dv">5000</span>       <span class="co"># number of bootstraps</span>
+alpha=<span class="fl">0.05</span>   <span class="co"># alpha</span>
+
+<span class="co"># define groups</span>
+GroupCollege=<span class="kw">na.omit</span>(dataWBT_USAK[dataWBT_USAK$HEF==<span class="st">&quot;college&quot;</span>,<span class="st">&quot;gen_att&quot;</span>])
+GroupNONcollege=<span class="kw">na.omit</span>(dataWBT_USAK[dataWBT_USAK$HEF==<span class="st">&quot;non-college&quot;</span>,<span class="st">&quot;gen_att&quot;</span>])
+
+output=<span class="kw">c</span>()
+for (i in <span class="dv">1</span>:B){
+
+  x1=<span class="kw">mean</span>(<span class="kw">sample</span>(GroupCollege,<span class="dt">replace=</span>T,<span class="dt">size=</span><span class="kw">length</span>(GroupCollege)))
+  x2=<span class="kw">mean</span>(<span class="kw">sample</span>(GroupNONcollege,<span class="dt">replace=</span>T,<span class="dt">size=</span><span class="kw">length</span>(GroupNONcollege)))
+  output[i]=x2-x1
+  }
+output=<span class="kw">sort</span>(output)
+
+## non-directional 
+<span class="co"># D star lower</span>
+output[<span class="kw">as.integer</span>(B*alpha/<span class="dv">2</span>)+<span class="dv">1</span>]
+## [1] -0.01338349
+
+<span class="co"># D star upper</span>
+output[B-<span class="kw">as.integer</span>(B*alpha/<span class="dv">2</span>)]
+## [1] 0.3899111
+
+##Directional x2&gt;x1
+<span class="co"># D star lower</span>
+output[<span class="kw">as.integer</span>(B*alpha)+<span class="dv">1</span>]
+## [1] 0.02202462
+
+<span class="co">#wrong direction x2&lt;x1</span>
+<span class="co"># D star upper</span>
+output[<span class="kw">as.integer</span>(B*(<span class="dv">1</span>-alpha))]
+## [1] 0.3575695</code></pre></div>
+</div>
+<div id="write-up-for-percentile-bootstrap-method" class="section level4">
+<h4><span class="header-section-number">8.1.3.2</span> Write up for percentile bootstrap method:</h4>
+<p>In the city of USAK, the gender attitudes scores for the college graduates (n=51, mean=1.64, SD=0.61, skew=1.19, kurtosis=1.09) were not statistically different than the non-college graduates (n=86, mean=1.83, SD=0.54, skew=0.72, kurtosis=0.90) given that the 95% confidence interval was [-0.013,0.390].<a href="#fn11" class="footnoteRef" id="fnref11"><sup>11</sup></a></p>
+<p>For a directional test: When the direction is appropriately stated in the alternative hypothesis, the lower limit of the 95% CI is 0.022 and yields the rejection of the null hypothesis of <span class="math inline">\(H_0:\mu_{non-college} = \mu_{college}\)</span> in favor of <span class="math inline">\(H_1:\mu_{non-college}-\mu_{college} &gt; 0\)</span>.</p>
+<p>For a directional test: When the direction is NOT appropriately stated in the alternative hypothesis, the upper limit of the 95% CI is 0.358 and yields the retaining of the null hypothesis of <span class="math inline">\(H_0:\mu_{non-college} = \mu_{college}\)</span> against the <span class="math inline">\(H_1:\mu_{non-college}-\mu_{college} &lt; 0\)</span>.</p>
+</div>
+</div>
+<div id="indepteff" class="section level3">
+<h3><span class="header-section-number">8.1.4</span> Effect size for the independent groups t-test</h3>
+<p>A t statistic tells whether the mean difference is large in a statistical sense but not in a substantive sense. To judge whether a mean difference is large in a substantive sense one can use an effect size. Cohen’s effect size is difference between the mean divided by the pooled standard deviation and can be computed using; <span class="math display">\[ES=\frac{t}{\sqrt{\frac{n_1n_2}{n_1+n_2}}}\]</span></p>
+<p>Effect sizes are often judged in terms of criteria suggested by <span class="citation">Cohen (<a href="#ref-cohen1962">1962</a>)</span>.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Effect Size</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">.2</td>
+<td align="center">Small</td>
+</tr>
+<tr class="even">
+<td align="center">.5</td>
+<td align="center">Medium</td>
+</tr>
+<tr class="odd">
+<td align="center">.8</td>
+<td align="center">Large</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">##  the normality and the equal variances assumptions are made 
+## given the robust procedures provided roughly the same results
+n1=<span class="dv">51</span>
+n2=<span class="dv">86</span>
+tval=<span class="fl">1.96</span>
+
+ES=tval/<span class="kw">sqrt</span>((n1*n2)/(n1+n2))
+ES
+## [1] 0.3464033
+
+<span class="co">#or by the package effsize</span>
+<span class="kw">t.test</span>(gen_att~HEF,<span class="dt">data=</span>dataWBT_USAK,<span class="dt">var.equal=</span>F,
+                                     <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>,
+                                     <span class="dt">conf.level=</span><span class="fl">0.95</span>)
+## 
+##  Welch Two Sample t-test
+## 
+## data:  gen_att by HEF
+## t = 1.9028, df = 95.885, p-value = 0.06006
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.008484626  0.401462282
+## sample estimates:
+## mean in group non-college     mean in group college 
+##                  1.831783                  1.635294
+<span class="kw">library</span>(effsize)
+<span class="kw">cohen.d</span>(gen_att~HEF,<span class="dt">data=</span>dataWBT_USAK, <span class="dt">paired=</span>F, <span class="dt">conf.level=</span><span class="fl">0.95</span>,<span class="dt">noncentral=</span>F)
+## 
+## Cohen&#39;s d
+## 
+## d estimate: 0.346177 (small)
+## 95 percent confidence interval:
+##          inf          sup 
+## -0.008425638  0.700779597
+<span class="co"># experiment noncentral=T.</span></code></pre></div>
+<p>The effsize package <span class="citation">(Torchiano <a href="#ref-R-effsize">2016</a>)</span> reported an effect size of 0.35 with a 95% CI of [-0.008, 0.701]</p>
+</div>
+<div id="extra-practical-significance-vs-statistical-significance" class="section level3">
+<h3><span class="header-section-number">8.1.5</span> Extra: Practical significance vs statistical significance</h3>
+<p>There are a number of points to keep in mind about practical significance (a term similar to practical significance is clinical significance.) versus statistical significance.</p>
+<p>What do these terms mean? In treatment studies, statistically significant means large enough to be unlikely to have occurred by sampling error if the population means are equal whereas practically significant means large enough to be judged as practically important. Note then that significant has a different meaning in the two terms.</p>
+<p>In treatment studies, practical significance can be measured by the mean difference or, when the scale of measurement is not well understood, by the effect size.</p>
+<p>The claim is sometimes made that and effect can be practically significant but not statistically significant. This would mean that the effect is judged to be large but is not statistically significant. The problem with this claim is that an effect that is large but not statistically significant can only occur in a small study. Therefore the effect will be imprecisely estimated, which undermines the credibility of the claim that the effect is practically significant.</p>
+<p>Another claim sometimes made is that an effect can be statistically significant, but not practically significant. This claim can be correct. For example, suppose there were 400 participants in an experiment, resulting in 200 participants in each group. The researcher found a small ES of 0.20 which is significantly different than zero (t = 2, p &lt; .05). If we regard an effect size of .2 as not practically significant then we have an effect that is statistically, but not practically significant.</p>
+</div>
+<div id="missing-data-techniques-for-the-independent-groups-t-test" class="section level3">
+<h3><span class="header-section-number">8.1.6</span> Missing data techniques for the independent groups t-test</h3>
+<p>To be added</p>
+</div>
+<div id="supportive-graphs-for-the-independent-groups-t-test" class="section level3">
+<h3><span class="header-section-number">8.1.7</span> Supportive graphs for the independent groups t-test</h3>
+<p>To be added</p>
+</div>
+<div id="power-calculations-for-the-independent-groups-t-test" class="section level3">
+<h3><span class="header-section-number">8.1.8</span> Power calculations for the independent groups t-test</h3>
+<p>Section <a href="descriptive-statistics-and-hypthoses-testing.html#statisticalpower">7.3.8</a> provided the basics of statistical power.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#power.t.test</span>
+<span class="kw">power.t.test</span>(<span class="dt">delta=</span>.<span class="dv">35</span>, <span class="dt">sd=</span>.<span class="dv">6</span>,<span class="dt">sig.level=</span><span class="fl">0.05</span>, <span class="dt">power=</span><span class="fl">0.95</span>, 
+             <span class="dt">type=</span><span class="st">&quot;two.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)
+## 
+##      Two-sample t test power calculation 
+## 
+##               n = 77.35093
+##           delta = 0.35
+##              sd = 0.6
+##       sig.level = 0.05
+##           power = 0.95
+##     alternative = two.sided
+## 
+## NOTE: n is number in *each* group</code></pre></div>
+<p>This illustration shows that for the pre-determined knowns of a mean difference of 0.35, a standard deviation of 0.6, an alpha level of 0.05, a non-directional test and a desired power of 0.95, the sample size should be 78 in each group. In other words, the probability of rejecting the null (<span class="math inline">\(H_0:\mu_1-\mu_2=0\)</span>) is .95 with a sample size of 156, a mean difference of 0.35, SD=0.6, alpha=0.05 and a non-directional independent t-test.</p>
+</div>
+</div>
+<div id="the-dependent-groups-t-test-within-subjects-t-test" class="section level2">
+<h2><span class="header-section-number">8.2</span> The dependent groups t-test (Within-subjects t-test)</h2>
+<p>To examine whether surgical tape or suture is a better method for closing wounds, for each of 20 rats incisions were made on both sides of the spine. One of the wounds was closed by using tape; the other was sutured. The side closed by tape was determined at random. After 10 days the tensile strength of the wounds was measured. The following are the data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">wounds=<span class="kw">data.frame</span>(<span class="dt">ratid=</span><span class="dv">1</span>:<span class="dv">20</span>,
+                  <span class="dt">tape=</span><span class="kw">c</span>(<span class="fl">6.59</span>,<span class="fl">9.84</span> ,<span class="fl">3.97</span>,<span class="fl">5.74</span>,<span class="fl">4.47</span>,<span class="fl">4.79</span>,<span class="fl">6.76</span>,<span class="fl">7.61</span>,<span class="fl">6.47</span>,<span class="fl">5.77</span>,
+                         <span class="fl">7.36</span>,<span class="fl">10.45</span>,<span class="fl">4.98</span>,<span class="fl">5.85</span>,<span class="fl">5.65</span>,<span class="fl">5.88</span>,<span class="fl">7.77</span>,<span class="fl">8.84</span>,<span class="fl">7.68</span>,<span class="fl">6.89</span>),
+                  <span class="dt">suture=</span><span class="kw">c</span>(<span class="fl">4.52</span>,<span class="fl">5.87</span>,<span class="fl">4.60</span>,<span class="fl">7.87</span>,<span class="fl">3.51</span>,<span class="fl">2.77</span>,<span class="fl">2.34</span>,<span class="fl">5.16</span>,<span class="fl">5.77</span>,<span class="fl">5.13</span>,
+                           <span class="fl">5.55</span>,<span class="fl">6.99</span>,<span class="fl">5.78</span>,<span class="fl">7.41</span>,<span class="fl">4.51</span>,<span class="fl">3.96</span>,<span class="fl">3.56</span>,<span class="fl">6.22</span>,<span class="fl">6.72</span>,<span class="fl">5.17</span>))
+
+<span class="co"># Create plot data</span>
+<span class="kw">library</span>(tidyr)
+plotdata=<span class="kw">gather</span>(wounds, method, strength, tape:suture, <span class="dt">factor_key=</span><span class="ot">TRUE</span>)
+
+<span class="kw">require</span>(ggplot2)
+<span class="kw">ggplot</span>(plotdata, <span class="kw">aes</span>(<span class="dt">x =</span> strength)) +
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..),<span class="dt">col=</span><span class="st">&quot;black&quot;</span>,<span class="dt">alpha=</span><span class="fl">0.7</span>) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">size=</span><span class="dv">2</span>) +
+<span class="st">  </span><span class="kw">theme_bw</span>()+<span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;strength&quot;</span>)+<span class="st"> </span><span class="kw">facet_wrap</span>(~<span class="st"> </span>method)+
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">15</span>),
+        <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>,<span class="dt">face=</span><span class="st">&quot;bold&quot;</span>))</code></pre></div>
+<div class="figure"><span id="fig:woundsexampleplot"></span>
+<img src="SARP_files/figure-html/woundsexampleplot-1.png" alt="Wounds example" width="672" />
+<p class="caption">
+Figure 8.2: Wounds example
+</p>
+</div>
+<div id="r-codes-for-the-dependent-groups-t-test" class="section level3">
+<h3><span class="header-section-number">8.2.1</span> R codes for the dependent groups t-test</h3>
+<p>The following are the steps for conducting the dependent groups t-test and R code for implementing the steps</p>
+<ol style="list-style-type: decimal">
+<li>Create descriptive statistics</li>
+<li>Calculate the test statistic</li>
+</ol>
+<p><span class="math display">\[t=\frac{\bar{Y_1}-\bar{Y_2}}{\sqrt{\frac{S_1^2+S_2^2-2S_1 S_2 r_{12}}{n}}}\]</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Find the critical value <span class="math inline">\(\pm t_{\alpha/2,n-1}\)</span>to test <span class="math display">\[H_0:\mu_1-\mu_2=0\]</span> <span class="math display">\[H_1:\mu_1-\mu_2 \neq0\]</span></li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
+<span class="kw">library</span>(psych)
+descDT=<span class="kw">with</span>(wounds,<span class="kw">describe</span>(<span class="kw">cbind</span>(tape,suture)))
+descDT
+##        vars  n mean   sd median trimmed  mad  min   max range  skew
+## tape      1 20 6.67 1.71   6.53    6.54 1.45 3.97 10.45  6.48  0.55
+## suture    2 20 5.17 1.49   5.17    5.19 1.30 2.34  7.87  5.53 -0.08
+##        kurtosis   se
+## tape      -0.45 0.38
+## suture    -0.87 0.33
+
+corDT=<span class="kw">with</span>(wounds,<span class="kw">cor</span>(tape,suture,<span class="dt">use=</span><span class="st">&quot;complete.obs&quot;</span>))
+corDT
+## [1] 0.3536491
+
+
+<span class="co"># estimated standard error</span>
+ese=<span class="kw">sqrt</span>(((<span class="fl">1.71</span>^<span class="dv">2</span><span class="fl">+1.49</span>^<span class="dv">2</span>)-(<span class="dv">2</span>*<span class="fl">1.71</span>*<span class="fl">1.49</span>*corDT))/(<span class="dv">20</span>))
+
+<span class="co"># t-statistic</span>
+tstatistic=(<span class="fl">6.67-5.17</span>)/ese
+
+<span class="co"># critical value for alpha=0.05</span>
+<span class="kw">qt</span>(.<span class="dv">975</span>,<span class="dt">df=</span><span class="dv">19</span>)
+## [1] 2.093024</code></pre></div>
+<p>Given 3.67 is grater than the critical value of <span class="math inline">\(t_{.975,19}=2.09\)</span> , <span class="math inline">\(H_0\)</span> is rejected</p>
+<p>A more convenient R code would be;</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
+<span class="kw">library</span>(psych)
+<span class="kw">with</span>(wounds, <span class="kw">t.test</span>(tape,suture,<span class="dt">paired=</span>T,
+                                     <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>,
+                                     <span class="dt">conf.level=</span><span class="fl">0.95</span>))
+## 
+##  Paired t-test
+## 
+## data:  tape and suture
+## t = 3.6678, df = 19, p-value = 0.001636
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  0.6429426 2.3520574
+## sample estimates:
+## mean of the differences 
+##                  1.4975</code></pre></div>
+<div id="write-up-for-non-directional-dependent-groups-t-test" class="section level4">
+<h4><span class="header-section-number">8.2.1.1</span> Write up for non-directional dependent groups t-test:</h4>
+<p>A dependent groups t-test showed that the tensile strength after surgical tape (mean=6.67, SD=1.71, skew=0.55, kurtosis=-0.45) was statistically different than the tensile strength after the suture (mean=5.17, SD=1.49, skew=-0.08, kurtosis=-0.87), t(19)=3.67, p=0.002 ,r=0.35. The 95% confidence interval was [0.64,2.35].</p>
+</div>
+</div>
+<div id="assumption-for-the-dependent-groups-t-test" class="section level3">
+<h3><span class="header-section-number">8.2.2</span> Assumption for the dependent groups t-test</h3>
+<p>The score difference (<span class="math inline">\(Y_{1i} - Y_{2i}\)</span>) should be normally distributed and the difference scores should be independent.However,the dependent t test is expected to be robust to normality with large sample sizes.</p>
+</div>
+<div id="robust-estimation-for-the-dependent-groups-t-test" class="section level3">
+<h3><span class="header-section-number">8.2.3</span> Robust estimation for the dependent groups t-test</h3>
+<p>When the departures from the normality is severe, a percentile bootstrap procedure can be employed (<span class="citation">Wilcox (<a href="#ref-wilcox2012">2012</a>)</span>,page 201).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Calculate 95% CI using bootstrap (normality is not assumed)</span>
+<span class="kw">set.seed</span>(<span class="dv">04012017</span>)
+B=<span class="dv">5000</span>       <span class="co"># number of bootstraps</span>
+alpha=<span class="fl">0.05</span>   <span class="co"># alpha</span>
+
+wounds=<span class="kw">data.frame</span>(<span class="dt">ratid=</span><span class="dv">1</span>:<span class="dv">20</span>,
+                  <span class="dt">tape=</span><span class="kw">c</span>(<span class="fl">6.59</span>,<span class="fl">9.84</span> ,<span class="fl">3.97</span>,<span class="fl">5.74</span>,<span class="fl">4.47</span>,<span class="fl">4.79</span>,<span class="fl">6.76</span>,<span class="fl">7.61</span>,<span class="fl">6.47</span>,<span class="fl">5.77</span>,
+                         <span class="fl">7.36</span>,<span class="fl">10.45</span>,<span class="fl">4.98</span>,<span class="fl">5.85</span>,<span class="fl">5.65</span>,<span class="fl">5.88</span>,<span class="fl">7.77</span>,<span class="fl">8.84</span>,<span class="fl">7.68</span>,<span class="fl">6.89</span>),
+                  <span class="dt">suture=</span><span class="kw">c</span>(<span class="fl">4.52</span>,<span class="fl">5.87</span>,<span class="fl">4.60</span>,<span class="fl">7.87</span>,<span class="fl">3.51</span>,<span class="fl">2.77</span>,<span class="fl">2.34</span>,<span class="fl">5.16</span>,<span class="fl">5.77</span>,<span class="fl">5.13</span>,
+                           <span class="fl">5.55</span>,<span class="fl">6.99</span>,<span class="fl">5.78</span>,<span class="fl">7.41</span>,<span class="fl">4.51</span>,<span class="fl">3.96</span>,<span class="fl">3.56</span>,<span class="fl">6.22</span>,<span class="fl">6.72</span>,<span class="fl">5.17</span>))
+
+output=<span class="kw">c</span>()
+for (i in <span class="dv">1</span>:B){
+  <span class="co">#sample rows</span>
+  bs_rows=<span class="kw">sample</span>(wounds$ratid,<span class="dt">replace=</span>T,<span class="dt">size=</span><span class="kw">nrow</span>(wounds))
+  bs_sample=wounds[bs_rows,]
+  mean1=<span class="kw">mean</span>(bs_sample$tape)
+  mean2=<span class="kw">mean</span>(bs_sample$suture)
+  output[i]=mean1-mean2
+  }
+output=<span class="kw">sort</span>(output)
+
+## Uni-directional 
+<span class="co"># d star lower</span>
+output[<span class="kw">as.integer</span>(B*alpha/<span class="dv">2</span>)+<span class="dv">1</span>]
+## [1] 0.6865
+
+<span class="co"># d star upper</span>
+output[B-<span class="kw">as.integer</span>(B*alpha/<span class="dv">2</span>)]
+## [1] 2.2415
+
+##Directional x2&gt;x1
+<span class="co"># d star lower</span>
+output[<span class="kw">as.integer</span>(B*alpha)+<span class="dv">1</span>]
+## [1] 0.837
+
+<span class="co">#wrong direction x2&lt;x1</span>
+<span class="co"># d star upper</span>
+output[<span class="kw">as.integer</span>(B*(<span class="dv">1</span>-alpha))]
+## [1] 2.1445</code></pre></div>
+<div id="write-up-for-an-non-directional-percentile-bootstrap-method" class="section level4">
+<h4><span class="header-section-number">8.2.3.1</span> Write up for an non-directional percentile bootstrap method:</h4>
+<p>The tensile strength after surgical tape (mean=6.67, SD=1.71, skew=0.55, kurtosis=-0.45) was statistically different than the tensile strength after the suture (mean=5.17, SD=1.49, skew=-0.08, kurtosis=-0.87) given that the 95% confidence interval was [0.667,2.2555].<a href="#fn12" class="footnoteRef" id="fnref12"><sup>12</sup></a>:</p>
+</div>
+</div>
+<div id="effect-size-for-the-dependent-groups-t-test" class="section level3">
+<h3><span class="header-section-number">8.2.4</span> Effect size for the dependent groups t-test</h3>
+<p>A simple effect size formulae for a dependent t test is (Equation 7 in <span class="citation">Lakens (<a href="#ref-lakens2013">2013</a>)</span>)<a href="#fn13" class="footnoteRef" id="fnref13"><sup>13</sup></a>;</p>
+<p><span class="math display">\[ES=\frac{t}{\sqrt{n}}\]</span></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">##  the normality and the equal variances assumptions are made 
+## given the robust procedures provided roughly the same results
+n=<span class="dv">20</span>
+tval=<span class="fl">3.6678</span>
+
+ES=tval/<span class="kw">sqrt</span>(n)
+ES
+## [1] 0.820145
+
+<span class="kw">library</span>(effsize)
+<span class="kw">cohen.d</span>(wounds$tape,wounds$suture, 
+        <span class="dt">paired=</span>T, <span class="dt">conf.level=</span><span class="fl">0.95</span>,<span class="dt">noncentral=</span>F)
+## 
+## Cohen&#39;s d
+## 
+## d estimate: 0.820134 (large)
+## 95 percent confidence interval:
+##       inf       sup 
+## 0.1348856 1.5053823</code></pre></div>
+<p>The effsize package <span class="citation">(Torchiano <a href="#ref-R-effsize">2016</a>)</span> reported an effect size of 0.820 and the 95% CI was [0.135, 1.505]</p>
+</div>
+<div id="missing-data-techniques-for-the-dependent-groups-t-test" class="section level3">
+<h3><span class="header-section-number">8.2.5</span> Missing data techniques for the dependent groups t-test</h3>
+<p>To be added</p>
+</div>
+<div id="supportive-graphs-for-the-dependent-groups-t-test" class="section level3">
+<h3><span class="header-section-number">8.2.6</span> Supportive graphs for the dependent groups t-test</h3>
+<p>To be added</p>
+</div>
+<div id="power-calculations-for-the-dependent-groups-t-test" class="section level3">
+<h3><span class="header-section-number">8.2.7</span> Power calculations for the dependent groups t-test</h3>
+<p>Section <a href="descriptive-statistics-and-hypthoses-testing.html#statisticalpower">7.3.8</a> provided the basics of statistical power.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#power.t.test</span>
+<span class="kw">power.t.test</span>(<span class="dt">delta=</span>.<span class="dv">35</span>, <span class="dt">sd=</span>.<span class="dv">6</span>,<span class="dt">sig.level=</span><span class="fl">0.05</span>, <span class="dt">power=</span><span class="fl">0.95</span>, 
+             <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)
+## 
+##      Paired t test power calculation 
+## 
+##               n = 40.16447
+##           delta = 0.35
+##              sd = 0.6
+##       sig.level = 0.05
+##           power = 0.95
+##     alternative = two.sided
+## 
+## NOTE: n is number of *pairs*, sd is std.dev. of *differences* within pairs</code></pre></div>
+<p>This illustration shows that for the pre-determined knowns of a mean difference of 0.35, a standard deviation of 0.6, an alpha level of 0.05, a non-directional test and a desired power of 0.95, the sample size (number of pairs) should be 41. In other words, the probability of rejecting the null (<span class="math inline">\(H_0:\mu_1-\mu_2=0\)</span>) is .95 with a sample size of 41, a mean difference of 0.35, SD=0.6, alpha=0.05 and a non-directional paired t-test.</p>
+</div>
+</div>
+<div id="common-designs" class="section level2">
+<h2><span class="header-section-number">8.3</span> Common Designs</h2>
+<p>We first present examples of designs commonly used in studies in the social and behavioral sciences to compare two means. The steps used in such studies are</p>
+<ol style="list-style-type: decimal">
+<li>obtain scores under each of the two treatments</li>
+<li>compute the mean for each treatment, and</li>
+<li>compare the means using a statistical hypothesis test.</li>
+</ol>
+<p>An important distinction in selecting a statistical test is whether the scores in the two treatments are correlated or independent. We classify the designs by whether the scores in the two treatments are correlated or independent. Then We turn to a presentation of terminology for describing designs. This terminology facilitates discussion of designs and determining the correct data analysis procedure to use with a design.</p>
+<div id="designs-in-which-scores-in-the-two-treatments-are-correlated" class="section level3">
+<h3><span class="header-section-number">8.3.1</span> Designs in which Scores in the Two Treatments are Correlated</h3>
+<p>We want to be able to determine whether the scores used to compute one mean are likely to be correlated with the scores used to compute the second mean. While this goal would seem to require analyzing the data, the surface characteristics of the design used to collect the data can be used to determine whether or not the scores are likely to be correlated.</p>
+<div id="repeated-measures-designs" class="section level4">
+<h4><span class="header-section-number">8.3.1.1</span> Repeated measures designs</h4>
+<p>These are designs in which multiple measurements of the same variables are made on the same subjects.</p>
+<ol style="list-style-type: decimal">
+<li><strong>Subjects as own control design:</strong> To examine whether activation of a concept in semantic memory increases accessibility of related concepts, 100 college students were asked to read pairs of words. The first member of each pair was either a weapon word (such as “dagger” or “bullet”) or a non-weapon word. The second member was always an aggressive word (such as “destroy” or “wound”). On each of 192 trials, a computer presented a priming stimulus word (either a weapon or non-weapon word) for 1.25 seconds, a blank screen for 0.5 seconds, and then the target aggressive word. The experimenter instructed the participants to read the first word to themselves and then to read the second word out loud as quickly as they could. The computer recorded how long it took to read the second word. Average reaction time was computed for each participant under each type of prime word. The data could be recorded in a table like the following</li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th align="center"></th>
+<th align="center">Prime Word</th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Subject</td>
+<td align="center">Weapon</td>
+<td align="center">Non-weapon</td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">…</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">100</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p>Based on the idea that some participants read more quickly than others, we would expect the reaction times under the two types of prime words to be correlated.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Longitudinal designs:</strong> Mathematics achievement is measured twice for 48 6th grade students: at the beginning of the school year and at the end of the school year. The purpose is to test whether or not the means change over time. The data could be recorded in a table like the following</li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th align="center"></th>
+<th align="center">Time</th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Subject</td>
+<td align="center">Beginning</td>
+<td align="center">End</td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">…</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">48</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p>Because the same students are measured on each occasion we expect the scores to be correlated over time.</p>
+</div>
+<div id="blocking-designs" class="section level4">
+<h4><span class="header-section-number">8.3.1.2</span> Blocking designs</h4>
+<p>These are designs in which participants are placed in pairs; the members of each pair are expected to perform similarly.</p>
+<ol style="list-style-type: decimal">
+<li><strong>Randomized Block Design:</strong> A study was conducted to examine the effects of metacognitive instruction on reading. Thirty second-grade students were administered a reading test and placed in pairs based on the results.</li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Pair</th>
+<th align="center">Ranks on Reading Pretest</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">1,2</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">3,4</td>
+</tr>
+<tr class="odd">
+<td align="center">…</td>
+<td align="center">…</td>
+</tr>
+<tr class="even">
+<td align="center">15</td>
+<td align="center">29,30</td>
+</tr>
+</tbody>
+</table>
+<p>As shown, the students with the two highest scores were in the first pair, the students with the second highest scores were in the second pair, and so forth. From within each pair one student was randomly assigned to the metacognitive training and one to the control treatment.</p>
+<p>Following completion of training the students were tested again on reading. The purpose was to determine whether or not type of training affected mean reading. The data can be recorded in a table like the following</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Training</th>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Pair</td>
+<td align="center">Metacognitive</td>
+<td align="center">Control</td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">…</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">…</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">15</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p>Clearly the scores on the reading pretest will be correlated for pairs of students. However, the scores that are to be analyzed are the scores on the reading posttest. Will these be correlated? Because the students within the first pair have the two highest reading pretest scores, we would expect the student assigned from this pair to the metacognitive treatment to have among the highest scores on the reading posttest; similarly for the student assigned to the control treatment. The students within the last pair have the two lowest reading pretest scores. Therefore we would expect the student assigned from this pair to the metacognitive treatment to have among the lowest scores on the reading posttest; similarly for the student assigned to the control treatment.</p>
+<p>The term block is a more general term than pair. It refers to a group of subjects who are homogeneous on some variable. When there are just two treatments a randomized block design (RBD) can be diagrammed as follows:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Treatments</th>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Block</td>
+<td align="center">1</td>
+<td align="center">2</td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">…</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">n</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p>Each block is a pair of subjects. One member of the block is exposed to treatment 1 and the other is exposed to treatment 2.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Nonrandomized block design:</strong> A study is conducted to investigate state anxiety levels of physically abused children in a stressful situation. A control group consists of non-abused children matched (matched is a synonym for blocked when each block consists of a pair of subjects) on trait anxiety with the abused children. There were 20 abused children in the study. The data could be recorded in a table like the following:</li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Type of Child</th>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Pair</td>
+<td align="center">Abused</td>
+<td align="center">Control</td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">…</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">20</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p>We expect the state anxiety scores to be correlated because of the matching on trait anxiety.</p>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>Familial Designs:</strong> Twenty-five pairs of mothers and adult daughters are surveyed about their political views. The purpose is to test for mean differences between mothers and daughters. The data could be recorded in a table like the following:</li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Pair</th>
+<th align="center">Type of Person</th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"></td>
+<td align="center">Mother</td>
+<td align="center">Daughter</td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">…</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">25</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p>We expect the political views of mothers and daughters to be at least somewhat correlated.</p>
+<ol start="4" style="list-style-type: decimal">
+<li><strong>Dyad Designs:</strong> Fifty pairs of African-American and European-American students are formed. The pairs complete a task involving cooperation. Following completion of the task, subject rate the cooperativeness of their partner. The data could be recorded in a table like the following</li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Ethnic Background</th>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Pair</td>
+<td align="center">African American</td>
+<td align="center">European American</td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">…</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">25</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p>We expect the cooperativeness scores for members of a pair to be related.</p>
+</div>
+</div>
+<div id="designbetween" class="section level3">
+<h3><span class="header-section-number">8.3.2</span> Designs in which Scores in the Two Treatments are Independent</h3>
+<ol style="list-style-type: decimal">
+<li><strong>Completely Randomized Design:</strong> It has been proposed that pain can be treated with magnetic fields. Fifty patients experiencing arthritic pain were recruited. Half of the patients were randomly assigned to be treated with an active magnetic device and half were assigned to be treated with an inactive device. All patients rated their pain after application of the device. The purpose is to determine whether or not type of device affects mean pain ratings. The data can be recorded in a table like the following:</li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Device</th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Magnetic</td>
+<td align="center">Inactive</td>
+</tr>
+<tr class="even">
+<td align="center">.</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">.</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">.</td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p>Note that there is no way to pair the scores and that therefore the scores cannot be correlated.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Nonrandomized Design:</strong> Fifty 8th grade boys and 50 8th grade girls take a test on addition of two-digit addition. The test is computer generated and measures the amount of time taken to answer each question. The purpose is to determine whether or not there are gender differences in mean time to respond. Again there is no way to pair the scores and that therefore the scores cannot be correlated.</li>
+</ol>
+
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-myerswell13">
+<p>Myers, Jerome L., A. Well, Robert F. Lorch, and Ebooks Corporation. 2013. <em>Research Design and Statistical Analysis</em>. 3rd ed. New York: Routledge.</p>
+</div>
+<div id="ref-Andy2012">
+<p>Field, Andy P., Jeremy Miles, and Zoë Field. 2012. <em>Discovering Statistics Using R</em>. Thousand Oaks, Calif;London; Sage.</p>
+</div>
+<div id="ref-wilcox2012">
+<p>Wilcox, Rand R. 2012. <em>Introduction to Robust Estimation and Hypothesis Testing</em>. 3rd;3; US: Academic Press.</p>
+</div>
+<div id="ref-cohen1962">
+<p>Cohen, Jacob. 1962. “The Statistical Power of Abnormal-Social Psychological Research: A Review.” <em>The Journal of Abnormal and Social Psychology</em> 65 (3): 145–53.</p>
+</div>
+<div id="ref-R-effsize">
+<p>Torchiano, Marco. 2016. <em>Effsize: Efficient Effect Size Computation</em>. <a href="https://CRAN.R-project.org/package=effsize" class="uri">https://CRAN.R-project.org/package=effsize</a>.</p>
+</div>
+<div id="ref-lakens2013">
+<p>Lakens, Daniel. 2013. “Calculating and Reporting Effect Sizes to Facilitate Cumulative Science: A Practical Primer for T-Tests and Anovas.” <em>Frontiers in Psychology</em> 4: 863. doi:<a href="https://doi.org/10.3389/fpsyg.2013.00863">10.3389/fpsyg.2013.00863</a>.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="10">
+<li id="fn10"><p>The descriptive statistics were calculated with the <em>psych</em> package <span class="citation">(Revelle <a href="#ref-R-psych">2016</a>)</span> and the t-test is conducted with the stats package <span class="citation">(R Core Team <a href="#ref-R-base">2016</a><a href="#ref-R-base">b</a>)</span>.<a href="comparing-two-means-the-t-test.html#fnref10">↩</a></p></li>
+<li id="fn11"><p>The descriptive statistics were calculated with the <em>psych</em> package <span class="citation">(Revelle <a href="#ref-R-psych">2016</a>)</span> and the non-directional percentile bootstrap method with 5000 replications was conducted with the base package <span class="citation">(R Core Team <a href="#ref-R-base">2016</a><a href="#ref-R-base">b</a>)</span>.<a href="comparing-two-means-the-t-test.html#fnref11">↩</a></p></li>
+<li id="fn12"><p>The descriptive statistics were calculated with the <em>psych</em> package <span class="citation">(Revelle <a href="#ref-R-psych">2016</a>)</span> and the non-directional percentile bootstrap method with 5000 replications was conducted with the base package <span class="citation">(R Core Team <a href="#ref-R-base">2016</a><a href="#ref-R-base">b</a>)</span>.<a href="comparing-two-means-the-t-test.html#fnref12">↩</a></p></li>
+<li id="fn13"><p>it goes to infinity as <em>r</em> goes to 1 even when the means are very similar. Equation 10 in <span class="citation">Lakens (<a href="#ref-lakens2013">2013</a>)</span> is more appropriate which is <span class="math inline">\(\frac{mean difference}{(SD_1+SD_2)/2}\)</span><a href="comparing-two-means-the-t-test.html#fnref13">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="descriptive-statistics-and-hypthoses-testing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="analysis-of-variance-anova.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/burakaydin/BAP2219/tree/gh-pages/07_t_test.Rmd",
+"text": "Edit"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

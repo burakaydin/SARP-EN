@@ -1,0 +1,75 @@
+
+
+# Preface
+
+We had teaching materials that can be put together in a better order, however, we do not claim we put them in the _best_ order. This platform will remain open source, please provide your feedback and feel free to contribute. Your name will be listed in the acknowledgment section.
+
+## Authors
+
+Our academic inputs are focused on research design and data analyses. Monte Carlo simulation studies are always in our research agenda. Our teaching load includes or included a course on quantitative foundations of educational research. We also share a common interest in multilevel modeling.
+
+
+### Burak Aydın, Ph.D.
+
+Dr. Aydın is a faculty member in the assessment and evaluation program in the College of Education at Recep Tayyip Erdoğan University in Turkey. He obtained a PhD degree in research methodology and a PhD minor degree in applied statistics. His research focuses on theory and application of structural equation modeling, multilevel modeling, and propensity score analyses. He has expertise in Monte Carlo simulation studies, R programming and analysis of complex longitudinal surveys. He has been an R user since 2010. For more information please visit <a href="http://www.aydinburak.net" target="_blank">Personal website</a> or <a href="http://aves.erdogan.edu.tr/burak.aydin/" target="_blank">RTEU website</a>
+
+
+### James Algina, Ph.D.
+
+Dr. Algina is a professor emeritus of research and evaluation methodology, College of Education. He is a co-author of Classical and Modern Test Theory (1986) and was a University of Florida Research Foundation Professor, a Fellow of the American Educational Research Association, and a Fellow of the American Psychological Association (Division 5). His research interests have been in effect sizes, robust methods of analysis, and sample size planning. Dr. Algina has published more than 100 refereed articles and chapters.
+He has served as PI, Co-PI or researcher on 20 grants. In these efforts, his primary role was the design of studies and analyses of data.Dr. Algina has mentored many junior faculty as well as master’s and doctoral students. In 2009, he received a University of Florida Doctoral Mentor Award. For more information please visit <a href="https://ceecs.education.ufl.edu/james-algina/" target="_blank">UF Anita Zucker Center</a>
+
+
+### Walter L. Leite, Ph.D.
+
+Dr. Leite is an associate professor at research and evaluation methodology department, College of Education, University of Florida. His current research program consists of developing and evaluating statistical methods to strengthen causal inference and understanding of causal mechanisms using quasi-experimental and non-experimental data. He specializes in structural equation modeling, multilevel modeling, and propensity score methods applied to statistical analysis of large scale longitudinal data, program evaluation,  and scale development and validation. For more information please visit <a href="https://education.ufl.edu/leite/" target="_blank">UF College of Education</a>
+
+## Acknowledgement
+We will list contributor's names here.
+
+## Data {#dataWBT}
+
+The data are publicly available and collected for a team of researchers sponsored by an intergovernmental organization (World Bank) and some other governmental and non-governmental organizations (the Spanish Impact Evaluation Fund, the Gender Action Plan, and the Turkish Labor Agency (İŞKUR)). The study sample included 5902 individuals randomly and representatively sampled among unemployed people in Turkey. A subset(all individuals but not all variables) of the original data can be accessed by following the steps in section \@ref(pullonline). This subset is named as dataWBT (data World Bank Turkey).
+
+The dataWBT include the following variables;
+
+1. id : an identification number for each individual
+2. treatment: Vocational training program, 1 = treatment, 2=control
+3. gender: male, female , unknown
+4. course taken: 51 different courses, from _accounting professionalist_ to _waiter_
+5. city: participants' current residence
+6. education: participants' highest degree
+7. father's education level : father's highest degree
+8. mother's education level : mother's highest degree
+9. item 1 - 6 : Six items to measure gender attitudes, 4 point Likert scale 1:Strongly Disagree, 2: Disagree, 3: Agree, 4: Strongly Agree. Higher scores imply higher level of sexism.
+10. higher Education: 1 for college education or higher, 0 for high school or lower
+11. age : participants' age by 2010
+12. total house income: Annual income (Turkish Lira) from 12 different sources
+13. total house member: Number of household members
+14. income per person : total house income/total house member
+15. gender attitudes score: mean of available scores for item 2 to 6 
+16. income sources: 12 different source of income
+
+The gender attitudes scale in the data included 6 items, missing data were rare, only the question number six had a non-response rate of 2.5% , all of the remaining questions had less than 1% non-response. Each item is a 4-point Likert scale; strongly disagree, disagree, agree and strongly agree.
+
+The validity and reliability studies (Gök and Aydın, in press) and prior use of the scale revealed that these 6 items can be scored in two different scenarios;
+
+a) In the first scenario a one-factor solution was tested and it has been concluded that items 2 to 6 might share an underlying construct. Hence, the average of these five items^[non-missing]  is named as the general _gender attitudes_ score. Higher scores indicate gender discrimination against women. 
+
+b) In the second scenario a two-factor solution was tested. The average of item 1 (reverse coded),  4 and 5 is named as _gender equality_  The average of item 2, 3 and 6 is named as _public approval perspective _ . In both, higher scores are not desired.
+
+
+__Gender Attitudes Questions Chosen by World Bank__
+
+1.  Both the husband and wife should contribute to household income. 
+2.  A university education is more important for a boy than for a girl.  
+3.  A married woman should not work outside the home unless forced to do so by economic circumstances. 
+4.  It is demeaning to a man for his wife to work.   
+5.  Women could express their opinions in the family but never in public.    
+6.  A wife must always obey her husband.    
+
+
+## Fund
+This work is funded by the Scientific Research Projects Unit of Recep Tayyip Erdoğan University, Turkey. Project ID: BAP-53005-601. 
+
+This project was rejected by TUBITAK (Turkish Scientific and Technological Research Council) on February 2016. Application ID: 1059B191501734. 

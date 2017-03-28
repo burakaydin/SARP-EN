@@ -1,0 +1,31 @@
+
+
+# R's Popularity
+
+R's popularity has been increasing on a daily basis.It is reported that every 1 in 100 scholarly articles indexed in Elsevier’s Scopus database 
+cited R or one of its packages in 2014 [@tipmann15]. This was in 2014, by the end of 2014 there were 2925 R packages available via Comprehensive R Archive Network (CRAN), but today there are more than 10000 packages.
+
+The number of available packages is another measure of R's popularity. Below shiny app is created to show you the number of R packages available via CRAN by now (Figure \@ref(fig:Rpacks)). The moment you opened this page, the app scanned CRAN to bring you the latest number and put it in a graph. You can brush points to see further details.
+
+```{r Rpacks, fig.cap='The number of R packages ', screenshot.opts=list(delay=100), dev='png', cache=TRUE, fig.align='center', fig.width=8, fig.height=8 , echo=FALSE}
+knitr::include_app('https://burakaydin.shinyapps.io/Rpacks/', height = '550px')
+```
+
+
+Even though the increase in the number of packages is a measure of R's popularity, it is more important to know if people are using these packages. Another shiny app is created by David Robinson, with his kind permission, Figure \@ref(fig:Rpackdown) can tell you the number of downloads for each package when the package name is provided.
+
+```{r Rpackdown, fig.cap='The number of R packages downloads ', screenshot.opts=list(delay=10), dev='png', cache=TRUE, fig.align='center', fig.width=8, fig.height=8, echo=FALSE}
+knitr::include_url('https://dgrtwo.shinyapps.io/cranview/', height = '900px')
+```
+
+
+
+__There are other indicators for R's popularity.__
+
+1. R has become a universal language for data analysis and it offers new methods sooner  [@Muenchen11].
+
+2. Among the Institute of Electrical and Electronics Engineers (IEEE) community, it is reported to be one of the top 5 programming languages <a href="http://blog.revolutionanalytics.com/popularity/" target="_blank">see</a>
+
+3. R courses are offered in universities and as Massive Open Online Courses.
+
+4. Private companies use R, i.e. Google, Twitter, Microsoft.
