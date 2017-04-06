@@ -1,5 +1,5 @@
 ---
-title: "BETA: An R Platform for Social Scientists"
+title: "An R Platform for Social Scientists"
 author: "Burak AYDIN, James ALGINA, Walter LEITE"
 date: "2017"
 output: bookdown::gitbook
@@ -8,7 +8,7 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-github-repo: burakaydin/BAP2219
+github-repo: burakaydin/SARP-EN
 description: "R book for social scientists"
 cover-image: images/coverpicture.png
 always_allow_html: yes

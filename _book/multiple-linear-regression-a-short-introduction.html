@@ -5,20 +5,20 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>BETA: An R Platform for Social Scientists</title>
+  <title>An R Platform for Social Scientists</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="R book for social scientists">
   <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
 
-  <meta property="og:title" content="BETA: An R Platform for Social Scientists" />
+  <meta property="og:title" content="An R Platform for Social Scientists" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/coverpicture.png" />
   <meta property="og:description" content="R book for social scientists" />
-  <meta name="github-repo" content="burakaydin/BAP2219" />
+  <meta name="github-repo" content="burakaydin/SARP-EN" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="BETA: An R Platform for Social Scientists" />
+  <meta name="twitter:title" content="An R Platform for Social Scientists" />
   
   <meta name="twitter:description" content="R book for social scientists" />
   <meta name="twitter:image" content="images/coverpicture.png" />
@@ -53,7 +53,7 @@
 <link href="libs/rglwidgetClass-2/rgl.css" rel="stylesheet" />
 <script src="libs/rglwidgetClass-2/rglClass.src.js"></script>
 <script src="libs/CanvasMatrix4-2016/CanvasMatrix.src.js"></script>
-<script src="libs/rglWebGL-binding-0.97.0/rglWebGL.js"></script>
+<script src="libs/rglWebGL-binding-0.98.1/rglWebGL.js"></script>
 
 
 <style type="text/css">
@@ -106,8 +106,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">SARP</a></li>
-<li><a href="https://burakaydin.github.io/SARP/_book/" target="blank">SAPR-TR</a></li>
+<li><a href="./">SARP-EN</a></li>
+<li><a href="https://bookdown.org/burak2358/SARP-TR/" target="blank">SARP-TR</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Cover</a><ul>
@@ -276,7 +276,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">BETA: An R Platform for Social Scientists</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">An R Platform for Social Scientists</a>
           </h1>
         </div>
 
@@ -494,7 +494,7 @@ residuals
 ## [11,]  0.5850
 ## [12,]  0.7303
 <span class="kw">qqnorm</span>(residuals)</code></pre></div>
-<p><img src="SARP_files/figure-html/unnamed-chunk-120-1.png" width="672" /></p>
+<p><img src="SARP-EN_files/figure-html/unnamed-chunk-120-1.png" width="672" /></p>
 <p>There are three common types of residuals;</p>
 <p>• Unstandardized residuals, that is, <span class="math inline">\(Y_i-\hat{Y_i}\)</span>. Unstandardized residuals are on the same scale as Y.</p>
 <p>• Standardized residuals: The residuals divided by the overall standard deviation of residuals; Standardized residuals are on a z-score scale (M = 0, SD = 1). When residuals are assumed to be normally distributed, it is common practice to identify outliers as Y values for which the absolute value of the standardized residual is larger than 2. However, it should be noted that this practice can be misleading because outliers can cause the regression coefficients to be poorly estimated and/or can increase the standard deviation of the residuals and both effects can cause poor outlier detection. In addition, if the residual are in fact normally distributed approximately %5 of the participants will have residuals beyone +/- 2.00. See <span class="citation">Wilcox (<a href="#ref-wilcox2012">2012</a>)</span> for more information about outlier detection.</p>
@@ -516,7 +516,7 @@ plotdata=<span class="kw">data.frame</span>(errors,predicted)
 <span class="kw">ggplot</span>(plotdata, <span class="kw">aes</span>(<span class="dt">x =</span> predicted, <span class="dt">y =</span> errors)) +
 <span class="st">  </span><span class="kw">geom_point</span>() +<span class="st"> </span><span class="kw">geom_hline</span>(<span class="dt">yintercept=</span><span class="dv">0</span>)+<span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Studentized residuals&quot;</span>)+
 <span class="st">  </span><span class="kw">theme_bw</span>()+<span class="kw">stat_smooth</span>()</code></pre></div>
-<p><img src="SARP_files/figure-html/unnamed-chunk-121-1.png" width="672" /></p>
+<p><img src="SARP-EN_files/figure-html/unnamed-chunk-121-1.png" width="672" /></p>
 <p>The blue line above, which is determined independently from the regression model, should be compared to the horizontal line at 0. The more similar the two lines, the less likely the linearity assumption is violated.</p>
 <p>Here is a plot, studentized residuals vs fitted values, from a mis-specified regression model on a simulated-data. The sample size is 100, there are two independent variables, and the relationship of Y and X2 is quadratic.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#simulate data</span>
@@ -534,7 +534,7 @@ plotdata=<span class="kw">data.frame</span>(errors,predicted)
 <span class="kw">ggplot</span>(plotdata, <span class="kw">aes</span>(<span class="dt">x =</span> predicted, <span class="dt">y =</span> errors)) +
 <span class="st">  </span><span class="kw">geom_point</span>() +<span class="st"> </span><span class="kw">geom_hline</span>(<span class="dt">yintercept=</span><span class="dv">0</span>)+<span class="kw">ylab</span>(<span class="st">&quot;Studentized residuals&quot;</span>)+
 <span class="st">  </span><span class="kw">theme_bw</span>()+<span class="kw">stat_smooth</span>()</code></pre></div>
-<p><img src="SARP_files/figure-html/unnamed-chunk-122-1.png" width="672" /></p>
+<p><img src="SARP-EN_files/figure-html/unnamed-chunk-122-1.png" width="672" /></p>
 <p>There is a pattern indicating that the model is omitting a quadratic association.However, this graph does not inform about the source of the quadratic association, see non-linearity section below.</p>
 <p>Unusual residuals should be inspected. Even when the residuals are substantially normally distributed and there is substantially no-pattern for the residual vs predicted value plot, there might be unusual residuals. Deciding whether a residual is unusual or not (e.g 3,4 or 5 standard deviation above), and more importantly whether to keep the observation in the data set or not requires justifications. Examine the code below to simulate data and examine the studentized residuals:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#simulate data</span>
@@ -613,9 +613,9 @@ plotdata=<span class="kw">data.frame</span>(errors,predicted)
 <span class="st">  </span><span class="kw">geom_point</span>() +<span class="st"> </span><span class="kw">geom_hline</span>(<span class="dt">yintercept=</span><span class="dv">0</span>)+<span class="kw">ylab</span>(<span class="st">&quot;Studentized residuals&quot;</span>)+
 <span class="st">  </span><span class="kw">geom_segment</span>(<span class="dt">mapping=</span><span class="kw">aes</span>(<span class="dt">xend =</span> predicted, <span class="dt">yend =</span> <span class="dv">0</span>)) +
 <span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
-<p><img src="SARP_files/figure-html/unnamed-chunk-126-1.png" width="672" /></p>
+<p><img src="SARP-EN_files/figure-html/unnamed-chunk-126-1.png" width="672" /></p>
 <p>The variance with smaller <span class="math inline">\(\hat Y\)</span> values are smaller. Below is a graph for a regression model on a simulated data with equal variance.</p>
-<p><img src="SARP_files/figure-html/unnamed-chunk-127-1.png" width="672" /></p>
+<p><img src="SARP-EN_files/figure-html/unnamed-chunk-127-1.png" width="672" /></p>
 </div>
 <div id="e-hypothesis-testing" class="section level3">
 <h3><span class="header-section-number">11.1.5</span> e) Hypothesis testing</h3>
@@ -785,7 +785,7 @@ APRtable$ppri=<span class="kw">rowSums</span>(APRtable[,<span class="dv">1</span
 <span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">15</span>),
         <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>,<span class="dt">face=</span><span class="st">&quot;bold&quot;</span>))</code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-131"></span>
-<img src="SARP_files/figure-html/unnamed-chunk-131-1.png" alt="All Possible Regressions" width="50%" /><img src="SARP_files/figure-html/unnamed-chunk-131-2.png" alt="All Possible Regressions" width="50%" />
+<img src="SARP-EN_files/figure-html/unnamed-chunk-131-1.png" alt="All Possible Regressions" width="50%" /><img src="SARP-EN_files/figure-html/unnamed-chunk-131-2.png" alt="All Possible Regressions" width="50%" />
 <p class="caption">
 Figure 11.1: All Possible Regressions
 </p>
@@ -845,7 +845,7 @@ simdata$Yvar=<span class="dv">3</span>+simdata$X1*<span class="dv">2</span>+simd
 
 model=<span class="kw">lm</span>(Yvar~X1+X2+X1*X2,<span class="dt">data=</span>simdata)
 <span class="kw">visreg2d</span>(model, <span class="st">&quot;X1&quot;</span>, <span class="st">&quot;X2&quot;</span>, <span class="dt">plot.type=</span><span class="st">&quot;persp&quot;</span>)</code></pre></div>
-<p><img src="SARP_files/figure-html/unnamed-chunk-133-1.png" width="672" /></p>
+<p><img src="SARP-EN_files/figure-html/unnamed-chunk-133-1.png" width="672" /></p>
 <p>The surface is flat indicating no interaction.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## manipulate simdata
 ## Yvarint: dependent variable on a interaction
@@ -855,7 +855,7 @@ simdata$Yvarint=<span class="dv">3</span>+simdata$X1*<span class="dv">1</span>+s
 
 model2=<span class="kw">lm</span>(Yvarint~X1+X2+X1*X2,<span class="dt">data=</span>simdata)
 <span class="kw">visreg2d</span>(model2, <span class="st">&quot;X1&quot;</span>, <span class="st">&quot;X2&quot;</span>, <span class="dt">plot.type=</span><span class="st">&quot;persp&quot;</span>)</code></pre></div>
-<p><img src="SARP_files/figure-html/unnamed-chunk-134-1.png" width="672" /></p>
+<p><img src="SARP-EN_files/figure-html/unnamed-chunk-134-1.png" width="672" /></p>
 <p>The surface is no longer flat in the presence of an interaction.</p>
 </div>
 <div id="m-estimators" class="section level3">
@@ -957,10 +957,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/burakaydin/BAP2219/tree/gh-pages/10_Regression.Rmd",
+"link": "https://github.com/burakaydin/SARP-EN/tree/gh-pages/10_Regression.Rmd",
 "text": "Edit"
 },
-"download": null,
+"download": ["SARP-EN.pdf", "SARP-EN.epub"],
 "toc": {
 "collapse": "subsection"
 }

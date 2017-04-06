@@ -5,20 +5,20 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>BETA: An R Platform for Social Scientists</title>
+  <title>An R Platform for Social Scientists</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="R book for social scientists">
   <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
 
-  <meta property="og:title" content="BETA: An R Platform for Social Scientists" />
+  <meta property="og:title" content="An R Platform for Social Scientists" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/coverpicture.png" />
   <meta property="og:description" content="R book for social scientists" />
-  <meta name="github-repo" content="burakaydin/BAP2219" />
+  <meta name="github-repo" content="burakaydin/SARP-EN" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="BETA: An R Platform for Social Scientists" />
+  <meta name="twitter:title" content="An R Platform for Social Scientists" />
   
   <meta name="twitter:description" content="R book for social scientists" />
   <meta name="twitter:image" content="images/coverpicture.png" />
@@ -53,7 +53,7 @@
 <link href="libs/rglwidgetClass-2/rgl.css" rel="stylesheet" />
 <script src="libs/rglwidgetClass-2/rglClass.src.js"></script>
 <script src="libs/CanvasMatrix4-2016/CanvasMatrix.src.js"></script>
-<script src="libs/rglWebGL-binding-0.97.0/rglWebGL.js"></script>
+<script src="libs/rglWebGL-binding-0.98.1/rglWebGL.js"></script>
 
 
 <style type="text/css">
@@ -106,8 +106,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">SARP</a></li>
-<li><a href="https://burakaydin.github.io/SARP/_book/" target="blank">SAPR-TR</a></li>
+<li><a href="./">SARP-EN</a></li>
+<li><a href="https://bookdown.org/burak2358/SARP-TR/" target="blank">SARP-TR</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Cover</a><ul>
@@ -276,7 +276,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">BETA: An R Platform for Social Scientists</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">An R Platform for Social Scientists</a>
           </h1>
         </div>
 
@@ -493,15 +493,15 @@ grades*<span class="fl">0.4</span> +<span class="st"> </span>grades2*<span class
 <span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">6</span>,<span class="dt">by=</span><span class="fl">0.5</span>)   <span class="co"># create 1 to 6 by 0.5</span>
 ##  [1] 1.0 1.5 2.0 2.5 3.0 3.5 4.0 4.5 5.0 5.5 6.0
 <span class="kw">rnorm</span>(<span class="dv">12</span>)        <span class="co"># create  12 random observations from ~N(0,1)</span>
-##  [1] -0.74591184  0.02518481  1.04051723  0.49475503 -0.42197626
-##  [6] -0.61093267  1.05899838 -0.97210516  0.65343795 -1.02404898
-## [11]  0.76987870  2.03406452
+##  [1]  0.565487388 -1.018685996  1.458378090 -0.008401406 -1.587439024
+##  [6] -0.390849461 -0.086776126 -0.325729674  0.302632427  0.419585257
+## [11] -0.107564110  0.441059100
 <span class="kw">rnorm</span>(<span class="dv">12</span>,<span class="dt">mean=</span><span class="dv">10</span>,<span class="dt">sd=</span><span class="dv">2</span>) <span class="co">#create 12 random observations from ~ N(10,2)</span>
-##  [1] 10.568527  9.660158 10.114534  9.433231  6.087909 12.899853 11.501301
-##  [8]  9.136847 12.736201 11.130494  9.081729 13.348163
+##  [1]  9.473062 11.187614 12.238048 15.273656 13.809459  9.070021  9.329404
+##  [8]  8.390730 11.106209 13.441237 10.358992 11.454753
 <span class="kw">runif</span>(<span class="dv">12</span>, <span class="dt">min =</span> <span class="dv">10</span>, <span class="dt">max =</span> <span class="dv">37</span>) <span class="co"># create 12 random observations from a uniform distribution.</span>
-##  [1] 25.08090 12.05624 33.25992 19.98536 11.76465 19.11408 11.65674
-##  [8] 17.75899 16.75374 21.58499 21.06524 10.05344</code></pre></div>
+##  [1] 23.15255 36.93788 24.27058 15.96450 31.72943 27.49804 18.97430
+##  [8] 27.44151 26.05442 24.28954 11.23678 10.94141</code></pre></div>
 </div>
 <div id="matricies" class="section level3">
 <h3><span class="header-section-number">5.2.2</span> Matricies</h3>
@@ -518,28 +518,28 @@ B=<span class="kw">matrix</span>(<span class="kw">runif</span>(<span class="dv">
 <span class="co"># example operations</span>
 A+B    <span class="co"># add</span>
 ##          [,1]     [,2]     [,3]     [,4]
-## [1,] 25.88924 43.46103 37.23070 46.10840
-## [2,] 33.13344 37.08339 42.72438 52.38612
-## [3,] 36.12819 40.87273 40.28832 43.18790
-## [4,] 39.31453 39.44251 48.83801 52.46788
+## [1,] 23.26936 40.15768 30.80705 50.70281
+## [2,] 29.11739 32.88591 46.52147 42.14059
+## [3,] 27.63341 37.74331 38.78251 53.96144
+## [4,] 39.66446 40.86064 32.69678 49.47161
 A*B    <span class="co"># multiply</span>
 ##           [,1]     [,2]     [,3]     [,4]
-## [1,]  24.88924 192.3052 254.0763 430.4093
-## [2,]  62.26688 186.5004 327.2438 537.4057
-## [3,]  99.38456 237.1091 322.1715 422.8185
-## [4,] 141.25813 251.5401 442.0561 583.4861
+## [1,]  22.26936 175.7884 196.2635 490.1366
+## [2,]  54.23478 161.3154 365.2147 393.9683
+## [3,]  73.90024 215.2032 305.6076 584.4216
+## [4,] 142.65785 262.8851 248.3613 535.5458
 A%*%B  <span class="co"># matrix multipication</span>
-##          [,1]      [,2]      [,3]      [,4]
-## [1,]  937.799  907.4852  934.3415  952.8126
-## [2,] 1062.264 1042.3449 1061.4229 1088.9629
-## [3,] 1186.730 1177.2045 1188.5043 1225.1132
-## [4,] 1311.195 1312.0642 1315.5857 1361.2635
+##           [,1]      [,2]      [,3]      [,4]
+## [1,]  843.1951  873.4653  723.5151  964.1897
+## [2,]  952.8797  999.1129  830.3229 1102.4661
+## [3,] 1062.5643 1124.7604  937.1307 1240.7426
+## [4,] 1172.2489 1250.4079 1043.9386 1379.0190
 <span class="kw">t</span>(B)   <span class="co"># transpose</span>
 ##          [,1]     [,2]     [,3]     [,4]
-## [1,] 24.88924 31.13344 33.12819 35.31453
-## [2,] 38.46103 31.08339 33.87273 31.44251
-## [3,] 28.23070 32.72438 29.28832 36.83801
-## [4,] 33.10840 38.38612 28.18790 36.46788</code></pre></div>
+## [1,] 22.26936 27.11739 24.63341 35.66446
+## [2,] 35.15768 26.88591 30.74331 32.86064
+## [3,] 21.80705 36.52147 27.78251 20.69678
+## [4,] 37.70281 28.14059 38.96144 33.47161</code></pre></div>
 </div>
 <div id="variables" class="section level3">
 <h3><span class="header-section-number">5.2.3</span> Variables</h3>
@@ -583,10 +583,10 @@ holidays
 ## [1] &quot;2020-01-01&quot; &quot;2020-04-23&quot; &quot;2020-05-19&quot; &quot;2020-08-30&quot; &quot;2020-09-29&quot;
 
 <span class="kw">Sys.Date</span>( )
-## [1] &quot;2017-03-28&quot;
+## [1] &quot;2017-04-06&quot;
 <span class="kw">Sys.Date</span>( )-birthday
 ## Time differences in days
-## [1] 11988 10386  9614 14250 15559  8180</code></pre></div>
+## [1] 11997 10395  9623 14259 15568  8189</code></pre></div>
 </div>
 <div id="logical-variable" class="section level4">
 <h4><span class="header-section-number">5.2.3.5</span> Logical variable</h4>
@@ -672,16 +672,16 @@ basic_data=<span class="kw">data.frame</span>(id,treatment,gender,item1,ses,
                       grade,incomeSource,birthday,course)
 basic_data
 ##   id treatment gender   item1 ses grade incomeSource   birthday   course
-## 1  t     cntrl      M    poor   1    52         wage 1984-06-01     Cook
-## 2  p     cntrl      F average   3    75         wage 1988-10-20  Plumber
-## 3  u     cntrl      F    good   2    39      pension 1990-12-01 Designer
-## 4  f       trt      M    good   2    62         &lt;NA&gt; 1978-03-23  Plumber
-## 5  s       trt      F    poor   1    24         &lt;NA&gt; 1974-08-22     Cook
-## 6  d       trt      M    poor   3    86         wage 1994-11-04  Plumber</code></pre></div>
+## 1  b     cntrl      M    poor   1    52         wage 1984-06-01     Cook
+## 2  l     cntrl      F average   3    75         wage 1988-10-20  Plumber
+## 3  m     cntrl      F    good   2    39      pension 1990-12-01 Designer
+## 4  k       trt      M    good   2    62         &lt;NA&gt; 1978-03-23  Plumber
+## 5  c       trt      F    poor   1    24         &lt;NA&gt; 1974-08-22     Cook
+## 6  n       trt      M    poor   3    86         wage 1994-11-04  Plumber</code></pre></div>
 <p>Data can be entered manually into R. However this is generally not the case. When a data transferred into the R environment, a useful function to check its internal structure is named as <em>str</em>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(basic_data)
 ## &#39;data.frame&#39;:    6 obs. of  9 variables:
-##  $ id          : Factor w/ 6 levels &quot;d&quot;,&quot;f&quot;,&quot;p&quot;,&quot;s&quot;,..: 5 3 6 2 4 1
+##  $ id          : Factor w/ 6 levels &quot;b&quot;,&quot;c&quot;,&quot;k&quot;,&quot;l&quot;,..: 1 4 5 3 2 6
 ##  $ treatment   : Factor w/ 2 levels &quot;cntrl&quot;,&quot;trt&quot;: 1 1 1 2 2 2
 ##  $ gender      : Factor w/ 2 levels &quot;F&quot;,&quot;M&quot;: 2 1 1 2 1 2
 ##  $ item1       : Ord.factor w/ 3 levels &quot;poor&quot;&lt;&quot;average&quot;&lt;..: 1 2 3 3 1 1
@@ -753,10 +753,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/burakaydin/BAP2219/tree/gh-pages/04_Basic_functions.Rmd",
+"link": "https://github.com/burakaydin/SARP-EN/tree/gh-pages/04_Basic_functions.Rmd",
 "text": "Edit"
 },
-"download": null,
+"download": ["SARP-EN.pdf", "SARP-EN.epub"],
 "toc": {
 "collapse": "subsection"
 }

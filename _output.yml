@@ -3,12 +3,12 @@ bookdown::gitbook:
   config:
     toc:
       before: |
-        <li><a href="./">SARP</a></li>
-        <li><a href="https://burakaydin.github.io/SARP/_book/" target="blank">SAPR-TR</a></li>
+        <li><a href="./">SARP-EN</a></li>
+        <li><a href="https://bookdown.org/burak2358/SARP-TR/" target="blank">SARP-TR</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
     edit:
-      link: https://github.com/burakaydin/BAP2219/tree/gh-pages/%s
+      link: https://github.com/burakaydin/SARP-EN/tree/gh-pages/%s
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
