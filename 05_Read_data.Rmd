@@ -30,7 +30,7 @@ d) _col.names_ allows renaming variables while reading the data. For example, wh
 
 
 
-Use _read.csv2_ function when decimals indicated with a comma and values are separated with semicolon. Alternatively use _sep=";"_ and _dec=","_ arguments in _read.csv_ function. 
+Use _read.csv2_ function when decimals are indicated with a comma and values are separated with semicolon. Alternatively use _sep=";"_ and _dec=","_ arguments in _read.csv_ function. 
 
 A silent video is recorded (Video5 \@ref(fig:Video5)) to show these steps.
 

@@ -115,7 +115,7 @@ systematic1(120)
 
 #### Multiple input - Single output 
 
-Above two examples use one single value as an input. Let us use two values for _nomistake_ function. In this example, lets say the teacher cuts 0.2 points for each spelling mistake. For example, if a grade was 90, it will go down to 88.8 if there are 6 spelling errors. The _nomistake_ asks for a grade and the number of spelling errors to calculate the reduced grade.
+Above two examples use one single value as an input. Let us use two values for _nomistake_ function. In this example, let`s say the teacher cuts 0.2 points for each spelling mistake. For example, if a grade is 90, it will go down to 88.8 if there are 6 spelling errors. The _nomistake_ asks for a grade and the number of spelling errors to calculate the reduced grade.
 
 ```{r, collapse=TRUE}
 nomistake=function(grade, nserror){
@@ -203,7 +203,7 @@ Although applied R users do not need to write new functions, they should know th
 
 R basically runs on functions. Researchers write functions, place them in R packages and make them available. There are currently 10000+ R packages available via Comprehensive R Archive Network. R version 3.3.1 downloads to your computer with 30 packages that includes thousands of functions.  
 
-One of the main packages that has been downloaded to you computer is called _base_, and it has 1200+ functions. For example this package has the _mean_ function to calculate the arithmetic mean. Packages and functions are generally well documented. Users should be effectively using the documentations via _help_ function, _?_ or _??_. _example_ function may also be helpful.
+One of the main packages that have been downloaded to your computer is called _base_, and it has 1200+ functions. For example this package has the _mean_ function to calculate the arithmetic mean. Packages and functions are generally well documented. Users should effectively use the documentations via _help_ function, _?_ or _??_. _example_ functions may also be helpful.
 
 ```{r, collapse=T, eval=F}
 help("base")  # see description, you can click on index at the bottom to see 1200+ functions
@@ -277,7 +277,7 @@ t(B)   # transpose
 It is important to know the data before running basic or sophisticated analyses. In an R environment, a variable subject to an analysis is generally defined as nominal, ordered, continuous, missing or date variable.
 
 #### Nominal
-In R, a nominal variable can be represented alphanumerically. However the interpretation of a nominal variable is not numeric. It is helpful for naming a characteristic rather than quantify it. Below commands can create nominal vectors.
+In R, a nominal variable can be represented alphanumerically. However the interpretation of a nominal variable is not numeric. It is helpful for naming a characteristic rather than quantifing it. Below commands can create nominal vectors.
 
 ```{r, collapse=T,cache=T}
 address=c("AAX","BBZ","CBT","DBA","DDC","XZT")
@@ -288,7 +288,7 @@ city=as.character(1:6)
 ```
 
 #### Ordered
-An ordered variable includes more information compared to a nominal variable. It represents order but the difference between values are not informative. Below commands can create ordered variables. The _level_ argument for an ordered factor provides the information of order. If the _level_ argument is not provided, R , by default, sorts the unique set of given values into increasing order.
+An ordered variable includes more information compared to a nominal variable. It represents order but the difference between values is not informative. Below commands can create ordered variables. The _level_ argument for an ordered factor provides the information of order. If the _level_ argument is not provided, R , by default, sorts the unique set of given values into increasing order.
 
 ```{r, collapse=T,cache=T}
 item1=ordered(c("poor","average","good","good","poor","poor"),
@@ -297,7 +297,7 @@ ses=ordered(c(1,3,2,2,1,3),levels=c("1","2","3"))
 ```
 
 #### Continuous
-An interval or ratio (true-zero variable) provides more information compared to ordinal and nominal variable. The difference between values are informative. Below commands can create continuous variables.
+An interval or ratio (true-zero variable) provides more information compared to ordinal and nominal variable. The difference between values is informative. Below commands can create continuous variables.
 ```{r, collapse=T,cache=T}
 grade=c(52,75,39,62,24,86)
 score=rnorm(n=6,mean=160,sd=5)
@@ -416,16 +416,16 @@ basic_data
 
 ```
 
-Data can be entered manually into R. However this is generally not the case. When a data transferred into the R environment, a useful function to check its internal structure is named as _str_.
+Data can be entered manually into R. However this is generally not the case. When data are transferred into the R environment, a useful function to check its internal structure is named as _str_.
 
 ```{r, collapse=T,cache=T}
 str(basic_data)
 ```
 
 ## R Packages
-R version 3.3.1 downloads to a computer with 30 packages that includes thousands of functions.These packages stored under _system library_. Other useful functions are created by R users and made available to R community. For example linear mixed effect models can be analyzed R using _lme4_[@lme4pack] package. This package is cited more than 1500 times and has been downloaded more than 60000 times. You can use Figure \@ref(fig:Rpackdown) to check its current usage. R packages are generally available via CRAN and they are generally not archived further if they are maintained properly. You can download R packages into your computer and store them locally, under _user library_ . You need to load (activate) the packages in each session before you can use them. 
+R version 3.3.1 downloads to a computer with 30 packages that includes thousands of functions.These packages are stored under _system library_. Other useful functions are created by R users and made available to R community. For example linear mixed effect models can be analyzed R using _lme4_[@lme4pack] package. This package is cited more than 1500 times and has been downloaded more than 60000 times. You can use Figure \@ref(fig:Rpackdown) to check its current usage. R packages are generally available via CRAN and they are generally not archived further if they are maintained properly. You can download R packages into your computer and store them locally, under _user library_ . You need to load (activate) the packages in each session before you can use them. 
 
-You have probably noticed that R, RStudio and R packages are interconnected. When you download Rstuido after you have downloaded R, The Rstudio scans your computer, locates R and connects to it. Both R and RStudio can locate your libraries unless you manually manipulated the file locations. If you wonder the location of your R packages you can run _.libPaths()_ function. 
+You have probably noticed that R, RStudio and R packages are interconnected. When you download Rstuido after you have downloaded R, the Rstudio scans your computer, locates R and connects to it. Both R and RStudio can locate your libraries unless you manually manipulated the file locations. If you wonder the location of your R packages you can run _.libPaths()_ function. 
 
 R packages located in CRAN can easily be downloaded into your machine using RStuido's __Packages__ tab, or you can directly type _install.packages("packagename")_. When you open a new session, some of the main packages are loaded automatically. When a package is loaded, you can see the tick in the _Packages_ tab. If the package you plan to use in a session is not loaded, you can click the box or you can directly type _library("packagename")_. You can see these steps in (Video4 \@ref(fig:Video4)).
 

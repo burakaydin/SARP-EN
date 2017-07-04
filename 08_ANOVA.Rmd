@@ -22,7 +22,7 @@ __Crossed factors__ two factors are crossed if each level of one factor occurs i
 | n                          |   |   |
 
 
-Subjects can be considered a factor and is crossed with the treatment factor since each subject occurs in combination with each treatment.
+Subjects can be considered a factor and are crossed with the treatment factor since each subject occurs in combination with each treatment.
 
 __Nesting__ one factor is nested in a second factor if each level of the first factor occurs in combination with only one level of the second factor.  For example, consider the following diagram of an independent samples design in which the treatment factor has two levels.
 
@@ -35,7 +35,7 @@ __Nesting__ one factor is nested in a second factor if each level of the first f
 | ...                      |  |
 | $S_n$                      | $S_{2n}$  |
 
-Subjects are nested in treatments because each subjects appears in only one treatment.
+Subjects are nested in treatments because each subject appears in only one treatment.
 
 __Within-subjects factor__ a factor that is crossed with subjects.  The name derives from the fact that the levels of the factor vary within a subject as can be seen in the diagram for the repeated measures design.  The following designs have a within-subjects factor: subjects as own control and longitudinal, both of which are examples of repeated measures designs.
 
@@ -94,7 +94,7 @@ The alternative hypothesis states that at least one population mean is different
 
 
 where SV=Source of Variance, df=degrees of freedom, SS=Sum of squares, MS= Mean Square, EMS= Expected Mean Square,
-A is the between subjects factor with J levels, S/A is the subjects within A, N is the total sample size, j=1,...,J factor level indicator, i=1,...,$n_j$ individual indicator, $Y_{ij}$ is the individual score, $\bar{Y}_{\cdot \cdot}$ is the grand mean, $\bar{Y}_{\cdot j}$ is the group j's mean. 
+A is the between subjects factor with J levels, S/A is the subjects within A, N is the total sample size, j=1,...,J factor level indicator, i=1,...,$n_j$ is the individual indicator, $Y_{ij}$ is the individual score, $\bar{Y}_{\cdot \cdot}$ is the grand mean, $\bar{Y}_{\cdot j}$ is the group j's mean. 
 
 The ratio of $MS_{A}/ MS_{S/A}$ , when the null is true and assumptions are met, follows an F distribution with J-1 and N-J degrees of freedom; hence, if $MS_{A}/ MS_{S/A}$ is larger than the $F_{\alpha,J-1,N-J}$ the null is rejected.
 
@@ -126,7 +126,7 @@ $\hat\eta^2$ is probably the most widely used effect size for ANOVA and also rep
 Cohen's $f=\frac{\hat\theta_A}{\hat\sigma_{S/A}}$. An f value is considered small if it is 0.10, medium if 0.25, large if 0.40.
 
 ##### A general note on the Effect Size Measures
-For illustrative purposes, we briefly summarized effect size measures for equal sample size in each group. In practice it is generally not common to have equal sample sizes. It is also not common to have a single factor design. In addition, factors in a design are either measured or manipulated, which which affect the effect size computation. 
+For illustrative purposes, we briefly summarized effect size measures for equal sample size in each group. In practice it is generally not common to have equal sample sizes. It is also not common to have a single factor design. In addition, factors in a design are either measured or manipulated, which affects the effect size computation. 
 The _ezANOVA_ function (@R-ez) reports generalized eta-squares based on @Bakeman2005. The work by @Bakeman2005 encourages researchers to use generalized eta-squared defined by @olejnikalgina03. Hence, a convenient choice for a researcher is to use the _ezANOVA_ function, while paying attention to the _observed_ argument to declare the measured factors. On the other hand, if it is not desired to be dependent on an R package, the researcher can examine and apply the formulae by @olejnikalgina03.   
 
 #### Testing specific contrasts of means
@@ -157,7 +157,7 @@ Even though we briefly summarized the assumptions of the one-way between subject
 
 
 #### R codes for a one-way between-subjects ANOVA 
-For illustrative purposes, the city of KOCAELI is subsetted from the DataWBT (Section \@ref(dataWBT)). The gender attitudes scores is the dependent variable and the highest degree completed is the between subjects factor. This factor had seven levels; no-degree, primary school, middle school, high school,vocational high school, 2 year college and bachelors. However, there is only one participant in the _no-degree_ group. We combined the no-degree and primary school groups. The gender attitude score for this participant is 1.6. ^[Removing this participant from the ANOVA would have had no substantial effect on the results.] 
+For illustrative purposes, the city of KOCAELI is subsetted from the DataWBT (Section \@ref(dataWBT)). The gender attitudes scores are the dependent variable and the highest degree completed is the between subjects factor. This factor had seven levels; no-degree, primary school, middle school, high school,vocational high school, 2 year college and bachelors. However, there is only one participant in the _no-degree_ group. We combined the no-degree and primary school groups. The gender attitude score for this participant is 1.6. ^[Removing this participant from the ANOVA would have had no substantial effect on the results.] 
 
 
 Step 1: Set up data and report descriptive
@@ -352,10 +352,10 @@ round(lincon(gen_att~eduNEW,data=dataWBT_KOCAELI,tr=.1)[[1]][,c(1,2,6)],3)
 
 
 
-#### Example writeup for one-way between-subjects ANOVA 
+#### Example write-up for one-way between-subjects ANOVA 
 For our illustrative example, results of hypothesis tests conducted using robust procedures did not disagree with the results of the ANOVA and pairwise comparisons of means. This was expected given the assumptions were not severely violated. When the robust analyses and conventional analyses yield the same decisions about _all hypothesis tests_, results of the conventional analyses can be reported due to their greater familiarity to most readers. A possible write up for our illustrative example would be:
 
-An ANOVA was performed to investigate whether the gender attitudes scores differ across education level. The means,standard deviations, skewness and kurtosis values of the gender scores, grouped by the highest-degree obtained, are presented in Table 1. The analysis of variance indicated a significant difference in the gender attitudes scores , F(5,564) = 7.27, p < .001, $\hat\eta^2_G=.06$. Table 2 is the ANOVA table for this analysis. Pairwise comparisons were planned a’ priori. The familywise error rate was selected for control and the Holm procedure (@holm1979) was used. The results of the pairwise comparisons are presented in the Table 3. Nine out of fifteen comparisons yielded statistically significant results; (primary school vs lycee, primary school vs 2-year-collage, primary school vs undergraduate,... (provide details). Robust statistical procedures yielded the same conclusions. 
+An ANOVA was performed to investigate whether the gender attitudes scores differ across education level. The means,standard deviations, skewness and kurtosis values of the gender scores, grouped by the highest-degree obtained, are presented in Table 1. The analysis of variance indicated a significant difference in the gender attitudes scores , F(5,564) = 7.27, p < .001, $\hat\eta^2_G=.06$. Table 2 is the ANOVA table for this analysis. Pairwise comparisons were planned a’ priori. The familywise error rate was selected for control and the Holm procedure (@holm1979) was used. The results of the pairwise comparisons are presented in Table 3. Nine out of fifteen comparisons yielded statistically significant results; (primary school vs lycee, primary school vs 2-year-collage, primary school vs undergraduate,... (provide details). Robust statistical procedures yielded the same conclusions. 
 
 
 #### Missing data techniques for one-way between-subjects ANOVA
@@ -377,11 +377,11 @@ This topic concerns designs in which there are two between-subjects factors: fac
 
 Also shown are the parameters about which hypotheses will be tested: the population cell means ($\mu_{11}, \mu_{12}, \mu_{21},\mu_{22}$), row means ( $\mu_{1 \cdot}$, $\mu_{2 \cdot}$) and column means ($\mu_{\cdot 1}$, $\mu_{\cdot 2}$).  The general term for a row or column mean is a marginal mean.
 
-Symbolically  the hypothesis of no interaction can be written as $H_0: \mu_{11} - \mu_{12} = \mu_{21} - \mu_{22}$. The interation is also a comparison of the two simple effects of gender $(\mu_{21}−\mu_{11} and \mu_{22} − \mu_{12})$ leading to the null hypothesis $H_0: \mu_{21}−\mu_{11}= \mu_{22}- \mu_{12}$. If one of the null hypotheses is true the other must also be true and if one is false the other must also be false.
+Symbolically,  the hypothesis of no interaction can be written as $H_0: \mu_{11} - \mu_{12} = \mu_{21} - \mu_{22}$. The interation is also a comparison of the two simple effects of gender $(\mu_{21}−\mu_{11} and \mu_{22} − \mu_{12})$ leading to the null hypothesis $H_0: \mu_{21}−\mu_{11}= \mu_{22}- \mu_{12}$. If one of the null hypotheses is true the other must also be true and if one is false the other must also be false.
 
 __Interaction__ The first null hypothesis of interest is the hypothesis of no interaction between the two factors. Before defining an interaction, we first define a simple main effect. A simple main effect refers to differences among the cell means in a particular row or in a particular column. In the current example, there are two types of simple main effects: simple main effects of gender and simple main effects of college education.
 
-For each type there are two simple main effects. There is a simple main effect of gender at college graduates ($\mu_{12}$  versus $\mu_{22}$) and a simple main effect of gender at non-college graduates ($\mu_{11}$  versus $\mu_{21}$).  
+For each type, there are two simple main effects. There is a simple main effect of gender at college graduates ($\mu_{12}$  versus $\mu_{22}$) and a simple main effect of gender at non-college graduates ($\mu_{11}$  versus $\mu_{21}$).  
 
 
 There is a simple main effect of education for Female ($\mu_{11}$  versus  $\mu_{12}$) and a simple main effect of education for Male  ($\mu_{21}$ versus $\mu_{22}$). 
@@ -417,7 +417,7 @@ As we pointed out in the section on one-way between-subjects designs, the F test
 
 
 #### R codes for a two-way between-subjects ANOVA 
-For illustrative purposes, the city of Kayseri is subsetted from the DataWBT (Section \@ref(dataWBT)). The gender attitudes scores is the dependent variable, gender and higher education indicator are the between subjects factors.
+For illustrative purposes, the city of Kayseri is subsetted from the DataWBT (Section \@ref(dataWBT)). The gender attitudes scores are the dependent variable, gender and higher education indicator are the between subjects factors.
 
 Step 1: Set up data and report descriptive
 
@@ -546,7 +546,7 @@ t2way(gen_att~HEF*gender,data=dataWBT_Kayseri,tr=.05)
 
 ```
 
-#### Example writeup two-way between-subjects ANOVA 
+#### Example write up two-way between-subjects ANOVA 
 For our illustrative example, robust procedures did not disagree with our initial analyses. This was expected given the assumptions were not severely violated. When the robust analyses yield very similar results, we prefer to report initial results to ease communication. A possible write up for our illustrative example would be: 
 
 Descriptive statistics for the gender attitudes scores as a function of gender and higher education in the city of Kayseri are presented in Table 4.  A 2x2 ANOVA was reported. F tests were conducted at $\alpha=.05$. There was a significant difference for gender $F(1,248)=45.39, p<.001$. There was also a significant difference for the college effect $F(1,248)=6.24, p=.013$.  However, there was no significant interaction between the gender and higher education status, $F(1,248)=0.25, p=.617$. The _ezANOVA_ (@R-ez) function reported generalized eta hat squared ($\hat\eta^2_G$) of 0.15 for the gender effect and 0.02 for the college-effect. Table 5 is the ANOVA table for these analyses.
@@ -710,7 +710,7 @@ Although assumptions can be stated in terms of $\eta_{i}$ and $\epsilon_{ij}$, a
 
 Assuming that the data are drawn from a multivariate normal distribution and within each level of the within-subjects factor the scores are independent, having equal variance and covariances (compound symmetry) is a sufficient condition for the F test on the within-subjects factor to be valid.  
 
-If additivity holds and the equal variance assumption holds then compound symmetry holds. But compund symmetry is a stricter assumption than the sphericity. Considering that sphericity is a necessary and sufficient requirement for the F test on the within-subjects factor to be valid (assuming that data are drawn from a multivariate normal distribution and scores are independent within each level of the within-subjects factor the)  checking for spericity is more important than checking for additivity. In addition because there are adjusted degrees of freedom procedures  that adjust the F test on the within-subjects factor for violation of sphericity, it is not necessary to test for additivity.
+If additivity holds and the equal variance assumption holds then compound symmetry holds. But compund symmetry is a stricter assumption than the sphericity. Considering that sphericity is a necessary and sufficient requirement for the F test on the within-subjects factor to be valid (assuming that data are drawn from a multivariate normal distribution and scores are independent within each level of the within-subjects factor)  checking for spericity is more important than checking for additivity. In addition because there are adjusted degrees of freedom procedures  that adjust the F test on the within-subjects factor for violation of sphericity, it is not necessary to test for additivity.
 
 #### R codes for a one-way within-subjects ANOVA 
 

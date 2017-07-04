@@ -1,22 +1,22 @@
 
 
-# Multiple Linear Regression, A Short Introduction
+# Multiple Linear Regression, a Short Introduction
 
 _Scientiﬁc development requires that knowledge be transferred reliably from one study to another and, as Galileo showed 350 years ago, such transference requires the precision and computational beneﬁts of a formal language._ @Pearl09
 
 The _formal language_ in the quote refers to _mathematical equations_. Galton for example, in late 1800s, used equations to describe the relationship between the weights of mother and daughter pea seeds. Galton’s work followed by Pearson’s contributions led to initial idea of regression ^[http://ww2.amstat.org/publications/jse/v9n3/stanton.html].  
 
-In the year 2016, the Web of Science reported that 60000+ abstracts of academic articles included the term “regression”. The literature is vast, oftentimes the regression is mentioned as the _workhorse_. It is extensively used by frequentist and Bayesian statisticians, and more generally by data scientists in hundreds of different disciplines. The explanation of the popularity of regression analysis is simple, unless they are simulated by a machine, connections between variables, whether observed or latent variables, in a data set requires more complex statistical solutions than are provided by correlation coefficients.
+In the year 2016, the Web of Science reported that 60000+ abstracts of academic articles included the term “regression”. The literature is vast, oftentimes the regression is mentioned as the _workhorse_. It is extensively used by frequentist and Bayesian statisticians, and more generally by data scientists in hundreds of different disciplines. The explanation of the popularity of regression analysis is simple, unless they are simulated by a machine, connections between variables, whether observed or latent variables, in a data set requires more complex statistical solutions than those provided by correlation coefficients.
 
 It is not feasible to cover regression in a book chapter. We briefly introduce basics of a relatively simple multiple regression model.
 
 ## Matricies and Least Square Estimation
 In a multiple regression framework, demonstrating process of model fitting based on matrices and least squares estimation should have at least two benefits; (a) a simple demystification of the procedure, (b) a workable and sensible foundation for readers with a desire to move further in the advanced topics. The following sections use two different data sets. The first data set includes only 12-cases to show calculations and is named the synthetic data. The second data is simulated with a larger sample size for illustrative purposes and is named the simulated data.
 
-Consider a case in which data on three variables are collected and the researcher is interested in the relationship of one of the variables (i.e., the dependent variable) to the other two variables (i.e., the independent variables). Further, these three variables as continuous. The regression model in this scenario is 
+Consider a case in which data on three variables are collected and the researcher is interested in the relationship of one of the variables (i.e., the dependent variable) with the other two variables (i.e., the independent variables). Further, these three variables are continuous. The regression model in this scenario is 
 
 $$Y_i=\beta_0 + \beta_1X_{i1}+ \beta_2X_{i2}+ \epsilon_i$$
-where _i_ represents individuals i=1,...,n, Y is the dependent variable, $X_1$ and $X_2$ are independent variables, $\beta$s are the regression coefficients and $\epsilon$ is the random error term(residuals) . This model can be presented in a matrix equations 
+where _i_ represents individuals i=1,...,n, Y is the dependent variable, $X_1$ and $X_2$ are independent variables, $\beta$s are the regression coefficients and $\epsilon$ is the random error term(residuals) . This model can be presented in a matrix equation; 
 
 $$Y=X\beta+\epsilon$$
 In this more general form, all the independent variables are represented in the X matrix and the regression coefficients are represented by the $\beta$ matrix. Let us assume the researcher has the following data
@@ -143,7 +143,7 @@ AdjustedRsquared
 
 ```
 
-$R^2$ and $R^2_{Adj}$ are useful coefficients; they provide information on how much of the variance is explained. Note that in this example $R^2 = .879$ and $R^2_{Adj}= .852$ are very similar. However if were $R^2 = .25$ then $R^2_{Adj}$ would be .08. When $R^2$ is 1, the model successfully explains 100% of the variance in Y and when $R^2$ is 0 the model does not explain any of the variance in Y. The coefficients $R^2$ and $R^2_{Adj}$ are also useful for comparing the strength of relationship for different set of predictors to predict a specific outcome. The interpretation of the $R^2$ is similar to the interpretation of a correlation coefficient. Depending on the context a small $R^2$ value might be regarded as substantial, or an $R^2$
+$R^2$ and $R^2_{Adj}$ are useful coefficients; they provide information on how much of the variance is explained. Note that in this example $R^2 = .879$ and $R^2_{Adj}= .852$ are very similar. However if it was $R^2 = .25$ then $R^2_{Adj}$ would be .08. When $R^2$ is 1, the model successfully explains 100% of the variance in Y and when $R^2$ is 0 the model does not explain any of the variance in Y. The coefficients $R^2$ and $R^2_{Adj}$ are also useful for comparing the strength of relationship for different set of predictors to predict a specific outcome. The interpretation of the $R^2$ is similar to the interpretation of a correlation coefficient. Depending on the context, a small $R^2$ value might be regarded as substantial, or an $R^2$
 value of .7 might be regarded as low.
 
 
@@ -163,12 +163,12 @@ There are three common types of residuals;
 
 • Unstandardized residuals, that is, $Y_i-\hat{Y_i}$.  Unstandardized residuals are on the same scale as Y.
 
-• Standardized residuals: The residuals divided by the overall standard deviation of residuals; Standardized residuals are on  a z-score scale (M = 0, SD = 1). When residuals are assumed to be normally distributed, it is common practice to identify outliers as Y values for which the absolute value of the  standardized residual is larger than 2. However, it should be noted that this practice can be misleading because outliers can cause the regression coefficients to be poorly estimated and/or can increase the standard deviation of the residuals and both effects can cause poor outlier detection. In addition, if the residual are in fact normally distributed approximately %5 of the participants will have residuals beyone +/- 2.00.  See @wilcox2012 for more information about outlier detection. 
+• Standardized residuals: The residuals divided by the overall standard deviation of residuals; Standardized residuals are on  a z-score scale (M = 0, SD = 1). When residuals are assumed to be normally distributed, it is common practice to identify outliers as Y values for which the absolute value of the  standardized residual is larger than 2. However, it should be noted that this practice can be misleading because outliers can cause the regression coefficients to be poorly estimated and/or can increase the standard deviation of the residuals and both effects can cause poor outlier detection. In addition, if the residuals are in fact normally distributed approximately %5 of the participants will have residuals beyond +/- 2.00.  See @wilcox2012 for more information about outlier detection. 
 
 
-• Studentized residual: A studentized residual is ratio of the unstandardized residual to the estimated standard error of the residual.
+• Studentized residual: A studentized residual is the ratio of the unstandardized residual to the estimated standard error of the residual.
 
-When investigating residuals , these three types of residuals generally lead to same conclusions. The standardized residual are forced have a z-scale, and thus, -2 and +2 are commonly pronounced cut offs. The studentized residuals are connected to the t distribution; $t_{n-p'-1}$ where n is the sample size $p'$ is the number of coefficients in the model (i.e intercept+two predictors =3). It is argued that when detecting outliers in residuals, investigating the studentized residuals is more convenient (@Rawling98). 
+When investigating residuals , these three types of residuals generally lead to same conclusions. The standardized residuals are forced to have a z-scale, and thus, -2 and +2 are commonly pronounced cut offs. The studentized residuals are connected to the t distribution; $t_{n-p'-1}$ where n is the sample size $p'$ is the number of coefficients in the model (i.e intercept+two predictors =3). It is argued that when detecting outliers in residuals, investigating the studentized residuals is more convenient (@Rawling98). 
 
 Scatter plots of residuals vs. predicted values can provide information about whether the assumed linear relationships between the independent variables and the dependent variable are adequate. Ideally the scatter plot should not show a detectable pattern. Here is a plot of studentized residuals vs fitted values, from a regression model fitted to simulated-data in which the linearity assumption is adequate. The simulated data have a sample size of 500 and two independent variables.
 
@@ -190,7 +190,7 @@ ggplot(plotdata, aes(x = predicted, y = errors)) +
   theme_bw()+stat_smooth()
 ```
 
-The  blue line above, which is determined independently from the regression model, should be compared to the horizontal line at 0. The more similar the two lines, the less likely the linearity assumption is violated.
+The  blue line above, which is determined independently from the regression model, should be compared to the horizontal line at 0. The more similar the two lines are, the less likely the linearity assumption is violated.
 
 Here is a plot, studentized residuals vs fitted values, from a mis-specified regression model on a simulated-data. The sample size is 100, there are two independent variables, and the relationship of Y and X2 is quadratic.
 
@@ -235,7 +235,7 @@ tempdata[which(abs(tempdata$SUTresiduals)>qt(c(.975), df=100-3-1)),]
 
 ```
 
-Assume we justified the use of $t_{.975,96}$ as the critical value, in which alpha=.05. We should expect approximately   $n * .05$ (in our case 100*.05=5) cases larger than the critical value. In this particular case, even though 8 cases were identified, none of them seems unusual.
+Assume we justified the use of $t_{.975,96}$ as the critical value, in which alpha=.05. We should expect approximately   $n * .05$ (in our case 100*.05=5) cases to be larger than the critical value. In this particular case, even though 8 cases were identified, none of them seems unusual.
 
 If the researcher detects an abnormality and further, if the researcher decides to remove the observation from the data, it should be done one observation at a time. The justification of removing a data point should be given clearly. A better alternative, on the other hand, may be to use an estimation method that is robust to outlying data points.
 
@@ -248,7 +248,7 @@ summary(influence.measures(model))
 
 This output reports  5 different measures. 
 
-In this example, cases 12, 33, 41, 42, 50, 64 and 100 are reported to be _potentially_ influential. As they highlighted by an asterisk, they labeled as potential using the covariance ratio criteria (cov.r). This value reports the impact of an observation on the sampling variances of the regression coefficients. Values larger than $1+(3p'/n)$ and lower than $1-(3p'/n)$ are labeled as influential, in our case, n=100 and p'=3, hence the cut offs are 1.09 and .91. 
+In this example, cases 12, 33, 41, 42, 50, 64 and 100 are reported to be _potentially_ influential. As they are highlighted by an asterisk, they are labeled as potential using the covariance ratio criteria (cov.r). This value reports the impact of an observation on the sampling variances of the regression coefficients. Values larger than $1+(3p'/n)$ and lower than $1-(3p'/n)$ are labeled as influential, in our case, n=100 and p'=3, hence the cut offs are 1.09 and .91. 
 
 The Dfb (DFBETAS) for each predictor reports how much the coefficient for the predictor changes when the case is removed. It is the difference between the two coefficients divided by an estimate of the standard error of the new coefficient and therefore is on the scale of a t statistic.  R  places an asterisk if the value is larger than $2/\sqrt(n)$. For this specific illustration  the cut off value is $2/\sqrt(100)=.2$.
 
@@ -373,9 +373,9 @@ qt(.975,9)
 ### f) Variable Selection
 Broadly speaking there are two situations in which multiple regression is used to analyze data. 
 
-The first is illustrated by the following example. A social science researcher conducts an extensive literature review, identifies all independent variables relevant to the research questions, collects the data, estimates a model in which all independent variables are included and reports results for this model. 
+The first situation is illustrated by the following example. A social science researcher conducts an extensive literature review, identifies all independent variables relevant to the research questions, collects the data, estimates a model in which all independent variables are included and reports results for this model. 
 
-The second is illustrated by an example in which the researcher has data on a very large set of variables and does not know prior to analyzing the data which variables will be included in the final model that will be reported. This might happen because the researcher is working in a relatively new research area and collects data on a wide variety of variables or is conducting a secondary data analysis of a data set with a wide variety of predictors. In either case the researcher may want to begin by conducting variable selection that is using statistical results to select the best subset of many independent variables.  There are several approaches to select the best subset of predictors. For example, stepwise regression, backward selection or forward selection is covered in many sources. However, in our experience, when applied to the same data set these three approaches are likely to give different answers.
+The second situation is illustrated by an example in which the researcher has data on a very large set of variables and does not know prior to analyzing the data which variables will be included in the final model that will be reported. This might happen because the researcher is working in a relatively new research area and collects data on a wide variety of variables or is conducting a secondary data analysis of a data set with a wide variety of predictors. In either case the researcher may want to begin by conducting variable selection that is using statistical results to select the best subset of many independent variables.  There are several approaches to select the best subset of predictors. For example, stepwise regression, backward selection or forward selection is covered in many sources. However, in our experience, when applied to the same data set these three approaches are likely to give different answers.
 
 A convenient approach with R is to study all possible regressions.For introductory purposes, examine the code below given for a simulated data set;
 
@@ -407,7 +407,7 @@ APRtable$ppri=rowSums(APRtable[,1:4])
 kable(APRtable)
 ```
 
-This table reports that intercept and $X_2$ only model results in an $R^2$ value of .753. When all predictors included, the $R^2$ reaches to .890; however, excluding the X1 from the full model reduced the $R^2$ only by .019. Below is a graphical decpiction.
+This table reports that intercept and $X_2$ only model results in an $R^2$ value of .753. When all predictors are  included, the $R^2$ reaches to .890; however, excluding the X1 from the full model reduced the $R^2$ only by .019. Below is a graphical decpiction.
 
 
 ```{r, message=F,warning=F, out.width='50%', fig.show='hold', fig.cap='All Possible Regressions'}
@@ -432,7 +432,7 @@ ggplot(APRtable, aes(x=ppri-1, y=adjr2)) +
 ```
 
 
-### g) Colliniearity
+### g) Collinearity
 Collinearity is the degree to which the predictors are correlated among themselves.
 The correlation between predictors is a concern in regression because the standard errors of the coefficients increase as collinearity increase and therefore collinearity hides the individual contribution of each predictor in the regression equation.
 
@@ -443,7 +443,7 @@ The regression coefficients become unstable (i.e. they would vary a great deal a
 
 You may obtain a statistically significant $R^2$ but not statistically significant regression coefficients.
 
-Variance inflation factor (VIF) is helpful to detect collinearity in regard to a particular independent variables and can be applied in models two or more independent variables. The formula is $VIF_x=\frac{1}{1-R^2_X}$   where $R^2_X$ is the $R^2$ when the predictor is regressed on the remaining independent variables. Large VIF values are indicator of possible multicollinearity. Commonly pronounced cut off values are 4 and 10, however VIF values are indirectly affected by sample size and variance (@obrien09). When large VIF values are detected, the researcher should examine the problem. It might be justifiable to (a) leave out one of the highly correlated predictor, (b) combine the two highly correlated variable. The decision should be made cautiously given that the possible solution might be more problematic than a large VIF value, see @obrien09. Examine the code below given for a simulated data set;
+Variance inflation factor (VIF) is helpful to detect collinearity in regard to a particular independent variables and can be applied in models two or more independent variables. The formula is $VIF_x=\frac{1}{1-R^2_X}$   where $R^2_X$ is the $R^2$ when the predictor is regressed on the remaining independent variables. Large VIF values are indicators of possible multicollinearity. Commonly pronounced cut off values are 4 and 10, however VIF values are indirectly affected by sample size and variance (@obrien09). When large VIF values are detected, the researcher should examine the problem. It might be justifiable to (a) leave out one of the highly correlated predictors, (b) combine the two highly correlated variables. The decision should be made cautiously given that the possible solution might be more problematic than a large VIF value, see @obrien09. Examine the code below given for a simulated data set;
 
 ```{r, collapse=T, eval=T, cache=F, message=F,echo=T}
 #check correlations among predictors
@@ -462,17 +462,17 @@ vif(lm(yy~X1+X2+X3,data=simdata))
 ### h) Non-linearity
 In the presence of a non-linear relation between the dependent variable and any given independent variable, ignoring non-linearity is simply a validity concern due to the omitted variable issue. Examining the residuals is helpful to detect non-linearity. Residuals should be plotted against predicted and independent variables. A common practice is to include higher order variables in the model, for example, if the plot indicates a non linear pattern for $X_k$ against residuals, $X_k^2$ might be needed in the model. The type of the non-linearity , such as quadratic, cubic or quartic should be treated accordingly. @gelman07 , commenting on age variable when the age and dependent variable are not linearly associated, prefers treating the variable as a categorical predictor. Alternatively transformations of the dependent or independent variable may be employed. 
 
-### i) Correlated errors and nonindependent errors
-Errors should not be correlated or more broadly should be independent. When such dependency is not addressed, regression results are invalid. This topic ,however, is well beyond the scope of this introductory material. Correlated errors are likely to distort the standard errors for the beta coefficients. This is not desired. In social sciences, correlated errors might be present when measurements are repeated. Multilevel models and latent growth models has been developed to address appropriate modeling of repeated measure designs. Nesting of participants in subgoups is another common source of non-independent errors in social sciences. Multilevel models are one popular solution to model clustered data.
+### i) Correlated errors and non-independent errors
+Errors should not be correlated or more broadly should be independent. When such dependency is not addressed, regression results are invalid. This topic ,however, is well beyond the scope of this introductory material. Correlated errors are likely to distort the standard errors for the beta coefficients. This is not desired. In social sciences, correlated errors might be present when measurements are repeated. Multilevel models and latent growth models have been developed to address appropriate modeling of repeated measure designs. Nesting of participants in subgoups is another common source of non-independent errors in social sciences. Multilevel models are one popular solution to model clustered data.
 
 ### j) Centering and Scaling
 Consider an example in which mother’s age at the date of her child’s birth (maternal age) is used to predict IQ at age 10. The intercept estimates average IQ for children whose mother’s maternal age was zero and cannot be meaningfully interpreted.  Centering maternal age around its mean results in an intercept which estimates average IQ for children whose mother’s maternal age was at the mean of the sample and can be meaningfully interpreted. Or consider predicting absences from work from an anxiety measure. A score of zero is possible score on the anxiety measure, but does not occur in the sample. The intercept estimates average absences for employees whose anxiety level is outside the range of the data and therefore represents an extrapolation for the data. Centering around the mean for the sample solves this problem. Another approach would be to center around an anxiety score that is in the range of the data and considered high. Or consider a study of income and an index of health. Income is on a scale in which a change of 1 represents a change of 1 dollar in income.  The regression coefficient is .001, which represents a trivial change in the index. Dividing X by 1000 so that a change of 1 represents a change of 1000 dollars in income results in  a regression coefficient of 1, which is a small but not trivial change in the index may make the results easier to think about. 
 
 
 ### k) Standardized coefficients
-A related topic to linear transformations is to use a z-score for the continious predictors by substracting the mean and dividing by the standard deviation. Depending on the nature of the variable, using the z scores might ease the communication between researchers. Here are interpretation examples;
+A related topic to linear transformations is to use a z-score for the continuous predictors by substracting the mean and dividing by the standard deviation. Depending on the nature of the variable, using the z scores might ease the communication between researchers. Here are interpretation examples;
 Raw scores: An increase in anxiety of 1 unit is predicted to correspond to an increase of 3 units in achievement, holding the remaining predictors constant.
-z-scores: An increase in motivation of 1 standard deviation is predicted to correspond to an increase of 0.25 standard deviations in achievement, holding the the remaining predictors constant.
+z-scores: An increase in motivation of 1 standard deviation is predicted to correspond to an increase of 0.25 standard deviations in achievement, holding the remaining predictors constant.
 
 ### l) Interactions
 We covered the basic idea of interaction in our ANOVA section. Ignoring an interaction is an omitted variable problem because an interaction affects the interpretation of main effects. For example, suppose a researcher investigates the relationship between mathematics achievement at the end of the school year ($Y$), effort measured by voluntary homework completed and submitted during the year ($X_1$), and mathematics achievement at the end of the preceding year ($X_2$). Using the model $Y_i=\beta_0+\beta_1X_{i1}+\beta_2X_{i2}+\epsilon_i$  assumes that the relationship between $Y$  and $X_1$ does not depend on $X_2$ and will be misleading if the assumption is false.  A common model used to investigate interactions is ;

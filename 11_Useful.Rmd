@@ -327,3 +327,5 @@ Below is a Shiny app example (Figure \@ref(fig:ancovaN)) to calculate sample siz
 knitr::include_app('https://burakaydin.shinyapps.io/ancovaN/', height = '800px')
 ```
 
+## Update bookdown
+bookdown::publish_book(render = "local")

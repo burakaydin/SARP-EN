@@ -5,7 +5,7 @@
 R's popularity has been increasing on a daily basis.It is reported that every 1 in 100 scholarly articles indexed in Elsevier’s Scopus database 
 cited R or one of its packages in 2014 [@tipmann15]. This was in 2014, by the end of 2014 there were 2925 R packages available via Comprehensive R Archive Network (CRAN), but today there are more than 10000 packages.
 
-The number of available packages is another measure of R's popularity. Below shiny app is created to show you the number of R packages available via CRAN by now (Figure \@ref(fig:Rpacks)). The moment you opened this page, the app scanned CRAN to bring you the latest number and put it in a graph. You can brush points to see further details.
+The number of available packages is another measure of R's popularity. Below shiny app is created to show you the number of R packages available via CRAN by now (Figure \@ref(fig:Rpacks)). At the moment you open this page, the app scans CRAN to bring you the latest number and put it in a graph. You can brush points to see further details.
 
 ```{r Rpacks, fig.cap='The number of R packages ', screenshot.opts=list(delay=100), dev='png', cache=TRUE, fig.align='center', fig.width=8, fig.height=8 , echo=FALSE}
 knitr::include_app('https://burakaydin.shinyapps.io/Rpacks/', height = '550px')

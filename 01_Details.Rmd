@@ -27,6 +27,8 @@ Dr. Leite is an associate professor at research and evaluation methodology depar
 ## Acknowledgement
 We will list contributor's names here.
 
+The English language editing was performed by Ahsen Avcılar. 
+
 ## Data {#dataWBT}
 
 The data are publicly available and collected for a team of researchers sponsored by an intergovernmental organization (World Bank) and some other governmental and non-governmental organizations (the Spanish Impact Evaluation Fund, the Gender Action Plan, and the Turkish Labor Agency (İŞKUR)). The study sample included 5902 individuals randomly and representatively sampled among unemployed people in Turkey. A subset(all individuals but not all variables) of the original data can be accessed by following the steps in section \@ref(pullonline). This subset is named as dataWBT (data World Bank Turkey).

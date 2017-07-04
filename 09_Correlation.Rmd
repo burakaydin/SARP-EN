@@ -155,7 +155,7 @@ col1 <- rainbow(length(kernden$z))[rank(kernden$z)]
 #persp(kernden, phi = 45, theta = 30, shade = .1, border = NA)
 ```
 
-Bivariate normality  seems to be violated. For comparison, below graph \@ref(fig:perfectbinorm).depicts a bivarite normal distribution with r=0.7. Nevertheless, for illustrative purposes we use these data to test the null hypothesis $H_0: \rho=0$ against the non-directional alternative hypothesis $H_1: \rho \neq0$.The scatter plot is provided in \@ref(fig:scatterincgenatt).
+Bivariate normality  seems to be violated. For comparison, below graph \@ref(fig:perfectbinorm).depicts a bivariate normal distribution with r=0.7. Nevertheless, for illustrative purposes we use these data to test the null hypothesis $H_0: \rho=0$ against the non-directional alternative hypothesis $H_1: \rho \neq0$.The scatter plot is provided in \@ref(fig:scatterincgenatt).
 
 ```{r perfectbinorm, collapse=T, eval=T, cache=F, echo=F, message=F, warning=F, fig.show='hold', fig.cap='Bivariate Normal Distribution '}
 library(mvtnorm)  
@@ -278,7 +278,7 @@ __Write up:__ We tested a null hypothesis stating the gender attitudes scores an
 
 
 __Sign difference note__ The Pearson correlation coefficent is .066 but not significantly different than zero. The WRS package functions also agreed to retain the null but the coefficent was negative. 
-The income variable was sligthly skewed due to a small number of relatively large income values. In fact, when the World Bank team analyzed the data using a regression, they top-coded and transformed the income variable (for details @Hirshleifer16).
+The income variable was slightly skewed due to a small number of relatively large income values. In fact, when the World Bank team analyzed the data using a regression, they top-coded and transformed the income variable (for details @Hirshleifer16).
 Let us top-code and transform the income variable, inspect bivariate normality and calculate the Pearson correlation;
 
 ```{r incometransformed, collapse=T, eval=T, cache=F, echo=F, message=F, warning=F, fig.show='hold', fig.cap='Top-coded and transformed income variable '}
@@ -313,7 +313,7 @@ with(dataWBT_Bayburt2,cor.test(gen_att,incomeTC,
 Top-coding and transforming the income variable produced a distribution relatively closer to normal. The sign of the Pearson correlation coefficent is negative.
 
 ## Spearman’s rho and Kendall’s tau
-When the data is in the rank format, or there is a need for protection against outliers^[Here protection refers to being less sensetive to outliers compared to Pearson coefficient. However Spearman's rho and Kendall's tau might be more sensetive to outliers compared to robust procedures, see @wilcox2012.] when working with continuous data the Spearman correlation coefficient is used. If the number of ties in the ranks is not large, procedures provided for the Pearson correlation coefficient can be utilized. Setting the method argument to "spearman", the _cor.test_ function first transforms the data into ranks and performs the procedures introduced for the Pearson coefficient. 
+When the data is in the rank format, or there is a need for protection against outliers^[Here protection refers to being less sensitive to outliers compared to Pearson coefficient. However Spearman's rho and Kendall's tau might be more sensitive to outliers compared to robust procedures, see @wilcox2012.] when working with continuous data the Spearman correlation coefficient is used. If the number of ties in the ranks is not large, procedures provided for the Pearson correlation coefficient can be utilized. Setting the method argument to "spearman", the _cor.test_ function first transforms the data into ranks and performs the procedures introduced for the Pearson coefficient. 
 
 ###The R code for Spearman's rho and Kendall's tau
 We calculated the Pearson correlation coefficient to assess the association between the gender attitudes scores and the income for the participants in Bayburt. The Spearman correlation coefficient can conveniently be calculated by R;
@@ -348,7 +348,7 @@ The Spearman correlation between the gender attitudes scores and income was $r_S
 
 ## Biserial and Point-Biserial Correlation Coefficients with R
 
-The association between a continuous variable and a dichotomously reflected latent continious variable can be examined with a biserial correlation. In psychometrics , for example, biserial correlation is used for calculating the correlation between a total test score (continuous) and  a dichotomous item score (assumed to underlie a latent variable).
+The association between a continuous variable and a dichotomously reflected latent continuous variable can be examined with a biserial correlation. In psychometrics , for example, biserial correlation is used for calculating the correlation between a total test score (continuous) and  a dichotomous item score (assumed to underlie a latent variable).
 
 For illustrative purposes let us use dichotomized item1^[This item is indeed dichotomized by the Worldbank team in their analyses] and the gender attitudes score. The _biserial_ function in the _psych_ (@R-psych) package can calculate the bi-serial correlation;
 
@@ -396,22 +396,22 @@ phi(genderWAGE)
 ## Issues in Interpreting Correlation Coefficients
 Several issues arise in interpreting correlation coefficients.
 
-__Causation__ A correlation coefficient does not imply causation.  For any correlation there are at least four possible interpretations involving cuasation: (a) X causes Y, (b) Y causes X,  (c) both X and Y  share one or more common causes, and (d) X and Y have different causes, but these causes are correlated.
+__Causation__ A correlation coefficient does not imply causation.  For any correlation there are at least four possible interpretations involving causation: (a) X causes Y, (b) Y causes X,  (c) both X and Y  share one or more common causes, and (d) X and Y have different causes, but these causes are correlated.
 
 __The magnitude__ Whether a correlation of .6 is large or not depends on the context. For example suppose the .6 is the correlation between scores on two forms of a standardized achievement tests. This correlation is called an alternate forms reliability coefficient. Alternate forms reliability coefficients for standardized tests are expected to be at least .70 and preferably higher, so the .6 correlation would be regarded as small. 
-Now suppose the correlation is between GRE scores and GPA.  The correlation between GRE scores and GPA is typically somewhere between .10 and .30, so a .60 correaltion would be a very large correlation coefficient.
+Now suppose the correlation is between GRE scores and GPA.  The correlation between GRE scores and GPA is typically somewhere between .10 and .30, so a .60 correlation would be a very large correlation coefficient.
 
 __Outliers__ Correlation coefficients can be misleading when the data set contains outliers.
 
 __Reliability__ If either X or Y contains measurement error, the effect of the measurement error is to attenuate the correlation coefficient. Attenuate means to make the correlation coefficient closer to zero than it would have been if there had been no measurement error.
 
-Its possible to correct for attenuation using $$r_{T_x T_y}=\frac{r_{xy}}{\sqrt(r_{xx}r_{yy})}$$ where $r_{xx}$ and $r_{yy}$ is the reliability coefficients.
+It is possible to correct for attenuation using $$r_{T_x T_y}=\frac{r_{xy}}{\sqrt(r_{xx}r_{yy})}$$ where $r_{xx}$ and $r_{yy}$ are the reliability coefficients.
 
 • _When NOT to correct for attenuation:_ When a variable is used for practical decision making and we are interested in the validity of those decisions, we should NOT correct for attenuation because the decisions are made on the basis of an observed variable, not a true variable.
 
 • _When to correct for attenuation:_ We can correct for attenuation when our motivation is to examine theory. 
 
-• _Comparison of Correlation Coefficients:_ A comparison of correlation coefficients for two variables with a third variable can be affected by differences in reliability for the first two variables. If we are interested in theoretical relationships between variables and we want to compare the strength of relationship of two constructs  (call these A and B and let them be measured by X1  and X2 ) with a third (call this C and let it be measured by Y),  the comparison of the strength of relationship  between A and C to the strength of relationship  between B and C is compromised if X1  and X2  have different reliability coefficients.  To compare strength of relationship we want the reliability of X1  and  X2 to be the similar. Of course, it is best if both reliability coefficients are high, but it is critical that that are quite similar.
+• _Comparison of Correlation Coefficients:_ A comparison of correlation coefficients for two variables with a third variable can be affected by differences in reliability for the first two variables. If we are interested in theoretical relationships between variables and we want to compare the strength of relationship of two constructs  (call these A and B and let them be measured by X1  and X2 ) with a third (call this C and let it be measured by Y),  the comparison of the strength of relationship  between A and C to the strength of relationship  between B and C is compromised if X1  and X2  have different reliability coefficients.  To compare strength of relationship we want the reliability of X1  and  X2 to be the similar. Of course, it is best if both reliability coefficients are high, but it is critical that they are quite similar.
 
 __Unit of analysis__ A correlation calculated for one unit of analysis (e.g., individuals without regard to school) should not be applied to other units of analysis (i.e., individuals within schools or school means).
 
