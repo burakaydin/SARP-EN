@@ -6,9 +6,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>An R Platform for Social Scientists</title>
-  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="R book for social scientists">
-  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="An R Platform for Social Scientists" />
   <meta property="og:type" content="book" />
@@ -23,7 +22,7 @@
   <meta name="twitter:description" content="R book for social scientists" />
   <meta name="twitter:image" content="images/coverpicture.png" />
 
-<meta name="author" content="Burak AYDIN, James ALGINA, Walter LEITE">
+<meta name="author" content="Burak AYDIN, James ALGINA, Walter LEITE, Hakan ATILGAN">
 
 
 <meta name="date" content="2017-01-01">
@@ -35,7 +34,6 @@
   
 <link rel="prev" href="data-sets.html">
 <link rel="next" href="comparing-two-means-the-t-test.html">
-
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,7 +47,7 @@
 
 
 
-<script src="libs/htmlwidgets-0.8/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-0.9/htmlwidgets.js"></script>
 <link href="libs/rglwidgetClass-2/rgl.css" rel="stylesheet" />
 <script src="libs/rglwidgetClass-2/rglClass.src.js"></script>
 <script src="libs/CanvasMatrix4-2016/CanvasMatrix.src.js"></script>
@@ -100,6 +98,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <body>
 
 
+
   <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
 
     <div class="book-summary">
@@ -112,8 +111,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Cover</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a><ul>
-<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#why-bookdown"><i class="fa fa-check"></i><b>1.1.1</b> Why Bookdown?</a></li>
-<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#content"><i class="fa fa-check"></i><b>1.1.2</b> Content</a></li>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#citation"><i class="fa fa-check"></i><b>1.1.1</b> Citation</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#why-bookdown"><i class="fa fa-check"></i><b>1.1.2</b> Why Bookdown?</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#content"><i class="fa fa-check"></i><b>1.1.3</b> Content</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i><b>2</b> Preface</a><ul>
@@ -121,6 +121,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.1.1" data-path="preface.html"><a href="preface.html#burak-aydn-ph.d."><i class="fa fa-check"></i><b>2.1.1</b> Burak Aydın, Ph.D.</a></li>
 <li class="chapter" data-level="2.1.2" data-path="preface.html"><a href="preface.html#james-algina-ph.d."><i class="fa fa-check"></i><b>2.1.2</b> James Algina, Ph.D.</a></li>
 <li class="chapter" data-level="2.1.3" data-path="preface.html"><a href="preface.html#walter-l.-leite-ph.d."><i class="fa fa-check"></i><b>2.1.3</b> Walter L. Leite, Ph.D.</a></li>
+<li class="chapter" data-level="2.1.4" data-path="preface.html"><a href="preface.html#hakan-atilgan-ph.d."><i class="fa fa-check"></i><b>2.1.4</b> Hakan ATILGAN, Ph.D.</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="preface.html"><a href="preface.html#acknowledgement"><i class="fa fa-check"></i><b>2.2</b> Acknowledgement</a></li>
 <li class="chapter" data-level="2.3" data-path="preface.html"><a href="preface.html#dataWBT"><i class="fa fa-check"></i><b>2.3</b> Data</a></li>
@@ -235,7 +236,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="10.3" data-path="correlation.html"><a href="correlation.html#biserial-and-point-biserial-correlation-coefficients-with-r"><i class="fa fa-check"></i><b>10.3</b> Biserial and Point-Biserial Correlation Coefficients with R</a></li>
 <li class="chapter" data-level="10.4" data-path="correlation.html"><a href="correlation.html#phi-correlation-coefficient-with-r"><i class="fa fa-check"></i><b>10.4</b> Phi Correlation Coefficient with R</a></li>
-<li class="chapter" data-level="10.5" data-path="correlation.html"><a href="correlation.html#issues-in-interpreting-correlation-coefficients"><i class="fa fa-check"></i><b>10.5</b> Issues in Interpreting Correlation Coefficients</a></li>
+<li class="chapter" data-level="10.5" data-path="correlation.html"><a href="correlation.html#tetrachoric-and-polychoric-correlation-coefficients-with-r"><i class="fa fa-check"></i><b>10.5</b> Tetrachoric and Polychoric Correlation Coefficients with R</a></li>
+<li class="chapter" data-level="10.6" data-path="correlation.html"><a href="correlation.html#issues-in-interpreting-correlation-coefficients"><i class="fa fa-check"></i><b>10.6</b> Issues in Interpreting Correlation Coefficients</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html"><i class="fa fa-check"></i><b>11</b> Multiple Linear Regression, a Short Introduction</a><ul>
 <li class="chapter" data-level="11.1" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#matricies-and-least-square-estimation"><i class="fa fa-check"></i><b>11.1</b> Matricies and Least Square Estimation</a><ul>
@@ -263,6 +265,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="12" data-path="useful-r-codes.html"><a href="useful-r-codes.html"><i class="fa fa-check"></i><b>12</b> Useful R codes</a><ul>
 <li class="chapter" data-level="12.1" data-path="useful-r-codes.html"><a href="useful-r-codes.html#more-on-the-apastyle-package"><i class="fa fa-check"></i><b>12.1</b> More on the apaStyle package</a></li>
 <li class="chapter" data-level="12.2" data-path="useful-r-codes.html"><a href="useful-r-codes.html#a-useful-shiny-application"><i class="fa fa-check"></i><b>12.2</b> A useful shiny application</a></li>
+<li class="chapter" data-level="12.3" data-path="useful-r-codes.html"><a href="useful-r-codes.html#update-bookdown"><i class="fa fa-check"></i><b>12.3</b> Update bookdown</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -306,7 +309,7 @@ dataWBT=<span class="kw">read.csv</span>(urlfile)
 \tag{7.1}
 \end{equation}\]</span>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Calculate the mean for available gen_att variable</span>
-<span class="kw">mean</span>(dataWBT$gen_att,<span class="dt">na.rm =</span> T)
+<span class="kw">mean</span>(dataWBT<span class="op">$</span>gen_att,<span class="dt">na.rm =</span> T)
 ## [1] 1.940576
 
 <span class="co"># Calculate the mean for more than one variable</span>
@@ -319,7 +322,7 @@ dataWBT=<span class="kw">read.csv</span>(urlfile)
 <h3><span class="header-section-number">7.1.2</span> Median</h3>
 <p>The median is the mid-point of the scores that have been ranked form low to high. If the number of elements in a vector is odd, the median is the <span class="math inline">\({(n+1)/2}^{th}\)</span> value. If it is even, the median is the average of <span class="math inline">\({n/2}^{th}\)</span> and <span class="math inline">\({(n+1)/2}^{th}\)</span> value.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Calculate the median </span>
-<span class="kw">median</span>(dataWBT$gen_att,<span class="dt">na.rm =</span> T)
+<span class="kw">median</span>(dataWBT<span class="op">$</span>gen_att,<span class="dt">na.rm =</span> T)
 ## [1] 2</code></pre></div>
 </div>
 <div id="variance" class="section level3">
@@ -330,7 +333,7 @@ s_Y^2  = \frac{1}{{n - 1}}\sum\limits_{i = 1}^n {\left( {Y_i  - \bar Y} \right)^
 \tag{7.2}
 \end{equation}\]</span>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#calculate variance</span>
-<span class="kw">var</span>(dataWBT$gen_att,<span class="dt">na.rm =</span> T)
+<span class="kw">var</span>(dataWBT<span class="op">$</span>gen_att,<span class="dt">na.rm =</span> T)
 ## [1] 0.3638408</code></pre></div>
 </div>
 <div id="standard-deviation" class="section level3">
@@ -341,7 +344,7 @@ s_Y  = \sqrt {\frac{1}{{n - 1}}\sum\limits_{i = 1}^n {\left( {Y_i  - \bar Y} \ri
 \tag{7.3}
 \end{equation}\]</span>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#calculate standard deviation</span>
-<span class="kw">sd</span>(dataWBT$gen_att,<span class="dt">na.rm =</span> T)
+<span class="kw">sd</span>(dataWBT<span class="op">$</span>gen_att,<span class="dt">na.rm =</span> T)
 ## [1] 0.6031922</code></pre></div>
 </div>
 <div id="skewness" class="section level3">
@@ -358,16 +361,16 @@ s_Y  = \sqrt {\frac{1}{{n - 1}}\sum\limits_{i = 1}^n {\left( {Y_i  - \bar Y} \ri
 <p>The package <em>moments</em> <span class="citation">(Komsta and Novomestky <a href="#ref-moments">2015</a>)</span> includes the <em>skewness</em> function to calculate sample skewness.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#calculate sample skewness using the moments package</span>
 <span class="kw">library</span>(moments)
-<span class="kw">skewness</span>(dataWBT$gen_att,<span class="dt">na.rm =</span> T)
+<span class="kw">skewness</span>(dataWBT<span class="op">$</span>gen_att,<span class="dt">na.rm =</span> T)
 ## [1] 0.377095</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">NOTE:<span class="st"> </span>It is possible to estimate population skewness parameter and its standard error, 
-hence, to calculate a z-score. This z-score can be compared to a critical value , 
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">NOTE<span class="op">:</span><span class="st"> </span>It is possible to estimate population skewness parameter and its standard error, 
+hence, to calculate a z<span class="op">-</span>score. This z<span class="op">-</span>score can be compared to a critical value , 
 such as <span class="fl">1.96</span>, to conclude whether the skewness is statistically significant or not.
 The same procedure applies to Kurtosis.
-There also are other procedures to test for normality, such as Shapiro-Wilk. 
+There also are other procedures to test <span class="cf">for</span> normality, such as Shapiro<span class="op">-</span>Wilk. 
 The decisions based on these procedures are sensitive to sample size. 
 These procedures are losing their popularity. 
-Robustness to non-normality for a given procedure is often investigated 
+Robustness to non<span class="op">-</span>normality <span class="cf">for</span> a given procedure is often investigated 
 via Monte Carlo simulation studies.</code></pre></div>
 <div id="skewness-examples" class="section level4">
 <h4><span class="header-section-number">7.1.5.1</span> Skewness Examples</h4>
@@ -406,7 +409,7 @@ n\frac{\sum_{i}^{n}(X_i-\bar{X})^4}{(\sum_{i}^{n}(X_i-\bar{X})^2)^2}
 <p>The package <em>moments</em> <span class="citation">(Komsta and Novomestky <a href="#ref-moments">2015</a>)</span> includes the <em>kurtosis</em> function to calculate the Pearson kurtosis value.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#calculate skewness using the moments package</span>
 <span class="kw">library</span>(moments)
-<span class="kw">kurtosis</span>(dataWBT$gen_att,<span class="dt">na.rm =</span> T)
+<span class="kw">kurtosis</span>(dataWBT<span class="op">$</span>gen_att,<span class="dt">na.rm =</span> T)
 ## [1] 2.903905</code></pre></div>
 <div id="kurtosis-examples" class="section level4">
 <h4><span class="header-section-number">7.1.6.1</span> Kurtosis Examples</h4>
@@ -460,11 +463,11 @@ desc1
 <span class="co"># its useful for summary by group</span>
 <span class="kw">library</span>(doBy)
 <span class="kw">library</span>(moments)
-desc2=<span class="kw">as.matrix</span>(<span class="kw">summaryBy</span>(gen_att+age~treatment, <span class="dt">data =</span> dataWBT, 
-          <span class="dt">FUN =</span> function(x) { <span class="kw">c</span>(<span class="dt">n =</span> <span class="kw">sum</span>(!<span class="kw">is.na</span>(x)), <span class="dt">nmis=</span><span class="kw">sum</span>(<span class="kw">is.na</span>(x)),
+desc2=<span class="kw">as.matrix</span>(<span class="kw">summaryBy</span>(gen_att<span class="op">+</span>age<span class="op">~</span>treatment, <span class="dt">data =</span> dataWBT, 
+          <span class="dt">FUN =</span> <span class="cf">function</span>(x) { <span class="kw">c</span>(<span class="dt">n =</span> <span class="kw">sum</span>(<span class="op">!</span><span class="kw">is.na</span>(x)), <span class="dt">nmis=</span><span class="kw">sum</span>(<span class="kw">is.na</span>(x)),
                                 <span class="dt">m =</span> <span class="kw">mean</span>(x,<span class="dt">na.rm=</span>T), <span class="dt">s =</span> <span class="kw">sd</span>(x,<span class="dt">na.rm=</span>T),
-                               <span class="dt">skw=</span>moments::<span class="kw">skewness</span>(x,<span class="dt">na.rm=</span>T),                    
-                               <span class="dt">krt=</span>moments::<span class="kw">kurtosis</span>(x,<span class="dt">na.rm=</span>T)) } ))
+                               <span class="dt">skw=</span>moments<span class="op">::</span><span class="kw">skewness</span>(x,<span class="dt">na.rm=</span>T),                    
+                               <span class="dt">krt=</span>moments<span class="op">::</span><span class="kw">kurtosis</span>(x,<span class="dt">na.rm=</span>T)) } ))
 
 <span class="co">#set decimals=2 using round function</span>
 <span class="kw">round</span>(desc2,<span class="dv">2</span>)
@@ -511,8 +514,8 @@ Figure 7.7: APAtableGenderAge.docx
 <h4><span class="header-section-number">7.2.1.1</span> Histogram of one variable</h4>
 <p>Useful for distributional evaluation.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
-<span class="kw">ggplot</span>(dataWBT, <span class="kw">aes</span>(<span class="dt">x =</span> gen_att)) +
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.2</span>)+<span class="st"> </span><span class="kw">theme_bw</span>()+<span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Gender Attitude&quot;</span>)+
+<span class="kw">ggplot</span>(dataWBT, <span class="kw">aes</span>(<span class="dt">x =</span> gen_att)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.2</span>)<span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>()<span class="op">+</span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Gender Attitude&quot;</span>)<span class="op">+</span>
 <span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">15</span>),
         <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>,<span class="dt">face=</span><span class="st">&quot;bold&quot;</span>))</code></pre></div>
 <div class="figure"><span id="fig:genatthist"></span>
@@ -525,20 +528,20 @@ Figure 7.8: Gender Attitudes Score Distribution
 <div id="histogram-of-one-variable-by-one-factor" class="section level4">
 <h4><span class="header-section-number">7.2.1.2</span> Histogram of one variable by one factor</h4>
 <p>Useful for evaluating group differences.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dataWBT$HEF=<span class="kw">droplevels</span>(<span class="kw">factor</span>(dataWBT$higher_ed, 
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dataWBT<span class="op">$</span>HEF=<span class="kw">droplevels</span>(<span class="kw">factor</span>(dataWBT<span class="op">$</span>higher_ed, 
                     <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), 
                     <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;non-college&quot;</span>, <span class="st">&quot;college&quot;</span>)))
 
-<span class="kw">ggplot</span>(dataWBT, <span class="kw">aes</span>(<span class="dt">x =</span> gen_att, <span class="dt">fill=</span>HEF,<span class="dt">drop=</span>T)) +
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dt">by =</span><span class="fl">0.2</span>),<span class="dt">alpha=</span>.<span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;black&quot;</span>)+<span class="st"> </span>
-<span class="st">  </span><span class="kw">theme_bw</span>()+<span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Gender Attitude&quot;</span>,<span class="dt">fill=</span><span class="st">&#39;Higher Ed.&#39;</span>)+<span class="st">  </span>
+<span class="kw">ggplot</span>(dataWBT, <span class="kw">aes</span>(<span class="dt">x =</span> gen_att, <span class="dt">fill=</span>HEF,<span class="dt">drop=</span>T)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dt">by =</span><span class="fl">0.2</span>),<span class="dt">alpha=</span>.<span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;black&quot;</span>)<span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">theme_bw</span>()<span class="op">+</span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Gender Attitude&quot;</span>,<span class="dt">fill=</span><span class="st">&#39;Higher Ed.&#39;</span>)<span class="op">+</span><span class="st">  </span>
 <span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">15</span>),
         <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>,<span class="dt">face=</span><span class="st">&quot;bold&quot;</span>))
 
 dataWBT2=<span class="kw">na.omit</span>(dataWBT[,<span class="kw">c</span>(<span class="st">&quot;gen_att&quot;</span>,<span class="st">&quot;HEF&quot;</span>)])
-<span class="kw">ggplot</span>(dataWBT2, <span class="kw">aes</span>(<span class="dt">x =</span> gen_att)) +
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dt">by =</span><span class="fl">0.2</span>),<span class="dt">alpha=</span>.<span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;black&quot;</span>)+<span class="st"> </span>
-<span class="st">  </span><span class="kw">theme_bw</span>()+<span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Gender Attitude&quot;</span>)+<span class="st"> </span><span class="kw">facet_wrap</span>(~<span class="st"> </span>HEF)+
+<span class="kw">ggplot</span>(dataWBT2, <span class="kw">aes</span>(<span class="dt">x =</span> gen_att)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dt">by =</span><span class="fl">0.2</span>),<span class="dt">alpha=</span>.<span class="dv">5</span>,<span class="dt">col=</span><span class="st">&quot;black&quot;</span>)<span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">theme_bw</span>()<span class="op">+</span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Gender Attitude&quot;</span>)<span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>HEF)<span class="op">+</span>
 <span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">15</span>),
         <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>,<span class="dt">face=</span><span class="st">&quot;bold&quot;</span>))</code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-59"></span>
@@ -548,9 +551,9 @@ Figure 7.9: Gender Attitudes by Treatment Group
 </p>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
-<span class="kw">ggplot</span>(dataWBT, <span class="kw">aes</span>(<span class="dt">x =</span> gen_att)) +
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.2</span>)+<span class="st"> </span><span class="kw">theme_bw</span>()+
-<span class="st">   </span><span class="kw">facet_wrap</span>(~city, <span class="dt">ncol =</span> <span class="dv">8</span>)</code></pre></div>
+<span class="kw">ggplot</span>(dataWBT, <span class="kw">aes</span>(<span class="dt">x =</span> gen_att)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.2</span>)<span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>()<span class="op">+</span>
+<span class="st">   </span><span class="kw">facet_wrap</span>(<span class="op">~</span>city, <span class="dt">ncol =</span> <span class="dv">8</span>)</code></pre></div>
 <p><img src="SARP-EN_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
 </div>
 <div id="histogram-of-one-variable-by-two-factors" class="section level4">
@@ -558,23 +561,23 @@ Figure 7.9: Gender Attitudes by Treatment Group
 <p>Useful for two way interactions</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dataWBT2=<span class="kw">na.omit</span>(dataWBT[,<span class="kw">c</span>(<span class="st">&quot;gen_att&quot;</span>,<span class="st">&quot;HEF&quot;</span>,<span class="st">&quot;gender&quot;</span>)])
 
-<span class="kw">ggplot</span>(dataWBT2, <span class="kw">aes</span>(<span class="dt">x =</span> gen_att,<span class="dt">fill=</span>gender)) +<span class="kw">labs</span>(<span class="dt">fill=</span><span class="st">&#39;Gender&#39;</span>)+<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.2</span>,<span class="dt">alpha=</span>.<span class="dv">5</span>)+<span class="st"> </span><span class="kw">theme_bw</span>()+
-<span class="st">    </span><span class="kw">facet_grid</span>(~HEF)</code></pre></div>
+<span class="kw">ggplot</span>(dataWBT2, <span class="kw">aes</span>(<span class="dt">x =</span> gen_att,<span class="dt">fill=</span>gender)) <span class="op">+</span><span class="kw">labs</span>(<span class="dt">fill=</span><span class="st">&#39;Gender&#39;</span>)<span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.2</span>,<span class="dt">alpha=</span>.<span class="dv">5</span>)<span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>()<span class="op">+</span>
+<span class="st">    </span><span class="kw">facet_grid</span>(<span class="op">~</span>HEF)</code></pre></div>
 <p><img src="SARP-EN_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
 </div>
 <div id="histogram-of-one-variable-by-three-factors" class="section level4">
 <h4><span class="header-section-number">7.2.1.4</span> Histogram of one variable by three factors</h4>
 <p>Useful for three way interactions</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dataWBT$Condition=<span class="kw">droplevels</span>(<span class="kw">factor</span>(dataWBT$treatment, 
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dataWBT<span class="op">$</span>Condition=<span class="kw">droplevels</span>(<span class="kw">factor</span>(dataWBT<span class="op">$</span>treatment, 
                     <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), 
                     <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;treatment&quot;</span>, <span class="st">&quot;control&quot;</span>)))
 
 dataWBT2=<span class="kw">na.omit</span>(dataWBT[,<span class="kw">c</span>(<span class="st">&quot;gen_att&quot;</span>,<span class="st">&quot;HEF&quot;</span>,<span class="st">&quot;gender&quot;</span>,<span class="st">&quot;Condition&quot;</span>)])
 
-<span class="kw">ggplot</span>(dataWBT2, <span class="kw">aes</span>(<span class="dt">x =</span> gen_att,<span class="dt">fill=</span>gender)) +<span class="kw">labs</span>(<span class="dt">fill=</span><span class="st">&#39;Gender&#39;</span>)+<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.2</span>,<span class="dt">alpha=</span>.<span class="dv">5</span>)+<span class="st"> </span><span class="kw">theme_bw</span>()+
-<span class="st">    </span><span class="kw">facet_grid</span>(~HEF+Condition)</code></pre></div>
+<span class="kw">ggplot</span>(dataWBT2, <span class="kw">aes</span>(<span class="dt">x =</span> gen_att,<span class="dt">fill=</span>gender)) <span class="op">+</span><span class="kw">labs</span>(<span class="dt">fill=</span><span class="st">&#39;Gender&#39;</span>)<span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.2</span>,<span class="dt">alpha=</span>.<span class="dv">5</span>)<span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>()<span class="op">+</span>
+<span class="st">    </span><span class="kw">facet_grid</span>(<span class="op">~</span>HEF<span class="op">+</span>Condition)</code></pre></div>
 <p><img src="SARP-EN_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
 </div>
 </div>
@@ -612,24 +615,24 @@ Figure 7.10: The z distribution
 <h4><span class="header-section-number">7.3.2.1</span> A confidence interval example</h4>
 <p>Below R code calculates the sample mean, the standard deviation and the confidence interval for the Gender Attitude scores’ mean.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># the number of available data points, n</span>
-GA_n=<span class="kw">sum</span>(!<span class="kw">is.na</span>(dataWBT$gen_att))
+GA_n=<span class="kw">sum</span>(<span class="op">!</span><span class="kw">is.na</span>(dataWBT<span class="op">$</span>gen_att))
 
 <span class="co">#calculate the mean</span>
-GA_m=<span class="kw">mean</span>(dataWBT$gen_att,<span class="dt">na.rm =</span> T)
+GA_m=<span class="kw">mean</span>(dataWBT<span class="op">$</span>gen_att,<span class="dt">na.rm =</span> T)
 
 <span class="co">#calculate the sd</span>
-GA_s=<span class="kw">sd</span>(dataWBT$gen_att,<span class="dt">na.rm =</span> T)
+GA_s=<span class="kw">sd</span>(dataWBT<span class="op">$</span>gen_att,<span class="dt">na.rm =</span> T)
 
 <span class="co">#95% confidence interval</span>
-lower=GA_m -<span class="st"> </span><span class="fl">1.96</span> *<span class="st"> </span>(GA_s/<span class="kw">sqrt</span>(GA_n))
+lower=GA_m <span class="op">-</span><span class="st"> </span><span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>(GA_s<span class="op">/</span><span class="kw">sqrt</span>(GA_n))
 lower
 ## [1] 1.924339
-upper=GA_m +<span class="st"> </span><span class="fl">1.96</span> *<span class="st"> </span>(GA_s/<span class="kw">sqrt</span>(GA_n))
+upper=GA_m <span class="op">+</span><span class="st"> </span><span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>(GA_s<span class="op">/</span><span class="kw">sqrt</span>(GA_n))
 upper
 ## [1] 1.956812
 
 <span class="co">#or </span>
-GA_m +<span class="kw">c</span>(-<span class="dv">1</span>,<span class="dv">1</span>)*<span class="fl">1.96</span> *<span class="st"> </span>(GA_s/<span class="kw">sqrt</span>(GA_n))
+GA_m <span class="op">+</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)<span class="op">*</span><span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>(GA_s<span class="op">/</span><span class="kw">sqrt</span>(GA_n))
 ## [1] 1.924339 1.956812
 
 
@@ -691,12 +694,12 @@ GA_m +<span class="kw">c</span>(-<span class="dv">1</span>,<span class="dv">1</s
 <p>This z-variable, also known as z-score, has a mean of 0 and standard deviation of 1. If X is normally distributed, z will also be normally distributed.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create z-scores for the Gender Attitudes </span>
 
-GA_m=<span class="kw">mean</span>(dataWBT$gen_att,<span class="dt">na.rm =</span> T)
-GA_s=<span class="kw">sd</span>(dataWBT$gen_att,<span class="dt">na.rm =</span> T)
-z_GA=(dataWBT$gen_att-GA_m)/GA_s
+GA_m=<span class="kw">mean</span>(dataWBT<span class="op">$</span>gen_att,<span class="dt">na.rm =</span> T)
+GA_s=<span class="kw">sd</span>(dataWBT<span class="op">$</span>gen_att,<span class="dt">na.rm =</span> T)
+z_GA=(dataWBT<span class="op">$</span>gen_att<span class="op">-</span>GA_m)<span class="op">/</span>GA_s
 
 <span class="co">#OR</span>
-z_GA=<span class="kw">scale</span>(dataWBT$gen_att, <span class="dt">center=</span>T, <span class="dt">scale=</span>T)
+z_GA=<span class="kw">scale</span>(dataWBT<span class="op">$</span>gen_att, <span class="dt">center=</span>T, <span class="dt">scale=</span>T)
 
 <span class="co"># Scale function can be used for more than 1 variable</span>
 <span class="co"># center=T substracts mean from each score.</span>
@@ -713,23 +716,23 @@ z_GA=<span class="kw">scale</span>(dataWBT$gen_att, <span class="dt">center=</sp
 <h4><span class="header-section-number">7.3.4.1</span> z test illustration-1 (non-directional)</h4>
 <p>Stating the null as <span class="math inline">\(H_0: \mu_{Gender Attitudes} = 2\)</span> and alternative as <span class="math inline">\(H_1: \mu_{Gender Attitudes} \neq 2\)</span> and using <span class="math inline">\(\alpha=0.05\)</span>;</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># the number of available data points, n</span>
-GA_n=<span class="kw">sum</span>(!<span class="kw">is.na</span>(dataWBT$gen_att))
+GA_n=<span class="kw">sum</span>(<span class="op">!</span><span class="kw">is.na</span>(dataWBT<span class="op">$</span>gen_att))
 
 <span class="co">#calculate the mean</span>
-GA_m=<span class="kw">mean</span>(dataWBT$gen_att,<span class="dt">na.rm =</span> T)
+GA_m=<span class="kw">mean</span>(dataWBT<span class="op">$</span>gen_att,<span class="dt">na.rm =</span> T)
 
 <span class="co">#calculate the sd</span>
-GA_s=<span class="kw">sd</span>(dataWBT$gen_att,<span class="dt">na.rm =</span> T)
+GA_s=<span class="kw">sd</span>(dataWBT<span class="op">$</span>gen_att,<span class="dt">na.rm =</span> T)
 
 <span class="co"># set the null</span>
 mu_hyp=<span class="dv">2</span>
 
 <span class="co"># z statistic</span>
-(GA_m-mu_hyp)/(GA_s/<span class="kw">sqrt</span>(GA_n))
+(GA_m<span class="op">-</span>mu_hyp)<span class="op">/</span>(GA_s<span class="op">/</span><span class="kw">sqrt</span>(GA_n))
 ## [1] -7.17343
 
 <span class="co">#the critical value for alpha=0.05 and nondirectional test </span>
-<span class="kw">qnorm</span>(<span class="dv">1</span>-(<span class="fl">0.05</span>/<span class="dv">2</span>))
+<span class="kw">qnorm</span>(<span class="dv">1</span><span class="op">-</span>(<span class="fl">0.05</span><span class="op">/</span><span class="dv">2</span>))
 ## [1] 1.959964</code></pre></div>
 <p>The Gender Attitudes score from 5302 participants had a mean of 1.94 and SD=0.6. A one-sample z test revealed that the observed mean is 7.17 standard error below the hypothesized mean of 2. Using a rejection criteria of 1.96 (<span class="math inline">\(z_{1-(0.05/2)}\)</span>) the difference between the observed mean and the hypothesized mean was concluded to be statistically significant.</p>
 </div>
@@ -740,11 +743,11 @@ mu_hyp=<span class="dv">2</span>
 mu_hyp=<span class="fl">1.9</span>
 
 <span class="co"># z statistic</span>
-(GA_m-mu_hyp)/(<span class="fl">0.75</span>/<span class="kw">sqrt</span>(GA_n))
+(GA_m<span class="op">-</span>mu_hyp)<span class="op">/</span>(<span class="fl">0.75</span><span class="op">/</span><span class="kw">sqrt</span>(GA_n))
 ## [1] 3.939368
 
 <span class="co">#the critical value for alpha=0.01 and directional test </span>
-<span class="kw">qnorm</span>(<span class="dv">1</span>-(<span class="fl">0.01</span>))
+<span class="kw">qnorm</span>(<span class="dv">1</span><span class="op">-</span>(<span class="fl">0.01</span>))
 ## [1] 2.326348</code></pre></div>
 <p>Using a critical value of 2.33 (<span class="math inline">\(z_{0.99}\)</span>), results indicated that the Gender Attitudes scores’ mean was significantly greater than the hypothesized value of 1.9 (<span class="math inline">\(z=3.94\)</span>).</p>
 </div>
@@ -756,14 +759,14 @@ mu_hyp=<span class="fl">1.9</span>
 <h4><span class="header-section-number">7.3.5.1</span> t test illustration-1 (non-directional)</h4>
 <p>In the dataWBT, city <em>DUZCE</em> has only 52 participants and 47 available Gender Attitudes scores. For illustrative purposes this city is chosen.</p>
 <p>Stating the null as <span class="math inline">\(H_0: \mu_{Gender Attitudes} = 1.94\)</span> and alternative as <span class="math inline">\(H_1: \mu_{Gender Attitudes} \neq 1.94\)</span> and using <span class="math inline">\(\alpha=0.05\)</span>;</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dataWBT_DUZCE=dataWBT[dataWBT$city==<span class="st">&quot;DUZCE&quot;</span>,]
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dataWBT_DUZCE=dataWBT[dataWBT<span class="op">$</span>city<span class="op">==</span><span class="st">&quot;DUZCE&quot;</span>,]
 <span class="co">#descriptive statistics</span>
 <span class="kw">describe</span>(dataWBT_DUZCE[,<span class="st">&quot;gen_att&quot;</span>],<span class="dt">type=</span><span class="dv">3</span>)
 ##    vars  n mean   sd median trimmed  mad min max range skew kurtosis   se
 ## X1    1 47 2.18 0.55      2    2.14 0.59   1 3.8   2.8 0.56     0.28 0.08
 
 <span class="co">#t test</span>
-<span class="kw">t.test</span>(dataWBT_DUZCE$gen_att,
+<span class="kw">t.test</span>(dataWBT_DUZCE<span class="op">$</span>gen_att,
        <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>,
        <span class="dt">mu=</span><span class="fl">1.94</span>,
        <span class="dt">conf.level =</span> <span class="fl">0.95</span>)
@@ -789,7 +792,7 @@ mu_hyp=<span class="fl">1.9</span>
 <p>In the previous example a directional test was conducted in which the alternative hypothesis specified that the population mean would not be equal to 1.94. What will happen if the null hypothesis is <span class="math inline">\(H_1:\mu_{GenderAttitudes} \leq 1.94\)</span>?</p>
 <p>For the city <em>DUZCE</em>, stating the null as <span class="math inline">\(H_0: \mu_{Gender Attitudes} = 1.94\)</span> and alternative as <span class="math inline">\(H_1: \mu_{Gender Attitudes} \leq 1.94\)</span> and using <span class="math inline">\(\alpha=0.05\)</span>;</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#t test</span>
-<span class="kw">t.test</span>(dataWBT_DUZCE$gen_att,
+<span class="kw">t.test</span>(dataWBT_DUZCE<span class="op">$</span>gen_att,
        <span class="dt">alternative=</span><span class="st">&quot;less&quot;</span>,
        <span class="dt">mu=</span><span class="fl">1.94</span>,
        <span class="dt">conf.level =</span> <span class="fl">0.95</span>)
@@ -825,7 +828,7 @@ Figure 7.11: The z distribution and z=1.8
 </p>
 </div>
 <p>The blue area corresponds to 3.6% of the density, in other words p=0.0359;</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>-<span class="kw">pnorm</span>(<span class="fl">1.8</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span><span class="op">-</span><span class="kw">pnorm</span>(<span class="fl">1.8</span>)</code></pre></div>
 <pre><code>## [1] 0.03593032</code></pre>
 <p>This p-value is valid for a directional test but not for a non-directional test. When the uncertainty exists for the direction, the following visual depicts the situation;</p>
 <div class="figure"><span id="fig:pvalue2"></span>
@@ -835,28 +838,28 @@ Figure 7.12: The z distribution and abs(z)=1.8
 </p>
 </div>
 <p>The blue area, now, corresponds to 7.2% of the density, in other words p=0.0719;</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span>*(<span class="dv">1</span>-<span class="kw">pnorm</span>(<span class="fl">1.8</span>))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span><span class="op">*</span>(<span class="dv">1</span><span class="op">-</span><span class="kw">pnorm</span>(<span class="fl">1.8</span>))</code></pre></div>
 <pre><code>## [1] 0.07186064</code></pre>
 </div>
 <div id="statisticalpower" class="section level3">
 <h3><span class="header-section-number">7.3.8</span> Statistical power</h3>
 <p>The power of a statistical test is the probability that it will correctly reject the null hypothesis,and is equal to <span class="math inline">\(1-\beta\)</span>. This probability can be computed a-priori or post-hoc, whereas a post-hoc analysis is less useful. A-priori power analyses is helpful to design a study and to decide the desired sample size. A-priori power analyses are required for the related grant proposals.</p>
 <p>The plot produce by the following R program can be used to explain statistical power<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">seq</span>(-<span class="dv">4</span>, <span class="dv">8</span>, <span class="fl">0.02</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">4</span>, <span class="dv">8</span>, <span class="fl">0.02</span>)
 zdat &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> x, <span class="dt">y1 =</span> <span class="kw">dnorm</span>(x, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">y2 =</span> <span class="kw">dnorm</span>(x, <span class="fl">2.5</span>, <span class="dv">1</span>))
-<span class="kw">ggplot</span>(zdat, <span class="kw">aes</span>(<span class="dt">x =</span> x)) +
-<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> y1), <span class="dt">size=</span><span class="dv">2</span>) +
-<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> y2), <span class="dt">color=</span><span class="st">&#39;red&#39;</span>,<span class="dt">size=</span><span class="dv">2</span>) +
-<span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">2.5</span>), <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;longdash&quot;</span>)+
-<span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">qnorm</span>(<span class="dv">1</span> -<span class="st"> </span><span class="fl">0.05</span>))+
-<span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(-<span class="dv">4</span>,<span class="dv">0</span>,<span class="fl">1.65</span>,<span class="fl">2.5</span>,<span class="dv">4</span>))+
-<span class="st">  </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">label=</span><span class="st">&quot;beta&quot;</span> , <span class="dt">x=</span><span class="fl">1.1</span>, <span class="dt">y=</span><span class="fl">0.05</span>, <span class="dt">parse=</span>T, <span class="dt">fontface =</span><span class="dv">2</span>, <span class="dt">size=</span><span class="dv">6</span>)+
-<span class="st">  </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">label=</span><span class="st">&quot;alpha&quot;</span>, <span class="dt">x=</span><span class="dv">2</span>  , <span class="dt">y=</span><span class="fl">0.02</span>, <span class="dt">parse=</span>T, <span class="dt">fontface =</span><span class="dv">2</span>, <span class="dt">size=</span><span class="dv">6</span>)+
-<span class="st">  </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">label=</span><span class="st">&quot;1-~beta&quot;</span>, <span class="dt">x=</span><span class="fl">3.3</span>, <span class="dt">y=</span><span class="fl">0.1</span>, <span class="dt">parse=</span>T, <span class="dt">fontface =</span><span class="dv">2</span>,<span class="dt">size=</span><span class="dv">6</span>)+
-<span class="st">  </span><span class="kw">geom_area</span>(<span class="kw">aes</span>(<span class="dt">y=</span>y1, <span class="dt">x =</span> <span class="kw">ifelse</span>(x &gt;<span class="st"> </span><span class="kw">qnorm</span>(.<span class="dv">95</span>), x, <span class="ot">NA</span>)), <span class="dt">fill =</span> <span class="st">&#39;blue&#39;</span>  , <span class="dt">alpha=</span><span class="fl">0.25</span>) +
-<span class="st">  </span><span class="kw">geom_area</span>(<span class="kw">aes</span>(<span class="dt">y=</span>y2, <span class="dt">x =</span> <span class="kw">ifelse</span>(x &gt;<span class="st"> </span><span class="kw">qnorm</span>(.<span class="dv">95</span>), x, <span class="ot">NA</span>)), <span class="dt">fill =</span> <span class="st">&#39;green&#39;</span> , <span class="dt">alpha=</span><span class="fl">0.25</span>) +
-<span class="st">  </span><span class="kw">geom_area</span>(<span class="kw">aes</span>(<span class="dt">y=</span>y2, <span class="dt">x =</span> <span class="kw">ifelse</span>(x &lt;<span class="st"> </span><span class="kw">qnorm</span>(.<span class="dv">95</span>), x, <span class="ot">NA</span>)), <span class="dt">fill =</span> <span class="st">&#39;yellow&#39;</span>, <span class="dt">alpha=</span><span class="fl">0.25</span>) +
-<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;z&quot;</span>) +<span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;dnorm(z)&quot;</span>) +<span class="st"> </span><span class="kw">theme_bw</span>()</code></pre></div>
+<span class="kw">ggplot</span>(zdat, <span class="kw">aes</span>(<span class="dt">x =</span> x)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> y1), <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> y2), <span class="dt">color=</span><span class="st">&#39;red&#39;</span>,<span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">2.5</span>), <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;longdash&quot;</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">qnorm</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="fl">0.05</span>))<span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">4</span>,<span class="dv">0</span>,<span class="fl">1.65</span>,<span class="fl">2.5</span>,<span class="dv">4</span>))<span class="op">+</span>
+<span class="st">  </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">label=</span><span class="st">&quot;beta&quot;</span> , <span class="dt">x=</span><span class="fl">1.1</span>, <span class="dt">y=</span><span class="fl">0.05</span>, <span class="dt">parse=</span>T, <span class="dt">fontface =</span><span class="dv">2</span>, <span class="dt">size=</span><span class="dv">6</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">label=</span><span class="st">&quot;alpha&quot;</span>, <span class="dt">x=</span><span class="dv">2</span>  , <span class="dt">y=</span><span class="fl">0.02</span>, <span class="dt">parse=</span>T, <span class="dt">fontface =</span><span class="dv">2</span>, <span class="dt">size=</span><span class="dv">6</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">label=</span><span class="st">&quot;1-~beta&quot;</span>, <span class="dt">x=</span><span class="fl">3.3</span>, <span class="dt">y=</span><span class="fl">0.1</span>, <span class="dt">parse=</span>T, <span class="dt">fontface =</span><span class="dv">2</span>,<span class="dt">size=</span><span class="dv">6</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_area</span>(<span class="kw">aes</span>(<span class="dt">y=</span>y1, <span class="dt">x =</span> <span class="kw">ifelse</span>(x <span class="op">&gt;</span><span class="st"> </span><span class="kw">qnorm</span>(.<span class="dv">95</span>), x, <span class="ot">NA</span>)), <span class="dt">fill =</span> <span class="st">&#39;blue&#39;</span>  , <span class="dt">alpha=</span><span class="fl">0.25</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_area</span>(<span class="kw">aes</span>(<span class="dt">y=</span>y2, <span class="dt">x =</span> <span class="kw">ifelse</span>(x <span class="op">&gt;</span><span class="st"> </span><span class="kw">qnorm</span>(.<span class="dv">95</span>), x, <span class="ot">NA</span>)), <span class="dt">fill =</span> <span class="st">&#39;green&#39;</span> , <span class="dt">alpha=</span><span class="fl">0.25</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_area</span>(<span class="kw">aes</span>(<span class="dt">y=</span>y2, <span class="dt">x =</span> <span class="kw">ifelse</span>(x <span class="op">&lt;</span><span class="st"> </span><span class="kw">qnorm</span>(.<span class="dv">95</span>), x, <span class="ot">NA</span>)), <span class="dt">fill =</span> <span class="st">&#39;yellow&#39;</span>, <span class="dt">alpha=</span><span class="fl">0.25</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;z&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;dnorm(z)&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>()</code></pre></div>
 <div class="figure"><span id="fig:zpower"></span>
 <img src="SARP-EN_files/figure-html/zpower-1.png" alt="Power illustration with z distribution" width="672" />
 <p class="caption">
@@ -864,7 +867,7 @@ Figure 7.13: Power illustration with z distribution
 </p>
 </div>
 <p>The z distribution assuming a true null hypothesis (<span class="math inline">\(H_0:\mu=0\)</span>) is depicted with black borders; the mean for the sampling distribution is 0 under this assumption and is shown with a dashed line. The z distribution assuming (a) the null hypothesis is false and (b) the actual population mean and standard deviation are such that <span class="math inline">\(((\mu-\mu_{hypothesis} )⁄(\sigma⁄\sqrt{n})=2.5)\)</span> is depicted with red borders. This visual is valid for a directional test with <span class="math inline">\(\alpha=0.05\)</span>, hence, with a critical value of <span class="math inline">\(z_{0.95}=1.65\)</span>. The blue area represents <span class="math inline">\(\alpha\)</span>, the yellow area represent <span class="math inline">\(\beta\)</span> and the green area represents power. In this particular case the power is .804.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>-<span class="kw">pnorm</span>(<span class="kw">qnorm</span>(<span class="fl">0.95</span>),<span class="dt">mean=</span><span class="fl">2.5</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span><span class="op">-</span><span class="kw">pnorm</span>(<span class="kw">qnorm</span>(<span class="fl">0.95</span>),<span class="dt">mean=</span><span class="fl">2.5</span>)</code></pre></div>
 <pre><code>## [1] 0.8037649</code></pre>
 <p>Figure <a href="descriptive-statistics-and-hypthoses-testing.html#fig:zpower">7.13</a> visually shows that<a href="#fn9" class="footnoteRef" id="fnref9"><sup>9</sup></a> a power calculation includes 2 distributions, an alpha value and a test statistic. With these knowns the statistical power can be calculated. It should be noted that a test statistic has its own elements, generally a numerator and a denominator. For a z test, the numerator is the difference between the hypothesized mean and the null, whereas the denominator is the standard error of the mean (<span class="math inline">\(\sigma/\sqrt(n)\)</span>). If the power is set to a constant (i.e. .80) , equation can be solved for any desired unknown. Generally, the equation is solved for <em>n</em>, the sample size.</p>
 <p>The statistical power is revisited in the following chapters. Each design has its own standard error of the parameter estimate and the test statistic has its own distributional features. For a one sample t-test, the <em>power.t.test</em> function is useful;</p>
@@ -889,11 +892,11 @@ Figure 7.13: Power illustration with z distribution
 <p>There are several approaches to produce robust statistics for a one-sample mean test, comprehensively illustrated by <span class="citation">Wilcox (<a href="#ref-wilcox2012">2012</a>)</span>. Below R code calculates 95% confidence intervals using the second variation of the bootstrap-t method (<span class="citation">Wilcox (<a href="#ref-wilcox2012">2012</a>)</span>, page 117)</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#the second variation of the bootstrap-t method</span>
 <span class="co"># select DUZCE and perfom listwise deletion using na.omit</span>
-dataWBT_DUZCE=<span class="kw">na.omit</span>(dataWBT[dataWBT$city==<span class="st">&quot;DUZCE&quot;</span>,<span class="kw">c</span>(<span class="st">&quot;id&quot;</span>,<span class="st">&quot;gen_att&quot;</span>)])
+dataWBT_DUZCE=<span class="kw">na.omit</span>(dataWBT[dataWBT<span class="op">$</span>city<span class="op">==</span><span class="st">&quot;DUZCE&quot;</span>,<span class="kw">c</span>(<span class="st">&quot;id&quot;</span>,<span class="st">&quot;gen_att&quot;</span>)])
 
 <span class="co"># test whether the Gender Attitudes&#39; mean is equal to 1.94</span>
 <span class="co"># assuming normality and using a t-test</span>
-<span class="kw">t.test</span>(dataWBT_DUZCE$gen_att,<span class="dt">mu=</span><span class="fl">1.94</span>,<span class="dt">conf.level =</span> <span class="fl">0.95</span>)
+<span class="kw">t.test</span>(dataWBT_DUZCE<span class="op">$</span>gen_att,<span class="dt">mu=</span><span class="fl">1.94</span>,<span class="dt">conf.level =</span> <span class="fl">0.95</span>)
 ## 
 ##  One Sample t-test
 ## 
@@ -914,21 +917,21 @@ alpha=<span class="fl">0.05</span>   <span class="co"># alpha</span>
 
 <span class="co">#x is the variable</span>
 <span class="co"># xBAR is the observed mean</span>
-tstar=function(x,xBAR) <span class="kw">sqrt</span>(<span class="kw">length</span>(x))*<span class="kw">abs</span>(<span class="kw">mean</span>(x)-xBAR)/<span class="kw">sd</span>(x)
+tstar=<span class="cf">function</span>(x,xBAR) <span class="kw">sqrt</span>(<span class="kw">length</span>(x))<span class="op">*</span><span class="kw">abs</span>(<span class="kw">mean</span>(x)<span class="op">-</span>xBAR)<span class="op">/</span><span class="kw">sd</span>(x)
 
 
 output=<span class="kw">c</span>()
-for (i in <span class="dv">1</span>:B){
-  output[i]=<span class="kw">tstar</span>(<span class="kw">sample</span>(dataWBT_DUZCE$gen_att,
+<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>B){
+  output[i]=<span class="kw">tstar</span>(<span class="kw">sample</span>(dataWBT_DUZCE<span class="op">$</span>gen_att,
                          <span class="dt">replace=</span>T,
-                         <span class="dt">size=</span><span class="kw">length</span>(dataWBT_DUZCE$gen_att)),
-                  <span class="dt">xBAR=</span><span class="kw">mean</span>(dataWBT_DUZCE$gen_att))
+                         <span class="dt">size=</span><span class="kw">length</span>(dataWBT_DUZCE<span class="op">$</span>gen_att)),
+                  <span class="dt">xBAR=</span><span class="kw">mean</span>(dataWBT_DUZCE<span class="op">$</span>gen_att))
   }
 output=<span class="kw">sort</span>(output)
-Tc=output[<span class="kw">as.integer</span>(B*(<span class="dv">1</span>-alpha))]
+Tc=output[<span class="kw">as.integer</span>(B<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>alpha))]
 
 <span class="co">#bootstrap confidence interval</span>
-<span class="kw">mean</span>(dataWBT_DUZCE$gen_att)+<span class="kw">c</span>(-<span class="dv">1</span>,<span class="dv">1</span>)*(Tc*<span class="kw">sd</span>(dataWBT_DUZCE$gen_att)/<span class="kw">sqrt</span>(<span class="kw">length</span>(dataWBT_DUZCE$gen_att)))
+<span class="kw">mean</span>(dataWBT_DUZCE<span class="op">$</span>gen_att)<span class="op">+</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)<span class="op">*</span>(Tc<span class="op">*</span><span class="kw">sd</span>(dataWBT_DUZCE<span class="op">$</span>gen_att)<span class="op">/</span><span class="kw">sqrt</span>(<span class="kw">length</span>(dataWBT_DUZCE<span class="op">$</span>gen_att)))
 ## [1] 2.011540 2.339524</code></pre></div>
 <div id="write-up-2" class="section level4">
 <h4><span class="header-section-number">7.3.9.1</span> Write up</h4>
@@ -997,8 +1000,9 @@ Tc=output[<span class="kw">as.integer</span>(B*(<span class="dv">1</span>-alpha)
         </div>
       </div>
 <a href="data-sets.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="comparing-two-means-the-t-test.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
-
+<a href="comparing-two-means-the-t-test.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
@@ -1007,7 +1011,7 @@ Tc=output[<span class="kw">as.integer</span>(B*(<span class="dv">1</span>-alpha)
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,
@@ -1041,7 +1045,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(script.src))
       script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);

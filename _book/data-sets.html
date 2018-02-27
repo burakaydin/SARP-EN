@@ -6,9 +6,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>An R Platform for Social Scientists</title>
-  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="R book for social scientists">
-  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="An R Platform for Social Scientists" />
   <meta property="og:type" content="book" />
@@ -23,7 +22,7 @@
   <meta name="twitter:description" content="R book for social scientists" />
   <meta name="twitter:image" content="images/coverpicture.png" />
 
-<meta name="author" content="Burak AYDIN, James ALGINA, Walter LEITE">
+<meta name="author" content="Burak AYDIN, James ALGINA, Walter LEITE, Hakan ATILGAN">
 
 
 <meta name="date" content="2017-01-01">
@@ -35,7 +34,6 @@
   
 <link rel="prev" href="basics.html">
 <link rel="next" href="descriptive-statistics-and-hypthoses-testing.html">
-
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,7 +47,7 @@
 
 
 
-<script src="libs/htmlwidgets-0.8/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-0.9/htmlwidgets.js"></script>
 <link href="libs/rglwidgetClass-2/rgl.css" rel="stylesheet" />
 <script src="libs/rglwidgetClass-2/rglClass.src.js"></script>
 <script src="libs/CanvasMatrix4-2016/CanvasMatrix.src.js"></script>
@@ -100,6 +98,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <body>
 
 
+
   <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
 
     <div class="book-summary">
@@ -112,8 +111,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Cover</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a><ul>
-<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#why-bookdown"><i class="fa fa-check"></i><b>1.1.1</b> Why Bookdown?</a></li>
-<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#content"><i class="fa fa-check"></i><b>1.1.2</b> Content</a></li>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#citation"><i class="fa fa-check"></i><b>1.1.1</b> Citation</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#why-bookdown"><i class="fa fa-check"></i><b>1.1.2</b> Why Bookdown?</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#content"><i class="fa fa-check"></i><b>1.1.3</b> Content</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i><b>2</b> Preface</a><ul>
@@ -121,6 +121,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.1.1" data-path="preface.html"><a href="preface.html#burak-aydn-ph.d."><i class="fa fa-check"></i><b>2.1.1</b> Burak Aydın, Ph.D.</a></li>
 <li class="chapter" data-level="2.1.2" data-path="preface.html"><a href="preface.html#james-algina-ph.d."><i class="fa fa-check"></i><b>2.1.2</b> James Algina, Ph.D.</a></li>
 <li class="chapter" data-level="2.1.3" data-path="preface.html"><a href="preface.html#walter-l.-leite-ph.d."><i class="fa fa-check"></i><b>2.1.3</b> Walter L. Leite, Ph.D.</a></li>
+<li class="chapter" data-level="2.1.4" data-path="preface.html"><a href="preface.html#hakan-atilgan-ph.d."><i class="fa fa-check"></i><b>2.1.4</b> Hakan ATILGAN, Ph.D.</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="preface.html"><a href="preface.html#acknowledgement"><i class="fa fa-check"></i><b>2.2</b> Acknowledgement</a></li>
 <li class="chapter" data-level="2.3" data-path="preface.html"><a href="preface.html#dataWBT"><i class="fa fa-check"></i><b>2.3</b> Data</a></li>
@@ -235,7 +236,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="10.3" data-path="correlation.html"><a href="correlation.html#biserial-and-point-biserial-correlation-coefficients-with-r"><i class="fa fa-check"></i><b>10.3</b> Biserial and Point-Biserial Correlation Coefficients with R</a></li>
 <li class="chapter" data-level="10.4" data-path="correlation.html"><a href="correlation.html#phi-correlation-coefficient-with-r"><i class="fa fa-check"></i><b>10.4</b> Phi Correlation Coefficient with R</a></li>
-<li class="chapter" data-level="10.5" data-path="correlation.html"><a href="correlation.html#issues-in-interpreting-correlation-coefficients"><i class="fa fa-check"></i><b>10.5</b> Issues in Interpreting Correlation Coefficients</a></li>
+<li class="chapter" data-level="10.5" data-path="correlation.html"><a href="correlation.html#tetrachoric-and-polychoric-correlation-coefficients-with-r"><i class="fa fa-check"></i><b>10.5</b> Tetrachoric and Polychoric Correlation Coefficients with R</a></li>
+<li class="chapter" data-level="10.6" data-path="correlation.html"><a href="correlation.html#issues-in-interpreting-correlation-coefficients"><i class="fa fa-check"></i><b>10.6</b> Issues in Interpreting Correlation Coefficients</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html"><i class="fa fa-check"></i><b>11</b> Multiple Linear Regression, a Short Introduction</a><ul>
 <li class="chapter" data-level="11.1" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#matricies-and-least-square-estimation"><i class="fa fa-check"></i><b>11.1</b> Matricies and Least Square Estimation</a><ul>
@@ -263,6 +265,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="12" data-path="useful-r-codes.html"><a href="useful-r-codes.html"><i class="fa fa-check"></i><b>12</b> Useful R codes</a><ul>
 <li class="chapter" data-level="12.1" data-path="useful-r-codes.html"><a href="useful-r-codes.html#more-on-the-apastyle-package"><i class="fa fa-check"></i><b>12.1</b> More on the apaStyle package</a></li>
 <li class="chapter" data-level="12.2" data-path="useful-r-codes.html"><a href="useful-r-codes.html#a-useful-shiny-application"><i class="fa fa-check"></i><b>12.2</b> A useful shiny application</a></li>
+<li class="chapter" data-level="12.3" data-path="useful-r-codes.html"><a href="useful-r-codes.html#update-bookdown"><i class="fa fa-check"></i><b>12.3</b> Update bookdown</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -377,23 +380,23 @@ tempdata[<span class="dv">151</span>,<span class="dv">16</span>]=<span class="dv
 
 <span class="co"># replace a specific datum using locaters</span>
 <span class="co"># row 151 belongs to id 67034022 and column 16 is named &quot;age&quot;.</span>
-tempdata[tempdata$id==<span class="dv">67034022</span>,<span class="st">&quot;age&quot;</span>]=<span class="dv">32</span>
+tempdata[tempdata<span class="op">$</span>id<span class="op">==</span><span class="dv">67034022</span>,<span class="st">&quot;age&quot;</span>]=<span class="dv">32</span>
 
 <span class="co"># Replace values</span>
 <span class="co"># Replace treatment values</span>
 <span class="co"># originally has 1 for treatment and 2 for control</span>
 <span class="co"># Replace 1s with &quot;trt&quot; and 2s with &quot;cnt&quot; </span>
-tempdata[tempdata$treatment==<span class="dv">1</span>,<span class="st">&quot;treatment&quot;</span>]=<span class="st">&quot;trt&quot;</span>
-tempdata[tempdata$treatment==<span class="dv">2</span>,<span class="st">&quot;treatment&quot;</span>]=<span class="st">&quot;cnt&quot;</span>
+tempdata[tempdata<span class="op">$</span>treatment<span class="op">==</span><span class="dv">1</span>,<span class="st">&quot;treatment&quot;</span>]=<span class="st">&quot;trt&quot;</span>
+tempdata[tempdata<span class="op">$</span>treatment<span class="op">==</span><span class="dv">2</span>,<span class="st">&quot;treatment&quot;</span>]=<span class="st">&quot;cnt&quot;</span>
 
 <span class="co"># Or use ifelse function</span>
 <span class="co"># replace &quot;wage01&quot; If &quot;wage01&quot; equals &quot;Yes&quot; change to 0.5, otherwise -0.5</span>
-tempdata$wage01=<span class="kw">ifelse</span>(tempdata$wage01==<span class="st">&quot;Yes&quot;</span>,<span class="fl">0.5</span>,-<span class="fl">0.5</span>)
+tempdata<span class="op">$</span>wage01=<span class="kw">ifelse</span>(tempdata<span class="op">$</span>wage01<span class="op">==</span><span class="st">&quot;Yes&quot;</span>,<span class="fl">0.5</span>,<span class="op">-</span><span class="fl">0.5</span>)
 
 <span class="co"># Or use mapvalue function in the plyr package</span>
 <span class="kw">require</span>(plyr)
 <span class="co"># create a new variable named pension01NEW, 0 if pension01 is &quot;No&quot;, 1 if &quot;Yes&quot;</span>
-tempdata$pension01NEW &lt;-<span class="st"> </span><span class="kw">mapvalues</span>(tempdata$pension01, 
+tempdata<span class="op">$</span>pension01NEW &lt;-<span class="st"> </span><span class="kw">mapvalues</span>(tempdata<span class="op">$</span>pension01, 
                                    <span class="dt">from=</span><span class="kw">c</span>(<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;No&quot;</span>),<span class="dt">to=</span><span class="kw">c</span>(<span class="st">&quot;1&quot;</span>,<span class="st">&quot;0&quot;</span>))
 
 
@@ -427,20 +430,20 @@ tempdata=<span class="kw">read.csv</span>(urlfile)
 
 
 <span class="co"># select only city=ISTANBUL</span>
-istDAT=tempdata[tempdata$city==<span class="st">&quot;ISTANBUL&quot;</span>,]
+istDAT=tempdata[tempdata<span class="op">$</span>city<span class="op">==</span><span class="st">&quot;ISTANBUL&quot;</span>,]
 
 <span class="co"># select only city=ISTANBUL and first 8 columns</span>
-istDAT18=tempdata[tempdata$city==<span class="st">&quot;ISTANBUL&quot;</span>,<span class="dv">1</span>:<span class="dv">8</span>]
+istDAT18=tempdata[tempdata<span class="op">$</span>city<span class="op">==</span><span class="st">&quot;ISTANBUL&quot;</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>]
 
 <span class="co"># select only city=ISTANBUL and Gender Attitude score larger than 2</span>
-istDATGAT2=tempdata[tempdata$city==<span class="st">&quot;ISTANBUL&quot;</span> |<span class="st"> </span>tempdata$gen_att &gt;<span class="dv">2</span> ,]
+istDATGAT2=tempdata[tempdata<span class="op">$</span>city<span class="op">==</span><span class="st">&quot;ISTANBUL&quot;</span> <span class="op">|</span><span class="st"> </span>tempdata<span class="op">$</span>gen_att <span class="op">&gt;</span><span class="dv">2</span> ,]
 
 <span class="co"># Alternatively use the subset function</span>
 <span class="co"># use the select argument to specify the columns, otherwise all columns are selected</span>
-istDATGAT2B=<span class="kw">subset</span>(tempdata, city==<span class="st">&quot;ISTANBUL&quot;</span> |<span class="st"> </span>tempdata$gen_att &gt;<span class="dv">2</span>, <span class="dt">select=</span><span class="dv">1</span>:<span class="dv">8</span>) 
+istDATGAT2B=<span class="kw">subset</span>(tempdata, city<span class="op">==</span><span class="st">&quot;ISTANBUL&quot;</span> <span class="op">|</span><span class="st"> </span>tempdata<span class="op">$</span>gen_att <span class="op">&gt;</span><span class="dv">2</span>, <span class="dt">select=</span><span class="dv">1</span><span class="op">:</span><span class="dv">8</span>) 
 
 <span class="co">#subset based on variable values</span>
-item1_123 &lt;-<span class="st"> </span>tempdata[tempdata$item1 %in%<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), ]
+item1_<span class="dv">123</span> &lt;-<span class="st"> </span>tempdata[tempdata<span class="op">$</span>item1 <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), ]
 
 <span class="co">#remove all objects in workspace</span>
 <span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</code></pre></div>
@@ -456,35 +459,35 @@ tempdata=<span class="kw">read.csv</span>(urlfile)
 <span class="kw">rm</span>(urlfile)
 
 <span class="co"># create sum for item2 to item6</span>
-tempdata$itemSUM=<span class="kw">with</span>(tempdata,item2+item3+item4+item5+item6)
+tempdata<span class="op">$</span>itemSUM=<span class="kw">with</span>(tempdata,item2<span class="op">+</span>item3<span class="op">+</span>item4<span class="op">+</span>item5<span class="op">+</span>item6)
 
 <span class="co"># create average of item2 to item6 (notice na.rm)</span>
-tempdata$itemAVE=<span class="kw">with</span>(tempdata,
+tempdata<span class="op">$</span>itemAVE=<span class="kw">with</span>(tempdata,
                       <span class="kw">rowMeans</span>(<span class="kw">cbind</span>(item2,item3,item4,item5,item6),<span class="dt">na.rm=</span>T))
 
 <span class="co">#or</span>
-tempdata$itemAVE=<span class="kw">rowMeans</span>(tempdata[,<span class="dv">10</span>:<span class="dv">14</span>],<span class="dt">na.rm =</span> T)
+tempdata<span class="op">$</span>itemAVE=<span class="kw">rowMeans</span>(tempdata[,<span class="dv">10</span><span class="op">:</span><span class="dv">14</span>],<span class="dt">na.rm =</span> T)
 
 <span class="co"># Create average by city</span>
-tempdata$CityAVEscore =<span class="kw">with</span>(tempdata, <span class="kw">ave</span>(itemAVE,city,<span class="dt">FUN=</span>function(x) <span class="kw">mean</span>(x, <span class="dt">na.rm=</span>T)))
+tempdata<span class="op">$</span>CityAVEscore =<span class="kw">with</span>(tempdata, <span class="kw">ave</span>(itemAVE,city,<span class="dt">FUN=</span><span class="cf">function</span>(x) <span class="kw">mean</span>(x, <span class="dt">na.rm=</span>T)))
 
 <span class="co">#or</span>
-tempdata=<span class="kw">merge</span>(tempdata, <span class="kw">aggregate</span>(itemAVE ~<span class="st"> </span>city, <span class="dt">data =</span> tempdata, <span class="dt">FUN=</span>mean, <span class="dt">na.rm=</span><span class="ot">TRUE</span>), 
+tempdata=<span class="kw">merge</span>(tempdata, <span class="kw">aggregate</span>(itemAVE <span class="op">~</span><span class="st"> </span>city, <span class="dt">data =</span> tempdata, <span class="dt">FUN=</span>mean, <span class="dt">na.rm=</span><span class="ot">TRUE</span>), 
           <span class="dt">by =</span> <span class="st">&quot;city&quot;</span>, <span class="dt">suffixes =</span> <span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;citymean&quot;</span>),<span class="dt">all=</span>T)
 
 <span class="co">#or take each item&#39;s average by city</span>
-tempdata=<span class="kw">merge</span>(tempdata, <span class="kw">aggregate</span>(<span class="kw">cbind</span>(item2,item3,item4,item5,item6) ~<span class="st"> </span>city, 
+tempdata=<span class="kw">merge</span>(tempdata, <span class="kw">aggregate</span>(<span class="kw">cbind</span>(item2,item3,item4,item5,item6) <span class="op">~</span><span class="st"> </span>city, 
                                    <span class="dt">data =</span> tempdata, <span class="dt">FUN=</span>mean, <span class="dt">na.rm=</span><span class="ot">TRUE</span>), 
                                    <span class="dt">by =</span> <span class="st">&quot;city&quot;</span>, <span class="dt">suffixes =</span> <span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;Citymean&quot;</span>),<span class="dt">all=</span>T)
 
 
 <span class="co"># categorize variables. Create 0s if itemAVE is lower than 2 and 1 otherwise</span>
-tempdata$itemAVE01=<span class="kw">ifelse</span>(tempdata$itemAVE&lt;<span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">1</span>)
+tempdata<span class="op">$</span>itemAVE01=<span class="kw">ifelse</span>(tempdata<span class="op">$</span>itemAVE<span class="op">&lt;</span><span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">1</span>)
 
 <span class="co"># create 1s if the average is between 0 and 1.8</span>
 <span class="co"># create 2s if the average is between 1.8 and 2.5</span>
 <span class="co"># create 3s if the average is between 2.5 and 5</span>
-tempdata$itemAVE123=<span class="kw">with</span>(tempdata,<span class="kw">cut</span>(itemAVE, <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">1.8</span>,<span class="fl">2.5</span>,<span class="dv">5</span>), <span class="dt">labels =</span> <span class="ot">FALSE</span>))
+tempdata<span class="op">$</span>itemAVE123=<span class="kw">with</span>(tempdata,<span class="kw">cut</span>(itemAVE, <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">1.8</span>,<span class="fl">2.5</span>,<span class="dv">5</span>), <span class="dt">labels =</span> <span class="ot">FALSE</span>))
 <span class="co"># check right=TRUE argument.</span>
 <span class="co"># i.e if right=T  values exactly equal to 1.8 goes into category 1</span>
 <span class="co">#     if right=F  values exactly equal to 1.8 goes into category 2</span>
@@ -503,10 +506,10 @@ tempdata=<span class="kw">read.csv</span>(urlfile)
 <span class="co"># from wide to long. Create one single item column based on item1 to item6</span>
 <span class="co"># while keeping other values in the data set </span>
 <span class="kw">library</span>(tidyr)
-data_long =<span class="st"> </span><span class="kw">gather</span>(tempdata, item, score, item1:item6, <span class="dt">factor_key=</span><span class="ot">TRUE</span>)
+data_long =<span class="st"> </span><span class="kw">gather</span>(tempdata, item, score, item1<span class="op">:</span>item6, <span class="dt">factor_key=</span><span class="ot">TRUE</span>)
 
 <span class="co">#sort data by id</span>
-data_long=data_long[<span class="kw">order</span>(data_long$id),] 
+data_long=data_long[<span class="kw">order</span>(data_long<span class="op">$</span>id),] 
 
 <span class="co"># from long  to wide.</span>
 data_wide =<span class="st"> </span><span class="kw">spread</span>(data_long, item, score)
@@ -525,21 +528,21 @@ tempdata=<span class="kw">read.csv</span>(urlfile,<span class="dt">stringsAsFact
 <span class="kw">rm</span>(urlfile)
 
 <span class="co">#check treatment variable&#39;s structure </span>
-<span class="kw">str</span>(tempdata$treatment)
+<span class="kw">str</span>(tempdata<span class="op">$</span>treatment)
 
 <span class="co">#convert numeric to factor.</span>
-tempdata$treatmentFactor=<span class="kw">factor</span>(tempdata$treatment,<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;treatment&quot;</span>,<span class="st">&quot;control&quot;</span>))
+tempdata<span class="op">$</span>treatmentFactor=<span class="kw">factor</span>(tempdata<span class="op">$</span>treatment,<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;treatment&quot;</span>,<span class="st">&quot;control&quot;</span>))
 
 <span class="co">#convert factors to numeric (when numbers show up as a character variable)</span>
 
 <span class="co">#create illustrative variable</span>
-tempdata$iv1=<span class="kw">factor</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;1&quot;</span>,<span class="st">&quot;2&quot;</span>,<span class="st">&quot;3&quot;</span>),<span class="dt">length=</span><span class="kw">nrow</span>(tempdata)))
-tempdata$iv1numeric=<span class="kw">as.numeric</span>(<span class="kw">levels</span>(tempdata$iv1))[tempdata$iv1]
+tempdata<span class="op">$</span>iv1=<span class="kw">factor</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;1&quot;</span>,<span class="st">&quot;2&quot;</span>,<span class="st">&quot;3&quot;</span>),<span class="dt">length=</span><span class="kw">nrow</span>(tempdata)))
+tempdata<span class="op">$</span>iv1numeric=<span class="kw">as.numeric</span>(<span class="kw">levels</span>(tempdata<span class="op">$</span>iv1))[tempdata<span class="op">$</span>iv1]
 <span class="co">#or</span>
-tempdata$iv1numeric=<span class="kw">as.numeric</span>(<span class="kw">as.character</span>(tempdata$iv1))
+tempdata<span class="op">$</span>iv1numeric=<span class="kw">as.numeric</span>(<span class="kw">as.character</span>(tempdata<span class="op">$</span>iv1))
 
 <span class="co">#convert NAs to -99  </span>
-tempdata[<span class="kw">is.na</span>(tempdata)]=<span class="st"> </span>(-<span class="dv">99</span>)
+tempdata[<span class="kw">is.na</span>(tempdata)]=<span class="st"> </span>(<span class="op">-</span><span class="dv">99</span>)
 
 <span class="co">#remove all objects in workspace</span>
 <span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</code></pre></div>
@@ -561,14 +564,14 @@ tempdata[<span class="dv">3</span>,<span class="dv">5</span>]=<span class="ot">N
 tempdata[<span class="dv">3</span>,]=<span class="st"> </span><span class="ot">NA</span>
 
 <span class="co">#or</span>
-tempdata=tempdata[-<span class="dv">3</span>,]
+tempdata=tempdata[<span class="op">-</span><span class="dv">3</span>,]
 
 <span class="co">#delete a column, i.e the 5th </span>
-tempdata$course_taken=<span class="ot">NULL</span>
+tempdata<span class="op">$</span>course_taken=<span class="ot">NULL</span>
 
 <span class="co">#listwise deletion, remove any row with missing data</span>
 <span class="co"># subset temp for illustrative purposes</span>
-temp=tempdata[,<span class="dv">1</span>:<span class="dv">10</span>]
+temp=tempdata[,<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]
 
 <span class="co"># listwise deletion</span>
 temp=<span class="kw">na.omit</span>(temp)
@@ -589,8 +592,8 @@ tempdata=<span class="kw">read.csv</span>(urlfile,<span class="dt">stringsAsFact
 
 <span class="co">#create objects</span>
 <span class="co"># select rows 1 to 20 and columns 1 to 5</span>
-subset1=tempdata[<span class="dv">1</span>:<span class="dv">20</span>,<span class="dv">1</span>:<span class="dv">5</span>]
-object2=<span class="kw">mean</span>(tempdata$item1,<span class="dt">na.rm =</span> T)
+subset1=tempdata[<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]
+object2=<span class="kw">mean</span>(tempdata<span class="op">$</span>item1,<span class="dt">na.rm =</span> T)
 
 
 <span class="co">#Check working directory</span>
@@ -616,7 +619,7 @@ object2=<span class="kw">mean</span>(tempdata$item1,<span class="dt">na.rm =</sp
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-foreign">
-<p>R Core Team. 2016a. <em>Foreign: Read Data Stored by Minitab, S, Sas, Spss, Stata, Systat, Weka, DBase, .</em> <a href="https://CRAN.R-project.org/package=foreign" class="uri">https://CRAN.R-project.org/package=foreign</a>.</p>
+<p>R Core Team. 2016a. <em>Foreign: Read Data Stored by Minitab, S, Sas, Spss, Stata, Systat, Weka, dBase, ...</em> <a href="https://CRAN.R-project.org/package=foreign" class="uri">https://CRAN.R-project.org/package=foreign</a>.</p>
 </div>
 <div id="ref-plyrpack">
 <p>Wickham, Hadley. 2011. “The Split-Apply-Combine Strategy for Data Analysis.” <em>Journal of Statistical Software</em> 40 (1): 1–29. <a href="http://www.jstatsoft.org/v40/i01/" class="uri">http://www.jstatsoft.org/v40/i01/</a>.</p>
@@ -631,8 +634,9 @@ object2=<span class="kw">mean</span>(tempdata$item1,<span class="dt">na.rm =</sp
         </div>
       </div>
 <a href="basics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="descriptive-statistics-and-hypthoses-testing.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
-
+<a href="descriptive-statistics-and-hypthoses-testing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
@@ -641,7 +645,7 @@ object2=<span class="kw">mean</span>(tempdata$item1,<span class="dt">na.rm =</sp
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,
@@ -675,7 +679,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(script.src))
       script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);

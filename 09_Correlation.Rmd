@@ -391,6 +391,27 @@ phi(genderWAGE)
 
 ```
 
+## Tetrachoric and Polychoric Correlation Coefficients with R
+
+When the two variables are dichotomous but their underlying distributions are assumed to be bivariate normal, a tetrachoric correlation (rt) is calculated. For example students` answers on an achievement test, if  coded as 1 for correct and 0 otherwise, can be considered as dichotomous variables with underlying normal distributions and the linear relationship between these underlying distributions can be estimated with  a tetrachoric correlation coefficient. For illustrative purposes, let us use dichotomized item3 and item6 . The tetrachoric function in the psych (Revelle, 2016) package can calculate the tetrachoric correlation, and in our case it is found to be .07;
+
+```{r, collapse=T, eval=T, cache=F, message=F}
+# items 3. and 6. Are dichotomized
+dataWBT_Kayseri$Bitem3=ifelse(dataWBT_Kayseri$item3==1|dataWBT_Kayseri$item3==2,1,0)
+dataWBT_Kayseri$Bitem6=ifelse(dataWBT_Kayseri$item6==1|dataWBT_Kayseri$item6==2,1,0)
+require(psych)
+tetrachoric(as.matrix(dataWBT_Kayseri[,c("Bitem3","Bitem6")]))
+
+```
+
+
+When the two variables are ordered categorical but their underlying distributions are assumed to be continiuos, a polychoric correlation coefficient is calculated.  For example participants` answers for Likert type questions are generally considered as ordinal variables. @uebersax2015introduction uses the term ‘latent continuous correlations’ both for tetrachoric and polychoric correlations.  There are at least two frameworks to calculate latent continuous correlations, closed forms or iterative procedures. Readers are referred to @olsson1979maximum and to technical details of the polychoric function in the *psych* package. We also suggest researchers to provide details of the software they use when calculating a latent continiuos correlation, when using R the default settings should be studied carefully. For illustrative purposes let us use item3 and item6. These two variables were created using a 4-point Likert scale. The polychoric correlation between these two items is found to be .16;
+
+```{r, collapse=T, eval=T, cache=F, message=F}
+require(psych)											
+polychoric(as.matrix(dataWBT_Kayseri[,c("item3","item6")]))	
+
+```
 
 
 ## Issues in Interpreting Correlation Coefficients

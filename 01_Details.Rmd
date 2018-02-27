@@ -24,6 +24,13 @@ He has served as PI, Co-PI or researcher on 20 grants. In these efforts, his pri
 
 Dr. Leite is an associate professor at research and evaluation methodology department, College of Education, University of Florida. His current research program consists of developing and evaluating statistical methods to strengthen causal inference and understanding of causal mechanisms using quasi-experimental and non-experimental data. He specializes in structural equation modeling, multilevel modeling, and propensity score methods applied to statistical analysis of large scale longitudinal data, program evaluation,  and scale development and validation. For more information please visit <a href="https://education.ufl.edu/leite/" target="_blank">UF College of Education</a>
 
+
+###Hakan ATILGAN, Ph.D.
+
+Dr. Atılgan is an associate professor of educational assessment and evaluation at Ege Uni-
+versity, School of Education. His academic interests have been in structural equation model-
+ing, generalizability theory and psychometrics. He has been teaching graduate level statistics courses for more than a decade. For more information please visit <a href="http://akademik.ege.edu.tr/?q=tr/bilgiler&id=2229" target="_blank">EGE website</a> 
+
 ## Acknowledgement
 We will list contributor's names here.
 

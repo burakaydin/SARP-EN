@@ -6,9 +6,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>An R Platform for Social Scientists</title>
-  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="R book for social scientists">
-  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="An R Platform for Social Scientists" />
   <meta property="og:type" content="book" />
@@ -23,7 +22,7 @@
   <meta name="twitter:description" content="R book for social scientists" />
   <meta name="twitter:image" content="images/coverpicture.png" />
 
-<meta name="author" content="Burak AYDIN, James ALGINA, Walter LEITE">
+<meta name="author" content="Burak AYDIN, James ALGINA, Walter LEITE, Hakan ATILGAN">
 
 
 <meta name="date" content="2017-01-01">
@@ -35,7 +34,6 @@
   
 <link rel="prev" href="comparing-two-means-the-t-test.html">
 <link rel="next" href="correlation.html">
-
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,7 +47,7 @@
 
 
 
-<script src="libs/htmlwidgets-0.8/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-0.9/htmlwidgets.js"></script>
 <link href="libs/rglwidgetClass-2/rgl.css" rel="stylesheet" />
 <script src="libs/rglwidgetClass-2/rglClass.src.js"></script>
 <script src="libs/CanvasMatrix4-2016/CanvasMatrix.src.js"></script>
@@ -100,6 +98,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <body>
 
 
+
   <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
 
     <div class="book-summary">
@@ -112,8 +111,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Cover</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a><ul>
-<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#why-bookdown"><i class="fa fa-check"></i><b>1.1.1</b> Why Bookdown?</a></li>
-<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#content"><i class="fa fa-check"></i><b>1.1.2</b> Content</a></li>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#citation"><i class="fa fa-check"></i><b>1.1.1</b> Citation</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#why-bookdown"><i class="fa fa-check"></i><b>1.1.2</b> Why Bookdown?</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#content"><i class="fa fa-check"></i><b>1.1.3</b> Content</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i><b>2</b> Preface</a><ul>
@@ -121,6 +121,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.1.1" data-path="preface.html"><a href="preface.html#burak-aydn-ph.d."><i class="fa fa-check"></i><b>2.1.1</b> Burak Aydın, Ph.D.</a></li>
 <li class="chapter" data-level="2.1.2" data-path="preface.html"><a href="preface.html#james-algina-ph.d."><i class="fa fa-check"></i><b>2.1.2</b> James Algina, Ph.D.</a></li>
 <li class="chapter" data-level="2.1.3" data-path="preface.html"><a href="preface.html#walter-l.-leite-ph.d."><i class="fa fa-check"></i><b>2.1.3</b> Walter L. Leite, Ph.D.</a></li>
+<li class="chapter" data-level="2.1.4" data-path="preface.html"><a href="preface.html#hakan-atilgan-ph.d."><i class="fa fa-check"></i><b>2.1.4</b> Hakan ATILGAN, Ph.D.</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="preface.html"><a href="preface.html#acknowledgement"><i class="fa fa-check"></i><b>2.2</b> Acknowledgement</a></li>
 <li class="chapter" data-level="2.3" data-path="preface.html"><a href="preface.html#dataWBT"><i class="fa fa-check"></i><b>2.3</b> Data</a></li>
@@ -235,7 +236,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="10.3" data-path="correlation.html"><a href="correlation.html#biserial-and-point-biserial-correlation-coefficients-with-r"><i class="fa fa-check"></i><b>10.3</b> Biserial and Point-Biserial Correlation Coefficients with R</a></li>
 <li class="chapter" data-level="10.4" data-path="correlation.html"><a href="correlation.html#phi-correlation-coefficient-with-r"><i class="fa fa-check"></i><b>10.4</b> Phi Correlation Coefficient with R</a></li>
-<li class="chapter" data-level="10.5" data-path="correlation.html"><a href="correlation.html#issues-in-interpreting-correlation-coefficients"><i class="fa fa-check"></i><b>10.5</b> Issues in Interpreting Correlation Coefficients</a></li>
+<li class="chapter" data-level="10.5" data-path="correlation.html"><a href="correlation.html#tetrachoric-and-polychoric-correlation-coefficients-with-r"><i class="fa fa-check"></i><b>10.5</b> Tetrachoric and Polychoric Correlation Coefficients with R</a></li>
+<li class="chapter" data-level="10.6" data-path="correlation.html"><a href="correlation.html#issues-in-interpreting-correlation-coefficients"><i class="fa fa-check"></i><b>10.6</b> Issues in Interpreting Correlation Coefficients</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html"><i class="fa fa-check"></i><b>11</b> Multiple Linear Regression, a Short Introduction</a><ul>
 <li class="chapter" data-level="11.1" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#matricies-and-least-square-estimation"><i class="fa fa-check"></i><b>11.1</b> Matricies and Least Square Estimation</a><ul>
@@ -263,6 +265,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="12" data-path="useful-r-codes.html"><a href="useful-r-codes.html"><i class="fa fa-check"></i><b>12</b> Useful R codes</a><ul>
 <li class="chapter" data-level="12.1" data-path="useful-r-codes.html"><a href="useful-r-codes.html#more-on-the-apastyle-package"><i class="fa fa-check"></i><b>12.1</b> More on the apaStyle package</a></li>
 <li class="chapter" data-level="12.2" data-path="useful-r-codes.html"><a href="useful-r-codes.html#a-useful-shiny-application"><i class="fa fa-check"></i><b>12.2</b> A useful shiny application</a></li>
+<li class="chapter" data-level="12.3" data-path="useful-r-codes.html"><a href="useful-r-codes.html#update-bookdown"><i class="fa fa-check"></i><b>12.3</b> Update bookdown</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -581,35 +584,35 @@ dataWBT=<span class="kw">read.csv</span>(urlfile)
 
 <span class="co">#select the city of KOCAELI</span>
 <span class="co"># listwise deletion for gen_att and education variables</span>
-dataWBT_KOCAELI=<span class="kw">na.omit</span>(dataWBT[dataWBT$city==<span class="st">&quot;KOCAELI&quot;</span>,
+dataWBT_KOCAELI=<span class="kw">na.omit</span>(dataWBT[dataWBT<span class="op">$</span>city<span class="op">==</span><span class="st">&quot;KOCAELI&quot;</span>,
                                 <span class="kw">c</span>(<span class="st">&quot;id&quot;</span>,<span class="st">&quot;gen_att&quot;</span>,<span class="st">&quot;education&quot;</span>)])
 
 
 <span class="co">#There is only 1 participant in the level &quot;None&quot;, merge it into Primary school</span>
 <span class="co"># the gender attitude score for this participant is 1.6 </span>
 <span class="kw">library</span>(car)
-dataWBT_KOCAELI$eduNEW &lt;-<span class="st"> </span><span class="kw">recode</span>(dataWBT_KOCAELI$education,
+dataWBT_KOCAELI<span class="op">$</span>eduNEW &lt;-<span class="st"> </span><span class="kw">recode</span>(dataWBT_KOCAELI<span class="op">$</span>education,
                                  <span class="st">&quot;&#39;None&#39;=&#39;Primary School (5 years)&#39;&quot;</span>)
 
-dataWBT_KOCAELI$eduNEW &lt;-<span class="st"> </span><span class="kw">recode</span>(dataWBT_KOCAELI$eduNEW,
+dataWBT_KOCAELI<span class="op">$</span>eduNEW &lt;-<span class="st"> </span><span class="kw">recode</span>(dataWBT_KOCAELI<span class="op">$</span>eduNEW,
                                  <span class="st">&quot;&#39;High School (Lycee)&#39;=</span>
 <span class="st">                                 &#39;High School (Lycee) (4 years)&#39;&quot;</span>)
 
-dataWBT_KOCAELI$eduNEW &lt;-<span class="st"> </span><span class="kw">recode</span>(dataWBT_KOCAELI$eduNEW,
+dataWBT_KOCAELI<span class="op">$</span>eduNEW &lt;-<span class="st"> </span><span class="kw">recode</span>(dataWBT_KOCAELI<span class="op">$</span>eduNEW,
                                  <span class="st">&quot;&#39;Vocational School&#39;=</span>
 <span class="st">                                 &#39;Vocational High School (4 years)&#39;&quot;</span>)
 <span class="co">#table(dataWBT_KOCAELI$eduNEW)</span>
 
 ##optional re-order levels (cosmetic)
 <span class="co">#levels(dataWBT_KOCAELI$eduNEW)</span>
-dataWBT_KOCAELI$eduNEW =<span class="st"> </span><span class="kw">factor</span>(dataWBT_KOCAELI$eduNEW,
-                         <span class="kw">levels</span>(dataWBT_KOCAELI$eduNEW)[<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">6</span>,<span class="dv">2</span>,<span class="dv">5</span>)])
+dataWBT_KOCAELI<span class="op">$</span>eduNEW =<span class="st"> </span><span class="kw">factor</span>(dataWBT_KOCAELI<span class="op">$</span>eduNEW,
+                         <span class="kw">levels</span>(dataWBT_KOCAELI<span class="op">$</span>eduNEW)[<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">6</span>,<span class="dv">2</span>,<span class="dv">5</span>)])
 
 
 <span class="co">#which(dataWBT_KOCAELI$education==&quot;None&quot;)</span>
 
 <span class="co">#drop empty levels</span>
-dataWBT_KOCAELI$eduNEW=<span class="kw">droplevels</span>(dataWBT_KOCAELI$eduNEW)
+dataWBT_KOCAELI<span class="op">$</span>eduNEW=<span class="kw">droplevels</span>(dataWBT_KOCAELI<span class="op">$</span>eduNEW)
 
 
 <span class="co">#get descriptives </span>
@@ -633,10 +636,10 @@ desc1BW[,<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4<
 <p>Step 2: Check assumptions</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
 <span class="kw">require</span>(ggplot2)
-<span class="kw">ggplot</span>(dataWBT_KOCAELI, <span class="kw">aes</span>(<span class="dt">x =</span> gen_att)) +
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..),<span class="dt">col=</span><span class="st">&quot;black&quot;</span>,<span class="dt">binwidth =</span> <span class="fl">0.2</span>,<span class="dt">alpha=</span><span class="fl">0.7</span>) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">size=</span><span class="fl">1.5</span>) +
-<span class="st">  </span><span class="kw">theme_bw</span>()+<span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Gender Attitude by Degree in Kocaeli&quot;</span>)+<span class="st"> </span><span class="kw">facet_wrap</span>(~<span class="st"> </span>eduNEW)+
+<span class="kw">ggplot</span>(dataWBT_KOCAELI, <span class="kw">aes</span>(<span class="dt">x =</span> gen_att)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..),<span class="dt">col=</span><span class="st">&quot;black&quot;</span>,<span class="dt">binwidth =</span> <span class="fl">0.2</span>,<span class="dt">alpha=</span><span class="fl">0.7</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">size=</span><span class="fl">1.5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>()<span class="op">+</span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Gender Attitude by Degree in Kocaeli&quot;</span>)<span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>eduNEW)<span class="op">+</span>
 <span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>),
         <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>,<span class="dt">face=</span><span class="st">&quot;bold&quot;</span>))</code></pre></div>
 <div class="figure"><span id="fig:genattKOCAELI"></span>
@@ -648,9 +651,9 @@ Figure 9.1: Gender Attitudes by Degree
 <p>Departures from the normality do not seem to be severe.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
 <span class="kw">require</span>(ggplot2)
-<span class="kw">ggplot</span>(dataWBT_KOCAELI, <span class="kw">aes</span>(eduNEW,gen_att)) +
-<span class="st">  </span><span class="kw">geom_boxplot</span>() +<span class="st"> </span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Education&quot;</span>,<span class="dt">y=</span><span class="st">&quot;Gender Attitude by degree in Kocaeli&quot;</span>)+<span class="kw">coord_flip</span>()</code></pre></div>
+<span class="kw">ggplot</span>(dataWBT_KOCAELI, <span class="kw">aes</span>(eduNEW,gen_att)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Education&quot;</span>,<span class="dt">y=</span><span class="st">&quot;Gender Attitude by degree in Kocaeli&quot;</span>)<span class="op">+</span><span class="kw">coord_flip</span>()</code></pre></div>
 <div class="figure"><span id="fig:genattKOCAELIbox"></span>
 <img src="SARP-EN_files/figure-html/genattKOCAELIbox-1.png" alt="Gender Attitudes by Degree " width="672" />
 <p class="caption">
@@ -664,7 +667,7 @@ Figure 9.2: Gender Attitudes by Degree
 <span class="kw">library</span>(ez)
 <span class="co">#the ezANOVA function throws a warning if id is not a factor</span>
 
-dataWBT_KOCAELI$id=<span class="kw">as.factor</span>(dataWBT_KOCAELI$id)
+dataWBT_KOCAELI<span class="op">$</span>id=<span class="kw">as.factor</span>(dataWBT_KOCAELI<span class="op">$</span>id)
 
 <span class="co"># set the number of decimals (cosmetic)</span>
 <span class="kw">options</span>(<span class="dt">digits =</span> <span class="dv">3</span>)
@@ -693,18 +696,18 @@ alternative1
 <span class="kw">qf</span>(.<span class="dv">95</span>,<span class="dv">5</span>,<span class="dv">564</span>)
 ## [1] 2.23</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
-ABOUT the warning of ez function; 
+ABOUT the warning of ez <span class="cf">function</span>; 
 <span class="co">#Warning: Data is unbalanced (unequal N per group). Make sure you specified</span>
 <span class="co">#a well-considered value for the type argument to ezANOVA().</span>
 
 ezANOVA can calculate three different types of sums of squares 
-for main effects and interactions.  
-For a one-way between-subjects design the F test is the same 
-for all three types and this warning can be ignored.</code></pre></div>
+<span class="cf">for</span> main effects and interactions.  
+For a one<span class="op">-</span>way between<span class="op">-</span>subjects design the F test is the same 
+<span class="cf">for</span> all three types and this warning can be ignored.</code></pre></div>
 <p>The same results can be obtained with the <em>lm</em> (linear model) function in <span class="citation">R Core Team (<a href="#ref-R-base">2016</a><a href="#ref-R-base">b</a>)</span>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
 <span class="co"># alternative 2 the lm function</span>
-alternative2=<span class="kw">lm</span>(gen_att~eduNEW,<span class="dt">data=</span>dataWBT_KOCAELI)
+alternative2=<span class="kw">lm</span>(gen_att<span class="op">~</span>eduNEW,<span class="dt">data=</span>dataWBT_KOCAELI)
 
 <span class="co">#Table 2</span>
 <span class="kw">anova</span>(alternative2)
@@ -719,7 +722,7 @@ alternative2=<span class="kw">lm</span>(gen_att~eduNEW,<span class="dt">data=</s
 <p>The <em>aov</em> function in <span class="citation">R Core Team (<a href="#ref-R-base">2016</a><a href="#ref-R-base">b</a>)</span> is the third alternative.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
 <span class="co">#alternative 3 the aov function</span>
-alternative3=<span class="kw">aov</span>(gen_att~eduNEW,<span class="dt">data=</span>dataWBT_KOCAELI)
+alternative3=<span class="kw">aov</span>(gen_att<span class="op">~</span>eduNEW,<span class="dt">data=</span>dataWBT_KOCAELI)
 <span class="kw">summary</span>(alternative3)
 ##              Df Sum Sq Mean Sq F value   Pr(&gt;F)    
 ## eduNEW        5  10.13  2.0261   7.268 1.31e-06 ***
@@ -776,7 +779,7 @@ alternative3=<span class="kw">aov</span>(gen_att~eduNEW,<span class="dt">data=</
 
 <span class="co">#t1way</span>
 <span class="co"># 20% trimmed</span>
-<span class="kw">t1way</span>(gen_att~eduNEW,<span class="dt">data=</span>dataWBT_KOCAELI,<span class="dt">tr=</span>.<span class="dv">2</span>,<span class="dt">nboot=</span><span class="dv">5000</span>)
+<span class="kw">t1way</span>(gen_att<span class="op">~</span>eduNEW,<span class="dt">data=</span>dataWBT_KOCAELI,<span class="dt">tr=</span>.<span class="dv">2</span>,<span class="dt">nboot=</span><span class="dv">5000</span>)
 ## Call:
 ## t1way(formula = gen_att ~ eduNEW, data = dataWBT_KOCAELI, tr = 0.2, 
 ##     nboot = 5000)
@@ -789,7 +792,7 @@ alternative3=<span class="kw">aov</span>(gen_att~eduNEW,<span class="dt">data=</
 ## Explanatory measure of effect size: 0.29
 
 <span class="co"># 10% trimmed</span>
-<span class="kw">t1way</span>(gen_att~eduNEW,<span class="dt">data=</span>dataWBT_KOCAELI,<span class="dt">tr=</span>.<span class="dv">1</span>,<span class="dt">nboot=</span><span class="dv">5000</span>)
+<span class="kw">t1way</span>(gen_att<span class="op">~</span>eduNEW,<span class="dt">data=</span>dataWBT_KOCAELI,<span class="dt">tr=</span>.<span class="dv">1</span>,<span class="dt">nboot=</span><span class="dv">5000</span>)
 ## Call:
 ## t1way(formula = gen_att ~ eduNEW, data = dataWBT_KOCAELI, tr = 0.1, 
 ##     nboot = 5000)
@@ -802,7 +805,7 @@ alternative3=<span class="kw">aov</span>(gen_att~eduNEW,<span class="dt">data=</
 ## Explanatory measure of effect size: 0.3
 
 <span class="co"># 5% trimmed</span>
-<span class="kw">t1way</span>(gen_att~eduNEW,<span class="dt">data=</span>dataWBT_KOCAELI,<span class="dt">tr=</span>.<span class="dv">05</span>,<span class="dt">nboot=</span><span class="dv">5000</span>)
+<span class="kw">t1way</span>(gen_att<span class="op">~</span>eduNEW,<span class="dt">data=</span>dataWBT_KOCAELI,<span class="dt">tr=</span>.<span class="dv">05</span>,<span class="dt">nboot=</span><span class="dv">5000</span>)
 ## Call:
 ## t1way(formula = gen_att ~ eduNEW, data = dataWBT_KOCAELI, tr = 0.05, 
 ##     nboot = 5000)
@@ -817,14 +820,14 @@ alternative3=<span class="kw">aov</span>(gen_att~eduNEW,<span class="dt">data=</
 ## heteroscedastic pairwise comparisons
 
 <span class="co">#level order</span>
-<span class="kw">lincon</span>(gen_att~eduNEW,<span class="dt">data=</span>dataWBT_KOCAELI,<span class="dt">tr=</span>.<span class="dv">1</span>)[[<span class="dv">2</span>]]
+<span class="kw">lincon</span>(gen_att<span class="op">~</span>eduNEW,<span class="dt">data=</span>dataWBT_KOCAELI,<span class="dt">tr=</span>.<span class="dv">1</span>)[[<span class="dv">2</span>]]
 ## [1] &quot;Higher education of 2 years&quot;         
 ## [2] &quot;Junior High/ Middle School (8 years)&quot;
 ## [3] &quot;University - Undergraduate degree&quot;   
 ## [4] &quot;Vocational High School (4 years)&quot;    
 ## [5] &quot;High School (Lycee) (4 years)&quot;       
 ## [6] &quot;Primary School (5 years)&quot;
-<span class="kw">round</span>(<span class="kw">lincon</span>(gen_att~eduNEW,<span class="dt">data=</span>dataWBT_KOCAELI,<span class="dt">tr=</span>.<span class="dv">1</span>)[[<span class="dv">1</span>]][,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">6</span>)],<span class="dv">3</span>)
+<span class="kw">round</span>(<span class="kw">lincon</span>(gen_att<span class="op">~</span>eduNEW,<span class="dt">data=</span>dataWBT_KOCAELI,<span class="dt">tr=</span>.<span class="dv">1</span>)[[<span class="dv">1</span>]][,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">6</span>)],<span class="dv">3</span>)
 ##       Group Group p.value
 ##  [1,]     1     2   0.701
 ##  [2,]     1     3   0.000
@@ -956,10 +959,10 @@ dataWBT=<span class="kw">read.csv</span>(urlfile)
 
 <span class="co">#select the city of KAYSERI</span>
 <span class="co"># listwise deletion for gen_att and education variables</span>
-dataWBT_Kayseri=<span class="kw">na.omit</span>(dataWBT[dataWBT$city==<span class="st">&quot;KAYSERI&quot;</span>,<span class="kw">c</span>(<span class="st">&quot;id&quot;</span>,<span class="st">&quot;gen_att&quot;</span>,<span class="st">&quot;higher_ed&quot;</span>,<span class="st">&quot;gender&quot;</span>)])
+dataWBT_Kayseri=<span class="kw">na.omit</span>(dataWBT[dataWBT<span class="op">$</span>city<span class="op">==</span><span class="st">&quot;KAYSERI&quot;</span>,<span class="kw">c</span>(<span class="st">&quot;id&quot;</span>,<span class="st">&quot;gen_att&quot;</span>,<span class="st">&quot;higher_ed&quot;</span>,<span class="st">&quot;gender&quot;</span>)])
 
 <span class="co"># Higher education is coded as 0 and 1, change it to non-college, college </span>
-dataWBT_Kayseri$HEF=<span class="kw">droplevels</span>(<span class="kw">factor</span>(dataWBT_Kayseri$higher_ed, 
+dataWBT_Kayseri<span class="op">$</span>HEF=<span class="kw">droplevels</span>(<span class="kw">factor</span>(dataWBT_Kayseri<span class="op">$</span>higher_ed, 
                     <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), 
                     <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;non-college&quot;</span>, <span class="st">&quot;college&quot;</span>)))
 
@@ -967,7 +970,7 @@ dataWBT_Kayseri$HEF=<span class="kw">droplevels</span>(<span class="kw">factor</
 <span class="co">#table(dataWBT_Kayseri$HEF)</span>
 
 <span class="co">#drop empty levels</span>
-dataWBT_Kayseri$gender=<span class="kw">droplevels</span>(dataWBT_Kayseri$gender)
+dataWBT_Kayseri<span class="op">$</span>gender=<span class="kw">droplevels</span>(dataWBT_Kayseri<span class="op">$</span>gender)
 
 <span class="kw">with</span>(dataWBT_Kayseri,
      <span class="kw">table</span>(gender,HEF))
@@ -983,11 +986,11 @@ dataWBT_Kayseri$gender=<span class="kw">droplevels</span>(dataWBT_Kayseri$gender
 <span class="co">#get descriptives </span>
 <span class="kw">library</span>(doBy)
 <span class="kw">library</span>(moments)
-desc2BW=<span class="kw">as.matrix</span>(<span class="kw">summaryBy</span>(gen_att~HEF+gender, <span class="dt">data =</span> dataWBT_Kayseri, 
-          <span class="dt">FUN =</span> function(x) { <span class="kw">c</span>(<span class="dt">n =</span> <span class="kw">sum</span>(!<span class="kw">is.na</span>(x)),
+desc2BW=<span class="kw">as.matrix</span>(<span class="kw">summaryBy</span>(gen_att<span class="op">~</span>HEF<span class="op">+</span>gender, <span class="dt">data =</span> dataWBT_Kayseri, 
+          <span class="dt">FUN =</span> <span class="cf">function</span>(x) { <span class="kw">c</span>(<span class="dt">n =</span> <span class="kw">sum</span>(<span class="op">!</span><span class="kw">is.na</span>(x)),
                                 <span class="dt">mean =</span> <span class="kw">mean</span>(x,<span class="dt">na.rm=</span>T), <span class="dt">sdv =</span> <span class="kw">sd</span>(x,<span class="dt">na.rm=</span>T),
-                               <span class="dt">skw=</span>moments::<span class="kw">skewness</span>(x,<span class="dt">na.rm=</span>T),                    
-                               <span class="dt">krt=</span>moments::<span class="kw">kurtosis</span>(x,<span class="dt">na.rm=</span>T)) } ))
+                               <span class="dt">skw=</span>moments<span class="op">::</span><span class="kw">skewness</span>(x,<span class="dt">na.rm=</span>T),                    
+                               <span class="dt">krt=</span>moments<span class="op">::</span><span class="kw">kurtosis</span>(x,<span class="dt">na.rm=</span>T)) } ))
 <span class="co"># Table 4</span>
 desc2BW
 ##   HEF           gender   gen_att.n gen_att.mean gen_att.sdv gen_att.skw
@@ -1004,10 +1007,10 @@ desc2BW
 <p>Step 2: Inspect assumptions</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
 <span class="kw">require</span>(ggplot2)
-<span class="kw">ggplot</span>(dataWBT_Kayseri, <span class="kw">aes</span>(<span class="dt">x =</span> gen_att)) +
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..),<span class="dt">col=</span><span class="st">&quot;black&quot;</span>,<span class="dt">binwidth =</span> <span class="fl">0.2</span>,<span class="dt">alpha=</span><span class="fl">0.7</span>) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">size=</span><span class="fl">1.5</span>) +
-<span class="st">  </span><span class="kw">theme_bw</span>()+<span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Gender Attitudes by HEF and Gender in Kayseri&quot;</span>)+<span class="st"> </span><span class="kw">facet_wrap</span>(~<span class="st"> </span>HEF+gender)+
+<span class="kw">ggplot</span>(dataWBT_Kayseri, <span class="kw">aes</span>(<span class="dt">x =</span> gen_att)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..),<span class="dt">col=</span><span class="st">&quot;black&quot;</span>,<span class="dt">binwidth =</span> <span class="fl">0.2</span>,<span class="dt">alpha=</span><span class="fl">0.7</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">size=</span><span class="fl">1.5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>()<span class="op">+</span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Gender Attitudes by HEF and Gender in Kayseri&quot;</span>)<span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>HEF<span class="op">+</span>gender)<span class="op">+</span>
 <span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>),
         <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>,<span class="dt">face=</span><span class="st">&quot;bold&quot;</span>))</code></pre></div>
 <div class="figure"><span id="fig:genattKayseri"></span>
@@ -1019,9 +1022,9 @@ Figure 9.3: Gender Attitudes by HEF and Gender
 <p>Departures from the normality do not seem to be severe.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
 <span class="kw">require</span>(ggplot2)
-<span class="kw">ggplot</span>(dataWBT_Kayseri, <span class="kw">aes</span>(<span class="dt">x=</span>gender, <span class="dt">y=</span>gen_att))+
-<span class="st">  </span><span class="kw">geom_boxplot</span>()+
-<span class="st">  </span><span class="kw">facet_grid</span>(.~HEF)+
+<span class="kw">ggplot</span>(dataWBT_Kayseri, <span class="kw">aes</span>(<span class="dt">x=</span>gender, <span class="dt">y=</span>gen_att))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_grid</span>(.<span class="op">~</span>HEF)<span class="op">+</span>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Gender&quot;</span>,<span class="dt">y=</span><span class="st">&quot;Gender Attitude by Gender and HEF in Kayseri&quot;</span>)</code></pre></div>
 <div class="figure"><span id="fig:genattKayseribox"></span>
 <img src="SARP-EN_files/figure-html/genattKayseribox-1.png" alt="Gender Attitudes by Degree " width="672" />
@@ -1036,7 +1039,7 @@ Figure 9.4: Gender Attitudes by Degree
 <span class="kw">library</span>(ez)
 <span class="co">#the ezANOVA function throws a warning if id is not a factor</span>
 
-dataWBT_Kayseri$id=<span class="kw">as.factor</span>(dataWBT_Kayseri$id)
+dataWBT_Kayseri<span class="op">$</span>id=<span class="kw">as.factor</span>(dataWBT_Kayseri<span class="op">$</span>id)
 
 <span class="co">#alternative 1 the ezANOVA function</span>
 alternative1 =<span class="st"> </span><span class="kw">ezANOVA</span>(
@@ -1075,7 +1078,7 @@ alternative1
 
 <span class="co">#t2way</span>
 <span class="co"># 20% trimmed</span>
-<span class="kw">t2way</span>(gen_att~HEF*gender,<span class="dt">data=</span>dataWBT_Kayseri,<span class="dt">tr=</span>.<span class="dv">2</span>)
+<span class="kw">t2way</span>(gen_att<span class="op">~</span>HEF<span class="op">*</span>gender,<span class="dt">data=</span>dataWBT_Kayseri,<span class="dt">tr=</span>.<span class="dv">2</span>)
 ## Call:
 ## t2way(formula = gen_att ~ HEF * gender, data = dataWBT_Kayseri, 
 ##     tr = 0.2)
@@ -1086,7 +1089,7 @@ alternative1
 ## HEF:gender  0.0855   0.772
 
 <span class="co"># 10% trimmed</span>
-<span class="kw">t2way</span>(gen_att~HEF*gender,<span class="dt">data=</span>dataWBT_Kayseri,<span class="dt">tr=</span>.<span class="dv">1</span>)
+<span class="kw">t2way</span>(gen_att<span class="op">~</span>HEF<span class="op">*</span>gender,<span class="dt">data=</span>dataWBT_Kayseri,<span class="dt">tr=</span>.<span class="dv">1</span>)
 ## Call:
 ## t2way(formula = gen_att ~ HEF * gender, data = dataWBT_Kayseri, 
 ##     tr = 0.1)
@@ -1097,7 +1100,7 @@ alternative1
 ## HEF:gender  0.0361   0.850
 
 <span class="co"># 5% trimmed</span>
-<span class="kw">t2way</span>(gen_att~HEF*gender,<span class="dt">data=</span>dataWBT_Kayseri,<span class="dt">tr=</span>.<span class="dv">05</span>)
+<span class="kw">t2way</span>(gen_att<span class="op">~</span>HEF<span class="op">*</span>gender,<span class="dt">data=</span>dataWBT_Kayseri,<span class="dt">tr=</span>.<span class="dv">05</span>)
 ## Call:
 ## t2way(formula = gen_att ~ HEF * gender, data = dataWBT_Kayseri, 
 ##     tr = 0.05)
@@ -1260,12 +1263,12 @@ alternative1
 ## [1] 3.2 4.0 4.4 4.8 5.4 6.0 6.2 7.6
 
 <span class="co">#treatment mean</span>
-<span class="kw">apply</span>(owadata[,-<span class="dv">1</span>],<span class="dv">2</span>, mean)
+<span class="kw">apply</span>(owadata[,<span class="op">-</span><span class="dv">1</span>],<span class="dv">2</span>, mean)
 ##  noALC  twoOZ fouroz  sixoz 
 ##    2.8    3.5    6.2    9.0
 
 <span class="co">#treatment sd</span>
-<span class="kw">apply</span>(owadata[,-<span class="dv">1</span>],<span class="dv">2</span>,sd)
+<span class="kw">apply</span>(owadata[,<span class="op">-</span><span class="dv">1</span>],<span class="dv">2</span>,sd)
 ##  noALC  twoOZ fouroz  sixoz 
 ##   1.49   0.93   1.04   1.31</code></pre></div>
 <p>Because each participant has a score for each treatment, amount of alcohol is a within-subjects factor and it is possible to calculate a correlation for each pair of treatments. These correlations, which are presented in Table 9.2, indicate that reaction time is highly correlated for each pair of treatments. Recall that corresponding to each correlation there is a covariance;</p>
@@ -1398,7 +1401,7 @@ alternative1
 <p>Step 1: Set up data</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
 <span class="co">#enter data</span>
-PSdata=<span class="kw">data.frame</span>(<span class="dt">id=</span><span class="kw">factor</span>(<span class="dv">1</span>:<span class="dv">17</span>),
+PSdata=<span class="kw">data.frame</span>(<span class="dt">id=</span><span class="kw">factor</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">17</span>),
                     <span class="dt">wave1=</span><span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">19</span>,<span class="dv">13</span>,<span class="dv">10</span>,<span class="dv">16</span>,<span class="dv">12</span>,<span class="dv">16</span>,<span class="dv">11</span>,<span class="dv">11</span>,<span class="dv">14</span>,<span class="dv">13</span>,<span class="dv">17</span>,<span class="dv">16</span>,<span class="dv">12</span>,<span class="dv">12</span>,<span class="dv">16</span>,<span class="dv">16</span>),
                     <span class="dt">wave2=</span><span class="kw">c</span>(<span class="dv">28</span>,<span class="dv">27</span>,<span class="dv">18</span>,<span class="dv">17</span>,<span class="dv">29</span>,<span class="dv">18</span>,<span class="dv">26</span>,<span class="dv">21</span>,<span class="dv">15</span>,<span class="dv">26</span>,<span class="dv">28</span>,<span class="dv">23</span>,<span class="dv">29</span>,<span class="dv">18</span>,<span class="dv">26</span>,<span class="dv">21</span>,<span class="dv">22</span>),
                     <span class="dt">wave3=</span><span class="kw">c</span>(<span class="dv">21</span>,<span class="dv">24</span>,<span class="dv">14</span>,<span class="dv">8</span>,<span class="dv">23</span>,<span class="dv">15</span>,<span class="dv">21</span>,<span class="dv">15</span>,<span class="dv">12</span>,<span class="dv">21</span>,<span class="dv">23</span>,<span class="dv">17</span>,<span class="dv">26</span>,<span class="dv">18</span>,<span class="dv">14</span>,<span class="dv">18</span>,<span class="dv">19</span>))</code></pre></div>
@@ -1409,16 +1412,16 @@ PSdata=<span class="kw">data.frame</span>(<span class="dt">id=</span><span class
 ##the long format will be needed
 <span class="co">#head(PSdata)</span>
 <span class="kw">library</span>(tidyr)
-data_long =<span class="st"> </span><span class="kw">gather</span>(PSdata, wave, PrbSol, wave1:wave3, <span class="dt">factor_key=</span><span class="ot">TRUE</span>)
+data_long =<span class="st"> </span><span class="kw">gather</span>(PSdata, wave, PrbSol, wave1<span class="op">:</span>wave3, <span class="dt">factor_key=</span><span class="ot">TRUE</span>)
 
 <span class="co">#get descriptives </span>
 <span class="kw">library</span>(doBy)
 <span class="kw">library</span>(moments)
-desc1W=<span class="kw">as.matrix</span>(<span class="kw">summaryBy</span>(PrbSol~wave, <span class="dt">data =</span> data_long, 
-          <span class="dt">FUN =</span> function(x) { <span class="kw">c</span>(<span class="dt">n =</span> <span class="kw">sum</span>(!<span class="kw">is.na</span>(x)),
+desc1W=<span class="kw">as.matrix</span>(<span class="kw">summaryBy</span>(PrbSol<span class="op">~</span>wave, <span class="dt">data =</span> data_long, 
+          <span class="dt">FUN =</span> <span class="cf">function</span>(x) { <span class="kw">c</span>(<span class="dt">n =</span> <span class="kw">sum</span>(<span class="op">!</span><span class="kw">is.na</span>(x)),
                                 <span class="dt">mean =</span> <span class="kw">mean</span>(x,<span class="dt">na.rm=</span>T), <span class="dt">sdv =</span> <span class="kw">sd</span>(x,<span class="dt">na.rm=</span>T),
-                                <span class="dt">skw=</span>moments::<span class="kw">skewness</span>(x,<span class="dt">na.rm=</span>T),                    
-                                <span class="dt">krt=</span>moments::<span class="kw">kurtosis</span>(x,<span class="dt">na.rm=</span>T)) } ))
+                                <span class="dt">skw=</span>moments<span class="op">::</span><span class="kw">skewness</span>(x,<span class="dt">na.rm=</span>T),                    
+                                <span class="dt">krt=</span>moments<span class="op">::</span><span class="kw">kurtosis</span>(x,<span class="dt">na.rm=</span>T)) } ))
 <span class="co"># Table 6</span>
 desc1W
 ##   wave    PrbSol.n PrbSol.mean PrbSol.sdv PrbSol.skw PrbSol.krt
@@ -1428,15 +1431,15 @@ desc1W
 <span class="co">#write.csv(desc1W,file=&quot;onewayW_ANOVA_desc.csv&quot;)</span></code></pre></div>
 <p>The covariance matrix might be helpful.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># check covariance  Table 7</span>
-<span class="kw">cov</span>(PSdata[,-<span class="dv">1</span>])
+<span class="kw">cov</span>(PSdata[,<span class="op">-</span><span class="dv">1</span>])
 ##       wave1 wave2 wave3
 ## wave1  8.49  8.85  9.87
 ## wave2  8.85 21.81 18.49
 ## wave3  9.87 18.49 22.78</code></pre></div>
 <p>Step 2: Check assumptions</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
-<span class="kw">ggplot</span>(data_long, <span class="kw">aes</span>(<span class="dt">x=</span>wave, <span class="dt">y=</span>PrbSol))+
-<span class="st">  </span><span class="kw">geom_boxplot</span>()+
+<span class="kw">ggplot</span>(data_long, <span class="kw">aes</span>(<span class="dt">x=</span>wave, <span class="dt">y=</span>PrbSol))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>()<span class="op">+</span>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Wave&quot;</span>,<span class="dt">y=</span><span class="st">&quot;Problem Solving Knowledge scores&quot;</span>)</code></pre></div>
 <div class="figure"><span id="fig:inhibitbox"></span>
 <img src="SARP-EN_files/figure-html/inhibitbox-1.png" alt="Problem Solving Knowledge score by wave" width="672" />
@@ -1447,8 +1450,8 @@ Figure 9.5: Problem Solving Knowledge score by wave
 <p>We will test for the sphericity assumption using Mauchly’s test integrated in the <em>ezANOVA</em> function, but this graph implies that it might be violated.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
 <span class="kw">require</span>(ggplot2)
-<span class="kw">ggplot</span>(data_long, <span class="kw">aes</span>(<span class="dt">x=</span>wave, <span class="dt">y=</span>PrbSol, <span class="dt">group=</span>id))+
-<span class="kw">geom_line</span>() +<span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Wave&quot;</span>,<span class="dt">y=</span><span class="st">&quot;Problem Solving Knowledge scores&quot;</span>)</code></pre></div>
+<span class="kw">ggplot</span>(data_long, <span class="kw">aes</span>(<span class="dt">x=</span>wave, <span class="dt">y=</span>PrbSol, <span class="dt">group=</span>id))<span class="op">+</span>
+<span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Wave&quot;</span>,<span class="dt">y=</span><span class="st">&quot;Problem Solving Knowledge scores&quot;</span>)</code></pre></div>
 <div class="figure"><span id="fig:inhibitline"></span>
 <img src="SARP-EN_files/figure-html/inhibitline-1.png" alt="Problem Solving Knowledge score by wave, line graph" width="672" />
 <p class="caption">
@@ -1515,7 +1518,7 @@ alternative1
 ## 
 ## Residual standard error: 2.3
 ## Estimated effects may be unbalanced</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">PrbSolres=<span class="kw">sort</span>(alternative1$aov$id$residuals)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">PrbSolres=<span class="kw">sort</span>(alternative1<span class="op">$</span>aov<span class="op">$</span>id<span class="op">$</span>residuals)
 <span class="kw">qqnorm</span>(PrbSolres);<span class="kw">qqline</span>(PrbSolres)</code></pre></div>
 <div class="figure"><span id="fig:inhibitresiduals"></span>
 <img src="SARP-EN_files/figure-html/inhibitresiduals-1.png" alt="PSK model residuals" width="672" />
@@ -1527,7 +1530,7 @@ Figure 9.7: PSK model residuals
 <p>The <em>aov</em> function is the second alternative.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
 <span class="co"># alternative 2 the aov function</span>
-<span class="kw">summary</span>(<span class="kw">aov</span>(PrbSol ~<span class="st"> </span>wave +<span class="st"> </span><span class="kw">Error</span>(id/wave), <span class="dt">data=</span>data_long))
+<span class="kw">summary</span>(<span class="kw">aov</span>(PrbSol <span class="op">~</span><span class="st"> </span>wave <span class="op">+</span><span class="st"> </span><span class="kw">Error</span>(id<span class="op">/</span>wave), <span class="dt">data=</span>data_long))
 ## 
 ## Error: id
 ##           Df Sum Sq Mean Sq F value Pr(&gt;F)
@@ -1631,8 +1634,9 @@ Figure 9.7: PSK model residuals
         </div>
       </div>
 <a href="comparing-two-means-the-t-test.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="correlation.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
-
+<a href="correlation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
@@ -1641,7 +1645,7 @@ Figure 9.7: PSK model residuals
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,
@@ -1675,7 +1679,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(script.src))
       script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);

@@ -6,9 +6,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>An R Platform for Social Scientists</title>
-  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="R book for social scientists">
-  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="An R Platform for Social Scientists" />
   <meta property="og:type" content="book" />
@@ -23,7 +22,7 @@
   <meta name="twitter:description" content="R book for social scientists" />
   <meta name="twitter:image" content="images/coverpicture.png" />
 
-<meta name="author" content="Burak AYDIN, James ALGINA, Walter LEITE">
+<meta name="author" content="Burak AYDIN, James ALGINA, Walter LEITE, Hakan ATILGAN">
 
 
 <meta name="date" content="2017-01-01">
@@ -35,7 +34,6 @@
   
 <link rel="prev" href="correlation.html">
 <link rel="next" href="useful-r-codes.html">
-
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,7 +47,7 @@
 
 
 
-<script src="libs/htmlwidgets-0.8/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-0.9/htmlwidgets.js"></script>
 <link href="libs/rglwidgetClass-2/rgl.css" rel="stylesheet" />
 <script src="libs/rglwidgetClass-2/rglClass.src.js"></script>
 <script src="libs/CanvasMatrix4-2016/CanvasMatrix.src.js"></script>
@@ -100,6 +98,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <body>
 
 
+
   <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
 
     <div class="book-summary">
@@ -112,8 +111,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Cover</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a><ul>
-<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#why-bookdown"><i class="fa fa-check"></i><b>1.1.1</b> Why Bookdown?</a></li>
-<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#content"><i class="fa fa-check"></i><b>1.1.2</b> Content</a></li>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#citation"><i class="fa fa-check"></i><b>1.1.1</b> Citation</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#why-bookdown"><i class="fa fa-check"></i><b>1.1.2</b> Why Bookdown?</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#content"><i class="fa fa-check"></i><b>1.1.3</b> Content</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i><b>2</b> Preface</a><ul>
@@ -121,6 +121,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.1.1" data-path="preface.html"><a href="preface.html#burak-aydn-ph.d."><i class="fa fa-check"></i><b>2.1.1</b> Burak Aydın, Ph.D.</a></li>
 <li class="chapter" data-level="2.1.2" data-path="preface.html"><a href="preface.html#james-algina-ph.d."><i class="fa fa-check"></i><b>2.1.2</b> James Algina, Ph.D.</a></li>
 <li class="chapter" data-level="2.1.3" data-path="preface.html"><a href="preface.html#walter-l.-leite-ph.d."><i class="fa fa-check"></i><b>2.1.3</b> Walter L. Leite, Ph.D.</a></li>
+<li class="chapter" data-level="2.1.4" data-path="preface.html"><a href="preface.html#hakan-atilgan-ph.d."><i class="fa fa-check"></i><b>2.1.4</b> Hakan ATILGAN, Ph.D.</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="preface.html"><a href="preface.html#acknowledgement"><i class="fa fa-check"></i><b>2.2</b> Acknowledgement</a></li>
 <li class="chapter" data-level="2.3" data-path="preface.html"><a href="preface.html#dataWBT"><i class="fa fa-check"></i><b>2.3</b> Data</a></li>
@@ -235,7 +236,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="10.3" data-path="correlation.html"><a href="correlation.html#biserial-and-point-biserial-correlation-coefficients-with-r"><i class="fa fa-check"></i><b>10.3</b> Biserial and Point-Biserial Correlation Coefficients with R</a></li>
 <li class="chapter" data-level="10.4" data-path="correlation.html"><a href="correlation.html#phi-correlation-coefficient-with-r"><i class="fa fa-check"></i><b>10.4</b> Phi Correlation Coefficient with R</a></li>
-<li class="chapter" data-level="10.5" data-path="correlation.html"><a href="correlation.html#issues-in-interpreting-correlation-coefficients"><i class="fa fa-check"></i><b>10.5</b> Issues in Interpreting Correlation Coefficients</a></li>
+<li class="chapter" data-level="10.5" data-path="correlation.html"><a href="correlation.html#tetrachoric-and-polychoric-correlation-coefficients-with-r"><i class="fa fa-check"></i><b>10.5</b> Tetrachoric and Polychoric Correlation Coefficients with R</a></li>
+<li class="chapter" data-level="10.6" data-path="correlation.html"><a href="correlation.html#issues-in-interpreting-correlation-coefficients"><i class="fa fa-check"></i><b>10.6</b> Issues in Interpreting Correlation Coefficients</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html"><i class="fa fa-check"></i><b>11</b> Multiple Linear Regression, a Short Introduction</a><ul>
 <li class="chapter" data-level="11.1" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#matricies-and-least-square-estimation"><i class="fa fa-check"></i><b>11.1</b> Matricies and Least Square Estimation</a><ul>
@@ -263,6 +265,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="12" data-path="useful-r-codes.html"><a href="useful-r-codes.html"><i class="fa fa-check"></i><b>12</b> Useful R codes</a><ul>
 <li class="chapter" data-level="12.1" data-path="useful-r-codes.html"><a href="useful-r-codes.html#more-on-the-apastyle-package"><i class="fa fa-check"></i><b>12.1</b> More on the apaStyle package</a></li>
 <li class="chapter" data-level="12.2" data-path="useful-r-codes.html"><a href="useful-r-codes.html#a-useful-shiny-application"><i class="fa fa-check"></i><b>12.2</b> A useful shiny application</a></li>
+<li class="chapter" data-level="12.3" data-path="useful-r-codes.html"><a href="useful-r-codes.html#update-bookdown"><i class="fa fa-check"></i><b>12.3</b> Update bookdown</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -414,12 +417,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   \tag{11.1}
 \end{equation}\]</span>
 <p>Let’s calculate this with R for the synthetic-data;</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Y=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">8</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">9</span>,<span class="dv">7</span>,-<span class="dv">6</span>,-<span class="dv">8</span>,-<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">5</span>),<span class="dt">ncol=</span><span class="dv">1</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Y=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">8</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">9</span>,<span class="dv">7</span>,<span class="op">-</span><span class="dv">6</span>,<span class="op">-</span><span class="dv">8</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">5</span>),<span class="dt">ncol=</span><span class="dv">1</span>)
 X=<span class="kw">matrix</span>(<span class="kw">cbind</span>(<span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">12</span>),
-               <span class="kw">c</span>(<span class="dv">0</span>,-<span class="dv">2</span>,<span class="dv">6</span>,-<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">4</span>,<span class="dv">3</span>,-<span class="dv">4</span>,-<span class="dv">4</span>,-<span class="dv">3</span>,-<span class="dv">2</span>,-<span class="dv">1</span>),
-               <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">3</span>,-<span class="dv">5</span>,-<span class="dv">6</span>,<span class="dv">0</span>,-<span class="dv">2</span>,<span class="dv">1</span>)),<span class="dt">ncol=</span><span class="dv">3</span>)
+               <span class="kw">c</span>(<span class="dv">0</span>,<span class="op">-</span><span class="dv">2</span>,<span class="dv">6</span>,<span class="op">-</span><span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="op">-</span><span class="dv">4</span>,<span class="op">-</span><span class="dv">4</span>,<span class="op">-</span><span class="dv">3</span>,<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>),
+               <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="op">-</span><span class="dv">5</span>,<span class="op">-</span><span class="dv">6</span>,<span class="dv">0</span>,<span class="op">-</span><span class="dv">2</span>,<span class="dv">1</span>)),<span class="dt">ncol=</span><span class="dv">3</span>)
 
-<span class="kw">solve</span>(<span class="kw">t</span>(X)%*%X)%*%<span class="kw">t</span>(X)%*%Y
+<span class="kw">solve</span>(<span class="kw">t</span>(X)<span class="op">%*%</span>X)<span class="op">%*%</span><span class="kw">t</span>(X)<span class="op">%*%</span>Y
 ##       [,1]
 ## [1,] 2.917
 ## [2,] 0.199
@@ -431,8 +434,8 @@ X=<span class="kw">matrix</span>(<span class="kw">cbind</span>(<span class="kw">
 <p>This aphorism belongs to <span class="citation">Box and Draper (<a href="#ref-georgenorman87">1987</a>)</span>. The researcher should provide a convincing discussion about the relevance of the variables included in the regression model to the research questions addressed by the research. If there are important omitted variables, the beta coefficients are probably not valid. Hence the researcher is obligated to provide justifications on variable selections to claim usefulness of the results.</p>
 <p>Consider the case below ;</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#omit X2 from the synthetic-data</span>
-X2omitted=<span class="kw">matrix</span>(<span class="kw">cbind</span>(<span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">12</span>),<span class="kw">c</span>(<span class="dv">0</span>,-<span class="dv">2</span>,<span class="dv">6</span>,-<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">4</span>,<span class="dv">3</span>,-<span class="dv">4</span>,-<span class="dv">4</span>,-<span class="dv">3</span>,-<span class="dv">2</span>,-<span class="dv">1</span>)),<span class="dt">ncol=</span><span class="dv">2</span>)
-<span class="kw">solve</span>(<span class="kw">t</span>(X2omitted)%*%X2omitted)%*%<span class="kw">t</span>(X2omitted)%*%Y
+X2omitted=<span class="kw">matrix</span>(<span class="kw">cbind</span>(<span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">12</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="op">-</span><span class="dv">2</span>,<span class="dv">6</span>,<span class="op">-</span><span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="op">-</span><span class="dv">4</span>,<span class="op">-</span><span class="dv">4</span>,<span class="op">-</span><span class="dv">3</span>,<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>)),<span class="dt">ncol=</span><span class="dv">2</span>)
+<span class="kw">solve</span>(<span class="kw">t</span>(X2omitted)<span class="op">%*%</span>X2omitted)<span class="op">%*%</span><span class="kw">t</span>(X2omitted)<span class="op">%*%</span>Y
 ##      [,1]
 ## [1,] 2.92
 ## [2,] 1.09</code></pre></div>
@@ -444,18 +447,18 @@ X2omitted=<span class="kw">matrix</span>(<span class="kw">cbind</span>(<span cla
 <p>The sum of squares for Y, which is also known as the total sum of squares, can be decomposed into two parts, <em>the model sum of squares</em>, which is also the sum of squares for the predicted values, and <em>the error sum of squares</em>. The ratio of the model sum of squares to <em>the total sum of squares</em>, is called the sample squared multiple correlation coefficient and symbolized as <span class="math inline">\(R^2\)</span>. The coefficient <span class="math inline">\(R^2\)</span> measures the strength of association between the dependent variable and the independent variables. Examine the R code below given for the synthetic data;</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># SS total</span>
 n=<span class="kw">length</span>(Y)
-TotalSS=<span class="kw">t</span>(Y)%*%Y-(n*<span class="kw">mean</span>(Y)^<span class="dv">2</span>)
+TotalSS=<span class="kw">t</span>(Y)<span class="op">%*%</span>Y<span class="op">-</span>(n<span class="op">*</span><span class="kw">mean</span>(Y)<span class="op">^</span><span class="dv">2</span>)
 
 <span class="co"># SS Model</span>
-betahat=<span class="kw">solve</span>(<span class="kw">t</span>(X)%*%X)%*%<span class="kw">t</span>(X)%*%Y
-ModelSS=<span class="kw">t</span>(betahat)%*%<span class="kw">t</span>(X)%*%Y-(n*<span class="kw">mean</span>(Y)^<span class="dv">2</span>)
+betahat=<span class="kw">solve</span>(<span class="kw">t</span>(X)<span class="op">%*%</span>X)<span class="op">%*%</span><span class="kw">t</span>(X)<span class="op">%*%</span>Y
+ModelSS=<span class="kw">t</span>(betahat)<span class="op">%*%</span><span class="kw">t</span>(X)<span class="op">%*%</span>Y<span class="op">-</span>(n<span class="op">*</span><span class="kw">mean</span>(Y)<span class="op">^</span><span class="dv">2</span>)
 
-ModelSS/TotalSS
+ModelSS<span class="op">/</span>TotalSS
 ##       [,1]
 ## [1,] 0.879</code></pre></div>
 <p>Also known as <em>coefficient of determination</em>, <span class="math inline">\(R^2\)</span> is a biased estimator of the population squared multiple correlation coefficient. A more nearly unbiased estimate is the adjusted squared multiple correlation coefficient. One benefit of adjusted <span class="math inline">\(R^2\)</span> is computational simplicity. Examine the R code below given for the synthetic data</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
-Rsquared=ModelSS/TotalSS
+Rsquared=ModelSS<span class="op">/</span>TotalSS
 <span class="co">#sample size</span>
 n=<span class="dv">12</span>
 
@@ -467,7 +470,7 @@ p=<span class="dv">2</span>
 int_inc=<span class="dv">1</span>
 
 
-AdjustedRsquared=<span class="dv">1</span>-(<span class="dv">1</span>-Rsquared)*((n-int_inc)/(n-int_inc-p))
+AdjustedRsquared=<span class="dv">1</span><span class="op">-</span>(<span class="dv">1</span><span class="op">-</span>Rsquared)<span class="op">*</span>((n<span class="op">-</span>int_inc)<span class="op">/</span>(n<span class="op">-</span>int_inc<span class="op">-</span>p))
 AdjustedRsquared
 ##       [,1]
 ## [1,] 0.852</code></pre></div>
@@ -477,8 +480,8 @@ AdjustedRsquared
 <h3><span class="header-section-number">11.1.3</span> c) Residuals and influential data points</h3>
 <p>Residuals provide information for assessing potential problems with the model. Inspecting residuals can provide information about deviations from the assumed linearity of the relationships of the dependent variables to the independent variable. Inspecting the distributional properties of residuals is needed to provide evidence for the validity of statistical inference. For example, because the normality assumption is made when conducting significance tests and calculating confidence interval, residuals should follow a straight line on a Quantile-Quantile (QQ) plot. Examine the R code below given for the synthetic data:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Predicted values</span>
-Yhat=X%*%betahat
-residuals=Y-Yhat
+Yhat=X<span class="op">%*%</span>betahat
+residuals=Y<span class="op">-</span>Yhat
 residuals
 ##          [,1]
 ##  [1,]  0.4276
@@ -494,7 +497,7 @@ residuals
 ## [11,]  0.5850
 ## [12,]  0.7303
 <span class="kw">qqnorm</span>(residuals)</code></pre></div>
-<p><img src="SARP-EN_files/figure-html/unnamed-chunk-120-1.png" width="672" /></p>
+<p><img src="SARP-EN_files/figure-html/unnamed-chunk-122-1.png" width="672" /></p>
 <p>There are three common types of residuals;</p>
 <p>• Unstandardized residuals, that is, <span class="math inline">\(Y_i-\hat{Y_i}\)</span>. Unstandardized residuals are on the same scale as Y.</p>
 <p>• Standardized residuals: The residuals divided by the overall standard deviation of residuals; Standardized residuals are on a z-score scale (M = 0, SD = 1). When residuals are assumed to be normally distributed, it is common practice to identify outliers as Y values for which the absolute value of the standardized residual is larger than 2. However, it should be noted that this practice can be misleading because outliers can cause the regression coefficients to be poorly estimated and/or can increase the standard deviation of the residuals and both effects can cause poor outlier detection. In addition, if the residuals are in fact normally distributed approximately %5 of the participants will have residuals beyond +/- 2.00. See <span class="citation">Wilcox (<a href="#ref-wilcox2012">2012</a>)</span> for more information about outlier detection.</p>
@@ -505,36 +508,36 @@ residuals
 <span class="kw">library</span>(mvtnorm)
 sigma &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="dt">ncol=</span><span class="dv">2</span>)
 xx &lt;-<span class="st"> </span><span class="kw">rmvnorm</span>(<span class="dt">n=</span><span class="dv">500</span>, <span class="dt">mean=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>), <span class="dt">sigma=</span>sigma)
-yy=<span class="dv">5</span>+xx[,<span class="dv">1</span>]*<span class="dv">2</span>+xx[,<span class="dv">2</span>]*-<span class="dv">3</span>+<span class="kw">rnorm</span>(<span class="dv">500</span>,<span class="dv">0</span>,<span class="fl">1.5</span>)
-model=<span class="kw">lm</span>(yy~xx[,<span class="dv">1</span>]+xx[,<span class="dv">2</span>])
+yy=<span class="dv">5</span><span class="op">+</span>xx[,<span class="dv">1</span>]<span class="op">*</span><span class="dv">2</span><span class="op">+</span>xx[,<span class="dv">2</span>]<span class="op">*-</span><span class="dv">3</span><span class="op">+</span><span class="kw">rnorm</span>(<span class="dv">500</span>,<span class="dv">0</span>,<span class="fl">1.5</span>)
+model=<span class="kw">lm</span>(yy<span class="op">~</span>xx[,<span class="dv">1</span>]<span class="op">+</span>xx[,<span class="dv">2</span>])
 errors=<span class="kw">rstudent</span>(model)
 predicted=<span class="kw">predict</span>(model)
 
 <span class="co">#Standardized Residuals vs Yhat</span>
 <span class="kw">library</span>(ggplot2)
 plotdata=<span class="kw">data.frame</span>(errors,predicted)
-<span class="kw">ggplot</span>(plotdata, <span class="kw">aes</span>(<span class="dt">x =</span> predicted, <span class="dt">y =</span> errors)) +
-<span class="st">  </span><span class="kw">geom_point</span>() +<span class="st"> </span><span class="kw">geom_hline</span>(<span class="dt">yintercept=</span><span class="dv">0</span>)+<span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Studentized residuals&quot;</span>)+
-<span class="st">  </span><span class="kw">theme_bw</span>()+<span class="kw">stat_smooth</span>()</code></pre></div>
-<p><img src="SARP-EN_files/figure-html/unnamed-chunk-121-1.png" width="672" /></p>
+<span class="kw">ggplot</span>(plotdata, <span class="kw">aes</span>(<span class="dt">x =</span> predicted, <span class="dt">y =</span> errors)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_hline</span>(<span class="dt">yintercept=</span><span class="dv">0</span>)<span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Studentized residuals&quot;</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>()<span class="op">+</span><span class="kw">stat_smooth</span>()</code></pre></div>
+<p><img src="SARP-EN_files/figure-html/unnamed-chunk-123-1.png" width="672" /></p>
 <p>The blue line above, which is determined independently from the regression model, should be compared to the horizontal line at 0. The more similar the two lines are, the less likely the linearity assumption is violated.</p>
 <p>Here is a plot, studentized residuals vs fitted values, from a mis-specified regression model on a simulated-data. The sample size is 100, there are two independent variables, and the relationship of Y and X2 is quadratic.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#simulate data</span>
 <span class="kw">library</span>(mvtnorm)
 sigma &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="dt">ncol=</span><span class="dv">2</span>)
 xx &lt;-<span class="st"> </span><span class="kw">rmvnorm</span>(<span class="dt">n=</span><span class="dv">100</span>, <span class="dt">mean=</span><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">10</span>), <span class="dt">sigma=</span>sigma)
-yy=<span class="dv">150</span>+(xx[,<span class="dv">1</span>]*<span class="dv">4</span>)+(xx[,<span class="dv">2</span>]*-<span class="dv">3</span>)+(xx[,<span class="dv">2</span>]^<span class="dv">2</span>*<span class="fl">1.2</span>)+<span class="kw">rnorm</span>(<span class="dv">100</span>,<span class="dv">0</span>,<span class="dv">3</span>)
-model=<span class="kw">lm</span>(yy~xx[,<span class="dv">1</span>]+xx[,<span class="dv">2</span>])
+yy=<span class="dv">150</span><span class="op">+</span>(xx[,<span class="dv">1</span>]<span class="op">*</span><span class="dv">4</span>)<span class="op">+</span>(xx[,<span class="dv">2</span>]<span class="op">*-</span><span class="dv">3</span>)<span class="op">+</span>(xx[,<span class="dv">2</span>]<span class="op">^</span><span class="dv">2</span><span class="op">*</span><span class="fl">1.2</span>)<span class="op">+</span><span class="kw">rnorm</span>(<span class="dv">100</span>,<span class="dv">0</span>,<span class="dv">3</span>)
+model=<span class="kw">lm</span>(yy<span class="op">~</span>xx[,<span class="dv">1</span>]<span class="op">+</span>xx[,<span class="dv">2</span>])
 errors=<span class="kw">rstudent</span>(model)
 predicted=<span class="kw">predict</span>(model)
 
 <span class="co">#Studentized Residuals vs Yhat</span>
 <span class="kw">library</span>(ggplot2)
 plotdata=<span class="kw">data.frame</span>(errors,predicted)
-<span class="kw">ggplot</span>(plotdata, <span class="kw">aes</span>(<span class="dt">x =</span> predicted, <span class="dt">y =</span> errors)) +
-<span class="st">  </span><span class="kw">geom_point</span>() +<span class="st"> </span><span class="kw">geom_hline</span>(<span class="dt">yintercept=</span><span class="dv">0</span>)+<span class="kw">ylab</span>(<span class="st">&quot;Studentized residuals&quot;</span>)+
-<span class="st">  </span><span class="kw">theme_bw</span>()+<span class="kw">stat_smooth</span>()</code></pre></div>
-<p><img src="SARP-EN_files/figure-html/unnamed-chunk-122-1.png" width="672" /></p>
+<span class="kw">ggplot</span>(plotdata, <span class="kw">aes</span>(<span class="dt">x =</span> predicted, <span class="dt">y =</span> errors)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_hline</span>(<span class="dt">yintercept=</span><span class="dv">0</span>)<span class="op">+</span><span class="kw">ylab</span>(<span class="st">&quot;Studentized residuals&quot;</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>()<span class="op">+</span><span class="kw">stat_smooth</span>()</code></pre></div>
+<p><img src="SARP-EN_files/figure-html/unnamed-chunk-124-1.png" width="672" /></p>
 <p>There is a pattern indicating that the model is omitting a quadratic association.However, this graph does not inform about the source of the quadratic association, see non-linearity section below.</p>
 <p>Unusual residuals should be inspected. Even when the residuals are substantially normally distributed and there is substantially no-pattern for the residual vs predicted value plot, there might be unusual residuals. Deciding whether a residual is unusual or not (e.g 3,4 or 5 standard deviation above), and more importantly whether to keep the observation in the data set or not requires justifications. Examine the code below to simulate data and examine the studentized residuals:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#simulate data</span>
@@ -542,17 +545,17 @@ plotdata=<span class="kw">data.frame</span>(errors,predicted)
 <span class="kw">library</span>(mvtnorm)
 sigma &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="dt">ncol=</span><span class="dv">2</span>)
 xx &lt;-<span class="st"> </span><span class="kw">rmvnorm</span>(<span class="dt">n=</span><span class="dv">100</span>, <span class="dt">mean=</span><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">10</span>), <span class="dt">sigma=</span>sigma)
-yy=(xx[,<span class="dv">1</span>]*<span class="dv">4</span>)+(xx[,<span class="dv">2</span>]*-<span class="dv">3</span>)+<span class="kw">rnorm</span>(<span class="dv">100</span>,<span class="dv">0</span>,<span class="dv">3</span>)
-tempdata=<span class="kw">data.frame</span>(yy,xx,<span class="dt">id=</span><span class="dv">1</span>:<span class="dv">100</span>)
-model=<span class="kw">lm</span>(yy~X1+X2,<span class="dt">data=</span>tempdata)
-tempdata$SUTresiduals=<span class="kw">rstudent</span>(model)
+yy=(xx[,<span class="dv">1</span>]<span class="op">*</span><span class="dv">4</span>)<span class="op">+</span>(xx[,<span class="dv">2</span>]<span class="op">*-</span><span class="dv">3</span>)<span class="op">+</span><span class="kw">rnorm</span>(<span class="dv">100</span>,<span class="dv">0</span>,<span class="dv">3</span>)
+tempdata=<span class="kw">data.frame</span>(yy,xx,<span class="dt">id=</span><span class="dv">1</span><span class="op">:</span><span class="dv">100</span>)
+model=<span class="kw">lm</span>(yy<span class="op">~</span>X1<span class="op">+</span>X2,<span class="dt">data=</span>tempdata)
+tempdata<span class="op">$</span>SUTresiduals=<span class="kw">rstudent</span>(model)
 <span class="co"># how many of the residuals are larger than a critical value?</span>
 <span class="co"># lets use alpha=.05</span>
-<span class="kw">sum</span>(<span class="kw">abs</span>(tempdata$SUTresiduals)&gt;<span class="kw">qt</span>(<span class="kw">c</span>(.<span class="dv">975</span>), <span class="dt">df=</span><span class="dv">100-3-1</span>))
+<span class="kw">sum</span>(<span class="kw">abs</span>(tempdata<span class="op">$</span>SUTresiduals)<span class="op">&gt;</span><span class="kw">qt</span>(<span class="kw">c</span>(.<span class="dv">975</span>), <span class="dt">df=</span><span class="dv">100</span><span class="op">-</span><span class="dv">3</span><span class="op">-</span><span class="dv">1</span>))
 ## [1] 8
 
 <span class="co">#which observations?</span>
-tempdata[<span class="kw">which</span>(<span class="kw">abs</span>(tempdata$SUTresiduals)&gt;<span class="kw">qt</span>(<span class="kw">c</span>(.<span class="dv">975</span>), <span class="dt">df=</span><span class="dv">100-3-1</span>)),]
+tempdata[<span class="kw">which</span>(<span class="kw">abs</span>(tempdata<span class="op">$</span>SUTresiduals)<span class="op">&gt;</span><span class="kw">qt</span>(<span class="kw">c</span>(.<span class="dv">975</span>), <span class="dt">df=</span><span class="dv">100</span><span class="op">-</span><span class="dv">3</span><span class="op">-</span><span class="dv">1</span>)),]
 ##       yy    X1    X2 id SUTresiduals
 ## 13 21.39 11.49 10.29 13         2.02
 ## 32  8.85 11.96 10.65 32        -2.20
@@ -590,8 +593,8 @@ tempdata[<span class="kw">which</span>(<span class="kw">abs</span>(tempdata$SUTr
 <p>The standard errors of the of the coefficients are calculated as the square roots of the diagonal elements of <span class="math inline">\(\hat\sigma^2(X′X)^{-1}\)</span>, where <span class="math inline">\(\hat\sigma^2\)</span> is the variance of the residuals. Examine the code below given for the synthetic data set:</p>
 <p>When using the OLS with an assumption of normally distributed Y variable, the distribution of <span class="math inline">\(\beta\)</span> can be obtained. Examine the code below given for the synthetic-data set;</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Residuals</span>
-s2 &lt;-<span class="st"> </span>(<span class="kw">t</span>(residuals) %*%<span class="st"> </span>residuals)/(<span class="kw">nrow</span>(Y)-<span class="kw">nrow</span>(betahat))  
-Var_betahat &lt;-<span class="st"> </span>s2[<span class="dv">1</span>,<span class="dv">1</span>]*<span class="kw">solve</span>(<span class="kw">t</span>(X)%*%X)  </code></pre></div>
+s2 &lt;-<span class="st"> </span>(<span class="kw">t</span>(residuals) <span class="op">%*%</span><span class="st"> </span>residuals)<span class="op">/</span>(<span class="kw">nrow</span>(Y)<span class="op">-</span><span class="kw">nrow</span>(betahat))  
+Var_betahat &lt;-<span class="st"> </span>s2[<span class="dv">1</span>,<span class="dv">1</span>]<span class="op">*</span><span class="kw">solve</span>(<span class="kw">t</span>(X)<span class="op">%*%</span>X)  </code></pre></div>
 <p>The equation <span class="math inline">\(\sigma^2 (X&#39;X)^{-1}\)</span> is valid under the assumption of homogeneity, that is, observations on the Y variable have a common variance controlling for the independent variables. In other words, every observation of Y has the same amount of information (<span class="citation">Rawlings, Pantula, and Dickey (<a href="#ref-Rawling98">1998</a>)</span>). With this assumption, regression coefficients are selected to minimize <span class="math inline">\(\sum_{i=1}^n(Y_i-\hat{Y_i})^2\)</span>. In this expression equal weights are given to the residuals for every case.. If homogeneity is questionable the estimator can be modified to allow for unequal weights or replaced. Alternatively the Y variable can be transformed or the estimator of the standard error can be modified (see package ‘sandwich’ <span class="citation">Lumley and Zeileis (<a href="#ref-R-sandwich">2015</a>)</span>). Otherwise, the standard error of <span class="math inline">\(\hat\beta\)</span> could be underestimated or overestimated. Underestimation results in Type I error rates that are larger than the alpha level used in hypothesis tests and confidence intervals and over estimation results in reduced statistical power. It is common practice to plot residuals against the predicted values to study heterogeneity. Examine the code below to simulate data with unequal variance and examine the studentized residuals:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#simulate data</span>
 <span class="kw">set.seed</span>(<span class="dv">03032017</span>)
@@ -599,9 +602,9 @@ Var_betahat &lt;-<span class="st"> </span>s2[<span class="dv">1</span>,<span cla
 sigma &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>,.<span class="dv">7</span>,.<span class="dv">7</span>,<span class="dv">1</span>), <span class="dt">ncol=</span><span class="dv">2</span>)
 xx &lt;-<span class="st"> </span><span class="kw">rmvnorm</span>(<span class="dt">n=</span><span class="dv">100</span>, <span class="dt">mean=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>), <span class="dt">sigma=</span>sigma)
 <span class="co">#heteroscedasticity function</span>
-hts=function(v1,v2){<span class="dv">2</span><span class="fl">+.5</span>*v1<span class="fl">+.5</span>*v2}
-yy=<span class="dv">5</span>+xx[,<span class="dv">1</span>]*<span class="dv">5</span>+xx[,<span class="dv">2</span>]*<span class="dv">5</span>+<span class="kw">rnorm</span>(<span class="dv">100</span>,<span class="dv">0</span>,<span class="kw">hts</span>(xx[,<span class="dv">1</span>],xx[,<span class="dv">2</span>]))
-model=<span class="kw">lm</span>(yy~xx[,<span class="dv">1</span>]+xx[,<span class="dv">2</span>])
+hts=<span class="cf">function</span>(v1,v2){<span class="dv">2</span><span class="op">+</span>.<span class="dv">5</span><span class="op">*</span>v1<span class="op">+</span>.<span class="dv">5</span><span class="op">*</span>v2}
+yy=<span class="dv">5</span><span class="op">+</span>xx[,<span class="dv">1</span>]<span class="op">*</span><span class="dv">5</span><span class="op">+</span>xx[,<span class="dv">2</span>]<span class="op">*</span><span class="dv">5</span><span class="op">+</span><span class="kw">rnorm</span>(<span class="dv">100</span>,<span class="dv">0</span>,<span class="kw">hts</span>(xx[,<span class="dv">1</span>],xx[,<span class="dv">2</span>]))
+model=<span class="kw">lm</span>(yy<span class="op">~</span>xx[,<span class="dv">1</span>]<span class="op">+</span>xx[,<span class="dv">2</span>])
 <span class="co">#summary(model)</span>
 errors=<span class="kw">rstudent</span>(model)
 predicted=<span class="kw">predict</span>(model)
@@ -609,13 +612,13 @@ predicted=<span class="kw">predict</span>(model)
 <span class="co">#Studentized Residuals vs Yhat</span>
 <span class="kw">library</span>(ggplot2)
 plotdata=<span class="kw">data.frame</span>(errors,predicted)
-<span class="kw">ggplot</span>(plotdata, <span class="kw">aes</span>(<span class="dt">x =</span> predicted, <span class="dt">y =</span> errors)) +
-<span class="st">  </span><span class="kw">geom_point</span>() +<span class="st"> </span><span class="kw">geom_hline</span>(<span class="dt">yintercept=</span><span class="dv">0</span>)+<span class="kw">ylab</span>(<span class="st">&quot;Studentized residuals&quot;</span>)+
-<span class="st">  </span><span class="kw">geom_segment</span>(<span class="dt">mapping=</span><span class="kw">aes</span>(<span class="dt">xend =</span> predicted, <span class="dt">yend =</span> <span class="dv">0</span>)) +
+<span class="kw">ggplot</span>(plotdata, <span class="kw">aes</span>(<span class="dt">x =</span> predicted, <span class="dt">y =</span> errors)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_hline</span>(<span class="dt">yintercept=</span><span class="dv">0</span>)<span class="op">+</span><span class="kw">ylab</span>(<span class="st">&quot;Studentized residuals&quot;</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_segment</span>(<span class="dt">mapping=</span><span class="kw">aes</span>(<span class="dt">xend =</span> predicted, <span class="dt">yend =</span> <span class="dv">0</span>)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
-<p><img src="SARP-EN_files/figure-html/unnamed-chunk-126-1.png" width="672" /></p>
+<p><img src="SARP-EN_files/figure-html/unnamed-chunk-128-1.png" width="672" /></p>
 <p>The variance with smaller <span class="math inline">\(\hat Y\)</span> values are smaller. Below is a graph for a regression model on a simulated data with equal variance.</p>
-<p><img src="SARP-EN_files/figure-html/unnamed-chunk-127-1.png" width="672" /></p>
+<p><img src="SARP-EN_files/figure-html/unnamed-chunk-129-1.png" width="672" /></p>
 </div>
 <div id="e-hypothesis-testing" class="section level3">
 <h3><span class="header-section-number">11.1.5</span> e) Hypothesis testing</h3>
@@ -623,17 +626,17 @@ plotdata=<span class="kw">data.frame</span>(errors,predicted)
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Model SS and Total SS calculated before</span>
 dfREG=<span class="dv">2</span>  <span class="co">#(p=2, predictors X1 and X2)</span>
 dfRES=<span class="dv">9</span>  <span class="co">#(n-p&#39;, 12-3)</span>
-MSreg=ModelSS/dfREG
-MSres=(TotalSS-ModelSS)/dfRES
+MSreg=ModelSS<span class="op">/</span>dfREG
+MSres=(TotalSS<span class="op">-</span>ModelSS)<span class="op">/</span>dfRES
 
-MSreg/MSres
+MSreg<span class="op">/</span>MSres
 ##      [,1]
 ## [1,] 32.8
 
 <span class="co">#critical F</span>
 <span class="kw">qf</span>(.<span class="dv">95</span>,dfREG,dfRES)
 ## [1] 4.26
-<span class="dv">1</span>-<span class="kw">pf</span>(MSreg/MSres,dfREG,dfRES)
+<span class="dv">1</span><span class="op">-</span><span class="kw">pf</span>(MSreg<span class="op">/</span>MSres,dfREG,dfRES)
 ##          [,1]
 ## [1,] 7.39e-05</code></pre></div>
 <p>The t-test is used for investigating <span class="math inline">\(H_0:\beta_{X}=\beta_{hyp}\)</span> vs <span class="math inline">\(H_1:\beta_{X}\neq\beta_{hyp}\)</span>. Most commonly <span class="math inline">\(\beta_{hyp}=0\)</span></p>
@@ -648,7 +651,7 @@ bx2=betahat[<span class="dv">3</span>]
 se_bx2=<span class="kw">sqrt</span>(Var_betahat[<span class="dv">3</span>,<span class="dv">3</span>])
 
 <span class="co">#t statistic</span>
-(bx2-Bhyp)/se_bx2
+(bx2<span class="op">-</span>Bhyp)<span class="op">/</span>se_bx2
 ## [1] 5.33
 
 <span class="co"># t critic</span>
@@ -656,7 +659,7 @@ se_bx2=<span class="kw">sqrt</span>(Var_betahat[<span class="dv">3</span>,<span 
 ## [1] 2.26
 
 <span class="co">#p value</span>
-<span class="dv">2</span>*(<span class="kw">pt</span>(-<span class="kw">abs</span>((bx2-Bhyp)/se_bx2),<span class="dv">9</span>))
+<span class="dv">2</span><span class="op">*</span>(<span class="kw">pt</span>(<span class="op">-</span><span class="kw">abs</span>((bx2<span class="op">-</span>Bhyp)<span class="op">/</span>se_bx2),<span class="dv">9</span>))
 ## [1] 0.000478</code></pre></div>
 </div>
 <div id="f-variable-selection" class="section level3">
@@ -672,12 +675,12 @@ sigma=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="fl">
                <span class="fl">4.277045</span>,<span class="fl">5.817412</span>,<span class="fl">3.654419</span>,
                <span class="fl">3.906341</span>,<span class="fl">3.654419</span>,<span class="fl">5.642258</span>),<span class="dt">ncol=</span><span class="dv">3</span>)
 xx &lt;-<span class="st"> </span><span class="kw">rmvnorm</span>(<span class="dt">n=</span><span class="dv">200</span>, <span class="dt">mean=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>), <span class="dt">sigma=</span>sigma)
-yy=<span class="dv">5</span>+xx[,<span class="dv">1</span>]+xx[,<span class="dv">2</span>]*<span class="fl">1.5</span>+xx[,<span class="dv">3</span>]*<span class="dv">2</span>+<span class="kw">rnorm</span>(<span class="dv">200</span>,<span class="dv">0</span>,<span class="dv">3</span>)
-simdata=<span class="kw">data.frame</span>(yy,xx,<span class="dt">id=</span><span class="dv">1</span>:<span class="dv">200</span>)
+yy=<span class="dv">5</span><span class="op">+</span>xx[,<span class="dv">1</span>]<span class="op">+</span>xx[,<span class="dv">2</span>]<span class="op">*</span><span class="fl">1.5</span><span class="op">+</span>xx[,<span class="dv">3</span>]<span class="op">*</span><span class="dv">2</span><span class="op">+</span><span class="kw">rnorm</span>(<span class="dv">200</span>,<span class="dv">0</span>,<span class="dv">3</span>)
+simdata=<span class="kw">data.frame</span>(yy,xx,<span class="dt">id=</span><span class="dv">1</span><span class="op">:</span><span class="dv">200</span>)
 
 <span class="kw">library</span>(leaps)
 formula &lt;-<span class="st"> </span><span class="kw">formula</span>(<span class="kw">paste</span>(<span class="st">&quot;yy ~ &quot;</span>, 
-     <span class="kw">paste</span>(<span class="kw">names</span>(simdata[<span class="dv">2</span>:<span class="dv">4</span>]), <span class="dt">collapse=</span><span class="st">&quot; + &quot;</span>)))
+     <span class="kw">paste</span>(<span class="kw">names</span>(simdata[<span class="dv">2</span><span class="op">:</span><span class="dv">4</span>]), <span class="dt">collapse=</span><span class="st">&quot; + &quot;</span>)))
 allpossreg &lt;-<span class="st"> </span><span class="kw">regsubsets</span>(formula,<span class="dt">nbest=</span><span class="dv">3</span>,<span class="dt">data=</span>simdata)
 aprout &lt;-<span class="st"> </span><span class="kw">summary</span>(allpossreg)
 
@@ -687,7 +690,7 @@ aprout &lt;-<span class="st"> </span><span class="kw">summary</span>(allpossreg)
 
 APRtable=<span class="kw">with</span>(aprout,<span class="kw">round</span>(<span class="kw">cbind</span>(which,rsq,adjr2),<span class="dv">3</span>))
 APRtable=<span class="kw">data.frame</span>(APRtable,<span class="dt">check.rows =</span> F,<span class="dt">row.names =</span> <span class="ot">NULL</span>)
-APRtable$ppri=<span class="kw">rowSums</span>(APRtable[,<span class="dv">1</span>:<span class="dv">4</span>])
+APRtable<span class="op">$</span>ppri=<span class="kw">rowSums</span>(APRtable[,<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>])
 <span class="kw">kable</span>(APRtable)</code></pre></div>
 <table>
 <thead>
@@ -769,23 +772,23 @@ APRtable$ppri=<span class="kw">rowSums</span>(APRtable[,<span class="dv">1</span
 </table>
 <p>This table reports that intercept and <span class="math inline">\(X_2\)</span> only model results in an <span class="math inline">\(R^2\)</span> value of .753. When all predictors are included, the <span class="math inline">\(R^2\)</span> reaches to .890; however, excluding the X1 from the full model reduced the <span class="math inline">\(R^2\)</span> only by .019. Below is a graphical decpiction.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(ggplot2)
-<span class="kw">ggplot</span>(APRtable, <span class="kw">aes</span>(<span class="dt">x=</span>ppri<span class="dv">-1</span>, <span class="dt">y=</span>rsq)) +
-<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">1</span>,<span class="dt">size=</span><span class="dv">3</span>)+<span class="st">   </span>
-<span class="st">    </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dt">by =</span> <span class="fl">0.05</span>)) +
-<span class="st">    </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">3</span>, <span class="dt">by =</span> <span class="dv">1</span>))+
-<span class="st">    </span><span class="kw">theme_bw</span>()+<span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;R-squared&quot;</span>)+<span class="st"> </span>
+<span class="kw">ggplot</span>(APRtable, <span class="kw">aes</span>(<span class="dt">x=</span>ppri<span class="op">-</span><span class="dv">1</span>, <span class="dt">y=</span>rsq)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">1</span>,<span class="dt">size=</span><span class="dv">3</span>)<span class="op">+</span><span class="st">   </span>
+<span class="st">    </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dt">by =</span> <span class="fl">0.05</span>)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">3</span>, <span class="dt">by =</span> <span class="dv">1</span>))<span class="op">+</span>
+<span class="st">    </span><span class="kw">theme_bw</span>()<span class="op">+</span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;R-squared&quot;</span>)<span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">15</span>),
         <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>,<span class="dt">face=</span><span class="st">&quot;bold&quot;</span>))
 
-<span class="kw">ggplot</span>(APRtable, <span class="kw">aes</span>(<span class="dt">x=</span>ppri<span class="dv">-1</span>, <span class="dt">y=</span>adjr2)) +
-<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">1</span>,<span class="dt">size=</span><span class="dv">3</span>)+<span class="st">   </span>
-<span class="st">    </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dt">by =</span> <span class="fl">0.05</span>)) +
-<span class="st">    </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">3</span>, <span class="dt">by =</span> <span class="dv">1</span>))+
-<span class="st">      </span><span class="kw">theme_bw</span>()+<span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Adjusted R-squared&quot;</span>)+<span class="st"> </span>
+<span class="kw">ggplot</span>(APRtable, <span class="kw">aes</span>(<span class="dt">x=</span>ppri<span class="op">-</span><span class="dv">1</span>, <span class="dt">y=</span>adjr2)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">shape=</span><span class="dv">1</span>,<span class="dt">size=</span><span class="dv">3</span>)<span class="op">+</span><span class="st">   </span>
+<span class="st">    </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dt">by =</span> <span class="fl">0.05</span>)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">3</span>, <span class="dt">by =</span> <span class="dv">1</span>))<span class="op">+</span>
+<span class="st">      </span><span class="kw">theme_bw</span>()<span class="op">+</span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Adjusted R-squared&quot;</span>)<span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">15</span>),
         <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>,<span class="dt">face=</span><span class="st">&quot;bold&quot;</span>))</code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-131"></span>
-<img src="SARP-EN_files/figure-html/unnamed-chunk-131-1.png" alt="All Possible Regressions" width="50%" /><img src="SARP-EN_files/figure-html/unnamed-chunk-131-2.png" alt="All Possible Regressions" width="50%" />
+<div class="figure"><span id="fig:unnamed-chunk-133"></span>
+<img src="SARP-EN_files/figure-html/unnamed-chunk-133-1.png" alt="All Possible Regressions" width="50%" /><img src="SARP-EN_files/figure-html/unnamed-chunk-133-2.png" alt="All Possible Regressions" width="50%" />
 <p class="caption">
 Figure 11.1: All Possible Regressions
 </p>
@@ -798,7 +801,7 @@ Figure 11.1: All Possible Regressions
 <p>You may obtain a statistically significant <span class="math inline">\(R^2\)</span> but not statistically significant regression coefficients.</p>
 <p>Variance inflation factor (VIF) is helpful to detect collinearity in regard to a particular independent variables and can be applied in models two or more independent variables. The formula is <span class="math inline">\(VIF_x=\frac{1}{1-R^2_X}\)</span> where <span class="math inline">\(R^2_X\)</span> is the <span class="math inline">\(R^2\)</span> when the predictor is regressed on the remaining independent variables. Large VIF values are indicators of possible multicollinearity. Commonly pronounced cut off values are 4 and 10, however VIF values are indirectly affected by sample size and variance (<span class="citation">Obrien (<a href="#ref-obrien09">2007</a>)</span>). When large VIF values are detected, the researcher should examine the problem. It might be justifiable to (a) leave out one of the highly correlated predictors, (b) combine the two highly correlated variables. The decision should be made cautiously given that the possible solution might be more problematic than a large VIF value, see <span class="citation">Obrien (<a href="#ref-obrien09">2007</a>)</span>. Examine the code below given for a simulated data set;</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#check correlations among predictors</span>
-<span class="kw">cor</span>(simdata[,<span class="dv">2</span>:<span class="dv">4</span>])
+<span class="kw">cor</span>(simdata[,<span class="dv">2</span><span class="op">:</span><span class="dv">4</span>])
 ##      X1    X2    X3
 ## X1 1.00 0.730 0.640
 ## X2 0.73 1.000 0.666
@@ -808,7 +811,7 @@ Figure 11.1: All Possible Regressions
 <span class="co">#no multicollinearity expected</span>
 
 <span class="kw">library</span>(car)
-<span class="kw">vif</span>(<span class="kw">lm</span>(yy~X1+X2+X3,<span class="dt">data=</span>simdata))
+<span class="kw">vif</span>(<span class="kw">lm</span>(yy<span class="op">~</span>X1<span class="op">+</span>X2<span class="op">+</span>X3,<span class="dt">data=</span>simdata))
 ##   X1   X2   X3 
 ## 2.36 2.50 1.98
 <span class="co"># no problematic VIF values</span></code></pre></div>
@@ -839,23 +842,23 @@ Figure 11.1: All Possible Regressions
 <p>The slope of the relationship between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X_1\)</span>, for example, is <span class="math inline">\(\beta_1+\beta_2 X_{i2}\)</span> indicating that the relationship depends on <span class="math inline">\(X_2\)</span>. Similarly the slope relationship between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X_2\)</span> is <span class="math inline">\(\beta_2+\beta_1 X_{i1}\)</span>. Consideration of <span class="math inline">\(\beta_1+\beta_2 X_{i2}\)</span> shows that <span class="math inline">\(\beta_1\)</span> is the slope of the relationship between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X_1\)</span> when <span class="math inline">\(X_2 = 0\)</span> and therefore <span class="math inline">\(\beta_1\)</span> cannot be meaningfully interpreted if <span class="math inline">\(X_2 = 0\)</span> is not a meaningful score or is outside the range of the data. This problem can be addresses by centering <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> around their respective means. It should be noted that the model in Equation <a href="multiple-linear-regression-a-short-introduction.html#eq:olsinteract">(11.2)</a> assumes that the interaction can be accurately modeled by including <span class="math inline">\(\beta_2 X_{i1}X_{i2}\)</span> in the model. This assumes the relationship between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X_1\)</span> is linear when is <span class="math inline">\(X_2\)</span> controlled. Violations of assumption of the model in Equation <a href="multiple-linear-regression-a-short-introduction.html#eq:olsinteract">(11.2)</a> should be investigated.R can be helpful in interpreting interactions by 3-dimension graphs. Examine the code below given for a simulated data set to highlight the use of R package <em>visreg</em> (<span class="citation">Breheny and Burchett (<a href="#ref-R-visreg">2016</a>)</span>)</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## manipulate simdata
 ## Yvar: dependent variable on no interaction
-simdata$Yvar=<span class="dv">3</span>+simdata$X1*<span class="dv">2</span>+simdata$X2*<span class="dv">3</span>+<span class="kw">rnorm</span>(<span class="kw">nrow</span>(simdata),<span class="dv">0</span>,<span class="dv">5</span>)
+simdata<span class="op">$</span>Yvar=<span class="dv">3</span><span class="op">+</span>simdata<span class="op">$</span>X1<span class="op">*</span><span class="dv">2</span><span class="op">+</span>simdata<span class="op">$</span>X2<span class="op">*</span><span class="dv">3</span><span class="op">+</span><span class="kw">rnorm</span>(<span class="kw">nrow</span>(simdata),<span class="dv">0</span>,<span class="dv">5</span>)
 
 <span class="kw">library</span>(visreg)
 
-model=<span class="kw">lm</span>(Yvar~X1+X2+X1*X2,<span class="dt">data=</span>simdata)
+model=<span class="kw">lm</span>(Yvar<span class="op">~</span>X1<span class="op">+</span>X2<span class="op">+</span>X1<span class="op">*</span>X2,<span class="dt">data=</span>simdata)
 <span class="kw">visreg2d</span>(model, <span class="st">&quot;X1&quot;</span>, <span class="st">&quot;X2&quot;</span>, <span class="dt">plot.type=</span><span class="st">&quot;persp&quot;</span>)</code></pre></div>
-<p><img src="SARP-EN_files/figure-html/unnamed-chunk-133-1.png" width="672" /></p>
+<p><img src="SARP-EN_files/figure-html/unnamed-chunk-135-1.png" width="672" /></p>
 <p>The surface is flat indicating no interaction.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## manipulate simdata
 ## Yvarint: dependent variable on a interaction
-simdata$Yvarint=<span class="dv">3</span>+simdata$X1*<span class="dv">1</span>+simdata$X2*<span class="dv">2</span>+simdata$X1*simdata$X2*<span class="fl">1.5</span>+<span class="kw">rnorm</span>(<span class="kw">nrow</span>(simdata),<span class="dv">0</span>,<span class="dv">5</span>)
+simdata<span class="op">$</span>Yvarint=<span class="dv">3</span><span class="op">+</span>simdata<span class="op">$</span>X1<span class="op">*</span><span class="dv">1</span><span class="op">+</span>simdata<span class="op">$</span>X2<span class="op">*</span><span class="dv">2</span><span class="op">+</span>simdata<span class="op">$</span>X1<span class="op">*</span>simdata<span class="op">$</span>X2<span class="op">*</span><span class="fl">1.5</span><span class="op">+</span><span class="kw">rnorm</span>(<span class="kw">nrow</span>(simdata),<span class="dv">0</span>,<span class="dv">5</span>)
 
 <span class="kw">library</span>(visreg)
 
-model2=<span class="kw">lm</span>(Yvarint~X1+X2+X1*X2,<span class="dt">data=</span>simdata)
+model2=<span class="kw">lm</span>(Yvarint<span class="op">~</span>X1<span class="op">+</span>X2<span class="op">+</span>X1<span class="op">*</span>X2,<span class="dt">data=</span>simdata)
 <span class="kw">visreg2d</span>(model2, <span class="st">&quot;X1&quot;</span>, <span class="st">&quot;X2&quot;</span>, <span class="dt">plot.type=</span><span class="st">&quot;persp&quot;</span>)</code></pre></div>
-<p><img src="SARP-EN_files/figure-html/unnamed-chunk-134-1.png" width="672" /></p>
+<p><img src="SARP-EN_files/figure-html/unnamed-chunk-136-1.png" width="672" /></p>
 <p>The surface is no longer flat in the presence of an interaction.</p>
 </div>
 <div id="m-estimators" class="section level3">
@@ -929,8 +932,9 @@ model2=<span class="kw">lm</span>(Yvarint~X1+X2+X1*X2,<span class="dt">data=</sp
         </div>
       </div>
 <a href="correlation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="useful-r-codes.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
-
+<a href="useful-r-codes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
@@ -939,7 +943,7 @@ model2=<span class="kw">lm</span>(Yvarint~X1+X2+X1*X2,<span class="dt">data=</sp
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,
@@ -973,7 +977,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(script.src))
       script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);

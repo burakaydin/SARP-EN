@@ -6,9 +6,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>An R Platform for Social Scientists</title>
-  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="R book for social scientists">
-  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="An R Platform for Social Scientists" />
   <meta property="og:type" content="book" />
@@ -23,7 +22,7 @@
   <meta name="twitter:description" content="R book for social scientists" />
   <meta name="twitter:image" content="images/coverpicture.png" />
 
-<meta name="author" content="Burak AYDIN, James ALGINA, Walter LEITE">
+<meta name="author" content="Burak AYDIN, James ALGINA, Walter LEITE, Hakan ATILGAN">
 
 
 <meta name="date" content="2017-01-01">
@@ -35,7 +34,6 @@
   
 <link rel="prev" href="descriptive-statistics-and-hypthoses-testing.html">
 <link rel="next" href="analysis-of-variance-anova.html">
-
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,7 +47,7 @@
 
 
 
-<script src="libs/htmlwidgets-0.8/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-0.9/htmlwidgets.js"></script>
 <link href="libs/rglwidgetClass-2/rgl.css" rel="stylesheet" />
 <script src="libs/rglwidgetClass-2/rglClass.src.js"></script>
 <script src="libs/CanvasMatrix4-2016/CanvasMatrix.src.js"></script>
@@ -100,6 +98,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <body>
 
 
+
   <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
 
     <div class="book-summary">
@@ -112,8 +111,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Cover</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a><ul>
-<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#why-bookdown"><i class="fa fa-check"></i><b>1.1.1</b> Why Bookdown?</a></li>
-<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#content"><i class="fa fa-check"></i><b>1.1.2</b> Content</a></li>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#citation"><i class="fa fa-check"></i><b>1.1.1</b> Citation</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#why-bookdown"><i class="fa fa-check"></i><b>1.1.2</b> Why Bookdown?</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#content"><i class="fa fa-check"></i><b>1.1.3</b> Content</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i><b>2</b> Preface</a><ul>
@@ -121,6 +121,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.1.1" data-path="preface.html"><a href="preface.html#burak-aydn-ph.d."><i class="fa fa-check"></i><b>2.1.1</b> Burak Aydın, Ph.D.</a></li>
 <li class="chapter" data-level="2.1.2" data-path="preface.html"><a href="preface.html#james-algina-ph.d."><i class="fa fa-check"></i><b>2.1.2</b> James Algina, Ph.D.</a></li>
 <li class="chapter" data-level="2.1.3" data-path="preface.html"><a href="preface.html#walter-l.-leite-ph.d."><i class="fa fa-check"></i><b>2.1.3</b> Walter L. Leite, Ph.D.</a></li>
+<li class="chapter" data-level="2.1.4" data-path="preface.html"><a href="preface.html#hakan-atilgan-ph.d."><i class="fa fa-check"></i><b>2.1.4</b> Hakan ATILGAN, Ph.D.</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="preface.html"><a href="preface.html#acknowledgement"><i class="fa fa-check"></i><b>2.2</b> Acknowledgement</a></li>
 <li class="chapter" data-level="2.3" data-path="preface.html"><a href="preface.html#dataWBT"><i class="fa fa-check"></i><b>2.3</b> Data</a></li>
@@ -235,7 +236,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="10.3" data-path="correlation.html"><a href="correlation.html#biserial-and-point-biserial-correlation-coefficients-with-r"><i class="fa fa-check"></i><b>10.3</b> Biserial and Point-Biserial Correlation Coefficients with R</a></li>
 <li class="chapter" data-level="10.4" data-path="correlation.html"><a href="correlation.html#phi-correlation-coefficient-with-r"><i class="fa fa-check"></i><b>10.4</b> Phi Correlation Coefficient with R</a></li>
-<li class="chapter" data-level="10.5" data-path="correlation.html"><a href="correlation.html#issues-in-interpreting-correlation-coefficients"><i class="fa fa-check"></i><b>10.5</b> Issues in Interpreting Correlation Coefficients</a></li>
+<li class="chapter" data-level="10.5" data-path="correlation.html"><a href="correlation.html#tetrachoric-and-polychoric-correlation-coefficients-with-r"><i class="fa fa-check"></i><b>10.5</b> Tetrachoric and Polychoric Correlation Coefficients with R</a></li>
+<li class="chapter" data-level="10.6" data-path="correlation.html"><a href="correlation.html#issues-in-interpreting-correlation-coefficients"><i class="fa fa-check"></i><b>10.6</b> Issues in Interpreting Correlation Coefficients</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html"><i class="fa fa-check"></i><b>11</b> Multiple Linear Regression, a Short Introduction</a><ul>
 <li class="chapter" data-level="11.1" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#matricies-and-least-square-estimation"><i class="fa fa-check"></i><b>11.1</b> Matricies and Least Square Estimation</a><ul>
@@ -263,6 +265,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="12" data-path="useful-r-codes.html"><a href="useful-r-codes.html"><i class="fa fa-check"></i><b>12</b> Useful R codes</a><ul>
 <li class="chapter" data-level="12.1" data-path="useful-r-codes.html"><a href="useful-r-codes.html#more-on-the-apastyle-package"><i class="fa fa-check"></i><b>12.1</b> More on the apaStyle package</a></li>
 <li class="chapter" data-level="12.2" data-path="useful-r-codes.html"><a href="useful-r-codes.html#a-useful-shiny-application"><i class="fa fa-check"></i><b>12.2</b> A useful shiny application</a></li>
+<li class="chapter" data-level="12.3" data-path="useful-r-codes.html"><a href="useful-r-codes.html#update-bookdown"><i class="fa fa-check"></i><b>12.3</b> Update bookdown</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -366,7 +369,7 @@ dataWBT=<span class="kw">read.csv</span>(urlfile)
 
 <span class="co">#remove URL </span>
 <span class="kw">rm</span>(urlfile)
-dataWBT_USAK=dataWBT[dataWBT$city==<span class="st">&quot;USAK&quot;</span>,]
+dataWBT_USAK=dataWBT[dataWBT<span class="op">$</span>city<span class="op">==</span><span class="st">&quot;USAK&quot;</span>,]
 
 
 <span class="co"># We explained the functions &#39;factor&#39; and &#39;droplevels&#39; in section 5.2.4</span>
@@ -374,16 +377,16 @@ dataWBT_USAK=dataWBT[dataWBT$city==<span class="st">&quot;USAK&quot;</span>,]
 <span class="co"># it is labeled as &#39;non-college&#39; when the higher_ed variable equals 0, </span>
 <span class="co"># &#39;college&#39; when equals to 1.</span>
 <span class="co"># if you dont use droplevels function, you might have an empty level </span>
-dataWBT_USAK$HEF=<span class="kw">droplevels</span>(<span class="kw">factor</span>(dataWBT_USAK$higher_ed, 
+dataWBT_USAK<span class="op">$</span>HEF=<span class="kw">droplevels</span>(<span class="kw">factor</span>(dataWBT_USAK<span class="op">$</span>higher_ed, 
                     <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), 
                     <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;non-college&quot;</span>, <span class="st">&quot;college&quot;</span>)))
 
 <span class="kw">require</span>(ggplot2)
 plotdata=<span class="kw">na.omit</span>(dataWBT_USAK[,<span class="kw">c</span>(<span class="st">&quot;gen_att&quot;</span>,<span class="st">&quot;HEF&quot;</span>)])
-<span class="kw">ggplot</span>(plotdata, <span class="kw">aes</span>(<span class="dt">x =</span> gen_att)) +
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..),<span class="dt">col=</span><span class="st">&quot;black&quot;</span>,<span class="dt">binwidth =</span> <span class="fl">0.2</span>,<span class="dt">alpha=</span><span class="fl">0.7</span>) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">size=</span><span class="dv">2</span>) +
-<span class="st">  </span><span class="kw">theme_bw</span>()+<span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Gender Attitude by HEF in USAK&quot;</span>)+<span class="st"> </span><span class="kw">facet_wrap</span>(~<span class="st"> </span>HEF)+
+<span class="kw">ggplot</span>(plotdata, <span class="kw">aes</span>(<span class="dt">x =</span> gen_att)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..),<span class="dt">col=</span><span class="st">&quot;black&quot;</span>,<span class="dt">binwidth =</span> <span class="fl">0.2</span>,<span class="dt">alpha=</span><span class="fl">0.7</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>()<span class="op">+</span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Gender Attitude by HEF in USAK&quot;</span>)<span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>HEF)<span class="op">+</span>
 <span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">15</span>),
         <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>,<span class="dt">face=</span><span class="st">&quot;bold&quot;</span>))</code></pre></div>
 <div class="figure"><span id="fig:genattusakcity"></span>
@@ -414,10 +417,10 @@ descIDT
 <span class="co">#write.csv(descIDT,file=&quot;independent_t_test_desc.csv&quot;)</span>
 
 <span class="co"># Pooled sd</span>
-sp=<span class="kw">sqrt</span>((<span class="dv">85</span>*.<span class="dv">543</span>^<span class="dv">2</span> +<span class="st"> </span><span class="dv">50</span>*.<span class="dv">608</span>^<span class="dv">2</span>)/(<span class="dv">86+51-2</span>))
+sp=<span class="kw">sqrt</span>((<span class="dv">85</span><span class="op">*</span>.<span class="dv">543</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">50</span><span class="op">*</span>.<span class="dv">608</span><span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>(<span class="dv">86</span><span class="op">+</span><span class="dv">51</span><span class="op">-</span><span class="dv">2</span>))
 
 <span class="co"># t-statistic</span>
-tstatistic=(<span class="fl">1.832-1.635</span>)/(sp*<span class="kw">sqrt</span>(<span class="dv">1</span>/<span class="dv">86+1</span>/<span class="dv">51</span>))
+tstatistic=(<span class="fl">1.832</span><span class="op">-</span><span class="fl">1.635</span>)<span class="op">/</span>(sp<span class="op">*</span><span class="kw">sqrt</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">86</span><span class="op">+</span><span class="dv">1</span><span class="op">/</span><span class="dv">51</span>))
 
 <span class="co"># critical value for alpha=0.05</span>
 <span class="kw">qt</span>(.<span class="dv">975</span>,<span class="dt">df=</span><span class="dv">135</span>)
@@ -430,7 +433,7 @@ tstatistic=(<span class="fl">1.832-1.635</span>)/(sp*<span class="kw">sqrt</span
 <span class="co"># The dataWBT does not have HEF factor, </span>
 <span class="co"># you should define it as it is given a few lines above.</span>
 
-<span class="kw">t.test</span>(gen_att~HEF,<span class="dt">data=</span>dataWBT_USAK,<span class="dt">var.equal=</span>T,
+<span class="kw">t.test</span>(gen_att<span class="op">~</span>HEF,<span class="dt">data=</span>dataWBT_USAK,<span class="dt">var.equal=</span>T,
                                      <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>,
                                      <span class="dt">conf.level=</span><span class="fl">0.95</span>)
 ## 
@@ -446,7 +449,7 @@ tstatistic=(<span class="fl">1.832-1.635</span>)/(sp*<span class="kw">sqrt</span
 ##                  1.831783                  1.635294
 
 <span class="co"># greater</span>
-<span class="kw">t.test</span>(gen_att~HEF,<span class="dt">data=</span>dataWBT_USAK,<span class="dt">var.equal=</span>T,
+<span class="kw">t.test</span>(gen_att<span class="op">~</span>HEF,<span class="dt">data=</span>dataWBT_USAK,<span class="dt">var.equal=</span>T,
                                      <span class="dt">alternative=</span><span class="st">&quot;greater&quot;</span>,
                                      <span class="dt">conf.level=</span><span class="fl">0.95</span>)
 ## 
@@ -463,7 +466,7 @@ tstatistic=(<span class="fl">1.832-1.635</span>)/(sp*<span class="kw">sqrt</span
 
 
 <span class="co"># less</span>
-<span class="kw">t.test</span>(gen_att~HEF,<span class="dt">data=</span>dataWBT_USAK,<span class="dt">var.equal=</span>T,
+<span class="kw">t.test</span>(gen_att<span class="op">~</span>HEF,<span class="dt">data=</span>dataWBT_USAK,<span class="dt">var.equal=</span>T,
                                      <span class="dt">alternative=</span><span class="st">&quot;less&quot;</span>,
                                      <span class="dt">conf.level=</span><span class="fl">0.95</span>)
 ## 
@@ -501,7 +504,7 @@ tstatistic=(<span class="fl">1.832-1.635</span>)/(sp*<span class="kw">sqrt</span
 <h3><span class="header-section-number">8.1.3</span> Using Welch’s t test</h3>
 <p>Welch’ t-test can be conveniently implemented in R and is a reasonable choice for comparing means for independent groups when the normality is not severely violated, the groups have different sample sizes and each groups’ sample size is reasonable large, (e.g. &gt; 20) , and the homogeneity of variance assumption is not made.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
-<span class="kw">t.test</span>(gen_att~HEF,<span class="dt">data=</span>dataWBT_USAK,<span class="dt">var.equal=</span>F,
+<span class="kw">t.test</span>(gen_att<span class="op">~</span>HEF,<span class="dt">data=</span>dataWBT_USAK,<span class="dt">var.equal=</span>F,
                                      <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>,
                                      <span class="dt">conf.level=</span><span class="fl">0.95</span>)
 ## 
@@ -525,35 +528,35 @@ B=<span class="dv">5000</span>       <span class="co"># number of bootstraps</sp
 alpha=<span class="fl">0.05</span>   <span class="co"># alpha</span>
 
 <span class="co"># define groups</span>
-GroupCollege=<span class="kw">na.omit</span>(dataWBT_USAK[dataWBT_USAK$HEF==<span class="st">&quot;college&quot;</span>,<span class="st">&quot;gen_att&quot;</span>])
-GroupNONcollege=<span class="kw">na.omit</span>(dataWBT_USAK[dataWBT_USAK$HEF==<span class="st">&quot;non-college&quot;</span>,<span class="st">&quot;gen_att&quot;</span>])
+GroupCollege=<span class="kw">na.omit</span>(dataWBT_USAK[dataWBT_USAK<span class="op">$</span>HEF<span class="op">==</span><span class="st">&quot;college&quot;</span>,<span class="st">&quot;gen_att&quot;</span>])
+GroupNONcollege=<span class="kw">na.omit</span>(dataWBT_USAK[dataWBT_USAK<span class="op">$</span>HEF<span class="op">==</span><span class="st">&quot;non-college&quot;</span>,<span class="st">&quot;gen_att&quot;</span>])
 
 output=<span class="kw">c</span>()
-for (i in <span class="dv">1</span>:B){
+<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>B){
 
   x1=<span class="kw">mean</span>(<span class="kw">sample</span>(GroupCollege,<span class="dt">replace=</span>T,<span class="dt">size=</span><span class="kw">length</span>(GroupCollege)))
   x2=<span class="kw">mean</span>(<span class="kw">sample</span>(GroupNONcollege,<span class="dt">replace=</span>T,<span class="dt">size=</span><span class="kw">length</span>(GroupNONcollege)))
-  output[i]=x2-x1
+  output[i]=x2<span class="op">-</span>x1
   }
 output=<span class="kw">sort</span>(output)
 
 ## non-directional 
 <span class="co"># D star lower</span>
-output[<span class="kw">as.integer</span>(B*alpha/<span class="dv">2</span>)+<span class="dv">1</span>]
+output[<span class="kw">as.integer</span>(B<span class="op">*</span>alpha<span class="op">/</span><span class="dv">2</span>)<span class="op">+</span><span class="dv">1</span>]
 ## [1] -0.01338349
 
 <span class="co"># D star upper</span>
-output[B-<span class="kw">as.integer</span>(B*alpha/<span class="dv">2</span>)]
+output[B<span class="op">-</span><span class="kw">as.integer</span>(B<span class="op">*</span>alpha<span class="op">/</span><span class="dv">2</span>)]
 ## [1] 0.3899111
 
 ##Directional x2&gt;x1
 <span class="co"># D star lower</span>
-output[<span class="kw">as.integer</span>(B*alpha)+<span class="dv">1</span>]
+output[<span class="kw">as.integer</span>(B<span class="op">*</span>alpha)<span class="op">+</span><span class="dv">1</span>]
 ## [1] 0.02202462
 
 <span class="co">#wrong direction x2&lt;x1</span>
 <span class="co"># D star upper</span>
-output[<span class="kw">as.integer</span>(B*(<span class="dv">1</span>-alpha))]
+output[<span class="kw">as.integer</span>(B<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>alpha))]
 ## [1] 0.3575695</code></pre></div>
 </div>
 <div id="write-up-for-percentile-bootstrap-method" class="section level4">
@@ -595,12 +598,12 @@ n1=<span class="dv">51</span>
 n2=<span class="dv">86</span>
 tval=<span class="fl">1.96</span>
 
-ES=tval/<span class="kw">sqrt</span>((n1*n2)/(n1+n2))
+ES=tval<span class="op">/</span><span class="kw">sqrt</span>((n1<span class="op">*</span>n2)<span class="op">/</span>(n1<span class="op">+</span>n2))
 ES
 ## [1] 0.3464033
 
 <span class="co">#or by the package effsize</span>
-<span class="kw">t.test</span>(gen_att~HEF,<span class="dt">data=</span>dataWBT_USAK,<span class="dt">var.equal=</span>F,
+<span class="kw">t.test</span>(gen_att<span class="op">~</span>HEF,<span class="dt">data=</span>dataWBT_USAK,<span class="dt">var.equal=</span>F,
                                      <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>,
                                      <span class="dt">conf.level=</span><span class="fl">0.95</span>)
 ## 
@@ -615,7 +618,7 @@ ES
 ## mean in group non-college     mean in group college 
 ##                  1.831783                  1.635294
 <span class="kw">library</span>(effsize)
-<span class="kw">cohen.d</span>(gen_att~HEF,<span class="dt">data=</span>dataWBT_USAK, <span class="dt">paired=</span>F, <span class="dt">conf.level=</span><span class="fl">0.95</span>,<span class="dt">noncentral=</span>F)
+<span class="kw">cohen.d</span>(gen_att<span class="op">~</span>HEF,<span class="dt">data=</span>dataWBT_USAK, <span class="dt">paired=</span>F, <span class="dt">conf.level=</span><span class="fl">0.95</span>,<span class="dt">noncentral=</span>F)
 ## 
 ## Cohen&#39;s d
 ## 
@@ -658,14 +661,14 @@ ES
 ##           power = 0.95
 ##     alternative = two.sided
 ## 
-## NOTE: n is number in *each* group</code></pre></div>
+## <span class="al">NOTE</span>: n is number in *each* group</code></pre></div>
 <p>This illustration shows that for the pre-determined knowns of a mean difference of 0.35, a standard deviation of 0.6, an alpha level of 0.05, a non-directional test and a desired power of 0.95, the sample size should be 78 in each group. In other words, the probability of rejecting the null (<span class="math inline">\(H_0:\mu_1-\mu_2=0\)</span>) is .95 with a sample size of 156, a mean difference of 0.35, SD=0.6, alpha=0.05 and a non-directional independent t-test.</p>
 </div>
 </div>
 <div id="the-dependent-groups-t-test-within-subjects-t-test" class="section level2">
 <h2><span class="header-section-number">8.2</span> The dependent groups t-test (Within-subjects t-test)</h2>
 <p>To examine whether surgical tape or suture is a better method for closing wounds, for each of 20 rats incisions were made on both sides of the spine. One of the wounds was closed by using tape; the other was sutured. The side closed by tape was determined at random. After 10 days the tensile strength of the wounds was measured. The following are the data.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">wounds=<span class="kw">data.frame</span>(<span class="dt">ratid=</span><span class="dv">1</span>:<span class="dv">20</span>,
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">wounds=<span class="kw">data.frame</span>(<span class="dt">ratid=</span><span class="dv">1</span><span class="op">:</span><span class="dv">20</span>,
                   <span class="dt">tape=</span><span class="kw">c</span>(<span class="fl">6.59</span>,<span class="fl">9.84</span> ,<span class="fl">3.97</span>,<span class="fl">5.74</span>,<span class="fl">4.47</span>,<span class="fl">4.79</span>,<span class="fl">6.76</span>,<span class="fl">7.61</span>,<span class="fl">6.47</span>,<span class="fl">5.77</span>,
                          <span class="fl">7.36</span>,<span class="fl">10.45</span>,<span class="fl">4.98</span>,<span class="fl">5.85</span>,<span class="fl">5.65</span>,<span class="fl">5.88</span>,<span class="fl">7.77</span>,<span class="fl">8.84</span>,<span class="fl">7.68</span>,<span class="fl">6.89</span>),
                   <span class="dt">suture=</span><span class="kw">c</span>(<span class="fl">4.52</span>,<span class="fl">5.87</span>,<span class="fl">4.60</span>,<span class="fl">7.87</span>,<span class="fl">3.51</span>,<span class="fl">2.77</span>,<span class="fl">2.34</span>,<span class="fl">5.16</span>,<span class="fl">5.77</span>,<span class="fl">5.13</span>,
@@ -673,13 +676,13 @@ ES
 
 <span class="co"># Create plot data</span>
 <span class="kw">library</span>(tidyr)
-plotdata=<span class="kw">gather</span>(wounds, method, strength, tape:suture, <span class="dt">factor_key=</span><span class="ot">TRUE</span>)
+plotdata=<span class="kw">gather</span>(wounds, method, strength, tape<span class="op">:</span>suture, <span class="dt">factor_key=</span><span class="ot">TRUE</span>)
 
 <span class="kw">require</span>(ggplot2)
-<span class="kw">ggplot</span>(plotdata, <span class="kw">aes</span>(<span class="dt">x =</span> strength)) +
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..),<span class="dt">col=</span><span class="st">&quot;black&quot;</span>,<span class="dt">alpha=</span><span class="fl">0.7</span>) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">size=</span><span class="dv">2</span>) +
-<span class="st">  </span><span class="kw">theme_bw</span>()+<span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;strength&quot;</span>)+<span class="st"> </span><span class="kw">facet_wrap</span>(~<span class="st"> </span>method)+
+<span class="kw">ggplot</span>(plotdata, <span class="kw">aes</span>(<span class="dt">x =</span> strength)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..),<span class="dt">col=</span><span class="st">&quot;black&quot;</span>,<span class="dt">alpha=</span><span class="fl">0.7</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>()<span class="op">+</span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;strength&quot;</span>)<span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>method)<span class="op">+</span>
 <span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">15</span>),
         <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>,<span class="dt">face=</span><span class="st">&quot;bold&quot;</span>))</code></pre></div>
 <div class="figure"><span id="fig:woundsexampleplot"></span>
@@ -716,10 +719,10 @@ corDT
 
 
 <span class="co"># estimated standard error</span>
-ese=<span class="kw">sqrt</span>(((<span class="fl">1.71</span>^<span class="dv">2</span><span class="fl">+1.49</span>^<span class="dv">2</span>)-(<span class="dv">2</span>*<span class="fl">1.71</span>*<span class="fl">1.49</span>*corDT))/(<span class="dv">20</span>))
+ese=<span class="kw">sqrt</span>(((<span class="fl">1.71</span><span class="op">^</span><span class="dv">2</span><span class="op">+</span><span class="fl">1.49</span><span class="op">^</span><span class="dv">2</span>)<span class="op">-</span>(<span class="dv">2</span><span class="op">*</span><span class="fl">1.71</span><span class="op">*</span><span class="fl">1.49</span><span class="op">*</span>corDT))<span class="op">/</span>(<span class="dv">20</span>))
 
 <span class="co"># t-statistic</span>
-tstatistic=(<span class="fl">6.67-5.17</span>)/ese
+tstatistic=(<span class="fl">6.67</span><span class="op">-</span><span class="fl">5.17</span>)<span class="op">/</span>ese
 
 <span class="co"># critical value for alpha=0.05</span>
 <span class="kw">qt</span>(.<span class="dv">975</span>,<span class="dt">df=</span><span class="dv">19</span>)
@@ -759,40 +762,40 @@ tstatistic=(<span class="fl">6.67-5.17</span>)/ese
 B=<span class="dv">5000</span>       <span class="co"># number of bootstraps</span>
 alpha=<span class="fl">0.05</span>   <span class="co"># alpha</span>
 
-wounds=<span class="kw">data.frame</span>(<span class="dt">ratid=</span><span class="dv">1</span>:<span class="dv">20</span>,
+wounds=<span class="kw">data.frame</span>(<span class="dt">ratid=</span><span class="dv">1</span><span class="op">:</span><span class="dv">20</span>,
                   <span class="dt">tape=</span><span class="kw">c</span>(<span class="fl">6.59</span>,<span class="fl">9.84</span> ,<span class="fl">3.97</span>,<span class="fl">5.74</span>,<span class="fl">4.47</span>,<span class="fl">4.79</span>,<span class="fl">6.76</span>,<span class="fl">7.61</span>,<span class="fl">6.47</span>,<span class="fl">5.77</span>,
                          <span class="fl">7.36</span>,<span class="fl">10.45</span>,<span class="fl">4.98</span>,<span class="fl">5.85</span>,<span class="fl">5.65</span>,<span class="fl">5.88</span>,<span class="fl">7.77</span>,<span class="fl">8.84</span>,<span class="fl">7.68</span>,<span class="fl">6.89</span>),
                   <span class="dt">suture=</span><span class="kw">c</span>(<span class="fl">4.52</span>,<span class="fl">5.87</span>,<span class="fl">4.60</span>,<span class="fl">7.87</span>,<span class="fl">3.51</span>,<span class="fl">2.77</span>,<span class="fl">2.34</span>,<span class="fl">5.16</span>,<span class="fl">5.77</span>,<span class="fl">5.13</span>,
                            <span class="fl">5.55</span>,<span class="fl">6.99</span>,<span class="fl">5.78</span>,<span class="fl">7.41</span>,<span class="fl">4.51</span>,<span class="fl">3.96</span>,<span class="fl">3.56</span>,<span class="fl">6.22</span>,<span class="fl">6.72</span>,<span class="fl">5.17</span>))
 
 output=<span class="kw">c</span>()
-for (i in <span class="dv">1</span>:B){
+<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>B){
   <span class="co">#sample rows</span>
-  bs_rows=<span class="kw">sample</span>(wounds$ratid,<span class="dt">replace=</span>T,<span class="dt">size=</span><span class="kw">nrow</span>(wounds))
+  bs_rows=<span class="kw">sample</span>(wounds<span class="op">$</span>ratid,<span class="dt">replace=</span>T,<span class="dt">size=</span><span class="kw">nrow</span>(wounds))
   bs_sample=wounds[bs_rows,]
-  mean1=<span class="kw">mean</span>(bs_sample$tape)
-  mean2=<span class="kw">mean</span>(bs_sample$suture)
-  output[i]=mean1-mean2
+  mean1=<span class="kw">mean</span>(bs_sample<span class="op">$</span>tape)
+  mean2=<span class="kw">mean</span>(bs_sample<span class="op">$</span>suture)
+  output[i]=mean1<span class="op">-</span>mean2
   }
 output=<span class="kw">sort</span>(output)
 
 ## Uni-directional 
 <span class="co"># d star lower</span>
-output[<span class="kw">as.integer</span>(B*alpha/<span class="dv">2</span>)+<span class="dv">1</span>]
+output[<span class="kw">as.integer</span>(B<span class="op">*</span>alpha<span class="op">/</span><span class="dv">2</span>)<span class="op">+</span><span class="dv">1</span>]
 ## [1] 0.6865
 
 <span class="co"># d star upper</span>
-output[B-<span class="kw">as.integer</span>(B*alpha/<span class="dv">2</span>)]
+output[B<span class="op">-</span><span class="kw">as.integer</span>(B<span class="op">*</span>alpha<span class="op">/</span><span class="dv">2</span>)]
 ## [1] 2.2415
 
 ##Directional x2&gt;x1
 <span class="co"># d star lower</span>
-output[<span class="kw">as.integer</span>(B*alpha)+<span class="dv">1</span>]
+output[<span class="kw">as.integer</span>(B<span class="op">*</span>alpha)<span class="op">+</span><span class="dv">1</span>]
 ## [1] 0.837
 
 <span class="co">#wrong direction x2&lt;x1</span>
 <span class="co"># d star upper</span>
-output[<span class="kw">as.integer</span>(B*(<span class="dv">1</span>-alpha))]
+output[<span class="kw">as.integer</span>(B<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>alpha))]
 ## [1] 2.1445</code></pre></div>
 <div id="write-up-for-a-non-directional-percentile-bootstrap-method" class="section level4">
 <h4><span class="header-section-number">8.2.3.1</span> Write up for a non-directional percentile bootstrap method:</h4>
@@ -808,12 +811,12 @@ output[<span class="kw">as.integer</span>(B*(<span class="dv">1</span>-alpha))]
 n=<span class="dv">20</span>
 tval=<span class="fl">3.6678</span>
 
-ES=tval/<span class="kw">sqrt</span>(n)
+ES=tval<span class="op">/</span><span class="kw">sqrt</span>(n)
 ES
 ## [1] 0.820145
 
 <span class="kw">library</span>(effsize)
-<span class="kw">cohen.d</span>(wounds$tape,wounds$suture, 
+<span class="kw">cohen.d</span>(wounds<span class="op">$</span>tape,wounds<span class="op">$</span>suture, 
         <span class="dt">paired=</span>T, <span class="dt">conf.level=</span><span class="fl">0.95</span>,<span class="dt">noncentral=</span>F)
 ## 
 ## Cohen&#39;s d
@@ -848,7 +851,7 @@ ES
 ##           power = 0.95
 ##     alternative = two.sided
 ## 
-## NOTE: n is number of *pairs*, sd is std.dev. of *differences* within pairs</code></pre></div>
+## <span class="al">NOTE</span>: n is number of *pairs*, sd is std.dev. of *differences* within pairs</code></pre></div>
 <p>This illustration shows that for the pre-determined knowns of a mean difference of 0.35, a standard deviation of 0.6, an alpha level of 0.05, a non-directional test and a desired power of 0.95, the sample size (number of pairs) should be 41. In other words, the probability of rejecting the null (<span class="math inline">\(H_0:\mu_1-\mu_2=0\)</span>) is .95 with a sample size of 41, a mean difference of 0.35, SD=0.6, alpha=0.05 and a non-directional paired t-test.</p>
 </div>
 </div>
@@ -1259,8 +1262,9 @@ ES
         </div>
       </div>
 <a href="descriptive-statistics-and-hypthoses-testing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="analysis-of-variance-anova.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
-
+<a href="analysis-of-variance-anova.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
@@ -1269,7 +1273,7 @@ ES
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,
@@ -1303,7 +1307,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(script.src))
       script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);

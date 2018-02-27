@@ -6,9 +6,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>An R Platform for Social Scientists</title>
-  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="R book for social scientists">
-  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="An R Platform for Social Scientists" />
   <meta property="og:type" content="book" />
@@ -23,7 +22,7 @@
   <meta name="twitter:description" content="R book for social scientists" />
   <meta name="twitter:image" content="images/coverpicture.png" />
 
-<meta name="author" content="Burak AYDIN, James ALGINA, Walter LEITE">
+<meta name="author" content="Burak AYDIN, James ALGINA, Walter LEITE, Hakan ATILGAN">
 
 
 <meta name="date" content="2017-01-01">
@@ -34,7 +33,6 @@
   
   
 <link rel="prev" href="multiple-linear-regression-a-short-introduction.html">
-
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -49,7 +47,7 @@
 
 
 
-<script src="libs/htmlwidgets-0.8/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-0.9/htmlwidgets.js"></script>
 <link href="libs/rglwidgetClass-2/rgl.css" rel="stylesheet" />
 <script src="libs/rglwidgetClass-2/rglClass.src.js"></script>
 <script src="libs/CanvasMatrix4-2016/CanvasMatrix.src.js"></script>
@@ -100,6 +98,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <body>
 
 
+
   <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
 
     <div class="book-summary">
@@ -112,8 +111,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Cover</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a><ul>
-<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#why-bookdown"><i class="fa fa-check"></i><b>1.1.1</b> Why Bookdown?</a></li>
-<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#content"><i class="fa fa-check"></i><b>1.1.2</b> Content</a></li>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#citation"><i class="fa fa-check"></i><b>1.1.1</b> Citation</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#why-bookdown"><i class="fa fa-check"></i><b>1.1.2</b> Why Bookdown?</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#content"><i class="fa fa-check"></i><b>1.1.3</b> Content</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i><b>2</b> Preface</a><ul>
@@ -121,6 +121,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.1.1" data-path="preface.html"><a href="preface.html#burak-aydn-ph.d."><i class="fa fa-check"></i><b>2.1.1</b> Burak Aydın, Ph.D.</a></li>
 <li class="chapter" data-level="2.1.2" data-path="preface.html"><a href="preface.html#james-algina-ph.d."><i class="fa fa-check"></i><b>2.1.2</b> James Algina, Ph.D.</a></li>
 <li class="chapter" data-level="2.1.3" data-path="preface.html"><a href="preface.html#walter-l.-leite-ph.d."><i class="fa fa-check"></i><b>2.1.3</b> Walter L. Leite, Ph.D.</a></li>
+<li class="chapter" data-level="2.1.4" data-path="preface.html"><a href="preface.html#hakan-atilgan-ph.d."><i class="fa fa-check"></i><b>2.1.4</b> Hakan ATILGAN, Ph.D.</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="preface.html"><a href="preface.html#acknowledgement"><i class="fa fa-check"></i><b>2.2</b> Acknowledgement</a></li>
 <li class="chapter" data-level="2.3" data-path="preface.html"><a href="preface.html#dataWBT"><i class="fa fa-check"></i><b>2.3</b> Data</a></li>
@@ -235,7 +236,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="10.3" data-path="correlation.html"><a href="correlation.html#biserial-and-point-biserial-correlation-coefficients-with-r"><i class="fa fa-check"></i><b>10.3</b> Biserial and Point-Biserial Correlation Coefficients with R</a></li>
 <li class="chapter" data-level="10.4" data-path="correlation.html"><a href="correlation.html#phi-correlation-coefficient-with-r"><i class="fa fa-check"></i><b>10.4</b> Phi Correlation Coefficient with R</a></li>
-<li class="chapter" data-level="10.5" data-path="correlation.html"><a href="correlation.html#issues-in-interpreting-correlation-coefficients"><i class="fa fa-check"></i><b>10.5</b> Issues in Interpreting Correlation Coefficients</a></li>
+<li class="chapter" data-level="10.5" data-path="correlation.html"><a href="correlation.html#tetrachoric-and-polychoric-correlation-coefficients-with-r"><i class="fa fa-check"></i><b>10.5</b> Tetrachoric and Polychoric Correlation Coefficients with R</a></li>
+<li class="chapter" data-level="10.6" data-path="correlation.html"><a href="correlation.html#issues-in-interpreting-correlation-coefficients"><i class="fa fa-check"></i><b>10.6</b> Issues in Interpreting Correlation Coefficients</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html"><i class="fa fa-check"></i><b>11</b> Multiple Linear Regression, a Short Introduction</a><ul>
 <li class="chapter" data-level="11.1" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#matricies-and-least-square-estimation"><i class="fa fa-check"></i><b>11.1</b> Matricies and Least Square Estimation</a><ul>
@@ -263,6 +265,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="12" data-path="useful-r-codes.html"><a href="useful-r-codes.html"><i class="fa fa-check"></i><b>12</b> Useful R codes</a><ul>
 <li class="chapter" data-level="12.1" data-path="useful-r-codes.html"><a href="useful-r-codes.html#more-on-the-apastyle-package"><i class="fa fa-check"></i><b>12.1</b> More on the apaStyle package</a></li>
 <li class="chapter" data-level="12.2" data-path="useful-r-codes.html"><a href="useful-r-codes.html#a-useful-shiny-application"><i class="fa fa-check"></i><b>12.2</b> A useful shiny application</a></li>
+<li class="chapter" data-level="12.3" data-path="useful-r-codes.html"><a href="useful-r-codes.html#update-bookdown"><i class="fa fa-check"></i><b>12.3</b> Update bookdown</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -288,21 +291,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1><span class="header-section-number"> 12</span> Useful R codes</h1>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Convert numeric to factor</span>
 
-temdata[,<span class="dv">2</span>:<span class="dv">9</span>] &lt;-<span class="st"> </span><span class="kw">lapply</span>(temdata[,<span class="dv">2</span>:<span class="dv">9</span>], as.factor) 
+temdata[,<span class="dv">2</span><span class="op">:</span><span class="dv">9</span>] &lt;-<span class="st"> </span><span class="kw">lapply</span>(temdata[,<span class="dv">2</span><span class="op">:</span><span class="dv">9</span>], as.factor) 
 
 <span class="co"># Convert factor to numeric</span>
-as.numeric.factor &lt;-<span class="st"> </span>function(x) {<span class="kw">as.numeric</span>(<span class="kw">levels</span>(x))[x]}
-temdata[,<span class="dv">2</span>:<span class="dv">5</span>] &lt;-<span class="st"> </span><span class="kw">lapply</span>(temdata[,<span class="dv">2</span>:<span class="dv">5</span>], as.numeric.factor) 
+as.numeric.factor &lt;-<span class="st"> </span><span class="cf">function</span>(x) {<span class="kw">as.numeric</span>(<span class="kw">levels</span>(x))[x]}
+temdata[,<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>] &lt;-<span class="st"> </span><span class="kw">lapply</span>(temdata[,<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>], as.numeric.factor) 
 
 <span class="co"># Have frequencies table for multiple columns</span>
 
-dems=<span class="kw">apply</span>(temdata[,<span class="dv">5</span>:<span class="dv">11</span>], <span class="dv">2</span>, function(x){<span class="kw">table</span>(x,temdata$grp)})
+dems=<span class="kw">apply</span>(temdata[,<span class="dv">5</span><span class="op">:</span><span class="dv">11</span>], <span class="dv">2</span>, <span class="cf">function</span>(x){<span class="kw">table</span>(x,temdata<span class="op">$</span>grp)})
 <span class="kw">library</span> (plyr)
 mydems &lt;-<span class="st"> </span><span class="kw">ldply</span> (mydems, data.frame)
 
 <span class="co"># Aggregate variables by grp</span>
 
-uncagg=<span class="kw">aggregate</span>(. ~<span class="st"> </span>grp, <span class="dt">data =</span> temdata, <span class="dt">FUN=</span>mean, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)
+uncagg=<span class="kw">aggregate</span>(. <span class="op">~</span><span class="st"> </span>grp, <span class="dt">data =</span> temdata, <span class="dt">FUN=</span>mean, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)
 
 uncaggfaster=temdata[, <span class="kw">lapply</span>(.SD, mean,<span class="dt">na.rm=</span>T), by =<span class="st"> </span>grp]
 
@@ -311,15 +314,15 @@ uncaggfaster=temdata[, <span class="kw">lapply</span>(.SD, mean,<span class="dt"
 
 
 <span class="co"># Update R</span>
-if(!<span class="kw">require</span>(installr)) { 
+<span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(installr)) { 
   <span class="kw">install.packages</span>(<span class="st">&quot;installr&quot;</span>); <span class="kw">require</span>(installr)} <span class="co">#load / install+load installr</span>
 <span class="kw">updateR</span>()
 
 
 <span class="co"># Create dummy variable from a factor</span>
 <span class="kw">head</span>(temdata)
-for(level in <span class="kw">unique</span>(temdata$zp)){
-  temdata[<span class="kw">paste</span>(<span class="st">&quot;dummy&quot;</span>, level, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>)] &lt;-<span class="st"> </span><span class="kw">ifelse</span>(temdata$zp ==<span class="st"> </span>level, <span class="dv">1</span>, <span class="dv">0</span>)
+<span class="cf">for</span>(level <span class="cf">in</span> <span class="kw">unique</span>(temdata<span class="op">$</span>zp)){
+  temdata[<span class="kw">paste</span>(<span class="st">&quot;dummy&quot;</span>, level, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>)] &lt;-<span class="st"> </span><span class="kw">ifelse</span>(temdata<span class="op">$</span>zp <span class="op">==</span><span class="st"> </span>level, <span class="dv">1</span>, <span class="dv">0</span>)
 }
 
 
@@ -339,10 +342,10 @@ y=<span class="kw">rnorm</span>(<span class="dv">10</span>)
 
 
 <span class="co"># Integer division</span>
-<span class="dv">7</span>%/%<span class="dv">2</span>
+<span class="dv">7</span><span class="op">%/%</span><span class="dv">2</span>
 
 <span class="co"># Modulo = remainder</span>
-<span class="dv">5</span>%%<span class="dv">2</span> 
+<span class="dv">5</span><span class="op">%%</span><span class="dv">2</span> 
 
 <span class="co"># Define and print </span>
 (<span class="dt">count=</span><span class="kw">c</span>(<span class="dv">25</span>,<span class="dv">12</span>,<span class="dv">7</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">2</span>))
@@ -358,8 +361,8 @@ temdata=<span class="kw">do.call</span>(<span class="st">&quot;rbind&quot;</span
 
 <span class="co">#Multiple QQ plot</span>
   <span class="co">#split screen</span>
-<span class="kw">layout</span>(<span class="kw">matrix</span>(<span class="dv">1</span>:<span class="dv">9</span>, <span class="dt">nc =</span> <span class="dv">3</span>))
-<span class="kw">sapply</span>(<span class="kw">names</span>(temdata)[<span class="dv">1</span>:<span class="dv">9</span>], function(x) {
+<span class="kw">layout</span>(<span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">nc =</span> <span class="dv">3</span>))
+<span class="kw">sapply</span>(<span class="kw">names</span>(temdata)[<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>], <span class="cf">function</span>(x) {
   <span class="kw">qqnorm</span>(temdata[[x]], <span class="dt">main =</span> x)
   <span class="kw">qqline</span>(temdata[[x]])
 })
@@ -373,10 +376,10 @@ temdata=<span class="kw">do.call</span>(<span class="st">&quot;rbind&quot;</span
 
 
 <span class="co">#Double for loop</span>
-x=<span class="kw">matrix</span>(<span class="dv">1</span>:<span class="dv">15</span>,<span class="dv">3</span>,<span class="dv">5</span>)
-for(i in <span class="kw">seq_len</span>(<span class="kw">nrow</span>(x)))
+x=<span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">15</span>,<span class="dv">3</span>,<span class="dv">5</span>)
+<span class="cf">for</span>(i <span class="cf">in</span> <span class="kw">seq_len</span>(<span class="kw">nrow</span>(x)))
 {
-  for(j in <span class="kw">seq_len</span>(<span class="kw">ncol</span>(x)))
+  <span class="cf">for</span>(j <span class="cf">in</span> <span class="kw">seq_len</span>(<span class="kw">ncol</span>(x)))
   {
     <span class="kw">print</span>(x[i,j])
       
@@ -387,14 +390,14 @@ for(i in <span class="kw">seq_len</span>(<span class="kw">nrow</span>(x)))
 
 <span class="co">#While loop</span>
 count=<span class="dv">0</span>
-while(count&lt;<span class="dv">10</span>){
+<span class="cf">while</span>(count<span class="op">&lt;</span><span class="dv">10</span>){
   <span class="kw">print</span>(count)
-  count=count<span class="dv">+1</span>
+  count=count<span class="op">+</span><span class="dv">1</span>
 }
 
 
 <span class="co">#Missing data </span>
-convert -999s to NAs 
+convert <span class="op">-</span>999s to NAs 
 
 <span class="kw">read.csv</span>(<span class="st">&quot;x.csv&quot;</span>, <span class="dt">na.strings=</span><span class="st">&quot;-999&quot;</span>)
 temdata[<span class="kw">is.na</span>(temdata)] &lt;-<span class="st"> </span><span class="dv">0</span>
@@ -402,8 +405,8 @@ temdata[<span class="kw">is.na</span>(temdata)] &lt;-<span class="st"> </span><s
 
 <span class="co">#convert NAs to -99s</span>
 
-vector[<span class="kw">which</span>(vector==<span class="st"> </span><span class="ot">NA</span>)]=<span class="st"> </span>(-<span class="dv">99</span>)
-temdata[<span class="kw">is.na</span>(temdata)]=<span class="st"> </span>(-<span class="dv">99</span>)
+vector[<span class="kw">which</span>(vector<span class="op">==</span><span class="st"> </span><span class="ot">NA</span>)]=<span class="st"> </span>(<span class="op">-</span><span class="dv">99</span>)
+temdata[<span class="kw">is.na</span>(temdata)]=<span class="st"> </span>(<span class="op">-</span><span class="dv">99</span>)
 
 <span class="co">#if you are having trouble converting &lt;NA&gt; (but not NA)</span>
 temdata=<span class="kw">read.csv</span>(<span class="st">&quot;temdata.csv&quot;</span>,<span class="dt">stringsAsFactors=</span><span class="ot">FALSE</span>)
@@ -411,14 +414,14 @@ temdata=<span class="kw">read.csv</span>(<span class="st">&quot;temdata.csv&quot
 
 <span class="co"># add group mean</span>
 
-temdata2=<span class="kw">merge</span>(temdata, <span class="kw">aggregate</span>(X ~<span class="st"> </span>grp, <span class="dt">data =</span> temdata, <span class="dt">FUN=</span>mean, <span class="dt">na.rm=</span><span class="ot">TRUE</span>), 
+temdata2=<span class="kw">merge</span>(temdata, <span class="kw">aggregate</span>(X <span class="op">~</span><span class="st"> </span>grp, <span class="dt">data =</span> temdata, <span class="dt">FUN=</span>mean, <span class="dt">na.rm=</span><span class="ot">TRUE</span>), 
           <span class="dt">by =</span> <span class="st">&quot;grp&quot;</span>, <span class="dt">suffixes =</span> <span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;.mean&quot;</span>),<span class="dt">all=</span>T)
 
 
-temdata2=<span class="kw">merge</span>(temdata, <span class="kw">aggregate</span>(<span class="kw">cbind</span>(X1 ,X2 ,X3 , X4) ~<span class="st"> </span>grp, <span class="dt">data =</span> temdata, <span class="dt">FUN=</span>mean,                      <span class="dt">na.rm=</span><span class="ot">TRUE</span>), <span class="dt">by =</span> <span class="st">&quot;grp&quot;</span>, <span class="dt">suffixes =</span> <span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;.mean&quot;</span>),<span class="dt">all=</span>T)
+temdata2=<span class="kw">merge</span>(temdata, <span class="kw">aggregate</span>(<span class="kw">cbind</span>(X1 ,X2 ,X3 , X4) <span class="op">~</span><span class="st"> </span>grp, <span class="dt">data =</span> temdata, <span class="dt">FUN=</span>mean,                      <span class="dt">na.rm=</span><span class="ot">TRUE</span>), <span class="dt">by =</span> <span class="st">&quot;grp&quot;</span>, <span class="dt">suffixes =</span> <span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;.mean&quot;</span>),<span class="dt">all=</span>T)
 
 temdata2=<span class="kw">merge</span>(temdata, 
-          <span class="kw">ddply</span>(temdata, <span class="kw">c</span>(<span class="st">&quot;grp&quot;</span>), function(x) <span class="kw">colMeans</span>(x[<span class="kw">c</span>(<span class="st">&quot;X1&quot;</span> ,<span class="st">&quot;X2&quot;</span>,<span class="st">&quot;X3&quot;</span> , <span class="st">&quot;X4&quot;</span>)])), 
+          <span class="kw">ddply</span>(temdata, <span class="kw">c</span>(<span class="st">&quot;grp&quot;</span>), <span class="cf">function</span>(x) <span class="kw">colMeans</span>(x[<span class="kw">c</span>(<span class="st">&quot;X1&quot;</span> ,<span class="st">&quot;X2&quot;</span>,<span class="st">&quot;X3&quot;</span> , <span class="st">&quot;X4&quot;</span>)])), 
           <span class="dt">by =</span> <span class="st">&quot;grp&quot;</span>, <span class="dt">suffixes =</span> <span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;.mean&quot;</span>),<span class="dt">all=</span>T)
 
 
@@ -426,29 +429,29 @@ temdata2=<span class="kw">merge</span>(temdata,
 
 <span class="co">#ifelse</span>
 y=<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>)
-y2=<span class="kw">ifelse</span>(y==<span class="dv">5</span>,<span class="ot">NA</span>,y)
+y2=<span class="kw">ifelse</span>(y<span class="op">==</span><span class="dv">5</span>,<span class="ot">NA</span>,y)
 y2
 
 
 temdata &lt;-<span class="st"> </span><span class="kw">data.frame</span> (<span class="dt">ID=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>), <span class="dt">Hunger =</span><span class="kw">c</span>(<span class="dv">415</span>,<span class="dv">452</span>,<span class="dv">550</span>,<span class="dv">318</span> ))
 
-temdata$newcol&lt;-<span class="kw">ifelse</span>(temdata[,<span class="dv">2</span>]&gt;=<span class="dv">300</span> &amp;<span class="st"> </span>temdata[,<span class="dv">2</span>]&lt;<span class="dv">400</span>,<span class="dv">350</span>,
-                       <span class="kw">ifelse</span>(temdata[,<span class="dv">2</span>]&gt;=<span class="dv">400</span> &amp;temdata[,<span class="dv">2</span>]&lt;<span class="dv">500</span>,<span class="dv">450</span>,
-                              <span class="kw">ifelse</span>(temdata[,<span class="dv">2</span>]&gt;=<span class="dv">500</span> &amp;<span class="st"> </span>temdata[,<span class="dv">2</span>]&lt;<span class="dv">600</span>,<span class="dv">550</span>,<span class="ot">NA</span>)))
+temdata<span class="op">$</span>newcol&lt;-<span class="kw">ifelse</span>(temdata[,<span class="dv">2</span>]<span class="op">&gt;=</span><span class="dv">300</span> <span class="op">&amp;</span><span class="st"> </span>temdata[,<span class="dv">2</span>]<span class="op">&lt;</span><span class="dv">400</span>,<span class="dv">350</span>,
+                       <span class="kw">ifelse</span>(temdata[,<span class="dv">2</span>]<span class="op">&gt;=</span><span class="dv">400</span> <span class="op">&amp;</span>temdata[,<span class="dv">2</span>]<span class="op">&lt;</span><span class="dv">500</span>,<span class="dv">450</span>,
+                              <span class="kw">ifelse</span>(temdata[,<span class="dv">2</span>]<span class="op">&gt;=</span><span class="dv">500</span> <span class="op">&amp;</span><span class="st"> </span>temdata[,<span class="dv">2</span>]<span class="op">&lt;</span><span class="dv">600</span>,<span class="dv">550</span>,<span class="ot">NA</span>)))
 
 
 
 <span class="co">#if </span>
 x=<span class="dv">5</span>
-y=if(x&gt;<span class="dv">6</span>){<span class="dv">1</span>}else{<span class="dv">0</span>}
-y=if(x&gt;<span class="dv">6</span>){<span class="dv">1</span>} else if(x==<span class="dv">5</span>) {<span class="dv">99</span>} else {<span class="dv">0</span>}
+y=<span class="cf">if</span>(x<span class="op">&gt;</span><span class="dv">6</span>){<span class="dv">1</span>}<span class="cf">else</span>{<span class="dv">0</span>}
+y=<span class="cf">if</span>(x<span class="op">&gt;</span><span class="dv">6</span>){<span class="dv">1</span>} <span class="cf">else</span> <span class="cf">if</span>(x<span class="op">==</span><span class="dv">5</span>) {<span class="dv">99</span>} <span class="cf">else</span> {<span class="dv">0</span>}
 
 
 <span class="co">#sort a dataframe by the order of the elements in B</span>
-temdata[<span class="kw">order</span>(temdata$B),]                            
+temdata[<span class="kw">order</span>(temdata<span class="op">$</span>B),]                            
 
 <span class="co">#sort the dataframe in reverse order</span>
-temdata[<span class="kw">rev</span>(<span class="kw">order</span>(temdata$B)),]                         
+temdata[<span class="kw">rev</span>(<span class="kw">order</span>(temdata<span class="op">$</span>B)),]                         
 
 
 <span class="co">#create combinations</span>
@@ -472,7 +475,7 @@ f=<span class="kw">c</span>(<span class="dv">41</span>,<span class="dv">18</span
 
 
 <span class="co"># delete if all NA </span>
-temdata=temdata[<span class="kw">apply</span>(temdata,<span class="dv">1</span>,function(x)<span class="kw">any</span>(!<span class="kw">is.na</span>(x))),]
+temdata=temdata[<span class="kw">apply</span>(temdata,<span class="dv">1</span>,<span class="cf">function</span>(x)<span class="kw">any</span>(<span class="op">!</span><span class="kw">is.na</span>(x))),]
 
 
 <span class="co"># add group frequency</span>
@@ -485,31 +488,31 @@ temdata=<span class="kw">ddply</span>(temdata, <span class="st">&quot;grp&quot;<
 <span class="co">#split data frame</span>
 <span class="kw">library</span>(datasets)
 <span class="kw">head</span>(airquality)
-splitdata=<span class="kw">split</span>(airquality,airquality$Month)
+splitdata=<span class="kw">split</span>(airquality,airquality<span class="op">$</span>Month)
 splitdata
 <span class="kw">str</span>(splitdata)
 splitdata[[<span class="dv">2</span>]]
 
 
-x=<span class="kw">list</span>(<span class="dt">a=</span><span class="dv">1</span>:<span class="dv">5</span>, <span class="dt">b=</span><span class="kw">rnorm</span>(<span class="dv">10</span>))
+x=<span class="kw">list</span>(<span class="dt">a=</span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">b=</span><span class="kw">rnorm</span>(<span class="dv">10</span>))
 x
 <span class="kw">lapply</span>(x,mean)
 
 <span class="co"># output is always a list</span>
 
-x=<span class="dv">1</span>:<span class="dv">4</span>
+x=<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>
 <span class="kw">lapply</span>(x,runif)
 <span class="kw">lapply</span>(x,runif,<span class="dt">min=</span><span class="dv">10</span>, <span class="dt">max=</span><span class="dv">20</span>)
 
 
-x=<span class="kw">list</span>(<span class="dt">a=</span><span class="kw">matrix</span>(<span class="dv">1</span>:<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>),<span class="dt">b=</span><span class="kw">matrix</span>(<span class="dv">1</span>:<span class="dv">6</span>,<span class="dv">3</span>,<span class="dv">2</span>))
+x=<span class="kw">list</span>(<span class="dt">a=</span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>),<span class="dt">b=</span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>,<span class="dv">3</span>,<span class="dv">2</span>))
 
-<span class="kw">lapply</span>(x,function(elt) elt[,<span class="dv">1</span>])
+<span class="kw">lapply</span>(x,<span class="cf">function</span>(elt) elt[,<span class="dv">1</span>])
 
 
 <span class="co"># sapply</span>
 
-x=<span class="kw">list</span>(<span class="dt">a=</span><span class="dv">1</span>:<span class="dv">5</span>, <span class="dt">b=</span><span class="kw">rnorm</span>(<span class="dv">10</span>),<span class="dt">c=</span><span class="kw">runif</span>(<span class="dv">10</span>))
+x=<span class="kw">list</span>(<span class="dt">a=</span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">b=</span><span class="kw">rnorm</span>(<span class="dv">10</span>),<span class="dt">c=</span><span class="kw">runif</span>(<span class="dv">10</span>))
 x
 <span class="kw">lapply</span>(x,mean)
 <span class="kw">sapply</span>(x,mean)
@@ -524,10 +527,10 @@ x
 <span class="kw">apply</span>(x,<span class="dv">1</span>,sum)
 
 <span class="co">#tapply </span>
-x=<span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">10</span>,<span class="kw">rnorm</span>(<span class="dv">10</span>),<span class="kw">runif</span>(<span class="dv">10</span>,<span class="dv">3</span>,<span class="dv">5</span>))
+x=<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,<span class="kw">rnorm</span>(<span class="dv">10</span>),<span class="kw">runif</span>(<span class="dv">10</span>,<span class="dv">3</span>,<span class="dv">5</span>))
 f=<span class="kw">gl</span>(<span class="dv">3</span>,<span class="dv">10</span>)
 ?gl
-h=<span class="kw">factor</span>(<span class="kw">rep</span>(<span class="dv">1</span>:<span class="dv">3</span>,<span class="dt">each=</span><span class="dv">10</span>))
+h=<span class="kw">factor</span>(<span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="dt">each=</span><span class="dv">10</span>))
 <span class="kw">tapply</span>(x,f,mean)
 <span class="kw">tapply</span>(x,h,mean)
 <span class="kw">tapply</span>(x,h,mean,<span class="dt">simplify=</span>F)
@@ -537,12 +540,12 @@ h=<span class="kw">factor</span>(<span class="kw">rep</span>(<span class="dv">1<
 
 
 <span class="co">#missing data proportion percentage</span>
-propmiss &lt;-<span class="st"> </span>function(temdata) <span class="kw">lapply</span>(temdata,function(x) <span class="kw">data.frame</span>(<span class="dt">nmiss=</span><span class="kw">sum</span>(<span class="kw">is.na</span>(x)), <span class="dt">n=</span><span class="kw">length</span>(x), <span class="dt">propmiss=</span><span class="kw">sum</span>(<span class="kw">is.na</span>(x))/<span class="kw">length</span>(x)))
+propmiss &lt;-<span class="st"> </span><span class="cf">function</span>(temdata) <span class="kw">lapply</span>(temdata,<span class="cf">function</span>(x) <span class="kw">data.frame</span>(<span class="dt">nmiss=</span><span class="kw">sum</span>(<span class="kw">is.na</span>(x)), <span class="dt">n=</span><span class="kw">length</span>(x), <span class="dt">propmiss=</span><span class="kw">sum</span>(<span class="kw">is.na</span>(x))<span class="op">/</span><span class="kw">length</span>(x)))
 <span class="kw">propmiss</span>(temdata)
 
 
 <span class="co">#upper case</span>
-temdata$childid=<span class="kw">toupper</span>(temdata$childid)
+temdata<span class="op">$</span>childid=<span class="kw">toupper</span>(temdata<span class="op">$</span>childid)
 
 
 
@@ -550,7 +553,7 @@ temdata$childid=<span class="kw">toupper</span>(temdata$childid)
 
 plotpdf=<span class="st">&quot;C:/Users/Desktop/work/multiplePLOTS.pdf&quot;</span>
 <span class="kw">pdf</span>(<span class="dt">file=</span>plotpdf)
-for (i in <span class="dv">7</span>:<span class="dv">55</span>){
+<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">7</span><span class="op">:</span><span class="dv">55</span>){
   muis=<span class="kw">round</span>(<span class="kw">mean</span>(temdata[,i],<span class="dt">na.rm=</span>T),<span class="dv">3</span>)
   sdis=<span class="kw">round</span>(<span class="kw">sd</span>(temdata[,i],<span class="dt">na.rm=</span>T),<span class="dv">3</span>)
   meansc=<span class="kw">c</span>(<span class="st">&quot;mean&quot;</span>,muis)
@@ -559,8 +562,8 @@ for (i in <span class="dv">7</span>:<span class="dv">55</span>){
   <span class="kw">curve</span>(<span class="kw">dnorm</span>(x, <span class="dt">mean=</span>muis, <span class="dt">sd=</span>sdis), <span class="dt">add=</span><span class="ot">TRUE</span>)
   <span class="kw">lines</span>(<span class="kw">density</span>(temdata[,i],<span class="dt">na.rm=</span>T, <span class="dt">adjust=</span><span class="dv">2</span>), <span class="dt">lty=</span><span class="st">&quot;dotted&quot;</span>, <span class="dt">col=</span><span class="st">&quot;darkgreen&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>)
   <span class="kw">abline</span>(<span class="dt">v=</span>muis,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)
-  <span class="kw">abline</span>(<span class="dt">v=</span>muis<span class="dv">+3</span>*sdis,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)
-  <span class="kw">abline</span>(<span class="dt">v=</span>muis<span class="dv">-3</span>*sdis,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)
+  <span class="kw">abline</span>(<span class="dt">v=</span>muis<span class="op">+</span><span class="dv">3</span><span class="op">*</span>sdis,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)
+  <span class="kw">abline</span>(<span class="dt">v=</span>muis<span class="op">-</span><span class="dv">3</span><span class="op">*</span>sdis,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)
 }
 
 <span class="kw">dev.off</span>()
@@ -579,7 +582,7 @@ dd=<span class="kw">read.csv</span>(<span class="st">&quot;../temdata.csv&quot;<
 
 <span class="co">#define a data set </span>
 
-<span class="kw">apa.descriptives</span>(<span class="dt">data =</span> temdataet[,<span class="dv">1</span>:<span class="dv">5</span>], <span class="dt">variables =</span> <span class="kw">names</span>(temdataet[,<span class="dv">1</span>:<span class="dv">5</span>]), <span class="dt">report =</span> <span class="st">&quot;&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;test&quot;</span>, <span class="dt">filename =</span> <span class="st">&quot;test.docx&quot;</span>, <span class="dt">note =</span> <span class="ot">NULL</span>, <span class="dt">position =</span> <span class="st">&quot;lower&quot;</span>, <span class="dt">merge =</span> <span class="ot">FALSE</span>, <span class="dt">landscape =</span> <span class="ot">FALSE</span>, <span class="dt">save =</span> <span class="ot">TRUE</span>)
+<span class="kw">apa.descriptives</span>(<span class="dt">data =</span> temdataet[,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>], <span class="dt">variables =</span> <span class="kw">names</span>(temdataet[,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]), <span class="dt">report =</span> <span class="st">&quot;&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;test&quot;</span>, <span class="dt">filename =</span> <span class="st">&quot;test.docx&quot;</span>, <span class="dt">note =</span> <span class="ot">NULL</span>, <span class="dt">position =</span> <span class="st">&quot;lower&quot;</span>, <span class="dt">merge =</span> <span class="ot">FALSE</span>, <span class="dt">landscape =</span> <span class="ot">FALSE</span>, <span class="dt">save =</span> <span class="ot">TRUE</span>)
 
 example &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">c</span>(<span class="st">&quot;Column 1&quot;</span>, <span class="st">&quot;Column 2&quot;</span>, <span class="st">&quot;Column 3&quot;</span>), <span class="kw">c</span>(<span class="fl">3.45</span>, <span class="fl">5.21</span>, <span class="fl">2.64</span>), <span class="kw">c</span>(<span class="fl">1.23</span>, <span class="fl">1.06</span>, <span class="fl">1.12</span>) )
 <span class="kw">apa.table</span>(<span class="dt">data =</span> example, <span class="dt">level1.header =</span> <span class="kw">c</span>(<span class="st">&quot;Variable&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;SD&quot;</span>))
@@ -594,12 +597,12 @@ example &lt;-<span class="st"> </span><span class="kw">data.frame</span>( <span 
 
 <span class="kw">apa.table</span>( <span class="dt">data =</span> example, <span class="dt">level1.header =</span> <span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;Descriptives&quot;</span>, <span class="st">&quot;Inferential&quot;</span>), 
            <span class="dt">level1.colspan =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>), 
-           <span class="dt">level2.header =</span> <span class="kw">c</span>(<span class="st">&quot;Variable&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;SD&quot;</span>, <span class="st">&quot;t-value&quot;</span>, <span class="st">&quot;*&quot;</span>) )$table</code></pre></div>
+           <span class="dt">level2.header =</span> <span class="kw">c</span>(<span class="st">&quot;Variable&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;SD&quot;</span>, <span class="st">&quot;t-value&quot;</span>, <span class="st">&quot;*&quot;</span>) )<span class="op">$</span>table</code></pre></div>
 </div>
 <div id="a-useful-shiny-application" class="section level2">
 <h2><span class="header-section-number">12.2</span> A useful shiny application</h2>
 <p>Below is a Shiny app example (Figure <a href="useful-r-codes.html#fig:ancovaN">12.1</a>) to calculate sample size for an analyses of covariance design;</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr::<span class="kw">include_app</span>(<span class="st">&#39;https://burakaydin.shinyapps.io/ancovaN/&#39;</span>, <span class="dt">height =</span> <span class="st">&#39;800px&#39;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_app</span>(<span class="st">&#39;https://burakaydin.shinyapps.io/ancovaN/&#39;</span>, <span class="dt">height =</span> <span class="st">&#39;800px&#39;</span>)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:ancovaN"></span>
 <iframe src="https://burakaydin.shinyapps.io/ancovaN/?showcase=0" width="768" height="800px">
 </iframe>
@@ -607,6 +610,10 @@ example &lt;-<span class="st"> </span><span class="kw">data.frame</span>( <span 
 Figure 12.1: ANCOVA sample size calculator
 </p>
 </div>
+</div>
+<div id="update-bookdown" class="section level2">
+<h2><span class="header-section-number">12.3</span> Update bookdown</h2>
+<p>bookdown::publish_book(render = “local”)</p>
 
 <div id="refs" class="references">
 <div>
@@ -691,10 +698,13 @@ Figure 12.1: ANCOVA sample size calculator
 <p>Olejnik, Stephen, and James Algina. 2003. “Generalized Eta and Omega Squared Statistics: Measures of Effect Size for Some Common Research Designs.” <em>Psychological Methods</em> 8 (4): 434–47.</p>
 </div>
 <div>
+<p>Olsson, Ulf. 1979. “Maximum Likelihood Estimation of the Polychoric Correlation Coefficient.” <em>Psychometrika</em> 44 (4). Springer: 443–60.</p>
+</div>
+<div>
 <p>Pearl, Judea. 2009. <em>Causality: Models, Reasoning, and Inference</em>. 2nd ed. Cambridge;New York: Cambridge University Press.</p>
 </div>
 <div>
-<p>R Core Team. 2016a. <em>Foreign: Read Data Stored by Minitab, S, Sas, Spss, Stata, Systat, Weka, DBase, .</em> <a href="https://CRAN.R-project.org/package=foreign" class="uri">https://CRAN.R-project.org/package=foreign</a>.</p>
+<p>R Core Team. 2016a. <em>Foreign: Read Data Stored by Minitab, S, Sas, Spss, Stata, Systat, Weka, dBase, ...</em> <a href="https://CRAN.R-project.org/package=foreign" class="uri">https://CRAN.R-project.org/package=foreign</a>.</p>
 </div>
 <div>
 <p>———. 2016b. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
@@ -716,6 +726,9 @@ Figure 12.1: ANCOVA sample size calculator
 </div>
 <div>
 <p>Torchiano, Marco. 2016. <em>Effsize: Efficient Effect Size Computation</em>. <a href="https://CRAN.R-project.org/package=effsize" class="uri">https://CRAN.R-project.org/package=effsize</a>.</p>
+</div>
+<div>
+<p>Uebersax, John S. 2015. “Introduction to the Tetrachoric and Polychoric Correlation Coefficients.” <em>Obtenido de Http://Www. John-Uebersax. Com/Stat/Tetra. Htm.[Links]</em>.</p>
 </div>
 <div>
 <p>Verzani, John. 2014. <em>Using R for Introductory Statistics</em>. Second. Boca Raton: CRC Press Taylor; Francis Group.</p>
@@ -768,7 +781,8 @@ Figure 12.1: ANCOVA sample size calculator
       </div>
 <a href="multiple-linear-regression-a-short-introduction.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-
+    </div>
+  </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
@@ -777,7 +791,7 @@ Figure 12.1: ANCOVA sample size calculator
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,
@@ -811,7 +825,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(script.src))
       script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);

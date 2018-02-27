@@ -1,6 +1,6 @@
 ---
 title: "An R Platform for Social Scientists"
-author: "Burak AYDIN, James ALGINA, Walter LEITE"
+author: "Burak AYDIN, James ALGINA, Walter LEITE, Hakan ATILGAN"
 date: "2017"
 output: bookdown::gitbook
 site: bookdown::bookdown_site
@@ -32,6 +32,12 @@ The online version of this platform is licensed under the [CC0](https://creative
 We aim to create a _platform_ for the applied social scientists in which we can demonstrate basic statistical procedures using R [@R-base] and real data. We prefer to name this material as a _platform_ given that (a) it is open for contribution, (b) it will have dynamic content and (c) it can serve as a mainboard for Plug-ins and Add-ons . 
 
 This R material is created with Bookdown [@R-bookdown], an advanced system constructed on R Markdown [@R-rmarkdown] and the R language. We take advantage of these sources using R Studio [@R-studio].  
+
+### Citation
+
+There is a printed version of this interactive material. The printed version has more contents, it includes learning objectives and exercise questions in each chapter. The printed version also has additional notes, explanations and helpful tips. To cite this source please use;
+
+Aydin, B., Algina, J., Leite, W. L., & Atilgan, H. (2018). *An R Companion: A Compact Introduction for Social Scientists*. Ankara: ANI Publishing.
 
 ### Why Bookdown?
 With bookdown, it is possible to create visually pleasant materials that can incorporate what R is capable of, for example shiny applications and advanced graphs. These materials can be crafted into different formats such as PDFs, html or word. The books created with markdown can be hosted on Git Hub; in which, users can offer their contribution. Bookdown is one of the new generation tools to craft a book.

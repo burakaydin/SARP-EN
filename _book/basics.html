@@ -6,9 +6,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>An R Platform for Social Scientists</title>
-  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="R book for social scientists">
-  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="An R Platform for Social Scientists" />
   <meta property="og:type" content="book" />
@@ -23,7 +22,7 @@
   <meta name="twitter:description" content="R book for social scientists" />
   <meta name="twitter:image" content="images/coverpicture.png" />
 
-<meta name="author" content="Burak AYDIN, James ALGINA, Walter LEITE">
+<meta name="author" content="Burak AYDIN, James ALGINA, Walter LEITE, Hakan ATILGAN">
 
 
 <meta name="date" content="2017-01-01">
@@ -35,7 +34,6 @@
   
 <link rel="prev" href="setting-up-r-for-windows.html">
 <link rel="next" href="data-sets.html">
-
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,7 +47,7 @@
 
 
 
-<script src="libs/htmlwidgets-0.8/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-0.9/htmlwidgets.js"></script>
 <link href="libs/rglwidgetClass-2/rgl.css" rel="stylesheet" />
 <script src="libs/rglwidgetClass-2/rglClass.src.js"></script>
 <script src="libs/CanvasMatrix4-2016/CanvasMatrix.src.js"></script>
@@ -100,6 +98,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <body>
 
 
+
   <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
 
     <div class="book-summary">
@@ -112,8 +111,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Cover</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a><ul>
-<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#why-bookdown"><i class="fa fa-check"></i><b>1.1.1</b> Why Bookdown?</a></li>
-<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#content"><i class="fa fa-check"></i><b>1.1.2</b> Content</a></li>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#citation"><i class="fa fa-check"></i><b>1.1.1</b> Citation</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#why-bookdown"><i class="fa fa-check"></i><b>1.1.2</b> Why Bookdown?</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#content"><i class="fa fa-check"></i><b>1.1.3</b> Content</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i><b>2</b> Preface</a><ul>
@@ -121,6 +121,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.1.1" data-path="preface.html"><a href="preface.html#burak-aydn-ph.d."><i class="fa fa-check"></i><b>2.1.1</b> Burak Aydın, Ph.D.</a></li>
 <li class="chapter" data-level="2.1.2" data-path="preface.html"><a href="preface.html#james-algina-ph.d."><i class="fa fa-check"></i><b>2.1.2</b> James Algina, Ph.D.</a></li>
 <li class="chapter" data-level="2.1.3" data-path="preface.html"><a href="preface.html#walter-l.-leite-ph.d."><i class="fa fa-check"></i><b>2.1.3</b> Walter L. Leite, Ph.D.</a></li>
+<li class="chapter" data-level="2.1.4" data-path="preface.html"><a href="preface.html#hakan-atilgan-ph.d."><i class="fa fa-check"></i><b>2.1.4</b> Hakan ATILGAN, Ph.D.</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="preface.html"><a href="preface.html#acknowledgement"><i class="fa fa-check"></i><b>2.2</b> Acknowledgement</a></li>
 <li class="chapter" data-level="2.3" data-path="preface.html"><a href="preface.html#dataWBT"><i class="fa fa-check"></i><b>2.3</b> Data</a></li>
@@ -235,7 +236,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="10.3" data-path="correlation.html"><a href="correlation.html#biserial-and-point-biserial-correlation-coefficients-with-r"><i class="fa fa-check"></i><b>10.3</b> Biserial and Point-Biserial Correlation Coefficients with R</a></li>
 <li class="chapter" data-level="10.4" data-path="correlation.html"><a href="correlation.html#phi-correlation-coefficient-with-r"><i class="fa fa-check"></i><b>10.4</b> Phi Correlation Coefficient with R</a></li>
-<li class="chapter" data-level="10.5" data-path="correlation.html"><a href="correlation.html#issues-in-interpreting-correlation-coefficients"><i class="fa fa-check"></i><b>10.5</b> Issues in Interpreting Correlation Coefficients</a></li>
+<li class="chapter" data-level="10.5" data-path="correlation.html"><a href="correlation.html#tetrachoric-and-polychoric-correlation-coefficients-with-r"><i class="fa fa-check"></i><b>10.5</b> Tetrachoric and Polychoric Correlation Coefficients with R</a></li>
+<li class="chapter" data-level="10.6" data-path="correlation.html"><a href="correlation.html#issues-in-interpreting-correlation-coefficients"><i class="fa fa-check"></i><b>10.6</b> Issues in Interpreting Correlation Coefficients</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html"><i class="fa fa-check"></i><b>11</b> Multiple Linear Regression, a Short Introduction</a><ul>
 <li class="chapter" data-level="11.1" data-path="multiple-linear-regression-a-short-introduction.html"><a href="multiple-linear-regression-a-short-introduction.html#matricies-and-least-square-estimation"><i class="fa fa-check"></i><b>11.1</b> Matricies and Least Square Estimation</a><ul>
@@ -263,6 +265,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="12" data-path="useful-r-codes.html"><a href="useful-r-codes.html"><i class="fa fa-check"></i><b>12</b> Useful R codes</a><ul>
 <li class="chapter" data-level="12.1" data-path="useful-r-codes.html"><a href="useful-r-codes.html#more-on-the-apastyle-package"><i class="fa fa-check"></i><b>12.1</b> More on the apaStyle package</a></li>
 <li class="chapter" data-level="12.2" data-path="useful-r-codes.html"><a href="useful-r-codes.html#a-useful-shiny-application"><i class="fa fa-check"></i><b>12.2</b> A useful shiny application</a></li>
+<li class="chapter" data-level="12.3" data-path="useful-r-codes.html"><a href="useful-r-codes.html#update-bookdown"><i class="fa fa-check"></i><b>12.3</b> Update bookdown</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -297,44 +300,44 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 1+1=2 
 \tag{5.1}
 \end{equation}\]</span>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1+1</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span><span class="op">+</span><span class="dv">1</span>
 ## [1] 2</code></pre></div>
 <span class="math display" id="eq:bc2">\[\begin{equation}
 1-1=0 
 \tag{5.2}
 \end{equation}\]</span>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1-1</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span><span class="op">-</span><span class="dv">1</span>
 ## [1] 0</code></pre></div>
 <span class="math display" id="eq:bc3">\[\begin{equation}
 1 + (2 / 3) - (2 * 6.5) = -11.33 
 \tag{5.3}
 \end{equation}\]</span>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> +<span class="st"> </span>(<span class="dv">2</span> /<span class="st"> </span><span class="dv">3</span>) -<span class="st"> </span>(<span class="dv">2</span> *<span class="st"> </span><span class="fl">6.5</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">+</span><span class="st"> </span>(<span class="dv">2</span> <span class="op">/</span><span class="st"> </span><span class="dv">3</span>) <span class="op">-</span><span class="st"> </span>(<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="fl">6.5</span>)
 ## [1] -11.33333</code></pre></div>
 <span class="math display" id="eq:bc4">\[\begin{equation}
 sin(30) + 4^3 + log(4) + e^3 + \sqrt{7} = 87.13 
 \tag{5.4}
 \end{equation}\]</span>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sin</span>(<span class="dv">30</span>) +<span class="st"> </span><span class="dv">4</span>^<span class="dv">3</span> +<span class="st"> </span><span class="kw">log</span>(<span class="dv">4</span>) +<span class="st"> </span><span class="kw">exp</span>(<span class="dv">3</span>) +<span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">7</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sin</span>(<span class="dv">30</span>) <span class="op">+</span><span class="st"> </span><span class="dv">4</span><span class="op">^</span><span class="dv">3</span> <span class="op">+</span><span class="st"> </span><span class="kw">log</span>(<span class="dv">4</span>) <span class="op">+</span><span class="st"> </span><span class="kw">exp</span>(<span class="dv">3</span>) <span class="op">+</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">7</span>)
 ## [1] 87.12955</code></pre></div>
 <p>When typed and run with R, Equations <a href="basics.html#eq:bc1">(5.1)</a> through <a href="basics.html#eq:bc4">(5.4)</a> are calculated but not kept. If an outcome of an R operation will be used later, it should be named. When a name is assigned, the outcome can be recalled easily. The assigned outputs are saved in the R environment throughout the session. Assignment can be done with “=”, “&lt;-” or “&lt;&lt;-”. This book uses “=”. Let’s assign a name for the Equations <a href="basics.html#eq:bc1">(5.1)</a> through <a href="basics.html#eq:bc4">(5.4)</a>’s outputs.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a=<span class="dv">1</span> -<span class="st"> </span><span class="dv">1</span>
-b=<span class="dv">1</span> +<span class="st"> </span><span class="dv">1</span>
-c=<span class="dv">1</span> +<span class="st"> </span>(<span class="dv">2</span> /<span class="st"> </span><span class="dv">3</span>) -<span class="st"> </span>(<span class="dv">2</span> *<span class="st"> </span><span class="fl">6.5</span>)
-d=<span class="kw">sin</span>(<span class="dv">30</span>) +<span class="st"> </span><span class="dv">4</span>^<span class="dv">3</span> +<span class="st"> </span><span class="kw">log</span>(<span class="dv">4</span>) +<span class="st"> </span><span class="kw">exp</span>(<span class="dv">3</span>) +<span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">7</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a=<span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span>
+b=<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span>
+c=<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>(<span class="dv">2</span> <span class="op">/</span><span class="st"> </span><span class="dv">3</span>) <span class="op">-</span><span class="st"> </span>(<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="fl">6.5</span>)
+d=<span class="kw">sin</span>(<span class="dv">30</span>) <span class="op">+</span><span class="st"> </span><span class="dv">4</span><span class="op">^</span><span class="dv">3</span> <span class="op">+</span><span class="st"> </span><span class="kw">log</span>(<span class="dv">4</span>) <span class="op">+</span><span class="st"> </span><span class="kw">exp</span>(<span class="dv">3</span>) <span class="op">+</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">7</span>)</code></pre></div>
 <p>It is possible to operate with these assigned variables.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a+b+c+d
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a<span class="op">+</span>b<span class="op">+</span>c<span class="op">+</span>d
 ## [1] 77.79622</code></pre></div>
 <p>It is possible to overwrite.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">e=<span class="dv">3+2</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">e=<span class="dv">3</span><span class="op">+</span><span class="dv">2</span>
 e
 ## [1] 5
-e=e<span class="dv">+10</span>
+e=e<span class="op">+</span><span class="dv">10</span>
 e
 ## [1] 15</code></pre></div>
 <p>It is possible to rename. (Note: R is case sensitive).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Equation1_output=a
-Equation1_output +<span class="st"> </span>b +<span class="st"> </span>c +<span class="st"> </span>d  <span class="co">#is equal to a+b+c+d</span>
+Equation1_output <span class="op">+</span><span class="st"> </span>b <span class="op">+</span><span class="st"> </span>c <span class="op">+</span><span class="st"> </span>d  <span class="co">#is equal to a+b+c+d</span>
 ## [1] 77.79622</code></pre></div>
 </div>
 <div id="r-as-a-programmable-calculator" class="section level3">
@@ -343,8 +346,8 @@ Equation1_output +<span class="st"> </span>b +<span class="st"> </span>c +<span 
 <div id="single-input---single-output" class="section level4">
 <h4><span class="header-section-number">5.1.2.1</span> Single input - Single output</h4>
 <p>A simple function is given below and named as <em>constant5</em>. Let’s assume it adds 5 points to each score. The <em>constant5</em> function takes a value, adds 5 and produces an output.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">constant5=function(input){
-    output=input<span class="dv">+5</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">constant5=<span class="cf">function</span>(input){
+    output=input<span class="op">+</span><span class="dv">5</span>
     <span class="kw">return</span>(output)
     }
 
@@ -356,8 +359,8 @@ Equation1_output +<span class="st"> </span>b +<span class="st"> </span>c +<span 
 ## [1] 125</code></pre></div>
 <p>With above code, we use R as a programmable calculator. We define <em>constant5</em> as a <em>function</em> that takes an input, processes it by adding 5 <em>(input+5)</em>, creates an output <em>(output=input+5)</em> and reports it <em>(return(output))</em>. All these steps should be given in <em>{ }</em>.</p>
 <p>Another simple function will be that <em>systematic1</em>, adds 1% for each score. It will take a value, add 1% and produce an output.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">systematic1=function(input){
-    output=input+(input/<span class="dv">100</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">systematic1=<span class="cf">function</span>(input){
+    output=input<span class="op">+</span>(input<span class="op">/</span><span class="dv">100</span>)
     <span class="kw">return</span>(output)
     }
 
@@ -371,8 +374,8 @@ Equation1_output +<span class="st"> </span>b +<span class="st"> </span>c +<span 
 <div id="multiple-input---single-output" class="section level4">
 <h4><span class="header-section-number">5.1.2.2</span> Multiple input - Single output</h4>
 <p>Above two examples use one single value as an input. Let us use two values for <em>nomistake</em> function. In this example, let`s say the teacher cuts 0.2 points for each spelling mistake. For example, if a grade is 90, it will go down to 88.8 if there are 6 spelling errors. The <em>nomistake</em> asks for a grade and the number of spelling errors to calculate the reduced grade.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nomistake=function(grade, nserror){
-    output=grade -<span class="st"> </span>(<span class="fl">0.2</span> *<span class="st"> </span>nserror)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nomistake=<span class="cf">function</span>(grade, nserror){
+    output=grade <span class="op">-</span><span class="st"> </span>(<span class="fl">0.2</span> <span class="op">*</span><span class="st"> </span>nserror)
     <span class="kw">return</span>(output)
     }
 <span class="kw">nomistake</span>(<span class="dt">grade=</span><span class="dv">90</span>,<span class="dt">nserror=</span><span class="dv">6</span>)
@@ -384,9 +387,9 @@ Equation1_output +<span class="st"> </span>b +<span class="st"> </span>c +<span 
 <div id="multiple-input---multiple-output" class="section level4">
 <h4><span class="header-section-number">5.1.2.3</span> Multiple input - Multiple output</h4>
 <p>The <em>feedback</em> function asks for number of correct responses and points for each to calculate a total score. It also provides the number of correct responses needed for a full score of 100.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">feedback=function(correct, point){
-    total=correct*point
-    remained=(<span class="dv">100</span>-total)/point
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">feedback=<span class="cf">function</span>(correct, point){
+    total=correct<span class="op">*</span>point
+    remained=(<span class="dv">100</span><span class="op">-</span>total)<span class="op">/</span>point
     output=<span class="kw">c</span>(<span class="kw">paste</span>(<span class="st">&quot;score:&quot;</span>, total,<span class="st">&quot; missed items:&quot;</span>,remained))
     <span class="kw">return</span>(output)
     }
@@ -398,9 +401,9 @@ Equation1_output +<span class="st"> </span>b +<span class="st"> </span>c +<span 
 <div id="basic-error" class="section level4">
 <h4><span class="header-section-number">5.1.2.4</span> Basic error</h4>
 <p>R functions need arguments to work. Please see the following error if you forget to feed <em>point</em> parameter into the <em>feedback</em> function</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">feedback=function(correct, point){
-    total=correct*point
-    remained=(<span class="dv">100</span>-total)/point
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">feedback=<span class="cf">function</span>(correct, point){
+    total=correct<span class="op">*</span>point
+    remained=(<span class="dv">100</span><span class="op">-</span>total)<span class="op">/</span>point
     output=<span class="kw">c</span>(<span class="kw">paste</span>(<span class="st">&quot;score:&quot;</span>, total,<span class="st">&quot; missed items:&quot;</span>,remained))
     <span class="kw">return</span>(output)
     }
@@ -410,16 +413,16 @@ Equation1_output +<span class="st"> </span>b +<span class="st"> </span>c +<span 
 <div id="basic-warning" class="section level4">
 <h4><span class="header-section-number">5.1.2.5</span> Basic warning</h4>
 <p>R functions can produce warnings. Let us create <em>nomistake2</em> that calculates the remaining score after cuts</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nomistake2=function(grade, nserror){
-    output=grade -<span class="st"> </span>(<span class="fl">0.2</span> *<span class="st"> </span>nserror)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nomistake2=<span class="cf">function</span>(grade, nserror){
+    output=grade <span class="op">-</span><span class="st"> </span>(<span class="fl">0.2</span> <span class="op">*</span><span class="st"> </span>nserror)
     <span class="kw">return</span>(output)
     }
 <span class="kw">nomistake2</span>(<span class="dt">grade=</span><span class="dv">50</span>,<span class="dt">nserror=</span><span class="dv">10</span>)
 ## [1] 48</code></pre></div>
 <p>We can produce a warning if the final score is lower than 0.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nomistake2=function(grade, nserror){
-      output=grade -<span class="st"> </span>(<span class="fl">0.2</span> *<span class="st"> </span>nserror)
-      if (output&lt;<span class="dv">0</span>) 
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nomistake2=<span class="cf">function</span>(grade, nserror){
+      output=grade <span class="op">-</span><span class="st"> </span>(<span class="fl">0.2</span> <span class="op">*</span><span class="st"> </span>nserror)
+      <span class="cf">if</span> (output<span class="op">&lt;</span><span class="dv">0</span>) 
     <span class="kw">warning</span>(<span class="st">&quot;Final score is lower than 0&quot;</span>)  
     <span class="kw">return</span>(output)
     }
@@ -431,12 +434,12 @@ Equation1_output +<span class="st"> </span>b +<span class="st"> </span>c +<span 
 <div id="basic-failure" class="section level4">
 <h4><span class="header-section-number">5.1.2.6</span> Basic failure</h4>
 <p>A function can stop. Let us create <em>nomistake3</em> that calculates the final score. However,this time, it stops if the score is lower than 20 to avoid further cuts.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nomistake3=function(grade, nserror){
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nomistake3=<span class="cf">function</span>(grade, nserror){
  
-    if ((grade)&lt;(<span class="dv">20</span>)) 
+    <span class="cf">if</span> ((grade)<span class="op">&lt;</span>(<span class="dv">20</span>)) 
     <span class="kw">stop</span>(<span class="st">&quot;Score is already low&quot;</span>)
   
-     output=grade -<span class="st"> </span>(<span class="fl">0.2</span> *<span class="st"> </span>nserror)
+     output=grade <span class="op">-</span><span class="st"> </span>(<span class="fl">0.2</span> <span class="op">*</span><span class="st"> </span>nserror)
       <span class="kw">return</span>(output)
     }
 <span class="kw">nomistake3</span>(<span class="dv">10</span>,<span class="dv">9</span>)
@@ -466,25 +469,25 @@ grades
 ##  [1] 40 50 53 65 72 77 79 81 86 90</code></pre></div>
 <p>R can operate with vectors.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">grades=<span class="kw">c</span>(<span class="dv">40</span>,<span class="dv">50</span>,<span class="dv">53</span>,<span class="dv">65</span>,<span class="dv">72</span>,<span class="dv">77</span>,<span class="dv">79</span>,<span class="dv">81</span>,<span class="dv">86</span>,<span class="dv">90</span>)
-grades<span class="dv">+10</span>
+grades<span class="op">+</span><span class="dv">10</span>
 ##  [1]  50  60  63  75  82  87  89  91  96 100
-grades+(grades*<span class="fl">0.10</span>)
+grades<span class="op">+</span>(grades<span class="op">*</span><span class="fl">0.10</span>)
 ##  [1] 44.0 55.0 58.3 71.5 79.2 84.7 86.9 89.1 94.6 99.0
-grades*grades
+grades<span class="op">*</span>grades
 ##  [1] 1600 2500 2809 4225 5184 5929 6241 6561 7396 8100
 grades2=<span class="kw">c</span>(<span class="dv">30</span>,<span class="dv">40</span>,<span class="dv">46</span>,<span class="dv">58</span>,<span class="dv">64</span>,<span class="dv">66</span>,<span class="dv">69</span>,<span class="dv">72</span>,<span class="dv">74</span>,<span class="dv">81</span>)
-(grades+grades2)/<span class="dv">2</span>
+(grades<span class="op">+</span>grades2)<span class="op">/</span><span class="dv">2</span>
 ##  [1] 35.0 45.0 49.5 61.5 68.0 71.5 74.0 76.5 80.0 85.5
-grades*<span class="fl">0.4</span> +<span class="st"> </span>grades2*<span class="fl">0.6</span>
+grades<span class="op">*</span><span class="fl">0.4</span> <span class="op">+</span><span class="st"> </span>grades2<span class="op">*</span><span class="fl">0.6</span>
 ##  [1] 34.0 44.0 48.8 60.8 67.2 70.4 73.0 75.6 78.8 84.6</code></pre></div>
 <p>There are useful functions to create vectors. For example the <em>rep</em> function (see example(rep)) is helpful to repeat values.</p>
 <p>The <em>rnorm</em> function can create random variables. If you run <em>?rnorm</em> you will see it has three arguments, <em>rnorm(n, mean = 0, sd = 1)</em> . This function requires the number of observations ( <em>n</em> ) argument to be provided. By default the mean is set to be 0 and standard deviation to be 1. However, you can change the default for example by running <em>rnorm(12,mean=10,sd=2)</em> to create 12 observations from a normal distribution with mean 10 and standard deviation 2. A similar function is <em>runif(n, min = 0, max = 1)</em> to generate <em>n</em> observations from a uniform distribution on the interval from minimum=0 to maximum=2. You can change the interval, for example by running <em>runif(12, min = 10, max = 37)</em>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a=<span class="dv">1</span>:<span class="dv">12</span>            <span class="co"># a is a regular sequence from 1 to 12 created with &#39;:&#39;</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a=<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>            <span class="co"># a is a regular sequence from 1 to 12 created with &#39;:&#39;</span>
 <span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">12</span>)         <span class="co"># repeat zero 12 times</span>
 ##  [1] 0 0 0 0 0 0 0 0 0 0 0 0
-<span class="kw">rep</span>(<span class="dv">1</span>:<span class="dv">5</span>,<span class="dt">each=</span><span class="dv">3</span>)   <span class="co"># repeat 1 to 5 each 3 times </span>
+<span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dt">each=</span><span class="dv">3</span>)   <span class="co"># repeat 1 to 5 each 3 times </span>
 ##  [1] 1 1 1 2 2 2 3 3 3 4 4 4 5 5 5
-<span class="kw">rep</span>(<span class="dv">1</span>:<span class="dv">5</span>,<span class="dt">times=</span><span class="dv">3</span>)  <span class="co"># repeat 1 to 5 , 3 times</span>
+<span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dt">times=</span><span class="dv">3</span>)  <span class="co"># repeat 1 to 5 , 3 times</span>
 ##  [1] 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
 <span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">1</span>,<span class="dt">to=</span><span class="dv">12</span>) <span class="co"># create 1 to 12 sequence</span>
 ##  [1]  1  2  3  4  5  6  7  8  9 10 11 12
@@ -493,19 +496,20 @@ grades*<span class="fl">0.4</span> +<span class="st"> </span>grades2*<span class
 <span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">6</span>,<span class="dt">by=</span><span class="fl">0.5</span>)   <span class="co"># create 1 to 6 by 0.5</span>
 ##  [1] 1.0 1.5 2.0 2.5 3.0 3.5 4.0 4.5 5.0 5.5 6.0
 <span class="kw">rnorm</span>(<span class="dv">12</span>)        <span class="co"># create  12 random observations from ~N(0,1)</span>
-##  [1]  0.3372363  0.1119431  1.8175879  1.2517650 -1.4760221 -0.5199256
-##  [7]  1.2160345  0.3933067 -0.5222952  1.4126741 -0.6216120  0.5927208
+##  [1]  0.327915830  0.145675615  0.181046686  0.001756333 -0.977429381
+##  [6]  0.841226040 -0.205038775 -0.234106083  0.026919073 -1.637883752
+## [11]  1.785370740  0.798137173
 <span class="kw">rnorm</span>(<span class="dv">12</span>,<span class="dt">mean=</span><span class="dv">10</span>,<span class="dt">sd=</span><span class="dv">2</span>) <span class="co">#create 12 random observations from ~ N(10,2)</span>
-##  [1]  9.518569 12.237038  9.520394 10.332082 11.033050 10.992378  7.496897
-##  [8]  7.646912 10.535456  8.928404 13.644125 12.111291
+##  [1] 12.602158 11.233674 12.676267  9.936139 11.202955 12.030426 12.059646
+##  [8] 10.079494 12.360848  9.077320  8.599441 10.032944
 <span class="kw">runif</span>(<span class="dv">12</span>, <span class="dt">min =</span> <span class="dv">10</span>, <span class="dt">max =</span> <span class="dv">37</span>) <span class="co"># create 12 random observations from a uniform distribution.</span>
-##  [1] 17.92817 12.55966 26.45222 20.87230 31.25698 29.47053 35.41695
-##  [8] 17.46773 28.88167 21.20843 27.70734 28.43631</code></pre></div>
+##  [1] 24.31173 25.63679 23.49106 12.28763 15.90228 14.10212 35.71000
+##  [8] 20.34887 33.24387 13.69444 26.13435 29.05195</code></pre></div>
 </div>
 <div id="matricies" class="section level3">
 <h3><span class="header-section-number">5.2.2</span> Matricies</h3>
 <p>R can create matrices and operate.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">A=<span class="kw">matrix</span>(<span class="dv">1</span>:<span class="dv">16</span>,<span class="dt">ncol=</span><span class="dv">4</span>,<span class="dt">nrow=</span><span class="dv">4</span>) <span class="co">#create a 4 x 4 matrix</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">A=<span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">16</span>,<span class="dt">ncol=</span><span class="dv">4</span>,<span class="dt">nrow=</span><span class="dv">4</span>) <span class="co">#create a 4 x 4 matrix</span>
 A
 ##      [,1] [,2] [,3] [,4]
 ## [1,]    1    5    9   13
@@ -515,30 +519,30 @@ A
 B=<span class="kw">matrix</span>(<span class="kw">runif</span>(<span class="dv">16</span>,<span class="dt">min=</span><span class="dv">20</span>,<span class="dt">max=</span><span class="dv">40</span>),<span class="dt">ncol=</span><span class="dv">4</span>) <span class="co">#create a 4 x 4 matrix</span>
 
 <span class="co"># example operations</span>
-A+B    <span class="co"># add</span>
+A<span class="op">+</span>B    <span class="co"># add</span>
 ##          [,1]     [,2]     [,3]     [,4]
-## [1,] 25.58780 29.78299 36.21095 37.89297
-## [2,] 41.71975 38.63164 49.91630 44.85912
-## [3,] 26.19265 34.66784 42.81927 43.71272
-## [4,] 30.46530 43.43286 34.22727 52.57436
-A*B    <span class="co"># multiply</span>
+## [1,] 26.44971 35.97621 44.47561 37.47592
+## [2,] 32.32376 41.15661 31.59914 48.07615
+## [3,] 38.53369 31.55911 39.86506 49.87883
+## [4,] 25.03194 46.45229 51.89366 38.31500
+A<span class="op">*</span>B    <span class="co"># multiply</span>
 ##           [,1]     [,2]     [,3]     [,4]
-## [1,]  24.58780 123.9150 244.8986 323.6087
-## [2,]  79.43950 195.7898 399.1630 432.0277
-## [3,]  69.57795 193.6749 350.0120 430.6908
-## [4,] 105.86122 283.4629 266.7272 585.1898
-A%*%B  <span class="co"># matrix multipication</span>
-##           [,1]      [,2]      [,3]      [,4]
-## [1,]  775.9694  897.5789  802.1204  913.0698
-## [2,]  889.9349 1018.0942  923.2942 1034.1089
-## [3,] 1003.9004 1138.6096 1044.4679 1155.1481
-## [4,] 1117.8659 1259.1249 1165.6417 1276.1873
+## [1,]  25.44971 154.8810 319.2805 318.1870
+## [2,]  60.64752 210.9397 215.9914 477.0661
+## [3,] 106.60108 171.9137 317.5156 523.1824
+## [4,]  84.12774 307.6183 478.7239 357.0401
+A<span class="op">%*%</span>B  <span class="co"># matrix multipication</span>
+##           [,1]     [,2]      [,3]      [,4]
+## [1,]  770.2869  927.671  921.8744  798.8612
+## [2,]  882.6260 1056.815 1047.7079  914.6071
+## [3,]  994.9651 1185.959 1173.5413 1030.3530
+## [4,] 1107.3042 1315.104 1299.3748 1146.0989
 <span class="kw">t</span>(B)   <span class="co"># transpose</span>
 ##          [,1]     [,2]     [,3]     [,4]
-## [1,] 24.58780 39.71975 23.19265 26.46530
-## [2,] 24.78299 32.63164 27.66784 35.43286
-## [3,] 27.21095 39.91630 31.81927 22.22727
-## [4,] 24.89297 30.85912 28.71272 36.57436</code></pre></div>
+## [1,] 25.44971 30.32376 35.53369 21.03194
+## [2,] 30.97621 35.15661 24.55911 38.45229
+## [3,] 35.47561 21.59914 28.86506 39.89366
+## [4,] 24.47592 34.07615 34.87883 22.31500</code></pre></div>
 </div>
 <div id="variables" class="section level3">
 <h3><span class="header-section-number">5.2.3</span> Variables</h3>
@@ -550,7 +554,7 @@ A%*%B  <span class="co"># matrix multipication</span>
 gender=<span class="kw">c</span>(<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>)
 id=<span class="kw">sample</span>(letters,<span class="dv">6</span>)
 treatment=<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;cntrl&quot;</span>,<span class="st">&quot;trt&quot;</span>),<span class="dt">each=</span><span class="dv">3</span>)
-city=<span class="kw">as.character</span>(<span class="dv">1</span>:<span class="dv">6</span>)</code></pre></div>
+city=<span class="kw">as.character</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>)</code></pre></div>
 </div>
 <div id="ordered" class="section level4">
 <h4><span class="header-section-number">5.2.3.2</span> Ordered</h4>
@@ -583,7 +587,7 @@ holidays
 
 <span class="kw">Sys.Date</span>( )
 ## [1] &quot;2017-04-06&quot;
-<span class="kw">Sys.Date</span>( )-birthday
+<span class="kw">Sys.Date</span>( )<span class="op">-</span>birthday
 ## Time differences in days
 ## [1] 11997 10395  9623 14259 15568  8189</code></pre></div>
 </div>
@@ -591,9 +595,9 @@ holidays
 <h4><span class="header-section-number">5.2.3.5</span> Logical variable</h4>
 <p>A logical variable takes a value of either TRUE or FALSE. When forced to be numeric, a logical variable takes the form of 1 and 0. Below command tests the grade variable whether its elements are larger than its mean or not.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">grade=<span class="kw">c</span>(<span class="dv">52</span>,<span class="dv">75</span>,<span class="dv">39</span>,<span class="dv">62</span>,<span class="dv">24</span>,<span class="dv">86</span>)    <span class="co"># create grades</span>
-grade&gt;<span class="kw">mean</span>(grade)             <span class="co"># create TRUE-FALSE by testing if the grade is larger than the mean</span>
+grade<span class="op">&gt;</span><span class="kw">mean</span>(grade)             <span class="co"># create TRUE-FALSE by testing if the grade is larger than the mean</span>
 ## [1] FALSE  TRUE FALSE  TRUE FALSE  TRUE
-<span class="kw">as.numeric</span>(grade&gt;<span class="kw">mean</span>(grade)) <span class="co"># force the logical variable to be 1 and 0.</span>
+<span class="kw">as.numeric</span>(grade<span class="op">&gt;</span><span class="kw">mean</span>(grade)) <span class="co"># force the logical variable to be 1 and 0.</span>
 ## [1] 0 1 0 1 0 1</code></pre></div>
 </div>
 </div>
@@ -601,7 +605,7 @@ grade&gt;<span class="kw">mean</span>(grade)             <span class="co"># crea
 <h3><span class="header-section-number">5.2.4</span> Factors</h3>
 <p>R has a data type of <em>factor</em>. It can be considered as a general frame for nominal and ordered variables.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">course=<span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;Cook&quot;</span>,<span class="st">&quot;Plumber&quot;</span>,<span class="st">&quot;Designer&quot;</span>,<span class="st">&quot;Plumber&quot;</span>,<span class="st">&quot;Cook&quot;</span>,<span class="st">&quot;Plumber&quot;</span>))
-ga1=<span class="kw">factor</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">3</span>),<span class="dt">levels =</span> <span class="dv">1</span>:<span class="dv">4</span>,
+ga1=<span class="kw">factor</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">3</span>),<span class="dt">levels =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,
            <span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;StronglyDisagree&quot;</span>,<span class="st">&quot;Disagree&quot;</span>,<span class="st">&quot;Agree&quot;</span>,<span class="st">&quot;StronglyAgree&quot;</span>))
 ga2=<span class="kw">factor</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">3</span>),<span class="dt">ordered =</span> T)
 ga3=<span class="kw">gl</span>(<span class="dt">n=</span><span class="dv">3</span>,<span class="dt">k=</span><span class="dv">2</span>,<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>),<span class="dt">ordered=</span>F)</code></pre></div>
@@ -609,7 +613,7 @@ ga3=<span class="kw">gl</span>(<span class="dt">n=</span><span class="dv">3</spa
 <p>The droplevel function drops unused levels. Examine the code below;</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#the ga4 factor is defined with 4 levels A,B,C and D.</span>
 <span class="co">#BUT the data has only 1s,2s and 3s, the level D is not used.</span>
-ga4=<span class="kw">factor</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>),<span class="dt">levels =</span> <span class="dv">1</span>:<span class="dv">4</span>,<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;D&quot;</span>))
+ga4=<span class="kw">factor</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>),<span class="dt">levels =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;D&quot;</span>))
 ga4
 ## [1] A A C B B C
 ## Levels: A B C D
@@ -623,7 +627,7 @@ ga4
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">incomeSource=<span class="kw">c</span>(<span class="st">&quot;wage&quot;</span>,<span class="st">&quot;wage&quot;</span>,<span class="st">&quot;pension&quot;</span>,<span class="ot">NA</span>,<span class="ot">NA</span>,<span class="st">&quot;wage&quot;</span>)
 houseMember=<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="ot">NA</span>,<span class="ot">NA</span>,<span class="dv">4</span>)</code></pre></div>
 <p>NOTE: Missing data indicators might be confusing. Notice the difference between NA, <NA> , &quot; &quot; (empty cell) and a predefined missing indicator, such as -99.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">temp =<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&#39;wage&#39;</span>,<span class="st">&#39;pension&#39;</span>, <span class="ot">NA</span>, <span class="st">&#39;NA&#39;</span>,<span class="st">&quot; &quot;</span>,-<span class="dv">99</span>,<span class="st">&quot;-99&quot;</span>))
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">temp =<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&#39;wage&#39;</span>,<span class="st">&#39;pension&#39;</span>, <span class="ot">NA</span>, <span class="st">&#39;NA&#39;</span>,<span class="st">&quot; &quot;</span>,<span class="op">-</span><span class="dv">99</span>,<span class="st">&quot;-99&quot;</span>))
 
 <span class="co">#for a factor or a character variable NA is shown as &lt;NA&gt; to specify a true missing cell</span>
 <span class="co"># NA without &lt; &gt; represents a factor level</span>
@@ -634,7 +638,7 @@ houseMember=<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv"
 ## [1] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE
 
 <span class="co">#A possible solution</span>
-temp[temp==<span class="st">&#39;NA&#39;</span> |<span class="st"> </span>temp==<span class="st">&quot; &quot;</span>|<span class="st"> </span>temp==<span class="st"> </span>-<span class="dv">99</span> |<span class="st"> </span>temp==<span class="st"> &quot;-99&quot;</span>]=<span class="ot">NA</span>
+temp[temp<span class="op">==</span><span class="st">&#39;NA&#39;</span> <span class="op">|</span><span class="st"> </span>temp<span class="op">==</span><span class="st">&quot; &quot;</span><span class="op">|</span><span class="st"> </span>temp<span class="op">==</span><span class="st"> </span><span class="op">-</span><span class="dv">99</span> <span class="op">|</span><span class="st"> </span>temp<span class="op">==</span><span class="st"> &quot;-99&quot;</span>]=<span class="ot">NA</span>
 
 <span class="co">#check</span>
 <span class="kw">is.na</span>(temp)
@@ -724,8 +728,9 @@ Figure 5.1: Download R Packages
         </div>
       </div>
 <a href="setting-up-r-for-windows.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="data-sets.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
-
+<a href="data-sets.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
@@ -734,7 +739,7 @@ Figure 5.1: Download R Packages
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,
@@ -768,7 +773,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(script.src))
       script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);
